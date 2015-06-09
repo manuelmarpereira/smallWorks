@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<hibernate-mapping>
+  <class lazy="false" name="tp_aa.Classification" table="Classification">
+    <id column="ID" name="ID" type="integer" unsaved-value="0">
+      <generator class="native">
+			</generator>
+    </id>
+    <property column="Value" lazy="false" name="value" not-null="true" type="integer"/>
+  </class>
+</hibernate-mapping>

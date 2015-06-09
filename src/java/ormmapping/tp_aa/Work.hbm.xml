@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<hibernate-mapping>
+  <class discriminator-value="Work" lazy="false" name="tp_aa.Work" table="Work">
+    <id column="ID" name="ID" type="integer" unsaved-value="0">
+      <generator class="native">
+			</generator>
+    </id>
+    <discriminator column="Discriminator" type="string"/>
+    <many-to-one access="field" cascade="lock" class="tp_aa.District" column="DistrictID" lazy="proxy" name="Localization" not-null="true">
+		</many-to-one>
+    <many-to-one access="field" cascade="lock" class="tp_aa.Task" column="TaskID" lazy="proxy" name="Tasks" not-null="true">
+		</many-to-one>
+    <many-to-one access="field" cascade="lock" class="user.User" column="UserID" lazy="proxy" name="Worker" not-null="true">
+		</many-to-one>
+    <property column="Title" lazy="false" length="255" name="title" not-null="false" type="string"/>
+    <property column="Description" lazy="false" length="255" name="description" not-null="false" type="string"/>
+    <property column="Price" lazy="false" name="price" not-null="true" type="double"/>
+    <property column="Negotiable" lazy="false" name="negotiable" not-null="true" type="boolean"/>
+    <property column="State" lazy="false" length="255" name="state" not-null="false" type="string"/>
+    <property column="`Column`" lazy="false" name="startDate" not-null="false" type="date"/>
+    <subclass discriminator-value="InitWork" lazy="false" name="tp_aa.InitWork">
+      <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="long"/>
+      <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="long"/>
+    </subclass>
+    <subclass discriminator-value="MakeWork" lazy="false" name="tp_aa.MakeWork">
+      <many-to-one access="field" cascade="lock" class="tp_aa.Feedback" column="FeedbackID" lazy="proxy" name="Evaluation" not-null="false">
+			</many-to-one>
+      <property column="FinishDate" lazy="false" name="finishDate" not-null="false" type="date"/>
+    </subclass>
+  </class>
+</hibernate-mapping>

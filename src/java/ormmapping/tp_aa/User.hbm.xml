@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<hibernate-mapping>
+  <class discriminator-value="User" lazy="false" name="user.User" table="`User`">
+    <id column="ID" name="ID" type="integer" unsaved-value="0">
+      <generator class="native">
+			</generator>
+    </id>
+    <discriminator column="Discriminator" type="string"/>
+    <property column="Nick" lazy="false" length="255" name="nick" not-null="false" type="string"/>
+    <property column="Firstname" lazy="false" length="255" name="firstname" not-null="false" type="string"/>
+    <property column="Lastname" lazy="false" length="255" name="lastname" not-null="false" type="string"/>
+    <property column="Password" lazy="false" length="255" name="password" not-null="false" type="string"/>
+    <property column="Email" lazy="false" length="255" name="email" not-null="false" type="string"/>
+    <property column="Photo" lazy="false" length="255" name="photo" not-null="false" type="string"/>
+    <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="long"/>
+    <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="long"/>
+    <subclass discriminator-value="Creator" lazy="false" name="user.Creator">
+      <property column="Type" lazy="false" length="255" name="type" not-null="false" type="string"/>
+    </subclass>
+  </class>
+</hibernate-mapping>

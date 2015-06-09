@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<hibernate-configuration>
+  <session-factory>
+    <!-- properties -->
+    <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/EATP</property>
+    <property name="connection.username">postgres</property>
+    <property name="connection.password">123</property>
+    <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+    <property name="hibernate.c3p0.acquire_increment">1</property>
+    <property name="hibernate.c3p0.idle_test_period">0</property>
+    <property name="hibernate.c3p0.min_size">1</property>
+    <property name="hibernate.c3p0.max_size">15</property>
+    <property name="hibernate.c3p0.timeout">0</property>
+    <property name="show_sql">false</property>
+    <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+    <!-- mapping files -->
+    <mapping resource="ormmapping/tp_aa/Classification.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/District.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/Feedback.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/SubTask.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/Task.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/User.hbm.xml"/>
+    <mapping resource="ormmapping/tp_aa/Work.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
