@@ -7,12 +7,19 @@ html {
 
 .bodyBackground{
     background: url(../img/intro-bg-2.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
 }
 
 .black{
-    padding-top: 30px;
-    padding-bottom: 10px;
+   padding-top: 30px;
+   padding-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+  margin-top: 25%;
+  transform: translateY(-50%);
 }
 
 body,
