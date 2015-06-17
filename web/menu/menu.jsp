@@ -35,7 +35,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <img  src="<%=request.getContextPath()%>/assets/img/icon.png" class="navbar-brand topnav" alt="" />
-                        <a class="navbar-brand topnav control-label" href="${pageContext.request.contextPath}/index.jsp">smallWorks</a>
+                        <a class="navbar-brand to-pnav control-label" href="${pageContext.request.contextPath}/index.jsp">smallWorks</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
