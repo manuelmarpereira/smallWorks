@@ -4,22 +4,16 @@
     Author     : Manuel
                  Jose
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%  User user = (User) request.getAttribute("user");
-    if (user != null) {
-        session.setAttribute("name", user.getFirstname());
-    }
-%>
-<%@page import="user.User"%>
-<jsp:include page="/menu/menu.jsp" />
-<html>
-    <head>
-        <title>smallWorks</title>
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/icon.png">
-    </head>
-    <body class="bodyBackground">
-        <div class="marginTopMenu indexMargin"> 
+<%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
+<layout:simple_layout title="smallWorks" class2="bodyBackground">
+    <jsp:attribute name="head"> </jsp:attribute>
+    
+    <jsp:attribute name="foot"></jsp:attribute>
+        
+     <jsp:attribute name="container">
+       
             <div class="black">
                 <div class="text-center">
                     <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="" class="img-thumbnail"/>   
@@ -52,17 +46,17 @@
                         </form>
                     </div>
                 </div>
-                <% if (session.getAttribute("name") == null) {%>
-                <div style=" margin-left: 17%; padding-top:15px; color: white;" >
-                    Don't have an account! 
-                    <a href="<%= request.getContextPath()%>/login/RegisteUser.jsp" >
-                        Sign Up Here
-                    </a>
-                </div>
-                <% }%>
+                <c:if test="session.getAttribute(${name}) == null" >
+                    <div style=" margin-left: 17%; padding-top:15px; color: white;" >
+                        Don't have an account! 
+                        <a href="${request.getContextPath()}/login/RegisteUser.jsp" >
+                            Sign Up Here
+                        </a>
+                    </div>
+                </c:if>
+              
                 <hr>
             </div>
-        </div>
-    </body>
-    <jsp:include page="/menu/footer.jsp" />
-</html>
+    
+     </jsp:attribute>
+</layout:simple_layout>
