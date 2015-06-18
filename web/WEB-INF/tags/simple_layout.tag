@@ -4,9 +4,12 @@
 <%@attribute name="head" fragment="true" %>
 <%@attribute name="container" fragment="true" %>
 <%@attribute name="foot" fragment="true" %>
+<%@attribute name="session" fragment="true" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <!DOCTYPE html>
+
 
 <html>
     <head>
@@ -17,9 +20,14 @@
         <link href="<%=request.getContextPath() %>/assets/css/custom.css" rel="stylesheet" type="text/css"/>
         <jsp:invoke fragment="head"></jsp:invoke>
     </head>
+       <% user.User user= (user.User) request.getAttribute("user");
+if(user!=null){
+session.setAttribute("name", user.getFirstname());
+}
+%>
+<jsp:invoke fragment="session"></jsp:invoke>
     
     <body class="${class2}">
-        <jsp:useBean id="user" class="user.User" scope="request" />
     
             <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
                 <div class="container topnav">
@@ -36,23 +44,23 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <% if (user.getNick() != null) {%>
+                            <% if (session.getAttribute("name")!= null) {%>
                             
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= user%> <span class="glyphicon glyphicon-user pull-right control-label"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= session.getAttribute("name")%> <span class="glyphicon glyphicon-user pull-right control-label"></span></a>
                                     <ul class="dropdown-menu">
-                                         <li><a href="${pageContext.request.contextPath}/user/profile.jsp">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-                                        <li class="divider"></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/profile.jsp">Account<span class="glyphicon glyphicon-cog pull-right"></span>  </a></li>
+                                        <li class="divider"></li> 
                                         <li><a href="${pageContext.request.contextPath}/user/chart.jsp">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
                                         <li class="divider"></li>
                                         <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
                                         <li class="divider"></li>
-                                        <li><a   href="${pageContext.request.contextPath}/login/Logout.jsp">Sign Out <span class=" glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                        <li><a   href="${pageContext.request.contextPath}/login/logout.jsp">Sign Out <span class=" glyphicon glyphicon-log-out pull-right"></span></a></li>
                                     </ul>
                                 </li>
                             <% } else {%>
-                            <li><a class="control-label" href="<%=request.getContextPath()%>/menu/about.jsp">About</a></li>
-                            <li><a class="control-label" href="<%=request.getContextPath()%>/login/Login.jsp">Login</a></li>
+                            <li><a class="control-label" href="<%=request.getContextPath()%>/about.jsp">About</a></li>
+                            <li><a class="control-label" href="<%=request.getContextPath()%>/login/login.jsp">Login</a></li>
                                 <% }%>
                         </ul>
                     </div>
@@ -73,5 +81,8 @@
         <script src="<%=request.getContextPath()%>/assets/js/jquery.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js" type="text/javascript"></script>
         <jsp:invoke fragment="foot"></jsp:invoke>
+        
+     
+        
     </body>
 </html>
