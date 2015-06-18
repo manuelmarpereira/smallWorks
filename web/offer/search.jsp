@@ -1,29 +1,27 @@
 <%-- 
-    Document   : show
-    Created on : 5/jun/2015, 17:13:50
+    Document   : search
+    Created on : 18/jun/2015, 16:03:51
     Author     : Manuel
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="<%=request.getContextPath()%>/assets/css/showTask.css" rel="stylesheet" type="text/css"/>
-                <link href="<%=request.getContextPath()%>/assets/css/morris.css" rel="stylesheet" type="text/css"/>
-        <link href="<%=request.getContextPath()%>/assets/css/slider.css" rel="stylesheet" type="text/css"/>
-        
-            <link href="css/plugins/morris.css" rel="stylesheet">
-        <title>Search</title>
-    </head>
-    <body>
-        <jsp:include page="/menu/menu.jsp" />
-        <div class="marginTopMenu container-fluid" style="background-color:#e8e8e8">
-            <div class="container container-pad" id="property-listings">
+<%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
+
+<link href="<%=request.getContextPath()%>/assets/css/showTask.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/assets/css/slider.css" rel="stylesheet" type="text/css"/>
+
+<layout:simple_layout title="Search Offers" class2="">
+    <jsp:attribute name="head"> </jsp:attribute>
+    <jsp:attribute name="foot"></jsp:attribute>
+    <jsp:attribute name="container">
+
+        <div class="container-fluid container-background">
+            <div class="container-pad" id="property-listings">
                 <h2>Search <small> customize your small works search</small></h2>
                 <hr>
                 <div class="row">
-                    <div class="col-md-12 col-centered">
+                    <div class="col-centered">
                         <form role="search">
                             <div class="col-xs-5">
                                 <div class="form-group has-feedback has-feedback-left">
@@ -38,13 +36,13 @@
                                 </div>
                             </div>
                             <div class="col-xs-2">
-                                <a class="pull-left btn btn-default" href="search.html">Search</a>
+                                <a class="btn btn-default" href="search.html">Search</a>
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
-            
+
                 <div class="row">
                     <div class="col-xs-4">
                         <div class="control-label"  style="margin-top:10px">Min Value €</div>
@@ -60,7 +58,7 @@
                             <output id="rangeDanger">100</output>
                         </div>
                     </div>
-                    <div class="col-xs-4" style="margin-top:45px">
+                    <div class="col-xs-3 pull-right" style="margin-top:15px">
                         <div class="pull-right"  >
                             <div class="form-group">
                                 <label class="white">Ordenar por: </label>
@@ -73,10 +71,9 @@
                         </div>
                     </div>
                 </div>
-                    <hr>
+                <hr>
             </div>
-            
             <jsp:include page="/offer/listOffers.jsp" />                
-        </div>       
-    </body>
-</html>
+        </div> 
+    </jsp:attribute>
+</layout:simple_layout>

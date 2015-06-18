@@ -14,7 +14,7 @@
 
     <servlet-mapping>
         <servlet-name>RegisteUserServlet</servlet-name>
-        <url-pattern>/users/registerUser</url-pattern>
+        <url-pattern>/user/registerUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
