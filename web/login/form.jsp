@@ -1,5 +1,5 @@
 <form class="form-horizontal" name="formlogin" role="form" action="login" method="POST">
-    <div id="loginbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 marginDivTopcenter">                    
+    <div id="loginbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-margin-center">                    
         <div class="panel panel-info" >
             <div class="panel-heading">
                 <div class="panel-title">Sign In</div>
@@ -34,7 +34,7 @@
                     <div class="col-md-12 control">
                         <div class="form-group-register" >
                             Don't have an account! 
-                            <a href="<%= request.getContextPath()%>/users/registerUser.jsp" >
+                            <a href="<%= request.getContextPath()%>/user/registerUser.jsp" >
                                 Sign Up Here
                             </a>
                         </div>

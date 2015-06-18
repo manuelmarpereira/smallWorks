@@ -8,20 +8,34 @@ and open the template in the editor.
     Author     : Manuel
 */
 
- .profile{
-                
-                background-color: #0c374d;
-                padding-left: 50px;
-                padding-right: 50px;
-                padding-top:  30px;
-                padding-bottom:  1px;
-                border: 2px solid;
-                border-color: #269abc;
-                border-bottom-left-radius: 25px;
-                border-bottom-right-radius: 25px;
-            }
+.profile-header{
+    background-image: url(../img/header.png);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top:  30px;
+    padding-bottom:  1px;
+    border: 2px solid;
+    border-color: #269abc;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
-            .intro-message {
-                position: relative;
-                margin-top: 40px;
-            }
+
+
+.intro-message {
+    position: relative;
+    margin-top: 40px;
+}
+
+
+.img-circle-user{
+
+    border: 2px solid #269abc;
+
+}

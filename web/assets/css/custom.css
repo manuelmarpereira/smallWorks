@@ -2,6 +2,7 @@
 body,
 html {
     width: 100%;
+    min-height: 100%;
 }
 
 .row {
@@ -17,12 +18,26 @@ html {
      background-size: cover;
 }
 
-.black{
+.form-margin-center{
+    position: relative;
+  
+      -webkit-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+      transform: translateY(50%);
+}
+
+.search-form{
    padding-top: 30px;
-   padding-bottom: 10px;
+   padding-bottom: 30px;
    background-color: rgba(0, 0, 0, 0.6);
    margin-top: 25%;
    transform: translateY(-50%);
+   width: 100%;
+   border-top: 2px;
+   border-bottom: 2px;
+   border-style: solid;
+   border-top-color: #269abc;
+   border-bottom-color: #269abc;
 }
 
 * {
@@ -65,9 +80,6 @@ html {
     width: 400px;
     border-top: 1px solid #f8f8f8;
 }
-
-
-
 
 
 .network-name {
@@ -129,23 +141,19 @@ html {
     margin: 0 auto;
 }
 
-.marginDivTopcenter{
-    position: relative;
-  
-      -webkit-transform: translateY(50%);
-      -ms-transform: translateY(50%);
-      transform: translateY(50%);
-}
-
-
-//index link to regist new user
-.register-account{
-    margin-left: 17%; 
-    padding-top:15px; 
-    color: white;
-}
 
 .dropdown-menu > li > a {
     white-space: normal; 
     padding: 3px 10px 1px 20px;
+}
+
+
+.register-account{
+    color: white;
+    margin-left: 20%;
+    padding: 3px 10px 1px 20px;
+}
+
+.search-form-center{
+    margin-left: 20%;
 }

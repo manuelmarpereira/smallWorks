@@ -5,7 +5,7 @@
 --%>
 
 <form class="form-horizontal" role="form" name="formreg" action="RegisteUser" method="POST">  
-    <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 marginDivTopcenter registo">
+    <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-margin-center">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Sign Up</div>

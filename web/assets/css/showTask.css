@@ -15,8 +15,8 @@ a {
 .box-shad {
     
     box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .brdr {
     border: 1px solid #ededed;
@@ -50,6 +50,13 @@ a {
 }
 
 
+.container-pad {
+    margin-left: 20% !important;
+    margin-right: 20% !important;
+   
+}
+
+
 
 
 /**** MEDIA QUERIES ****/
@@ -69,4 +76,16 @@ a {
     #property-listings .property-listing img {
         max-width: 180px;
     }
+}
+
+
+.container-background{
+    background-color: #e8e8e8;
+    min-height: 100%;
+    margin-top: 60px;
+}
+
+.footer-pagination{
+        margin-bottom: 50px;
+        margin-left: 20%;
 }
