@@ -8,27 +8,6 @@ and open the template in the editor.
     Author     : PC
 */
 
-.marginTopMenu{
-    margin-top: 50px;
-}
-
-.marginSide{
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.marginDivTopcenter{
-    margin-top:130px;
-}
-
-.registo{
-    margin-top:115px;
-}
-
-.indexMargin{
-    margin-top: 180px;
-}
-
 .nav>li>a:hover, .nav>li>a:focus, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
     background:#fff;
 }

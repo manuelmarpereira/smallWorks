@@ -14,11 +14,11 @@
 
     <servlet-mapping>
         <servlet-name>RegisteUserServlet</servlet-name>
-        <url-pattern>/login/RegisteUser</url-pattern>
+        <url-pattern>/users/registerUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login/Login</url-pattern>
+        <url-pattern>/login/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
