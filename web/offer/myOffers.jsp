@@ -4,7 +4,7 @@
     Author     : Manuel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <div class="marginSide"> 
     <div class="row">
@@ -27,9 +27,9 @@
                         <%for (int i = 0; i < 3; i += 1) {%>
                         <tr>
                             <td>15 de Abril</td>
-                            <td>MudanÃ§a de mÃ³veis</td>
-                            <td>20â‚¬</td>
-                            <td style="color:green;">Aguarda FinalizaÃ§Ã£o</td>
+                            <td>Mudança de móveis</td>
+                            <td>20?</td>
+                            <td style="color:green;">Aguarda Finalização</td>
                             <td><a href="${pageContext.request.contextPath}/offer/new.jsp">Editar</a></td>
                             <td><a href="#">Finalizar</a></td>
                         </tr>

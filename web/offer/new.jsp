@@ -4,21 +4,19 @@
     Author     : Manuel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <div class="marginSide"> 
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" role="form">
                 <div class="col-md-6  white">
                     <div class="form-group">
-                        <label class="control-label col-sm-2">T√≠tulo:</label>
+                        <label class="control-label col-sm-2">TÌtulo:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">Descri√ß√£o:</label>
+                        <label class="control-label col-sm-2">DescriÁ„o:</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" rows="4"></textarea>
                         </div>
@@ -29,10 +27,10 @@
                         <div class="col-sm-3">
                             <input type="text" class="form-control">
                         </div>
-                        <label class="control-label col-sm-1">‚Ç¨</label>
+                        <label class="control-label col-sm-1">?</label>
                         <div class="col-sm-6 pull-right">
                             <div class="checkbox">
-                                <label class="control-label"><input  type="checkbox">Negoci√°vel</label>
+                                <label class="control-label"><input  type="checkbox">Negoci·vel</label>
                             </div>
                         </div>
                     </div>

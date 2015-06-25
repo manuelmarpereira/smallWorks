@@ -80,11 +80,10 @@
                             <span class="glyphicon glyphicon-star"></span>  Follow us on Facebok</a>
                     </div>
                 </div>             
-
-                <jsp:invoke fragment="foot"></jsp:invoke>
             </footer>
-
-            <script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.js" type="text/javascript"></script>
+                        
+        <jsp:invoke fragment="foot"></jsp:invoke>
+        <script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 </html>

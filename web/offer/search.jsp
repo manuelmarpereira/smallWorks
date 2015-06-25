@@ -8,11 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
-<link href="<%=request.getContextPath()%>/assets/css/showTask.css" rel="stylesheet" type="text/css"/>
-<link href="<%=request.getContextPath()%>/assets/css/slider.css" rel="stylesheet" type="text/css"/>
-
 <layout:simple_layout title="Search Offers" class2="">
-    <jsp:attribute name="head"> </jsp:attribute>
+    <jsp:attribute name="head"> 
+        <link href="${pageContext.request.contextPath}/assets/css/showTask.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/assets/css/slider.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
+    </jsp:attribute>
+        
     <jsp:attribute name="foot"></jsp:attribute>
     <jsp:attribute name="container">
 
