@@ -11,15 +11,15 @@ and open the template in the editor.
 .form-control{
     background: transparent;
 }
-form {
+.form-model {
 	width: 320px;
 	margin: 20px;
 }
-form > div {
+.form-model > div {
 	position: relative;
 	overflow: hidden;
 }
-form input, form textarea {
+.form-model input, .form-model textarea {
 	width: 100%;
 	border: 2px solid gray;
 	background: none;
@@ -30,13 +30,13 @@ form input, form textarea {
 	padding: 8px 12px;
 	outline: 0;
 }
-form input:valid, form textarea:valid {
+.form-model input:valid, .form-model textarea:valid {
 	background: white;
 }
-form input:focus, form textarea:focus {
+.form-model input:focus, .form-model textarea:focus {
 	border-color: #357EBD;
 }
-form input:focus + label, form textarea:focus + label {
+.form-model input:focus + label, .form-model textarea:focus + label {
 	background: #357EBD;
 	color: white;
 	font-size: 70%;
@@ -44,7 +44,7 @@ form input:focus + label, form textarea:focus + label {
 	z-index: 2;
 	text-transform: uppercase;
 }
-form label {
+.form-model label {
 	-webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
 	transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
 	position: absolute;
@@ -52,27 +52,27 @@ form label {
 	padding: 7px 6px;
 	font-weight: normal;
 }
-form textarea {
+.form-model textarea {
 	display: block;
 	resize: vertical;
 }
-form.go-bottom input, form.go-bottom textarea {
+.form-model.go-bottom input, .form-model.go-bottom textarea {
 	padding: 12px 12px 12px 12px;
 }
-form.go-bottom label {
+.form-model.go-bottom label {
 	top: 0;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 }
-form.go-bottom input:focus, form.go-bottom textarea:focus {
+.form-model.go-bottom input:focus, .form-model.go-bottom textarea:focus {
 	padding: 4px 6px 20px 6px;
 }
-form.go-bottom input:focus + label, form.go-bottom textarea:focus + label {
+.form-model.go-bottom input:focus + label, .form-model.go-bottom textarea:focus + label {
 	top: 100%;
 	margin-top: -16px;
 }
-form.go-right label {
+.form-model.go-right label {
 	border-radius: 0 5px 5px 0;
 	height: 100%;
 	top: 0;
@@ -80,7 +80,7 @@ form.go-right label {
 	width: 100%;
 	margin-right: -100%;
 }
-form.go-right input:focus + label, form.go-right textarea:focus + label {
+.form-model.go-right input:focus + label, .form-model.go-right textarea:focus + label {
 	right: 0;
 	margin-right: 0;
 	width: 40%;

@@ -13,7 +13,7 @@
         <link href="<%=request.getContextPath()%>/assets/css/user.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <jsp:include page="/menu/menu.jsp" />
+        <jsp:include page="/layout/nav.jsp" />
         <div class="marginTopMenu marginSide">  
             <div class="profile">
                 <div class="row">

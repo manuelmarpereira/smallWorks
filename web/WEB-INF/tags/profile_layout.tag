@@ -17,6 +17,10 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/icon.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="<%=request.getContextPath()%>/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+         <link href="${pageContext.request.contextPath}/assets/css/models-edit.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css"/>   
+        <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
+        <link rel="stylesheet" href="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.css">
         <jsp:invoke fragment="head"></jsp:invoke>
         </head>
 
@@ -29,16 +33,19 @@
     <jsp:invoke fragment="session"></jsp:invoke>
 
         <body class="${class2}">
-
-            <jsp:include page="/layout/nav.jsp" />
-      
-                        
+       
+        <jsp:include page="/layout/nav.jsp" />
+       <jsp:include page="/layout/user.jsp" />
+        
         <jsp:invoke fragment="container"></jsp:invoke>
         
         <jsp:include page="/layout/foot.jsp" />
                         
         <jsp:invoke fragment="foot"></jsp:invoke>
+        <script src="${pageContext.request.contextPath}/assets/js/confirmations.js" type="text/javascript"></script>
+        <script src="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+       
     </body>
 </html>

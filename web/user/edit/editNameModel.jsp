@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form role="form" class="col-md-9 go-right">
+                    <form role="form" class="form-model col-md-9 go-right">
 
                         <div class="form-group">
                             <input  name="firstname" type="text" class="form-control" placeholder="Your First Name">
