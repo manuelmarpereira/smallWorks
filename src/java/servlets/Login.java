@@ -1,4 +1,4 @@
-package web.login;
+package servlets;
 
 import user.ManageUserLocal;
 import user.User;

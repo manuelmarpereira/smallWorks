@@ -1,4 +1,4 @@
-package web.registo;
+package servlets;
 
 import user.ManageUserLocal;
 import user.User;

@@ -5,13 +5,12 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>RegisteUserServlet</servlet-name>
-        <servlet-class>web.registo.RegisteUser</servlet-class>
+        <servlet-class>servlets.RegisteUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>web.login.Login</servlet-class>
+        <servlet-class>servlets.Login</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RegisteUserServlet</servlet-name>
         <url-pattern>/user/registerUser</url-pattern>
