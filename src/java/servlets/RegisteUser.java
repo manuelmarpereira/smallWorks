@@ -2,22 +2,13 @@ package servlets;
 
 import user.ManageUserLocal;
 import user.User;
-import user.UserProcessor;
-import globalconf.TPAAPersistentManager;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
-import org.orm.PersistentException;
-import org.orm.PersistentManager;
-import org.orm.PersistentSession;
 
 /**
  *
