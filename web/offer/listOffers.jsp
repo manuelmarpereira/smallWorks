@@ -3,10 +3,7 @@
     Created on : 5/jun/2015, 19:56:15
     Author     : Manuel
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="<%=request.getContextPath()%>/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
-
     <%for (int i = 0; i < 5; i += 1) { %>
     
     <div class="row" style=" margin-bottom: 10px">
@@ -19,7 +16,7 @@
                     <div class="media-body fnt-smaller">
                         <a href="#" target="_parent"></a>
                         <h4 class="media-heading">
-                            <a href="${pageContext.request.contextPath}/offer/show.jsp" target="_parent">Lavar a casa<small class="pull-right"><i class="glyphicon glyphicon-gift"></i>25 €</small></a></h4>
+                            <a href="${pageContext.request.contextPath}/offer/show.jsp" target="_parent">Lavar a casa <i class="pull-right">25 €</i></a></h4>
                         <ul class="list-inline mrg-0 clr-535353">
                             <li>Inserido em: 20/02/2015</li>
                             <li><i class="glyphicon glyphicon-map-marker"></i>Braga</li>

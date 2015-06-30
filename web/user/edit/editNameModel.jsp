@@ -4,18 +4,16 @@
     Author     : Manuel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <div class="modal fade" id="editNameModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel"> Profile Name</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form role="form" class="col-md-9 go-right">
+                    <form role="form" class="form-model col-md-9 go-right">
 
                         <div class="form-group">
                             <input  name="firstname" type="text" class="form-control" placeholder="Your First Name">
@@ -30,7 +28,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <jsp:include page="confirmations.jsp" />
+                <button class="btn btn btn-success sweet-12" id="conf-name" onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Success']);">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>    
             </div>
         </div>
     </div>

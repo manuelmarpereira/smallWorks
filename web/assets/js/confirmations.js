@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-  document.querySelector('.sweet-12').onclick = function(){
+  document.querySelector('#conf-name').onclick = function(){
     swal({
       title: "Are you sure?",
       text: "You want to confirm your changes?",
@@ -15,6 +15,3 @@
     });
   };
 
-
-
-  

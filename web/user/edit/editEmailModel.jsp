@@ -22,7 +22,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <jsp:include page="confirmations.jsp" />
+                 <button class="btn btn btn-success sweet-12" id="conf-email" onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Success']);">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>    
             </div>
         </div>
     </div>
