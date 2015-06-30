@@ -23,7 +23,7 @@ import org.orm.PersistentSession;
  *
  * @author Utilizador
  */
-public class RegisteUser extends HttpServlet {
+public class RegisterUser extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
@@ -37,16 +37,17 @@ public class RegisteUser extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         
         //nick = req.getParameter("nick");
-        this.checkNick(req.getParameter("nick"), u, req);
+        this.n=this.checkNick(req.getParameter("nick"), u, req);
         //pass = req.getParameter("pass");
-        this.checkPasswords(req.getParameter("password"), u, req);
+        this.n=this.checkPasswords(req.getParameter("password"), u, req);
         //fn = req.getParameter("fn");
-        this.checkFirstName(req.getParameter("fn"), u, req);
+        this.checkFirstName(req.getParameter("firstname"), u, req);
         //ln = req.getParameter("ln");
-        this.checkLastName(req.getParameter("ln"), u, req);
+        this.checkLastName(req.getParameter("lastname"), u, req);
         //email = req.getParameter("email");
         this.checkemail(req.getParameter("email"), u, req);
-
+        u.setCoordLat(req.getParameter("latitude"));
+        u.setCoordLong(req.getParameter("longitude"));
         this.makeDecision(u, req, resp);
         
     }
@@ -74,17 +75,20 @@ public class RegisteUser extends HttpServlet {
         return "Servlet info";
     }
     
-    private void checkNick(String nick, User u, HttpServletRequest req) {
+    private int checkNick(String nick, User u, HttpServletRequest req) {
         if(nick != null && !nick.trim().equals("")) {
             u.setNick(nick);
             this.n++;
+            return 1;
         } else {
             u.setNick("");
             this.checkFirstTime("nick", "fill nick field", req);
         }
+        return this.n;
+        
     }
     
-    private void checkPasswords(String pass, User u, HttpServletRequest req) {
+    private int checkPasswords(String pass, User u, HttpServletRequest req) {
         if(pass != null && !pass.trim().equals("")) {
             u.setPassword(pass);
             String tmpa2 = req.getParameter("confPass");
@@ -101,6 +105,7 @@ public class RegisteUser extends HttpServlet {
             u.setPassword("");
             this.checkFirstTime("pass","fill password field", req);
         }
+        return this.n;
     }
     
     private void checkFirstName(String fn, User u, HttpServletRequest req) {
@@ -135,20 +140,20 @@ public class RegisteUser extends HttpServlet {
     
     private void makeDecision(User u, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher reqDispatcher ;
-        if(this.n == 5) {
+        if(this.n == 4) {
             
 
             u=mu.registUser(u);
             if(u!=(null)){
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/Login.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/index.jsp");
             req.setAttribute("user", u);
             }else{
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/RegisteUser.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/registerUser.jsp");
             }
      
         } else {// handler errors 
             control++;
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/RegisteUser.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/registerUser.jsp");
             
         }
         
