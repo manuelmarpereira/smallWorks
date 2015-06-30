@@ -50,7 +50,7 @@
                     Don't have an account! 
                     
                     
-                    <a href="${request.getContextPath()}/user/registeUser.jsp" >
+                    <a href="${pageContext.request.contextPath}/user/registerUser.jsp" >
                         Sign Up Here
                     </a>
                 </div>

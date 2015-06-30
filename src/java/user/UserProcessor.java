@@ -32,9 +32,9 @@ public class UserProcessor {
 	
 	private String photo;
 	
-	private long coordLat;
+	private String coordLat;
 	
-	private long coordLong;
+	private String coordLong;
 	
 	private String action="";
 	
@@ -94,19 +94,19 @@ public class UserProcessor {
 		return photo == null ? "" : photo;
 	}
 	
-	public void setCoordLat(long value) {
+	public void setCoordLat(String value) {
 		this.coordLat = value;
 	}
 	
-	public long getCoordLat() {
+	public String getCoordLat() {
 		return coordLat;
 	}
 	
-	public void setCoordLong(long value) {
+	public void setCoordLong(String value) {
 		this.coordLong = value;
 	}
 	
-	public long getCoordLong() {
+	public String getCoordLong() {
 		return coordLong;
 	}
 	

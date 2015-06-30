@@ -4,16 +4,15 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>RegisteUserServlet</servlet-name>
-        <servlet-class>web.registo.RegisteUser</servlet-class>
+        <servlet-name>RegisterUserServlet</servlet-name>
+        <servlet-class>web.registo.RegisterUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>web.login.Login</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>RegisteUserServlet</servlet-name>
+        <servlet-name>RegisterUserServlet</servlet-name>
         <url-pattern>/user/registerUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

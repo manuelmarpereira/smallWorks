@@ -14,6 +14,7 @@
     <head>
         <meta charset="utf-8" content="text/html; charset=utf-8" />
         <title>${title}</title>
+        <script src='http://code.jquery.com/jquery-1.11.3.js'></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/icon.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="<%=request.getContextPath()%>/assets/css/custom.css" rel="stylesheet" type="text/css"/>
@@ -38,7 +39,6 @@
         <jsp:include page="/layout/foot.jsp" />
                         
         <jsp:invoke fragment="foot"></jsp:invoke>
-        <script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 </html>

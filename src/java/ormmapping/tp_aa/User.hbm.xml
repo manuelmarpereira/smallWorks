@@ -17,8 +17,8 @@ License Type: Evaluation
     <property column="Password" lazy="false" length="255" name="password" not-null="false" type="string"/>
     <property column="Email" lazy="false" length="255" name="email" not-null="false" type="string"/>
     <property column="Photo" lazy="false" length="255" name="photo" not-null="false" type="string"/>
-    <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="long"/>
-    <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="long"/>
+    <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="string"/>
+    <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="string"/>
     <subclass discriminator-value="Creator" lazy="false" name="user.Creator">
       <property column="Type" lazy="false" length="255" name="type" not-null="false" type="string"/>
     </subclass>
