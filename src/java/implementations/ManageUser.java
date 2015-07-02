@@ -1,14 +1,14 @@
 package implementations;
 
 import interfaces.ManageUserLocal;
-import globalconf.TPAAPersistentManager;
+import hibernate.globalconf.TPAAPersistentManager;
+import hibernate.user.User;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
-import user.User;
 
 @Stateless
 public class ManageUser implements ManageUserLocal {
@@ -34,7 +34,6 @@ public class ManageUser implements ManageUserLocal {
             return u;
         }
         return null;
-
     }
 
     private boolean UserExist(User u) {
@@ -87,19 +86,5 @@ public class ManageUser implements ManageUserLocal {
 
         return null;
     }
+
 }
-//@Override
-//public boolean login(String nick, String password, User a) {
-//    if (a != null ) {
-//        if(a.getNick().equals(nick) && a.getPass().equals(password)) {
-//            return true;
-//        }
-//    } else {
-//        // envias para a base de dados // dbLogin(nick,pass) : User
-//        if(nick.equals("admin") && password.equals("admin")) {
-//            System.out.println("entrei no 2");
-//            return true;
-//        }
-//    }
-//    return false;
-//}

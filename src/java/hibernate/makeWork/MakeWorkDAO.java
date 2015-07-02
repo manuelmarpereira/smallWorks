@@ -1,0 +1,357 @@
+/**
+ * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
+ * 
+ * This is an automatic generated file. It will be regenerated every time 
+ * you generate persistence class.
+ * 
+ * Modifying its content may cause the program not work, or your work may lost.
+ */
+
+/**
+ * Licensee: 
+ * License Type: Evaluation
+ */
+package hibernate.makeWork;
+
+import org.orm.*;
+import org.hibernate.Query;
+import org.hibernate.LockMode;
+import java.util.List;
+
+public class MakeWorkDAO {
+	public static MakeWork loadMakeWorkByORMID(int ID) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return loadMakeWorkByORMID(session, ID);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork getMakeWorkByORMID(int ID) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return getMakeWorkByORMID(session, ID);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return loadMakeWorkByORMID(session, ID, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork getMakeWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return getMakeWorkByORMID(session, ID, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+		try {
+			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(ID));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork getMakeWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+		try {
+			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(ID));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(ID), lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork getMakeWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(ID), lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static List queryMakeWork(String condition, String orderBy) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return queryMakeWork(session, condition, orderBy);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static List queryMakeWork(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return queryMakeWork(session, condition, orderBy, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork[] listMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return listMakeWorkByQuery(session, condition, orderBy);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork[] listMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return listMakeWorkByQuery(session, condition, orderBy, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static List queryMakeWork(PersistentSession session, String condition, String orderBy) throws PersistentException {
+		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		if (condition != null)
+			sb.append(" Where ").append(condition);
+		if (orderBy != null)
+			sb.append(" Order By ").append(orderBy);
+		try {
+			Query query = session.createQuery(sb.toString());
+			return query.list();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static List queryMakeWork(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		if (condition != null)
+			sb.append(" Where ").append(condition);
+		if (orderBy != null)
+			sb.append(" Order By ").append(orderBy);
+		try {
+			Query query = session.createQuery(sb.toString());
+			query.setLockMode("MakeWork", lockMode);
+			return query.list();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork[] listMakeWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+		try {
+			List list = queryMakeWork(session, condition, orderBy);
+			return (MakeWork[]) list.toArray(new MakeWork[list.size()]);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork[] listMakeWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			List list = queryMakeWork(session, condition, orderBy, lockMode);
+			return (MakeWork[]) list.toArray(new MakeWork[list.size()]);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return loadMakeWorkByQuery(session, condition, orderBy);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return loadMakeWorkByQuery(session, condition, orderBy, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+		MakeWork[] makeWorks = listMakeWorkByQuery(session, condition, orderBy);
+		if (makeWorks != null && makeWorks.length > 0)
+			return makeWorks[0];
+		else
+			return null;
+	}
+	
+	public static MakeWork loadMakeWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		MakeWork[] makeWorks = listMakeWorkByQuery(session, condition, orderBy, lockMode);
+		if (makeWorks != null && makeWorks.length > 0)
+			return makeWorks[0];
+		else
+			return null;
+	}
+	
+	public static java.util.Iterator iterateMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return iterateMakeWorkByQuery(session, condition, orderBy);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static java.util.Iterator iterateMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		try {
+			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			return iterateMakeWorkByQuery(session, condition, orderBy, lockMode);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static java.util.Iterator iterateMakeWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		if (condition != null)
+			sb.append(" Where ").append(condition);
+		if (orderBy != null)
+			sb.append(" Order By ").append(orderBy);
+		try {
+			Query query = session.createQuery(sb.toString());
+			return query.iterate();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static java.util.Iterator iterateMakeWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		if (condition != null)
+			sb.append(" Where ").append(condition);
+		if (orderBy != null)
+			sb.append(" Order By ").append(orderBy);
+		try {
+			Query query = session.createQuery(sb.toString());
+			query.setLockMode("MakeWork", lockMode);
+			return query.iterate();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork createMakeWork() {
+		return new hibernate.makeWork.MakeWork();
+	}
+	
+	public static boolean save(hibernate.makeWork.MakeWork makeWork) throws PersistentException {
+		try {
+			hibernate.globalconf.TPAAPersistentManager.instance().saveObject(makeWork);
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean delete(hibernate.makeWork.MakeWork makeWork) throws PersistentException {
+		try {
+			hibernate.globalconf.TPAAPersistentManager.instance().deleteObject(makeWork);
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean refresh(hibernate.makeWork.MakeWork makeWork) throws PersistentException {
+		try {
+			hibernate.globalconf.TPAAPersistentManager.instance().getSession().refresh(makeWork);
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean evict(hibernate.makeWork.MakeWork makeWork) throws PersistentException {
+		try {
+			hibernate.globalconf.TPAAPersistentManager.instance().getSession().evict(makeWork);
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static MakeWork loadMakeWorkByCriteria(MakeWorkCriteria makeWorkCriteria) {
+		MakeWork[] makeWorks = listMakeWorkByCriteria(makeWorkCriteria);
+		if(makeWorks == null || makeWorks.length == 0) {
+			return null;
+		}
+		return makeWorks[0];
+	}
+	
+	public static MakeWork[] listMakeWorkByCriteria(MakeWorkCriteria makeWorkCriteria) {
+		return makeWorkCriteria.listMakeWork();
+	}
+}

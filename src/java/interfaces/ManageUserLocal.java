@@ -1,7 +1,7 @@
 package interfaces;
 
+import hibernate.user.User;
 import javax.ejb.Local;
-import user.User;
 
 @Local
 public interface ManageUserLocal {
