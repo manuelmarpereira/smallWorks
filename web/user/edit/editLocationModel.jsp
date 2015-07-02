@@ -18,10 +18,7 @@
                             <form role="form" class="col-md-9 go-right">
 
                                 <div class="form-group">
-                                    <input id="location"  name="location" type="text" class="form-control" placeholder="Your Location">
-                                    <label for="location">Your Location</label>
-                                    <br>
-                                    
+                                                                 
                                 </div>
                                 <jsp:include page="/layout/map.jsp" />
                             </form>
