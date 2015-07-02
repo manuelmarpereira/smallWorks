@@ -1,6 +1,6 @@
 package servlets;
 
-import user.ManageUserLocal;
+import interfaces.ManageUserLocal;
 import user.User;
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -10,70 +10,57 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Utilizador
- */
-
 public class Login extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
-    private int control = 0;
-    
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        
+    }
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         resp.setContentType("text/html;charset=UTF-8");
-
-        String ni = this.checkNick(req.getParameter("nick"), req);
-        String p = this.checkPasswords(req.getParameter("password"), req);
-
         
+        String ni = (String) req.getParameter("nick") ;
+        String p = (String) req.getParameter("password");
         RequestDispatcher reqDispatcher = null;
-        if(ni != null && p != null) {
+        
+        boolean bn = validateData(ni);
+        boolean bp = validateData(p);
+
+        if(bn && bp) { // 2 campos preenchidos
             User u = mu.login(ni, p);
             this.makeDecision(u, req, resp, reqDispatcher);
-        } else {
-            this.control++;
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/Login.jsp");
+            
+        } else  {
+            if(bn) { // so o nick preenchido
+                req.setAttribute("sn", ni);
+            } else if (bp){ // so a pass preenchida
+                req.setAttribute("sp", p);
+            }
+            req.setAttribute("err", "You need fill nick and password");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/login.jsp");
             reqDispatcher.forward(req, resp);
         }
     }
-    
-    private String checkNick(String nick, HttpServletRequest req) {
-        if(nick != null && !nick.trim().equals("")) {
-            return nick;
-        } else {
-            this.checkFirstTime("nick", "fill nick field", req);
-            return null;
-        }
-    }
-    
-    private String checkPasswords(String pass, HttpServletRequest req) {
-        if(pass != null && !pass.trim().equals("")) {
-            return pass;
-        } else {
-            this.checkFirstTime("pass","fill password field", req);
-            return null;
-        }
+    private boolean validateData(String s) {
+        return s != null && !s.trim().equals("");
     }
     
     private void makeDecision(User u, HttpServletRequest req, HttpServletResponse resp, RequestDispatcher reqDispatcher) throws ServletException, IOException {
 
         if(u != null) {
+            u.setPassword(null);// nao ter a password
             req.setAttribute("user", u);
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/index.jsp");
         } else { // handler errors
-            this.control++;
-            req.setAttribute("err", "Worng credential combination");
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/Login.jsp");
+            req.setAttribute("err", "Wrong credential combination");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/login.jsp");
         }
         reqDispatcher.forward(req, resp);
-    }
-    
-    private void checkFirstTime(String name, String msg, HttpServletRequest req) {
-        if(this.control > 0)
-            req.setAttribute(name, msg);
     }
     
     @Override
