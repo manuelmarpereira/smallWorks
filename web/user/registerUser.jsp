@@ -10,11 +10,12 @@
 
 <layout:simple_layout title="New User" class2="bodyBackground">
     <jsp:attribute name="head"> 
+        <link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/register-user.css" rel="stylesheet" type="text/css"/>
     </jsp:attribute>
-    
+
     <jsp:attribute name="foot"></jsp:attribute>
-        
+
     <jsp:attribute name="container">
         <jsp:include page="formRegisterUser.jsp" />
     </jsp:attribute>
