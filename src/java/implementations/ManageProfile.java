@@ -13,8 +13,8 @@ import utils.Profile;
 
 public class ManageProfile implements ManageProfileLocal {
 
-    @EJB
-    private ManageProfileLocal mplEjb;
+//    @EJB
+//    private ManageProfileLocal mplEjb;
     
     @Override
     public Profile getUser(int userId) {
