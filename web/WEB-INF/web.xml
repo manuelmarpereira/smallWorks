@@ -3,7 +3,9 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
     <servlet>
+
         <servlet-name>RegisterUserServlet</servlet-name>
         <servlet-class>web.registo.RegisterUser</servlet-class>
     </servlet>
@@ -11,14 +13,21 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>web.login.Login</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>RegisterUserServlet</servlet-name>
         <url-pattern>/user/registerUser</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.Login</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login/login</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
