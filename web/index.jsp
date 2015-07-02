@@ -1,12 +1,8 @@
-<%@page import="user.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
-<%
-    User me = (User) request.getAttribute("user");
-    session.setAttribute("user", me);
-%>
+
 
 <layout:simple_layout title="smallWorks" class2="bodyBackground">
 
@@ -48,7 +44,7 @@
                     Don't have an account! 
 
 
-                    <a href="${request.getContextPath()}/user/registeUser.jsp" >
+                    <a href="${pageContext.request.contextPath}/user/registerUser.jsp" >
 
                         Sign Up Here
                     </a>

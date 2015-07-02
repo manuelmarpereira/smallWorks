@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Utilizador
  */
-public class RegisteUser extends HttpServlet {
+public class RegisterUser extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
@@ -37,7 +37,10 @@ public class RegisteUser extends HttpServlet {
         this.checkLastName(req.getParameter("ln"), u, req);
         //email = req.getParameter("email");
         this.checkemail(req.getParameter("email"), u, req);
-
+        
+        u.setCoordLat(req.getParameter("latitude"));
+        u.setCoordLong(req.getParameter("longitude"));
+        
         this.makeDecision(u, req, resp);
         
     }
@@ -126,20 +129,21 @@ public class RegisteUser extends HttpServlet {
     
     private void makeDecision(User u, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher reqDispatcher ;
-        if(this.n == 5) {
+        System.out.println("osdf"+this.n);
+        if(this.n == 2) {
             
 
             u=mu.registUser(u);
             if(u!=(null)){
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/Login.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/index.jsp");
             req.setAttribute("user", u);
             }else{
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/RegisteUser.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/registerUser.jsp");
             }
      
         } else {// handler errors 
             control++;
-            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/RegisteUser.jsp");
+            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/registerUser.jsp");
             
         }
         

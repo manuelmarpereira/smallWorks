@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="profile-header">
     <div class="row">
         <div class="col-sm-4 col-md-3 col-md-2 white">

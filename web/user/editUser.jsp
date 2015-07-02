@@ -10,6 +10,8 @@
 
 
 <layout:simple_layout title="Profile" class2="">
+      <jsp:attribute name="session"></jsp:attribute>
+      
     <jsp:attribute name="head"> 
         <link href="${pageContext.request.contextPath}/assets/css/models-edit.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css"/>   
