@@ -2,8 +2,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 <layout:profile_layout title="New Offer" class2="">
+    <jsp:attribute name="head">
+    </jsp:attribute>
+        
     <jsp:attribute name="container">
-<div class="marginSide"> 
+    <div class="marginSide"> 
     <h2>Search <small> customize your small works search</small></h2>
                 <hr>
     <div class="row">
@@ -40,22 +43,7 @@
                     <div class=" panel panel-default">
                         <div class="panel-heading">Local da Oferta Proposta</div>
                         <br>
-                        <div class="form-group">
-                            <label class="control-label col-sm-3">Morada:</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-3">Cod. Postal:</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="control-label pull-left">-</div>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
+                        <jsp:include page="/layout/map.jsp" />
                     </div>
                     <p class="pull-right"><button type="button" class="btn btn-primary">Save</button></p>
                 </div>

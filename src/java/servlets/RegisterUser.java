@@ -32,9 +32,9 @@ public class RegisterUser extends HttpServlet {
         //pass = req.getParameter("pass");
         this.checkPasswords(req.getParameter("password"), u, req);
         //fn = req.getParameter("fn");
-        this.checkFirstName(req.getParameter("fn"), u, req);
+        this.checkFirstName(req.getParameter("firstname"), u, req);
         //ln = req.getParameter("ln");
-        this.checkLastName(req.getParameter("ln"), u, req);
+        this.checkLastName(req.getParameter("lastname"), u, req);
         //email = req.getParameter("email");
         this.checkemail(req.getParameter("email"), u, req);
         
