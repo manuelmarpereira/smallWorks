@@ -1,6 +1,7 @@
-package user;
+package interfaces;
 
 import javax.ejb.Local;
+import user.User;
 
 @Local
 public interface ManageUserLocal {

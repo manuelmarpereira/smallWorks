@@ -22,7 +22,7 @@ public class User {
 	
 	private String coordLong;
 	
-	private void setID(int value) {
+	public void setID(int value) {
 		this.ID = value;
 	}
 	

@@ -21,11 +21,12 @@
         <jsp:invoke fragment="head"></jsp:invoke>
         </head>
 
-    <% user.User user = (user.User) request.getAttribute("user");
-        if (user != null) {
-            session.setAttribute("name", user.getFirstname());
-        }
-    %>
+<%
+    user.User me = (user.User) request.getAttribute("user");
+    if(me!=null){
+    session.setAttribute("user", me);
+    }
+%>
 
     <jsp:invoke fragment="session"></jsp:invoke>
 
