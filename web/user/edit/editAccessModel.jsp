@@ -13,7 +13,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <form role="form" class="form-model col-md-9 go-right">
+                            <form role="form" class="form-model col-md-8 go-right">
 
                                 <div class="form-group">
                                     <input id="email"  name="email" type="text" class="form-control" placeholder="Email">
@@ -31,7 +31,7 @@
                                 </div>
                                 
                             </form>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <img src="${pageContext.request.contextPath}/assets/img/edit.png"/> 
                             </div>
                         </div>
