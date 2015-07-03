@@ -13,7 +13,9 @@
  */
 package hibernate.work;
 
-public class Work {
+import java.util.Observable;
+
+public class Work extends Observable {
 	public Work() {
 	}
 	

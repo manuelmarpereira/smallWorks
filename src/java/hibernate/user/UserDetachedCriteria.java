@@ -31,6 +31,7 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression photo;
 	public final StringExpression coordLat;
 	public final StringExpression coordLong;
+	public final CollectionExpression subscriptions;
 	
 	public UserDetachedCriteria() {
 		super(hibernate.user.User.class, hibernate.user.UserCriteria.class);
@@ -45,6 +46,7 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 		photo = new StringExpression("photo", this.getDetachedCriteria());
 		coordLat = new StringExpression("coordLat", this.getDetachedCriteria());
 		coordLong = new StringExpression("coordLong", this.getDetachedCriteria());
+		subscriptions = new CollectionExpression("ORM_Subscriptions", this.getDetachedCriteria());
 	}
 	
 	public UserDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -60,10 +62,15 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 		photo = new StringExpression("photo", this.getDetachedCriteria());
 		coordLat = new StringExpression("coordLat", this.getDetachedCriteria());
 		coordLong = new StringExpression("coordLong", this.getDetachedCriteria());
+		subscriptions = new CollectionExpression("ORM_Subscriptions", this.getDetachedCriteria());
 	}
 	
 	public DistrictDetachedCriteria createDistrictCriteria() {
 		return new DistrictDetachedCriteria(createCriteria("district"));
+	}
+	
+	public hibernate.subscription.subscriptionDetachedCriteria createSubscriptionsCriteria() {
+		return new hibernate.subscription.subscriptionDetachedCriteria(createCriteria("ORM_Subscriptions"));
 	}
 	
 	public User uniqueUser(PersistentSession session) {

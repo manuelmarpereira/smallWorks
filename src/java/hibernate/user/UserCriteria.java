@@ -31,6 +31,7 @@ public class UserCriteria extends AbstractORMCriteria {
 	public final StringExpression photo;
 	public final StringExpression coordLat;
 	public final StringExpression coordLong;
+	public final CollectionExpression subscriptions;
 	
 	public UserCriteria(Criteria criteria) {
 		super(criteria);
@@ -45,6 +46,7 @@ public class UserCriteria extends AbstractORMCriteria {
 		photo = new StringExpression("photo", this);
 		coordLat = new StringExpression("coordLat", this);
 		coordLong = new StringExpression("coordLong", this);
+		subscriptions = new CollectionExpression("ORM_Subscriptions", this);
 	}
 	
 	public UserCriteria(PersistentSession session) {
@@ -57,6 +59,10 @@ public class UserCriteria extends AbstractORMCriteria {
 	
 	public DistrictCriteria createDistrictCriteria() {
 		return new DistrictCriteria(createCriteria("district"));
+	}
+	
+	public hibernate.subscription.subscriptionCriteria createSubscriptionsCriteria() {
+		return new hibernate.subscription.subscriptionCriteria(createCriteria("ORM_Subscriptions"));
 	}
 	
 	public User uniqueUser() {

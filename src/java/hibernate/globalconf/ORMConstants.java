@@ -24,6 +24,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_USER_DISTRICT = 1138474338;
 	
+	final int KEY_USER_SUBSCRIPTIONS = -893172318;
+	
 	final int KEY_WORK_CREATOR = 451819774;
 	
 	final int KEY_WORK_LOCALIZATION = -10043129;
@@ -31,5 +33,11 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_WORK_TASKS = 1410089184;
 	
 	final int KEY_WORK_WORKER = 861878380;
+	
+	final int KEY_SUBSCRIPTION_SUBSDISTRICT = 277038787;
+	
+	final int KEY_SUBSCRIPTION_SUBSTASK = 730606394;
+	
+	final int KEY_SUBSCRIPTION_USER = 1202156973;
 	
 }

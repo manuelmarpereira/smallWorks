@@ -327,6 +327,10 @@ public class UserDAO {
 				user.getDistrict().user.remove(user);
 			}
 			
+			hibernate.subscription.subscription[] lSubscriptionss = user.subscriptions.toArray();
+			for(int i = 0; i < lSubscriptionss.length; i++) {
+				lSubscriptionss[i].setUser(null);
+			}
 			return delete(user);
 		}
 		catch(Exception e) {
@@ -341,6 +345,10 @@ public class UserDAO {
 				user.getDistrict().user.remove(user);
 			}
 			
+			hibernate.subscription.subscription[] lSubscriptionss = user.subscriptions.toArray();
+			for(int i = 0; i < lSubscriptionss.length; i++) {
+				lSubscriptionss[i].setUser(null);
+			}
 			try {
 				session.delete(user);
 				return true;
