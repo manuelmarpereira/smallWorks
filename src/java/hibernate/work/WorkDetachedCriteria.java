@@ -13,13 +13,13 @@
  */
 package hibernate.work;
 
+import hibernate.user.UserDetachedCriteria;
+import hibernate.task.TaskDetachedCriteria;
 import hibernate.district.DistrictDetachedCriteria;
 import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
-import hibernate.user.UserDetachedCriteria;
-import hibernate.task.TaskDetachedCriteria;
 
 public class WorkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;

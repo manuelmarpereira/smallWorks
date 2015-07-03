@@ -13,13 +13,13 @@
  */
 package hibernate.work;
 
+import hibernate.user.UserCriteria;
+import hibernate.task.TaskCriteria;
 import hibernate.district.DistrictCriteria;
 import org.hibernate.Criteria;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
-import hibernate.user.UserCriteria;
-import hibernate.task.TaskCriteria;
 
 public class WorkCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;

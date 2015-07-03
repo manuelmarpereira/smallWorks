@@ -13,8 +13,19 @@
  */
 package hibernate.user;
 
-public class User {
+import java.util.Observable;
+import java.util.Observer;
+
+public class User implements Observer {
 	public User() {
+	}
+	
+	private java.util.Set this_getSet (int key) {
+		if (key == hibernate.globalconf.ORMConstants.KEY_USER_SUBSCRIPTIONS) {
+			return ORM_subscriptions;
+		}
+		
+		return null;
 	}
 	
 	private void this_setOwner(Object owner, int key) {
@@ -24,6 +35,10 @@ public class User {
 	}
 	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
 		}
@@ -32,7 +47,7 @@ public class User {
 	
 	private int ID;
 	
-	private hibernate.district.District district =new hibernate.district.District();
+	private hibernate.district.District district;
 	
 	private String nick;
 	
@@ -49,6 +64,8 @@ public class User {
 	private String coordLat;
 	
 	private String coordLong;
+	
+	private java.util.Set ORM_subscriptions = new java.util.HashSet();
 	
 	public void setID(int value) {
 		this.ID = value;
@@ -126,13 +143,22 @@ public class User {
 		return coordLong;
 	}
 	
+	private void setORM_Subscriptions(java.util.Set value) {
+		this.ORM_subscriptions = value;
+	}
+	
+	private java.util.Set getORM_Subscriptions() {
+		return ORM_subscriptions;
+	}
+	
+	public final hibernate.subscription.subscriptionSetCollection subscriptions = new hibernate.subscription.subscriptionSetCollection(this, _ormAdapter, hibernate.globalconf.ORMConstants.KEY_USER_SUBSCRIPTIONS, hibernate.globalconf.ORMConstants.KEY_SUBSCRIPTION_USER, hibernate.globalconf.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
 	public void setDistrict(hibernate.district.District value) {
 		if (district != null) {
 			district.user.remove(this);
 		}
 		if (value != null) {
-                   
-               	value.user.add(this);
+			value.user.add(this);
 		}
 	}
 	
@@ -154,5 +180,18 @@ public class User {
 	public String toString() {
 		return String.valueOf(getID());
 	}
+
+    @Override
+    public void update(Observable o, Object arg) {
+        /***
+         * 
+         * 
+         * 
+         * PROGRAMA AQUI NOOB
+         * 
+         * 
+         * 
+         */
+    }
 	
 }

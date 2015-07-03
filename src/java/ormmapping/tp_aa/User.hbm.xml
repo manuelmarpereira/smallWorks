@@ -20,5 +20,9 @@ License Type: Evaluation
 		<property name="photo" column="Photo" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="coordLat" column="CoordLat" type="string" length="255" not-null="true" lazy="false"/>
 		<property name="coordLong" column="CoordLong" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_Subscriptions" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="UserID" not-null="true"/>
+			<one-to-many class="hibernate.subscription.subscription"/>
+		</set>
 	</class>
 </hibernate-mapping>
