@@ -33,7 +33,7 @@
             </p>
             <p class="pull-left">
                 <i>Feedback (8/10) </i> 
-                <jsp:include page="/feedback/stars.jsp" />
+                <jsp:include page="/feedback/showStars.jsp" />
             </p>
         </div>
         <div class="col-sm-4 col-md-6" style=" margin-top: 30px">

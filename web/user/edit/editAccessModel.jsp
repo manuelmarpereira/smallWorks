@@ -31,6 +31,9 @@
                                 </div>
                                 
                             </form>
+                            <div class="col-md-3">
+                                <img src="${pageContext.request.contextPath}/assets/img/edit.png"/> 
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
