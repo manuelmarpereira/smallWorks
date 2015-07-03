@@ -22,7 +22,7 @@
         </head>
 
 <%
-    user.User me = (user.User) request.getAttribute("user");
+    hibernate.user.User me = (hibernate.user.User) request.getAttribute("user");
     if(me!=null){
     session.setAttribute("user", me);
     }

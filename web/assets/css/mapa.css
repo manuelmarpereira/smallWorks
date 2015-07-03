@@ -1,9 +1,7 @@
 .mapRight{
-
+    width: 100%;
     height: 300px;
-    width: 410px;
     border: 10px solid whitesmoke;
-
 }
 
 /* =============== Estilos do autocomplete =============== */

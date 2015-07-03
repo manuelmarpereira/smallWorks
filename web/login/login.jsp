@@ -3,7 +3,6 @@
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
 
-
 <layout:simple_layout title="Login" class2="bodyBackground">
     <jsp:attribute name="head"> 
         <link href="${pageContext.request.contextPath}/assets/css/login.css" rel="stylesheet" type="text/css"/>

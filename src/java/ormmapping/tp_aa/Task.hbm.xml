@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class lazy="false" name="tp_aa.Task" table="Task">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.task.Task" table="Task" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <property column="Name" lazy="false" length="255" name="name" not-null="false" type="string"/>
-    <set cascade="save-update,lock" inverse="false" lazy="true" name="ORM_Subtaks">
-      <key column="TaskID" not-null="true"/>
-      <one-to-many class="tp_aa.SubTask"/>
-    </set>
-  </class>
+		</id>
+		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<set name="ORM_Subtaks" lazy="true" cascade="save-update,lock" inverse="false">
+			<key column="TaskID" not-null="true"/>
+			<one-to-many class="hibernate.subTask.SubTask"/>
+		</set>
+	</class>
 </hibernate-mapping>

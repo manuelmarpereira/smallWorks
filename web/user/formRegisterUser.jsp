@@ -53,48 +53,44 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="password" class="col-md-3 control-label">Confirm Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" required name="confPass" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <!-- Button -->                                        
                             <div class="col-md-offset-3 col-md-9">
                                 <input id="btn-signup" class="btn btn-info"  type="submit" value="Registe" name="Registebtn"/> 
 
                             </div>
                         </div>
-
-
                     </div>
+                    
                     <div class="col-md-6">
-
                         <label style="display: none;">Localização : </label><input id="idlocalizacao" type="text" name="localizacao" style="display: none;">
+                        <label style="display: none;">Distrito : </label><input id="distrito" type="text" name="distrito" style="display:none">
                         <label style="display: none;">Longitude : </label><input id="idlongitude" type="text" name="longitude" style="display:none;">
                         <label style="display: none;">Latitude : </label><input  id="latitude" type="text" name="latitude" style="display:none">
                         
                         <div>
                             <div >
                                 <div class="form-group">
-                              <label for="txtEndereco" class="col-md-3 control-label">Endereço </label>
-                            <div class="col-md-9">
-                             <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" />
-                            </div>
-                        </div>
-                                     
-                                       
-                                    
+                                    <label for="txtEndereco" class="col-md-3 control-label">Endereço </label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" />
+                                    </div>
+                                </div>
                             </div>
                             <div id="mapa" class="mapRight">
                                 <script LANGUAGE="JavaScript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3UTzP6dux6yrwFZYUMI7Ja1wcgPj9jXA" ></script>
                                 <script LANGUAGE="JavaScript" src='../assets/js/mapa.js'>
-                                    
+
                                 </script>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>              
     </div> 

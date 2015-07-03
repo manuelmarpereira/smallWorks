@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class lazy="false" name="tp_aa.Feedback" table="Feedback">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.feedback.Feedback" table="Feedback" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <many-to-one access="field" cascade="lock" class="tp_aa.Classification" column="ClassificationID" lazy="proxy" name="Classification" not-null="true">
+		</id>
+		<many-to-one name="Classification" cascade="lock" column="ClassificationID" class="hibernate.classification.Classification" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-    <property column="Coment" lazy="false" length="255" name="coment" not-null="false" type="string"/>
-  </class>
+		<property name="coment" column="Coment" type="string" length="255" not-null="false" lazy="false"/>
+	</class>
 </hibernate-mapping>

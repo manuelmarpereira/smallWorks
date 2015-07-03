@@ -1,14 +1,15 @@
 package implementations;
 
+import hibernate.district.District;
 import interfaces.ManageUserLocal;
-import globalconf.TPAAPersistentManager;
+import hibernate.globalconf.TPAAPersistentManager;
+import hibernate.user.User;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
-import user.User;
 
 @Stateless
 public class ManageUser implements ManageUserLocal {
@@ -17,9 +18,14 @@ public class ManageUser implements ManageUserLocal {
     ManageUserLocal gclEjb;
 
     @Override
-    public User registUser(User u) {
+    public User registUser(User u, String distrito) {
+        //grava distrito
+        
         // User u  = vou gravar na base de dados se possivel 
         if (!UserExist(u)) {
+           
+            u.setORM_District(guardaDistrito(distrito));
+
             PersistentSession entityManager = null;
             try {
                 entityManager = TPAAPersistentManager.instance().getSession();
@@ -34,7 +40,51 @@ public class ManageUser implements ManageUserLocal {
             return u;
         }
         return null;
-
+    }
+    
+    private static District guardaDistrito(String distrito){
+        //verifica se distrito existe
+        District dist=verificaDistrito(distrito);
+        if (dist==null){
+                //insere districto
+                dist=new District();
+                dist.setName(distrito);
+                PersistentSession entityManager = null;
+                try {
+                    entityManager = TPAAPersistentManager.instance().getSession();
+                    entityManager.beginTransaction();
+                    entityManager.save(dist);
+                    entityManager.getTransaction().commit();
+                    entityManager.close();
+                } catch (PersistentException ex) {
+                    //tratar excepção se correr mal a meia da transação
+                    ex.printStackTrace();
+                }
+               dist=verificaDistrito(distrito);
+        }
+        return dist;
+    }
+    
+        private static District verificaDistrito(String distrito){
+        PersistentSession entityManager = null;
+        List<District> listUser = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query login = entityManager.createQuery("from District where name LIKE :name");
+            login.setParameter("name", distrito);
+   
+            listUser = (List<District>) login.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+          if (listUser.isEmpty()) {
+            return null;
+        }
+          return listUser.get(0);
     }
 
     private boolean UserExist(User u) {
@@ -64,6 +114,7 @@ public class ManageUser implements ManageUserLocal {
 
         PersistentSession entityManager = null;
         List<User> listUser = null;
+       
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
@@ -77,7 +128,7 @@ public class ManageUser implements ManageUserLocal {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
         }
-
+        
         if (listUser.size() == 1) {
             User u = new User();
             u.setID(listUser.get(0).getID());
@@ -87,19 +138,5 @@ public class ManageUser implements ManageUserLocal {
 
         return null;
     }
+
 }
-//@Override
-//public boolean login(String nick, String password, User a) {
-//    if (a != null ) {
-//        if(a.getNick().equals(nick) && a.getPass().equals(password)) {
-//            return true;
-//        }
-//    } else {
-//        // envias para a base de dados // dbLogin(nick,pass) : User
-//        if(nick.equals("admin") && password.equals("admin")) {
-//            System.out.println("entrei no 2");
-//            return true;
-//        }
-//    }
-//    return false;
-//}
