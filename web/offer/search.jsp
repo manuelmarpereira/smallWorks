@@ -30,13 +30,13 @@
                             <div class="col-xs-5">
                                 <div class="form-group has-feedback has-feedback-left">
                                     <input type="text" class="form-control" placeholder="Task or keyword">
-                                    <span class="glyphicon glyphicon-search form-control-feedback blue"></span>
+                                    <span class="glyphicon glyphicon-search form-control-feedback glyphicon-info"></span>
                                 </div>
                             </div>
                             <div class="col-xs-5">
                                 <div class="form-group has-feedback has-feedback-left">
                                     <input type="text" class="form-control" placeholder="Location">
-                                    <span class="glyphicon glyphicon-map-marker form-control-feedback blue"></span>
+                                    <span class="glyphicon glyphicon-map-marker form-control-feedback glyphicon-info"></span>
                                 </div>
                             </div>
                             <div class="col-xs-2">

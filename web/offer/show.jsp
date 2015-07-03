@@ -1,27 +1,24 @@
-<%-- 
-    Document   : show
-    Created on : 5/jun/2015, 20:06:35
-    Author     : Manuel
---%>
-
+        
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <jsp:include page="/user/show.jsp" />
-        <div class=" marginSide"> 
-        <div class="row">
+<%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
+<layout:simple_layout title="Search Offers" class2="">
+    <jsp:attribute name="head"> 
+    </jsp:attribute>
+
+    <jsp:attribute name="foot"></jsp:attribute>
+    <jsp:attribute name="container">
+
+        <jsp:include page="/user/editUser.jsp" />
+        <div class="row marginSide">
             <div class="col-md-12">
                 <hr>
                 <div class="col-md-6  white">
-                    <h1><a class="control-label">Cortar a Relva </a><small>Inserido em 14 de Abril</small></h1>
+                    <h3 style="margin-left: 45px;"><a class="control-label">Cortar a Relva </a><small>Inserido em 14 de Abril</small></h3>
                     <div class="col-sm-1"></div>
                     <div class=" panel panel-default blue col-sm-10">
                         <br>
-                        <p>
+                        <p style=" color:#888">
                             Estou a Necessitar de alguém que possa vir cá a casa
                             cortar a relva do meu jardim. São cerca de 20m2. Se
                             estiver interessado entre em contacto comigo até
@@ -32,16 +29,16 @@
                     <br>
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
-                        <p class="control-label">Recompensa:</p>
+                        <p class="control-label" style=" color:#888">Recompensa:</p>
                     </div>
 
-                    <div class=" control-label pull-left col-sm-1">
+                    <div class="col-sm-1" style=" color:#888; padding-left: 30px;">
                         25€
                     </div>
 
-                    <div class="col-sm-5 pull-left">
+                    <div class="col-sm-5 pull-left" style="padding-left: 30px;">
                         <input type="checkbox" id="a">
-                        <label class="control-label" for="a">Negociável</label>
+                        <label style="color:#888" for="a">Negociável</label>
                     </div>
                     <div class="col-sm-2"></div>
 
@@ -65,6 +62,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </body>
-</html>
+
+    </jsp:attribute>
+</layout:simple_layout> 

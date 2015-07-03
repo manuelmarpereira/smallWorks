@@ -1,28 +1,76 @@
-<%-- 
-    Document   : chart
-    Created on : 7/jun/2015, 21:26:41
-    Author     : Manuel
---%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <jsp:include page="/menu/menu.jsp" />
-        <jsp:include page="/user/profile.jsp" />
-        <div class="col-lg-10 marginSide">    
-            <h2>Status <small> Your mensal caches</small></h2>
+<%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
+<layout:profile_layout title="Chart" class2="">
+    <jsp:attribute name="head">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </jsp:attribute>
+        
+    <jsp:attribute name="container">
+    <div class="marginSide"> 
+        <div class="col-lg-6">    
+            <h2>Stats <small> Your mensal caches</small></h2>
             <hr>
-            <div id="morris-bar-chart" style="height: 260px" ></div>
+            <div id="morris-bar-chart" style="height: 160px" ></div>
         </div>
+        
+        <div class="row">
+		<div class="col-lg-3 col-md-2 marginTopStats">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-thumb-tack fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h3><b>10</b></h3>
+							<div>Total Offers</div>
+						</div>
+					</div>
+				</div>
+				<a href="${pageContext.request.contextPath}/user/registerUser.jsp">
+					<div class="panel-footer">
+						<span class="pull-left">
+							View All
+							</span>
+						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+                <div class="col-lg-3 col-md-2 marginTopStats">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-money fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h3><b>10<i class="fa fa-euro"></i></b></h3>
+							<div>Total Cash</div>
+						</div>
+					</div>
+				</div>
+				<a href="${pageContext.request.contextPath}/user/registerUser.jsp">
+					<div class="panel-footer">
+						<span class="pull-left">
+							View All
+							</span>
+						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+                	
+       
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/jquery.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/morris-data.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/morris.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/plugins/raphael.min.js" type="text/javascript"></script>
 
-        <script src="<%=request.getContextPath()%>/assets/js/jquery.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/morris-data.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/morris.min.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/raphael.min.js" type="text/javascript"></script>
+    </div>
 
-    </body>
-</html>
+        </jsp:attribute>
+</layout:profile_layout>
