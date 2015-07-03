@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form role="form" class="form-model col-md-9 go-right">
+                    <form role="form" class="form-model col-md-8 go-right">
 
                         <div class="form-group">
                             <input  name="firstname" type="text" class="form-control" placeholder="Your First Name">
@@ -25,6 +25,10 @@
                         </div>
 
                     </form>
+                    
+                    <div class="col-md-2">
+                        <img src="${pageContext.request.contextPath}/assets/img/edit.png"/> 
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

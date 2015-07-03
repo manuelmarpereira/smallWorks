@@ -32,6 +32,7 @@ public class RegisterUser extends HttpServlet {
 
     
         
+
         if (validateData(n) && checkPasswords(p, req.getParameter("confPass")) && validateData(fn)
                 && validateData(ln) && validateData(em) && validateData(cla) && validateData(clo)) {
             u = new User();

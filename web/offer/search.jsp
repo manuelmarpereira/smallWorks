@@ -1,3 +1,5 @@
+/* global rangeMax */
+
 <%-- 
     Document   : search
     Created on : 18/jun/2015, 16:03:51
@@ -28,17 +30,17 @@
                             <div class="col-xs-5">
                                 <div class="form-group has-feedback has-feedback-left">
                                     <input type="text" class="form-control" placeholder="Task or keyword">
-                                    <span class="glyphicon glyphicon-search form-control-feedback blue"></span>
+                                    <span class="glyphicon glyphicon-search form-control-feedback glyphicon-info"></span>
                                 </div>
                             </div>
                             <div class="col-xs-5">
                                 <div class="form-group has-feedback has-feedback-left">
                                     <input type="text" class="form-control" placeholder="Location">
-                                    <span class="glyphicon glyphicon-map-marker form-control-feedback blue"></span>
+                                    <span class="glyphicon glyphicon-map-marker form-control-feedback glyphicon-info"></span>
                                 </div>
                             </div>
                             <div class="col-xs-2">
-                                <a class="btn btn-default" href="search.html">Search</a>
+                                <a class="btn btn-primary" href="search.html">Search</a>
                             </div>
                         </form>
 
@@ -49,21 +51,21 @@
                     <div class="col-xs-4">
                         <div class="control-label"  style="margin-top:10px">Min Value €</div>
                         <div class="range range-info">
-                            <input type="range" name="range" min="1" max="200" value="5" onchange="rangeWarning.value = value">
-                            <output id="rangeWarning">5</output>
+                            <input type="range" name="range" min="1" max="200" value="5" onchange="rangeMin.value = value">
+                            <output id="rangeMin">5</output>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="control-label" style="margin-top:10px">Max Value €</div>
-                        <div class="range range-primary">
-                            <input type="range" name="range" min="1" max="200" value="100" onchange="rangeDanger.value = value">
-                            <output id="rangeDanger">100</output>
+                        <div class="range range-info">
+                            <input id="slider_max" type="range" name="range" min="1" max="200" value="100" data-slider-value="14" onchange="rangeMax.value = value">
+                            <output id="rangeMax">100</output>
                         </div>
                     </div>
                     <div class="col-xs-3 pull-right" style="margin-top:15px">
                         <div class="pull-right"  >
                             <div class="form-group">
-                                <label class="white">Ordenar por: </label>
+                                <label class="control-label">Ordenar por: </label>
                                 <select class="combobox">
                                     <option>Mais recentes</option>
                                     <option>Maior recompensa</option>
@@ -78,4 +80,4 @@
             <jsp:include page="/offer/listOffers.jsp" />                
         </div> 
     </jsp:attribute>
-</layout:simple_layout>
+</layout:simple_layout> 

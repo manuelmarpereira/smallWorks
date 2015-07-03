@@ -12,7 +12,6 @@ and open the template in the editor.
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 
-
 .range {
     display: table;
     position: relative;
@@ -103,32 +102,6 @@ and open the template in the editor.
     outline: none;
 }
 
-.range.range-primary input[type="range"]::-webkit-slider-thumb {
-    background-color: rgb(66, 139, 202);
-}
-.range.range-primary input[type="range"]::-moz-slider-thumb {
-    background-color: rgb(66, 139, 202);
-}
-.range.range-primary output {
-    background-color: rgb(66, 139, 202);
-}
-.range.range-primary input[type="range"] {
-    outline-color: rgb(66, 139, 202);
-}
-
-.range.range-success input[type="range"]::-webkit-slider-thumb {
-    background-color: rgb(92, 184, 92);
-}
-.range.range-success input[type="range"]::-moz-slider-thumb {
-    background-color: rgb(92, 184, 92);
-}
-.range.range-success output {
-    background-color: rgb(92, 184, 92);
-}
-.range.range-success input[type="range"] {
-    outline-color: rgb(92, 184, 92);
-}
-
 .range.range-info input[type="range"]::-webkit-slider-thumb {
     background-color: rgb(91, 192, 222);
 }
@@ -140,30 +113,4 @@ and open the template in the editor.
 }
 .range.range-info input[type="range"] {
     outline-color: rgb(91, 192, 222);
-}
-
-.range.range-warning input[type="range"]::-webkit-slider-thumb {
-    background-color: rgb(240, 173, 78);
-}
-.range.range-warning input[type="range"]::-moz-slider-thumb {
-    background-color: rgb(240, 173, 78);
-}
-.range.range-warning output {
-    background-color: rgb(240, 173, 78);
-}
-.range.range-warning input[type="range"] {
-    outline-color: rgb(240, 173, 78);
-}
-
-.range.range-danger input[type="range"]::-webkit-slider-thumb {
-    background-color: rgb(217, 83, 79);
-}
-.range.range-danger input[type="range"]::-moz-slider-thumb {
-    background-color: rgb(217, 83, 79);
-}
-.range.range-danger output {
-    background-color: rgb(217, 83, 79);
-}
-.range.range-danger input[type="range"] {
-    outline-color: rgb(217, 83, 79);
 }

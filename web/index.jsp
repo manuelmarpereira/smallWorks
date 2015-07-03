@@ -22,17 +22,17 @@
                         <div class="form-group has-feedback has-feedback-left">
 
                             <input type="text" class="form-control" placeholder="Task or key word">
-                            <span class="glyphicon glyphicon-search form-control-feedback blue"></span>
+                            <span class="glyphicon glyphicon-search form-control-feedback glyphicon-primary"></span>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="form-group has-feedback has-feedback-left">
                             <input type="text" class="form-control" placeholder="Location">
-                            <span class="glyphicon glyphicon-map-marker form-control-feedback blue"></span>
+                            <span class="glyphicon glyphicon-map-marker form-control-feedback glyphicon-primary"></span>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <a class="pull-left btn btn-default" href="${pageContext.request.contextPath}/offer/search.jsp">Search</a>
+                        <a class="pull-left btn btn-primary" href="${pageContext.request.contextPath}/offer/search.jsp">Search</a>
                     </div>
                 </form>
             </div>

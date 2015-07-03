@@ -8,31 +8,24 @@ and open the template in the editor.
     Author     : Manuel
 */
 
-.rating {
-                overflow: hidden;
+.rating-star {        
                 display: inline-block;
-            }
-            .rating-input {
-                position: absolute;
-                left: 0;
-                top: -50px;
-            }
-            .rating-star {        
-                display: block;
-                float: left;        
+                float: left!important;        
                 width: 16px;
                 height: 16px;
                 background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
+            }            
+            
+            .rating-star:hover,
+            .rating-star:hover ~ .rating-star {
+                background-position: 0 -16;
             }
             
-            
-            
             .rating-star-show {        
-                display: block;
+                display: inline-block;
                 float: left !important;        
                 width: 16px;
                 height: 16px;
                 background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 0px;
             }
-            
             
