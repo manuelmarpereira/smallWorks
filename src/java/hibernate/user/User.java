@@ -32,7 +32,7 @@ public class User {
 	
 	private int ID;
 	
-	private hibernate.district.District district;
+	private hibernate.district.District district =new hibernate.district.District();
 	
 	private String nick;
 	
@@ -131,7 +131,8 @@ public class User {
 			district.user.remove(this);
 		}
 		if (value != null) {
-			value.user.add(this);
+                   
+               	value.user.add(this);
 		}
 	}
 	

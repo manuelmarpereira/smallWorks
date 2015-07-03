@@ -23,7 +23,18 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login/login</url-pattern>
     </servlet-mapping>
-    
+    	<filter>
+  	<filter-name>ORMFilter</filter-name>
+		<filter-class>hibernate.globalconf.TPAAFilter</filter-class>
+		<init-param>
+		 	<param-name>WrapServletRequest</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+        <filter-mapping>
+		<filter-name>ORMFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
     <session-config>
         <session-timeout>
             30

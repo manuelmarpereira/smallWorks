@@ -20,11 +20,11 @@
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     
-                    <input type="text" class="form-control" name="nick" value="<%=fn%>" placeholder="username or email" required="true">                               
+                    <input type="text" class="form-control" name="nick" value="<%=fn%>" placeholder="username or email" required>                               
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="login-password" type="password" class="form-control" name="password" value="<%=fp%>" placeholder="password" required="true">
+                    <input id="login-password" type="password" class="form-control" name="password" value="<%=fp%>" placeholder="password" required>
                 </div>
                 <% if(error!=null) {%>
                     <span style="color: red;"><%=error%></span>
