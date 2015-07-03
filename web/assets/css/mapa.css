@@ -1,9 +1,7 @@
 .mapRight{
-
+    /* width: 100%; */
     height: 300px;
-    width: 410px;
-    border: 10px solid whitesmoke;
-
+    /* border: 10px solid whitesmoke; */
 }
 
 /* =============== Estilos do autocomplete =============== */
@@ -12,7 +10,6 @@
     border-top: 1px solid #ccc;
     cursor: pointer; 
     font: 15px 'Open Sans',Arial;
-
     width: 280px !important;
     position: fixed;
 }
@@ -32,4 +29,5 @@
 .ui-autocomplete .ui-corner-all { 
     color: #666 !important;
     display: block;
+    
 }

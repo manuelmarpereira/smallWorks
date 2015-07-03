@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script src='http://code.jquery.com/jquery-1.11.3.js'></script>
 
+<link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
 <div class="profile-header">
-    <div class="row" style=" margin-bottom: 10px">
+    <div class="row" style="margin-bottom: 10px;">
         <div class="col-sm-4 col-md-3 col-md-2 white">
             <img src="../assets/img/user.jpg" alt="" class="img-circle img-circle-user" height="150" width="150" />
             <p class="pull-left" id="photoEdit">
@@ -16,20 +16,22 @@
             </p>
         </div>
         <div class="col-sm-4 col-md-4 white">
-            <p class="pull-left">
-                <h1>
+            <p class="pull-left" >
+               teste
                     <c:out value="${sessionScope.user.firstname}" /> <c:out value="${sessionScope.user.lastname}" />
                     <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
-                </h1>
+               
                 <br>
-            </p>
+          </p>
+          
             <p class="pull-left">
-                <h4>
+              
                     <i class="glyphicon glyphicon-map-marker"></i>
                     Porto
-                    <small id="locationEdit"><a href="#" data-toggle="modal" data-target="#editLocationModel">(Edit)</a></small>
-                </h4>
+                   
+                
             </p>
+          
             <p class="pull-left">
                 <i class="glyphicon glyphicon-envelope"></i>
                 <c:out value="${sessionScope.user.email}"/>manuelantonio@gmail.com
@@ -46,7 +48,7 @@
 
             <span class="rating">
                 <c:choose>
-                    <c:when test="${sessionScope.user.ID==1}"> 
+                    <c:when test="${sessionScope.user.ID!=null}"> 
                         <a href="myOffers.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-th-list pull-left"></i>All My Offers</a>
                         <a href="newOffer.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-plus pull-left"></i>Create New Offer</a>
                         <a href="chart.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-stats pull-left"></i>User Stats</a>      
@@ -70,7 +72,7 @@
 
 function verifyUser() { 
       
-      if ( '<c:out value="${sessionScope.user.ID}"/>'!=1){
+      if ( '<c:out value="${sessionScope.user.ID}"/>'==null){
         $('#nameEdit').remove(); 
         $('#emailEdit').remove(); 
         $('#locationEdit').remove(); 

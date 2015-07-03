@@ -1,36 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class discriminator-value="Work" lazy="false" name="tp_aa.Work" table="Work">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.work.Work" table="Work" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <discriminator column="Discriminator" type="string"/>
-    <many-to-one access="field" cascade="lock" class="tp_aa.District" column="DistrictID" lazy="proxy" name="Localization" not-null="true">
+		</id>
+		<many-to-one name="Creator" cascade="lock" column="UserID2" class="hibernate.user.User" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-    <many-to-one access="field" cascade="lock" class="tp_aa.Task" column="TaskID" lazy="proxy" name="Tasks" not-null="true">
+		<many-to-one name="Tasks" cascade="lock" column="TaskID" class="hibernate.task.Task" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-    <many-to-one access="field" cascade="lock" class="user.User" column="UserID" lazy="proxy" name="Worker" not-null="true">
+		<many-to-one name="Worker" cascade="lock" column="UserID" class="hibernate.user.User" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-    <property column="Title" lazy="false" length="255" name="title" not-null="false" type="string"/>
-    <property column="Description" lazy="false" length="255" name="description" not-null="false" type="string"/>
-    <property column="Price" lazy="false" name="price" not-null="true" type="double"/>
-    <property column="Negotiable" lazy="false" name="negotiable" not-null="true" type="boolean"/>
-    <property column="State" lazy="false" length="255" name="state" not-null="false" type="string"/>
-    <property column="`Column`" lazy="false" name="startDate" not-null="false" type="date"/>
-    <subclass discriminator-value="InitWork" lazy="false" name="tp_aa.InitWork">
-      <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="long"/>
-      <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="long"/>
-    </subclass>
-    <subclass discriminator-value="MakeWork" lazy="false" name="tp_aa.MakeWork">
-      <many-to-one access="field" cascade="lock" class="tp_aa.Feedback" column="FeedbackID" lazy="proxy" name="Evaluation" not-null="false">
+		<many-to-one name="Localization" cascade="lock" column="DistrictID" class="hibernate.district.District" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="title" column="Title" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="price" column="Price" type="double" not-null="true" lazy="false"/>
+		<property name="negotiable" column="Negotiable" type="boolean" not-null="true" lazy="false"/>
+		<property name="startDate" column="StartDate" type="date" not-null="false" lazy="false"/>
+		<joined-subclass name="hibernate.initWork.InitWork" table="InitWork" lazy="false">
+			<key>
+				<column name="WorkID"/>
+			</key>
+			<property name="coordLat" column="CoordLat" type="long" not-null="true" lazy="false"/>
+			<property name="coordLong" column="CoordLong" type="long" not-null="true" lazy="false"/>
+		</joined-subclass>
+		<joined-subclass name="hibernate.makeWork.MakeWork" table="MakeWork" lazy="false">
+			<key>
+				<column name="WorkID"/>
+			</key>
+			<property name="finishDate" column="FinishDate" type="date" not-null="false" lazy="false"/>
+			<many-to-one name="Evaluation" cascade="lock" column="FeedbackID" class="hibernate.feedback.Feedback" not-null="true" lazy="proxy" access="field">
 			</many-to-one>
-      <property column="FinishDate" lazy="false" name="finishDate" not-null="false" type="date"/>
-    </subclass>
-  </class>
+		</joined-subclass>
+	</class>
 </hibernate-mapping>

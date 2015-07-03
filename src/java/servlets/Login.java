@@ -1,7 +1,7 @@
 package servlets;
 
 import interfaces.ManageUserLocal;
-import user.User;
+import hibernate.user.User;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;

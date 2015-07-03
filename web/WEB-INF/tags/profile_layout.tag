@@ -26,7 +26,7 @@
         <jsp:invoke fragment="head"></jsp:invoke>
         </head>
 
-    <% user.User user = (user.User) request.getAttribute("user");
+    <% hibernate.user.User user = (hibernate.user.User) request.getAttribute("user");
         if (user != null) {
             session.setAttribute("name", user.getFirstname());
         }
@@ -37,8 +37,8 @@
         <body class="${class2}">
        
         <jsp:include page="/layout/nav.jsp" />
-       <jsp:include page="/layout/user.jsp" />
-        
+       
+        <jsp:include page="/layout/user.jsp" />
         <jsp:invoke fragment="container"></jsp:invoke>
         
         <jsp:include page="/layout/foot.jsp" />

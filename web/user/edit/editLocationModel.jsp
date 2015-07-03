@@ -15,12 +15,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+                            <label for="txtEndereco2" >Endereço </label>
+                                  
+                                        <input type="text" id="txtEndereco2" class="form-control" required name="txtEndereco2" />
                             <form role="form" class="col-md-9 go-right">
 
                                 <div class="form-group">
                                                                  
                                 </div>
-                                <jsp:include page="/layout/map.jsp" />
                             </form>
                         </div>
                     </div>

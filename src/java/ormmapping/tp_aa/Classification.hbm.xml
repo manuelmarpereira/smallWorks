@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class lazy="false" name="tp_aa.Classification" table="Classification">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.classification.Classification" table="Classification" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <property column="Value" lazy="false" name="value" not-null="true" type="integer"/>
-  </class>
+		</id>
+		<property name="value" column="Value" type="integer" not-null="true" lazy="false"/>
+	</class>
 </hibernate-mapping>

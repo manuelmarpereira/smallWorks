@@ -2,6 +2,7 @@ package subscription;
 
 //import javax.ejb.EJB;
 
+import hibernate.work.Work;
 import interfaces.ManageSubscriptionLocal;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,13 +26,20 @@ public class Observer {
         subsCat.put(userid, category);
     }
     
-    public void sendNotifications(boolean district) {
-        if(district){
-            //send to all users that are in subsDis
-            // use facebookAPI no send notification
-        } else {
-            //send to all users that are in subsCat
-            // use facebookAPI no send notification
+    public void sendNotifications(Work w) {
+        
+        for (Map.Entry<Long, String> entrySet : subsCat.entrySet()) {
+            Long key = entrySet.getKey();
+            String value = entrySet.getValue();
+            
+            // enviar a todos os utilizadores que subscreveram esta categoria
+            if(w.getLocalization().getName().equals(value)) {
+                // facebookAPI... enviar notificação
+                // key é o id do utilizador
+            }
+//            if(w.getTasks()) {
+//                
+//            }
         }
     }
     

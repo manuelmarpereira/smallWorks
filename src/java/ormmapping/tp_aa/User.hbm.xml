@@ -1,26 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class discriminator-value="User" lazy="false" name="user.User" table="`User`">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.user.User" table="`User`" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <discriminator column="Discriminator" type="string"/>
-    <property column="Nick" lazy="false" length="255" name="nick" not-null="false" type="string"/>
-    <property column="Firstname" lazy="false" length="255" name="firstname" not-null="false" type="string"/>
-    <property column="Lastname" lazy="false" length="255" name="lastname" not-null="false" type="string"/>
-    <property column="Password" lazy="false" length="255" name="password" not-null="false" type="string"/>
-    <property column="Email" lazy="false" length="255" name="email" not-null="false" type="string"/>
-    <property column="Photo" lazy="false" length="255" name="photo" not-null="false" type="string"/>
-    <property column="CoordLat" lazy="false" name="coordLat" not-null="false" type="string"/>
-    <property column="CoordLong" lazy="false" name="coordLong" not-null="false" type="string"/>
-    <subclass discriminator-value="Creator" lazy="false" name="user.Creator">
-      <property column="Type" lazy="false" length="255" name="type" not-null="false" type="string"/>
-    </subclass>
-  </class>
+		</id>
+		<many-to-one name="district" cascade="lock" column="DistrictID" class="hibernate.district.District" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="nick" column="Nick" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="firstname" column="Firstname" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="lastname" column="Lastname" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="email" column="Email" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="photo" column="Photo" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="coordLat" column="CoordLat" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="coordLong" column="CoordLong" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_Subscriptions" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="UserID" not-null="true"/>
+			<one-to-many class="hibernate.subscription.subscription"/>
+		</set>
+	</class>
 </hibernate-mapping>

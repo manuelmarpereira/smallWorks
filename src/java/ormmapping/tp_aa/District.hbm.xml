@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Licensee: 
 License Type: Evaluation
 -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class lazy="false" name="tp_aa.District" table="District">
-    <id column="ID" name="ID" type="integer" unsaved-value="0">
-      <generator class="native">
+	<class name="hibernate.district.District" table="District" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
 			</generator>
-    </id>
-    <property column="Name" lazy="false" length="255" name="name" not-null="false" type="string"/>
-  </class>
+		</id>
+		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<set name="ORM_User" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="DistrictID" not-null="true"/>
+			<one-to-many class="hibernate.user.User"/>
+		</set>
+	</class>
 </hibernate-mapping>
