@@ -19,20 +19,20 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class DistrictDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final StringExpression name;
 	public final CollectionExpression user;
 	
 	public DistrictDetachedCriteria() {
 		super(hibernate.district.District.class, hibernate.district.DistrictCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		user = new CollectionExpression("ORM_User", this.getDetachedCriteria());
 	}
 	
 	public DistrictDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.district.DistrictCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		user = new CollectionExpression("ORM_User", this.getDetachedCriteria());
 	}

@@ -13,12 +13,14 @@
  */
 package hibernate.task;
 
+import hibernate.globalconf.ORMConstants;
+
 public class Task {
 	public Task() {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == hibernate.globalconf.ORMConstants.KEY_TASK_SUBTAKS) {
+		if (key == ORMConstants.KEY_TASK_SUBTAKS) {
 			return ORM_subtaks;
 		}
 		
@@ -32,22 +34,22 @@ public class Task {
 		
 	};
 	
-	private int ID;
+	private int id;
 	
 	private String name;
 	
 	private java.util.Set ORM_subtaks = new java.util.HashSet();
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setName(String value) {
@@ -66,10 +68,10 @@ public class Task {
 		return ORM_subtaks;
 	}
 	
-	public final hibernate.subTask.SubTaskSetCollection subtaks = new hibernate.subTask.SubTaskSetCollection(this, _ormAdapter, hibernate.globalconf.ORMConstants.KEY_TASK_SUBTAKS, hibernate.globalconf.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final hibernate.subTask.SubTaskSetCollection subtaks = new hibernate.subTask.SubTaskSetCollection(this, _ormAdapter, ORMConstants.KEY_TASK_SUBTAKS, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

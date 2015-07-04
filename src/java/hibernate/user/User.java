@@ -15,13 +15,14 @@ package hibernate.user;
 
 import java.util.Observable;
 import java.util.Observer;
+import hibernate.globalconf.ORMConstants;
 
 public class User implements Observer {
 	public User() {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == hibernate.globalconf.ORMConstants.KEY_USER_SUBSCRIPTIONS) {
+		if (key == ORMConstants.KEY_USER_SUBSCRIPTIONS) {
 			return ORM_subscriptions;
 		}
 		
@@ -29,7 +30,7 @@ public class User implements Observer {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == hibernate.globalconf.ORMConstants.KEY_USER_DISTRICT) {
+		if (key == ORMConstants.KEY_USER_DISTRICT) {
 			this.district = (hibernate.district.District) owner;
 		}
 	}
@@ -45,7 +46,7 @@ public class User implements Observer {
 		
 	};
 	
-	private int ID;
+	private int id;
 	
 	private hibernate.district.District district;
 	
@@ -67,16 +68,16 @@ public class User implements Observer {
 	
 	private java.util.Set ORM_subscriptions = new java.util.HashSet();
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setNick(String value) {
@@ -151,7 +152,7 @@ public class User implements Observer {
 		return ORM_subscriptions;
 	}
 	
-	public final hibernate.subscription.subscriptionSetCollection subscriptions = new hibernate.subscription.subscriptionSetCollection(this, _ormAdapter, hibernate.globalconf.ORMConstants.KEY_USER_SUBSCRIPTIONS, hibernate.globalconf.ORMConstants.KEY_SUBSCRIPTION_USER, hibernate.globalconf.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final hibernate.subscription.subscriptionSetCollection subscriptions = new hibernate.subscription.subscriptionSetCollection(this, _ormAdapter, ORMConstants.KEY_USER_SUBSCRIPTIONS, ORMConstants.KEY_SUBSCRIPTION_USER, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public void setDistrict(hibernate.district.District value) {
 		if (district != null) {
@@ -178,20 +179,16 @@ public class User implements Observer {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 
     @Override
     public void update(Observable o, Object arg) {
-        /***
+        /**
          * 
-         * 
-         * 
-         * PROGRAMA AQUI NOOB
-         * 
+         * COdificar
          * 
          * 
          */
-    }
-	
+    }	
 }

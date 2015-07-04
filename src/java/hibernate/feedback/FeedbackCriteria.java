@@ -20,15 +20,15 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class FeedbackCriteria extends AbstractORMCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression ClassificationId;
 	public final AssociationExpression Classification;
 	public final StringExpression coment;
 	
 	public FeedbackCriteria(Criteria criteria) {
 		super(criteria);
-		ID = new IntegerExpression("ID", this);
-		ClassificationId = new IntegerExpression("Classification.ID", this);
+		id = new IntegerExpression("id", this);
+		ClassificationId = new IntegerExpression("Classification.id", this);
 		Classification = new AssociationExpression("Classification", this);
 		coment = new StringExpression("coment", this);
 	}

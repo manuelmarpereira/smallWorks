@@ -15,18 +15,18 @@ package hibernate.task;
 
 import org.orm.PersistentException;
 public class TaskProcessor {
-	private int ID;
+	private int id;
 	
 	private String name;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setName(String value) {
@@ -49,7 +49,7 @@ public class TaskProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.task.Task _task = hibernate.task.TaskDAO.loadTaskByORMID(getID());
+				hibernate.task.Task _task = hibernate.task.TaskDAO.loadTaskByORMID(getId());
 				if (_task!= null) {
 					copyFromBean(_task);
 					result = "Search success";
@@ -79,7 +79,7 @@ public class TaskProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.task.Task _task= hibernate.task.TaskDAO.loadTaskByORMID(getID());
+				hibernate.task.Task _task= hibernate.task.TaskDAO.loadTaskByORMID(getId());
 				if (_task != null) {
 					copyToBean(_task);
 					if (TaskDAO.save(_task)) {
@@ -100,7 +100,7 @@ public class TaskProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.task.Task _task = hibernate.task.TaskDAO.loadTaskByORMID(getID());
+				hibernate.task.Task _task = hibernate.task.TaskDAO.loadTaskByORMID(getId());
 				if (_task != null && TaskDAO.delete(_task)) {
 					result = "Delete success";
 				}
@@ -121,7 +121,7 @@ public class TaskProcessor {
 	
 	private void copyFromBean(hibernate.task.Task _task) {
 		setName(_task.getName());
-		setID(_task.getORMID());
+		setId(_task.getORMID());
 	}
 	
 	private void copyToBean(hibernate.task.Task _task) {

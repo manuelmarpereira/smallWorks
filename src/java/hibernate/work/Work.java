@@ -13,13 +13,15 @@
  */
 package hibernate.work;
 
+import hibernate.user.User;
+import hibernate.task.Task;
 import java.util.Observable;
 
 public class Work extends Observable {
 	public Work() {
 	}
 	
-	private int ID;
+	private int id;
 	
 	private hibernate.user.User Creator;
 	
@@ -37,18 +39,22 @@ public class Work extends Observable {
 	
 	private boolean negotiable;
 	
+	private long coordLat;
+	
+	private long coordLong;
+	
 	private java.util.Date startDate;
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setTitle(String value) {
@@ -83,6 +89,22 @@ public class Work extends Observable {
 		return negotiable;
 	}
 	
+	public void setCoordLat(long value) {
+		this.coordLat = value;
+	}
+	
+	public long getCoordLat() {
+		return coordLat;
+	}
+	
+	public void setCoordLong(long value) {
+		this.coordLong = value;
+	}
+	
+	public long getCoordLong() {
+		return coordLong;
+	}
+	
 	public void setStartDate(java.util.Date value) {
 		this.startDate = value;
 	}
@@ -91,27 +113,27 @@ public class Work extends Observable {
 		return startDate;
 	}
 	
-	public void setCreator(hibernate.user.User value) {
+	public void setCreator(User value) {
 		this.Creator = value;
 	}
 	
-	public hibernate.user.User getCreator() {
+	public User getCreator() {
 		return Creator;
 	}
 	
-	public void setTasks(hibernate.task.Task value) {
+	public void setTasks(Task value) {
 		this.Tasks = value;
 	}
 	
-	public hibernate.task.Task getTasks() {
+	public Task getTasks() {
 		return Tasks;
 	}
 	
-	public void setWorker(hibernate.user.User value) {
+	public void setWorker(User value) {
 		this.Worker = value;
 	}
 	
-	public hibernate.user.User getWorker() {
+	public User getWorker() {
 		return Worker;
 	}
 	
@@ -124,7 +146,7 @@ public class Work extends Observable {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

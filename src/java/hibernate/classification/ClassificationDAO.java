@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class ClassificationDAO {
-	public static Classification loadClassificationByORMID(int ID) throws PersistentException {
+	public static Classification loadClassificationByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadClassificationByORMID(session, ID);
+			return loadClassificationByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification getClassificationByORMID(int ID) throws PersistentException {
+	public static Classification getClassificationByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getClassificationByORMID(session, ID);
+			return getClassificationByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification loadClassificationByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Classification loadClassificationByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadClassificationByORMID(session, ID, lockMode);
+			return loadClassificationByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification getClassificationByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Classification getClassificationByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getClassificationByORMID(session, ID, lockMode);
+			return getClassificationByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification loadClassificationByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Classification loadClassificationByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Classification) session.load(hibernate.classification.Classification.class, new Integer(ID));
+			return (Classification) session.load(hibernate.classification.Classification.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification getClassificationByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Classification getClassificationByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Classification) session.get(hibernate.classification.Classification.class, new Integer(ID));
+			return (Classification) session.get(hibernate.classification.Classification.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification loadClassificationByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Classification loadClassificationByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Classification) session.load(hibernate.classification.Classification.class, new Integer(ID), lockMode);
+			return (Classification) session.load(hibernate.classification.Classification.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static Classification getClassificationByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Classification getClassificationByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Classification) session.get(hibernate.classification.Classification.class, new Integer(ID), lockMode);
+			return (Classification) session.get(hibernate.classification.Classification.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

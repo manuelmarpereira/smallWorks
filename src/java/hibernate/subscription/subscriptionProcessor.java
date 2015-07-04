@@ -15,16 +15,16 @@ package hibernate.subscription;
 
 import org.orm.PersistentException;
 public class subscriptionProcessor {
-	private int ID;
+	private int id;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public String getAction() {
@@ -35,41 +35,41 @@ public class subscriptionProcessor {
 		this.action = action;
 	}
 	
-	private int subsDistrict_districtID;
+	private int subsDistrict_districtid;
 	
-	public void setSubsDistrict_districtID(int value) {
-		this.subsDistrict_districtID = value;
+	public void setSubsDistrict_districtid(int value) {
+		this.subsDistrict_districtid = value;
 	}
 	
-	public int getSubsDistrict_districtID() {
-		return subsDistrict_districtID;
+	public int getSubsDistrict_districtid() {
+		return subsDistrict_districtid;
 	}
 	
-	private int subsTask_taskID;
+	private int subsTask_taskid;
 	
-	public void setSubsTask_taskID(int value) {
-		this.subsTask_taskID = value;
+	public void setSubsTask_taskid(int value) {
+		this.subsTask_taskid = value;
 	}
 	
-	public int getSubsTask_taskID() {
-		return subsTask_taskID;
+	public int getSubsTask_taskid() {
+		return subsTask_taskid;
 	}
 	
-	private int user_userID;
+	private int user_userid;
 	
-	public void setUser_userID(int value) {
-		this.user_userID = value;
+	public void setUser_userid(int value) {
+		this.user_userid = value;
 	}
 	
-	public int getUser_userID() {
-		return user_userID;
+	public int getUser_userid() {
+		return user_userid;
 	}
 	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.subscription.subscription _subscription = hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getID());
+				hibernate.subscription.subscription _subscription = hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription!= null) {
 					copyFromBean(_subscription);
 					result = "Search success";
@@ -99,7 +99,7 @@ public class subscriptionProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.subscription.subscription _subscription= hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getID());
+				hibernate.subscription.subscription _subscription= hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription != null) {
 					copyToBean(_subscription);
 					if (subscriptionDAO.save(_subscription)) {
@@ -120,7 +120,7 @@ public class subscriptionProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.subscription.subscription _subscription = hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getID());
+				hibernate.subscription.subscription _subscription = hibernate.subscription.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription != null && subscriptionDAO.deleteAndDissociate(_subscription)) {
 					result = "Delete success";
 				}
@@ -140,12 +140,12 @@ public class subscriptionProcessor {
 	}
 	
 	private void copyFromBean(hibernate.subscription.subscription _subscription) {
-		setID(_subscription.getORMID());
+		setId(_subscription.getORMID());
 		
 		{
 			hibernate.district.District _district = _subscription.getSubsDistrict();
 			if (_district != null) {
-				setSubsDistrict_districtID(_district.getORMID());
+				setSubsDistrict_districtid(_district.getORMID());
 			}
 		}
 		
@@ -153,7 +153,7 @@ public class subscriptionProcessor {
 		{
 			hibernate.task.Task _task = _subscription.getSubsTask();
 			if (_task != null) {
-				setSubsTask_taskID(_task.getORMID());
+				setSubsTask_taskid(_task.getORMID());
 			}
 		}
 		
@@ -161,7 +161,7 @@ public class subscriptionProcessor {
 		{
 			hibernate.user.User _user = _subscription.getUser();
 			if (_user != null) {
-				setUser_userID(_user.getORMID());
+				setUser_userid(_user.getORMID());
 			}
 		}
 		
@@ -169,21 +169,21 @@ public class subscriptionProcessor {
 	
 	private void copyToBean(hibernate.subscription.subscription _subscription) {
 		try  {
-			hibernate.district.District _subsDistrict = hibernate.district.DistrictDAO.loadDistrictByORMID(getSubsDistrict_districtID());
+			hibernate.district.District _subsDistrict = hibernate.district.DistrictDAO.loadDistrictByORMID(getSubsDistrict_districtid());
 			_subscription.setSubsDistrict(_subsDistrict);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.task.Task _subsTask = hibernate.task.TaskDAO.loadTaskByORMID(getSubsTask_taskID());
+			hibernate.task.Task _subsTask = hibernate.task.TaskDAO.loadTaskByORMID(getSubsTask_taskid());
 			_subscription.setSubsTask(_subsTask);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getUser_userID());
+			hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getUser_userid());
 			_subscription.setUser(_user);
 		}
 		catch (PersistentException e) {

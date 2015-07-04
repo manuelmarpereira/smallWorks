@@ -17,24 +17,14 @@ public class InitWork extends hibernate.work.Work {
 	public InitWork() {
 	}
 	
-	private long coordLat;
+	private java.util.Date initWork;
 	
-	private long coordLong;
-	
-	public void setCoordLat(long value) {
-		this.coordLat = value;
+	public void setInitWork(java.util.Date value) {
+		this.initWork = value;
 	}
 	
-	public long getCoordLat() {
-		return coordLat;
-	}
-	
-	public void setCoordLong(long value) {
-		this.coordLong = value;
-	}
-	
-	public long getCoordLong() {
-		return coordLong;
+	public java.util.Date getInitWork() {
+		return initWork;
 	}
 	
 	public String toString() {

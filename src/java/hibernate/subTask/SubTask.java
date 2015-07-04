@@ -17,20 +17,20 @@ public class SubTask {
 	public SubTask() {
 	}
 	
-	private int ID;
+	private int id;
 	
 	private String name;
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setName(String value) {
@@ -42,7 +42,7 @@ public class SubTask {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

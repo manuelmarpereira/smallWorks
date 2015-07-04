@@ -15,18 +15,18 @@ package hibernate.district;
 
 import org.orm.PersistentException;
 public class DistrictProcessor {
-	private int ID;
+	private int id;
 	
 	private String name;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setName(String value) {
@@ -49,7 +49,7 @@ public class DistrictProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getID());
+				hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district!= null) {
 					copyFromBean(_district);
 					result = "Search success";
@@ -79,7 +79,7 @@ public class DistrictProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.district.District _district= hibernate.district.DistrictDAO.loadDistrictByORMID(getID());
+				hibernate.district.District _district= hibernate.district.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district != null) {
 					copyToBean(_district);
 					if (DistrictDAO.save(_district)) {
@@ -100,7 +100,7 @@ public class DistrictProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getID());
+				hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district != null && DistrictDAO.deleteAndDissociate(_district)) {
 					result = "Delete success";
 				}
@@ -121,7 +121,7 @@ public class DistrictProcessor {
 	
 	private void copyFromBean(hibernate.district.District _district) {
 		setName(_district.getName());
-		setID(_district.getORMID());
+		setId(_district.getORMID());
 	}
 	
 	private void copyToBean(hibernate.district.District _district) {

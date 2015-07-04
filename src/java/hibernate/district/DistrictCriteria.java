@@ -19,13 +19,13 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class DistrictCriteria extends AbstractORMCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final StringExpression name;
 	public final CollectionExpression user;
 	
 	public DistrictCriteria(Criteria criteria) {
 		super(criteria);
-		ID = new IntegerExpression("ID", this);
+		id = new IntegerExpression("id", this);
 		name = new StringExpression("name", this);
 		user = new CollectionExpression("ORM_User", this);
 	}

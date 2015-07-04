@@ -13,16 +13,16 @@
  */
 package hibernate.work;
 
-import hibernate.user.UserDetachedCriteria;
-import hibernate.task.TaskDetachedCriteria;
 import hibernate.district.DistrictDetachedCriteria;
 import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
+import hibernate.user.UserDetachedCriteria;
+import hibernate.task.TaskDetachedCriteria;
 
 public class WorkDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression CreatorId;
 	public final AssociationExpression Creator;
 	public final IntegerExpression TasksId;
@@ -35,41 +35,47 @@ public class WorkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression description;
 	public final DoubleExpression price;
 	public final BooleanExpression negotiable;
+	public final LongExpression coordLat;
+	public final LongExpression coordLong;
 	public final DateExpression startDate;
 	
 	public WorkDetachedCriteria() {
 		super(hibernate.work.Work.class, hibernate.work.WorkCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		CreatorId = new IntegerExpression("Creator.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		CreatorId = new IntegerExpression("Creator.id", this.getDetachedCriteria());
 		Creator = new AssociationExpression("Creator", this.getDetachedCriteria());
-		TasksId = new IntegerExpression("Tasks.ID", this.getDetachedCriteria());
+		TasksId = new IntegerExpression("Tasks.id", this.getDetachedCriteria());
 		Tasks = new AssociationExpression("Tasks", this.getDetachedCriteria());
-		WorkerId = new IntegerExpression("Worker.ID", this.getDetachedCriteria());
+		WorkerId = new IntegerExpression("Worker.id", this.getDetachedCriteria());
 		Worker = new AssociationExpression("Worker", this.getDetachedCriteria());
-		LocalizationId = new IntegerExpression("Localization.ID", this.getDetachedCriteria());
+		LocalizationId = new IntegerExpression("Localization.id", this.getDetachedCriteria());
 		Localization = new AssociationExpression("Localization", this.getDetachedCriteria());
 		title = new StringExpression("title", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
 		price = new DoubleExpression("price", this.getDetachedCriteria());
 		negotiable = new BooleanExpression("negotiable", this.getDetachedCriteria());
+		coordLat = new LongExpression("coordLat", this.getDetachedCriteria());
+		coordLong = new LongExpression("coordLong", this.getDetachedCriteria());
 		startDate = new DateExpression("startDate", this.getDetachedCriteria());
 	}
 	
 	public WorkDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.work.WorkCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		CreatorId = new IntegerExpression("Creator.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		CreatorId = new IntegerExpression("Creator.id", this.getDetachedCriteria());
 		Creator = new AssociationExpression("Creator", this.getDetachedCriteria());
-		TasksId = new IntegerExpression("Tasks.ID", this.getDetachedCriteria());
+		TasksId = new IntegerExpression("Tasks.id", this.getDetachedCriteria());
 		Tasks = new AssociationExpression("Tasks", this.getDetachedCriteria());
-		WorkerId = new IntegerExpression("Worker.ID", this.getDetachedCriteria());
+		WorkerId = new IntegerExpression("Worker.id", this.getDetachedCriteria());
 		Worker = new AssociationExpression("Worker", this.getDetachedCriteria());
-		LocalizationId = new IntegerExpression("Localization.ID", this.getDetachedCriteria());
+		LocalizationId = new IntegerExpression("Localization.id", this.getDetachedCriteria());
 		Localization = new AssociationExpression("Localization", this.getDetachedCriteria());
 		title = new StringExpression("title", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
 		price = new DoubleExpression("price", this.getDetachedCriteria());
 		negotiable = new BooleanExpression("negotiable", this.getDetachedCriteria());
+		coordLat = new LongExpression("coordLat", this.getDetachedCriteria());
+		coordLong = new LongExpression("coordLong", this.getDetachedCriteria());
 		startDate = new DateExpression("startDate", this.getDetachedCriteria());
 	}
 	

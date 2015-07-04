@@ -15,7 +15,7 @@ package hibernate.makeWork;
 
 import org.orm.PersistentException;
 public class MakeWorkProcessor {
-	private int ID;
+	private int id;
 	
 	private String title;
 	
@@ -25,18 +25,22 @@ public class MakeWorkProcessor {
 	
 	private boolean negotiable;
 	
+	private long coordLat;
+	
+	private long coordLong;
+	
 	private java.util.Date startDate;
 	
 	private java.util.Date finishDate;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setTitle(String value) {
@@ -71,6 +75,22 @@ public class MakeWorkProcessor {
 		return negotiable;
 	}
 	
+	public void setCoordLat(long value) {
+		this.coordLat = value;
+	}
+	
+	public long getCoordLat() {
+		return coordLat;
+	}
+	
+	public void setCoordLong(long value) {
+		this.coordLong = value;
+	}
+	
+	public long getCoordLong() {
+		return coordLong;
+	}
+	
 	public void setStartDate(java.util.Date value) {
 		this.startDate = value;
 	}
@@ -95,61 +115,61 @@ public class MakeWorkProcessor {
 		this.action = action;
 	}
 	
-	private int Creator_userID;
+	private int Creator_userid;
 	
-	public void setCreator_userID(int value) {
-		this.Creator_userID = value;
+	public void setCreator_userid(int value) {
+		this.Creator_userid = value;
 	}
 	
-	public int getCreator_userID() {
-		return Creator_userID;
+	public int getCreator_userid() {
+		return Creator_userid;
 	}
 	
-	private int Tasks_taskID;
+	private int Tasks_taskid;
 	
-	public void setTasks_taskID(int value) {
-		this.Tasks_taskID = value;
+	public void setTasks_taskid(int value) {
+		this.Tasks_taskid = value;
 	}
 	
-	public int getTasks_taskID() {
-		return Tasks_taskID;
+	public int getTasks_taskid() {
+		return Tasks_taskid;
 	}
 	
-	private int Worker_userID;
+	private int Worker_userid;
 	
-	public void setWorker_userID(int value) {
-		this.Worker_userID = value;
+	public void setWorker_userid(int value) {
+		this.Worker_userid = value;
 	}
 	
-	public int getWorker_userID() {
-		return Worker_userID;
+	public int getWorker_userid() {
+		return Worker_userid;
 	}
 	
-	private int Localization_districtID;
+	private int Localization_districtid;
 	
-	public void setLocalization_districtID(int value) {
-		this.Localization_districtID = value;
+	public void setLocalization_districtid(int value) {
+		this.Localization_districtid = value;
 	}
 	
-	public int getLocalization_districtID() {
-		return Localization_districtID;
+	public int getLocalization_districtid() {
+		return Localization_districtid;
 	}
 	
-	private int Evaluation_feedbackID;
+	private int Evaluation_feedbackid;
 	
-	public void setEvaluation_feedbackID(int value) {
-		this.Evaluation_feedbackID = value;
+	public void setEvaluation_feedbackid(int value) {
+		this.Evaluation_feedbackid = value;
 	}
 	
-	public int getEvaluation_feedbackID() {
-		return Evaluation_feedbackID;
+	public int getEvaluation_feedbackid() {
+		return Evaluation_feedbackid;
 	}
 	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.makeWork.MakeWork _makeWork = hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getID());
+				hibernate.makeWork.MakeWork _makeWork = hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork!= null) {
 					copyFromBean(_makeWork);
 					result = "Search success";
@@ -179,7 +199,7 @@ public class MakeWorkProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.makeWork.MakeWork _makeWork= hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getID());
+				hibernate.makeWork.MakeWork _makeWork= hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork != null) {
 					copyToBean(_makeWork);
 					if (MakeWorkDAO.save(_makeWork)) {
@@ -200,7 +220,7 @@ public class MakeWorkProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.makeWork.MakeWork _makeWork = hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getID());
+				hibernate.makeWork.MakeWork _makeWork = hibernate.makeWork.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork != null && MakeWorkDAO.delete(_makeWork)) {
 					result = "Delete success";
 				}
@@ -224,14 +244,16 @@ public class MakeWorkProcessor {
 		setDescription(_makeWork.getDescription());
 		setPrice(_makeWork.getPrice());
 		setNegotiable(_makeWork.getNegotiable());
+		setCoordLat(_makeWork.getCoordLat());
+		setCoordLong(_makeWork.getCoordLong());
 		setStartDate(_makeWork.getStartDate());
 		setFinishDate(_makeWork.getFinishDate());
-		setID(_makeWork.getORMID());
+		setId(_makeWork.getORMID());
 		
 		{
 			hibernate.user.User _user = _makeWork.getCreator();
 			if (_user != null) {
-				setCreator_userID(_user.getORMID());
+				setCreator_userid(_user.getORMID());
 			}
 		}
 		
@@ -239,7 +261,7 @@ public class MakeWorkProcessor {
 		{
 			hibernate.task.Task _task = _makeWork.getTasks();
 			if (_task != null) {
-				setTasks_taskID(_task.getORMID());
+				setTasks_taskid(_task.getORMID());
 			}
 		}
 		
@@ -247,7 +269,7 @@ public class MakeWorkProcessor {
 		{
 			hibernate.user.User _user = _makeWork.getWorker();
 			if (_user != null) {
-				setWorker_userID(_user.getORMID());
+				setWorker_userid(_user.getORMID());
 			}
 		}
 		
@@ -255,7 +277,7 @@ public class MakeWorkProcessor {
 		{
 			hibernate.district.District _district = _makeWork.getLocalization();
 			if (_district != null) {
-				setLocalization_districtID(_district.getORMID());
+				setLocalization_districtid(_district.getORMID());
 			}
 		}
 		
@@ -263,7 +285,7 @@ public class MakeWorkProcessor {
 		{
 			hibernate.feedback.Feedback _feedback = _makeWork.getEvaluation();
 			if (_feedback != null) {
-				setEvaluation_feedbackID(_feedback.getORMID());
+				setEvaluation_feedbackid(_feedback.getORMID());
 			}
 		}
 		
@@ -274,38 +296,40 @@ public class MakeWorkProcessor {
 		_makeWork.setDescription(getDescription());
 		_makeWork.setPrice(getPrice());
 		_makeWork.setNegotiable(getNegotiable());
+		_makeWork.setCoordLat(getCoordLat());
+		_makeWork.setCoordLong(getCoordLong());
 		_makeWork.setStartDate(getStartDate());
 		_makeWork.setFinishDate(getFinishDate());
 		try  {
-			hibernate.user.User _creator = hibernate.user.UserDAO.loadUserByORMID(getCreator_userID());
+			hibernate.user.User _creator = hibernate.user.UserDAO.loadUserByORMID(getCreator_userid());
 			_makeWork.setCreator(_creator);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.task.Task _tasks = hibernate.task.TaskDAO.loadTaskByORMID(getTasks_taskID());
+			hibernate.task.Task _tasks = hibernate.task.TaskDAO.loadTaskByORMID(getTasks_taskid());
 			_makeWork.setTasks(_tasks);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.user.User _worker = hibernate.user.UserDAO.loadUserByORMID(getWorker_userID());
+			hibernate.user.User _worker = hibernate.user.UserDAO.loadUserByORMID(getWorker_userid());
 			_makeWork.setWorker(_worker);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.district.District _localization = hibernate.district.DistrictDAO.loadDistrictByORMID(getLocalization_districtID());
+			hibernate.district.District _localization = hibernate.district.DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
 			_makeWork.setLocalization(_localization);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.feedback.Feedback _evaluation = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getEvaluation_feedbackID());
+			hibernate.feedback.Feedback _evaluation = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getEvaluation_feedbackid());
 			_makeWork.setEvaluation(_evaluation);
 		}
 		catch (PersistentException e) {

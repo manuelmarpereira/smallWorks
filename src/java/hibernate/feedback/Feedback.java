@@ -17,22 +17,22 @@ public class Feedback {
 	public Feedback() {
 	}
 	
-	private int ID;
+	private int id;
 	
 	private hibernate.classification.Classification Classification;
 	
 	private String coment;
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setComent(String value) {
@@ -52,7 +52,7 @@ public class Feedback {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

@@ -14,8 +14,13 @@
 package hibernate.work;
 
 import org.orm.PersistentException;
+import hibernate.user.User;
+import hibernate.user.UserDAO;
+import hibernate.task.Task;
+import hibernate.task.TaskDAO;
+
 public class WorkProcessor {
-	private int ID;
+	private int id;
 	
 	private String title;
 	
@@ -25,16 +30,20 @@ public class WorkProcessor {
 	
 	private boolean negotiable;
 	
+	private long coordLat;
+	
+	private long coordLong;
+	
 	private java.util.Date startDate;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setTitle(String value) {
@@ -69,6 +78,22 @@ public class WorkProcessor {
 		return negotiable;
 	}
 	
+	public void setCoordLat(long value) {
+		this.coordLat = value;
+	}
+	
+	public long getCoordLat() {
+		return coordLat;
+	}
+	
+	public void setCoordLong(long value) {
+		this.coordLong = value;
+	}
+	
+	public long getCoordLong() {
+		return coordLong;
+	}
+	
 	public void setStartDate(java.util.Date value) {
 		this.startDate = value;
 	}
@@ -85,51 +110,51 @@ public class WorkProcessor {
 		this.action = action;
 	}
 	
-	private int Creator_userID;
+	private int Creator_userid;
 	
-	public void setCreator_userID(int value) {
-		this.Creator_userID = value;
+	public void setCreator_userid(int value) {
+		this.Creator_userid = value;
 	}
 	
-	public int getCreator_userID() {
-		return Creator_userID;
+	public int getCreator_userid() {
+		return Creator_userid;
 	}
 	
-	private int Tasks_taskID;
+	private int Tasks_taskid;
 	
-	public void setTasks_taskID(int value) {
-		this.Tasks_taskID = value;
+	public void setTasks_taskid(int value) {
+		this.Tasks_taskid = value;
 	}
 	
-	public int getTasks_taskID() {
-		return Tasks_taskID;
+	public int getTasks_taskid() {
+		return Tasks_taskid;
 	}
 	
-	private int Worker_userID;
+	private int Worker_userid;
 	
-	public void setWorker_userID(int value) {
-		this.Worker_userID = value;
+	public void setWorker_userid(int value) {
+		this.Worker_userid = value;
 	}
 	
-	public int getWorker_userID() {
-		return Worker_userID;
+	public int getWorker_userid() {
+		return Worker_userid;
 	}
 	
-	private int Localization_districtID;
+	private int Localization_districtid;
 	
-	public void setLocalization_districtID(int value) {
-		this.Localization_districtID = value;
+	public void setLocalization_districtid(int value) {
+		this.Localization_districtid = value;
 	}
 	
-	public int getLocalization_districtID() {
-		return Localization_districtID;
+	public int getLocalization_districtid() {
+		return Localization_districtid;
 	}
 	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.work.Work _work = hibernate.work.WorkDAO.loadWorkByORMID(getID());
+				hibernate.work.Work _work = hibernate.work.WorkDAO.loadWorkByORMID(getId());
 				if (_work!= null) {
 					copyFromBean(_work);
 					result = "Search success";
@@ -159,7 +184,7 @@ public class WorkProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.work.Work _work= hibernate.work.WorkDAO.loadWorkByORMID(getID());
+				hibernate.work.Work _work= hibernate.work.WorkDAO.loadWorkByORMID(getId());
 				if (_work != null) {
 					copyToBean(_work);
 					if (WorkDAO.save(_work)) {
@@ -180,7 +205,7 @@ public class WorkProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.work.Work _work = hibernate.work.WorkDAO.loadWorkByORMID(getID());
+				hibernate.work.Work _work = hibernate.work.WorkDAO.loadWorkByORMID(getId());
 				if (_work != null && WorkDAO.delete(_work)) {
 					result = "Delete success";
 				}
@@ -204,29 +229,31 @@ public class WorkProcessor {
 		setDescription(_work.getDescription());
 		setPrice(_work.getPrice());
 		setNegotiable(_work.getNegotiable());
+		setCoordLat(_work.getCoordLat());
+		setCoordLong(_work.getCoordLong());
 		setStartDate(_work.getStartDate());
-		setID(_work.getORMID());
+		setId(_work.getORMID());
 		
 		{
-			hibernate.user.User _user = _work.getCreator();
+			User _user = _work.getCreator();
 			if (_user != null) {
-				setCreator_userID(_user.getORMID());
+				setCreator_userid(_user.getORMID());
 			}
 		}
 		
 		
 		{
-			hibernate.task.Task _task = _work.getTasks();
+			Task _task = _work.getTasks();
 			if (_task != null) {
-				setTasks_taskID(_task.getORMID());
+				setTasks_taskid(_task.getORMID());
 			}
 		}
 		
 		
 		{
-			hibernate.user.User _user = _work.getWorker();
+			User _user = _work.getWorker();
 			if (_user != null) {
-				setWorker_userID(_user.getORMID());
+				setWorker_userid(_user.getORMID());
 			}
 		}
 		
@@ -234,7 +261,7 @@ public class WorkProcessor {
 		{
 			hibernate.district.District _district = _work.getLocalization();
 			if (_district != null) {
-				setLocalization_districtID(_district.getORMID());
+				setLocalization_districtid(_district.getORMID());
 			}
 		}
 		
@@ -245,30 +272,32 @@ public class WorkProcessor {
 		_work.setDescription(getDescription());
 		_work.setPrice(getPrice());
 		_work.setNegotiable(getNegotiable());
+		_work.setCoordLat(getCoordLat());
+		_work.setCoordLong(getCoordLong());
 		_work.setStartDate(getStartDate());
 		try  {
-			hibernate.user.User _creator = hibernate.user.UserDAO.loadUserByORMID(getCreator_userID());
+			User _creator = UserDAO.loadUserByORMID(getCreator_userid());
 			_work.setCreator(_creator);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.task.Task _tasks = hibernate.task.TaskDAO.loadTaskByORMID(getTasks_taskID());
+			Task _tasks = TaskDAO.loadTaskByORMID(getTasks_taskid());
 			_work.setTasks(_tasks);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.user.User _worker = hibernate.user.UserDAO.loadUserByORMID(getWorker_userID());
+			User _worker = UserDAO.loadUserByORMID(getWorker_userid());
 			_work.setWorker(_worker);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			hibernate.district.District _localization = hibernate.district.DistrictDAO.loadDistrictByORMID(getLocalization_districtID());
+			hibernate.district.District _localization = hibernate.district.DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
 			_work.setLocalization(_localization);
 		}
 		catch (PersistentException e) {

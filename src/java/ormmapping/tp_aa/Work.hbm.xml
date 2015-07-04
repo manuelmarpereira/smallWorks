@@ -6,7 +6,7 @@ License Type: Evaluation
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="hibernate.work.Work" table="Work" lazy="false">
-		<id name="ID" column="ID" type="integer" unsaved-value="0">
+		<id name="id" column="ID" type="integer" unsaved-value="0">
 			<generator class="native">
 			</generator>
 		</id>
@@ -18,23 +18,24 @@ License Type: Evaluation
 		</many-to-one>
 		<many-to-one name="Localization" cascade="lock" column="DistrictID" class="hibernate.district.District" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<property name="title" column="Title" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="title" column="Title" type="string" length="255" not-null="true" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="price" column="Price" type="double" not-null="true" lazy="false"/>
 		<property name="negotiable" column="Negotiable" type="boolean" not-null="true" lazy="false"/>
-		<property name="startDate" column="StartDate" type="date" not-null="false" lazy="false"/>
+		<property name="coordLat" column="CoordLat" type="long" not-null="true" lazy="false"/>
+		<property name="coordLong" column="CoordLong" type="long" not-null="true" lazy="false"/>
+		<property name="startDate" column="StartDate" type="date" not-null="true" lazy="false"/>
 		<joined-subclass name="hibernate.initWork.InitWork" table="InitWork" lazy="false">
 			<key>
 				<column name="WorkID"/>
 			</key>
-			<property name="coordLat" column="CoordLat" type="long" not-null="true" lazy="false"/>
-			<property name="coordLong" column="CoordLong" type="long" not-null="true" lazy="false"/>
+			<property name="initWork" column="InitWork" type="date" not-null="true" lazy="false"/>
 		</joined-subclass>
 		<joined-subclass name="hibernate.makeWork.MakeWork" table="MakeWork" lazy="false">
 			<key>
 				<column name="WorkID"/>
 			</key>
-			<property name="finishDate" column="FinishDate" type="date" not-null="false" lazy="false"/>
+			<property name="finishDate" column="FinishDate" type="date" not-null="true" lazy="false"/>
 			<many-to-one name="Evaluation" cascade="lock" column="FeedbackID" class="hibernate.feedback.Feedback" not-null="true" lazy="proxy" access="field">
 			</many-to-one>
 		</joined-subclass>

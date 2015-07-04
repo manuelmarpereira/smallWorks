@@ -131,7 +131,7 @@ public class ManageUser implements ManageUserLocal {
         
         if (listUser.size() == 1) {
             User u = new User();
-            u.setID(listUser.get(0).getID());
+            u.setId(listUser.get(0).getId());
             u.setNick(listUser.get(0).getNick());
             return u;
         }

@@ -19,18 +19,18 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class SubTaskDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final StringExpression name;
 	
 	public SubTaskDetachedCriteria() {
 		super(hibernate.subTask.SubTask.class, hibernate.subTask.SubTaskCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
 	public SubTaskDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.subTask.SubTaskCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	

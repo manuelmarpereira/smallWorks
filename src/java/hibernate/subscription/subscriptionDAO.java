@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class subscriptionDAO {
-	public static subscription loadSubscriptionByORMID(int ID) throws PersistentException {
+	public static subscription loadSubscriptionByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadSubscriptionByORMID(session, ID);
+			return loadSubscriptionByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription getSubscriptionByORMID(int ID) throws PersistentException {
+	public static subscription getSubscriptionByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getSubscriptionByORMID(session, ID);
+			return getSubscriptionByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription loadSubscriptionByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static subscription loadSubscriptionByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadSubscriptionByORMID(session, ID, lockMode);
+			return loadSubscriptionByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription getSubscriptionByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static subscription getSubscriptionByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getSubscriptionByORMID(session, ID, lockMode);
+			return getSubscriptionByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription loadSubscriptionByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static subscription loadSubscriptionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (subscription) session.load(hibernate.subscription.subscription.class, new Integer(ID));
+			return (subscription) session.load(hibernate.subscription.subscription.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription getSubscriptionByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static subscription getSubscriptionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (subscription) session.get(hibernate.subscription.subscription.class, new Integer(ID));
+			return (subscription) session.get(hibernate.subscription.subscription.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription loadSubscriptionByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static subscription loadSubscriptionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (subscription) session.load(hibernate.subscription.subscription.class, new Integer(ID), lockMode);
+			return (subscription) session.load(hibernate.subscription.subscription.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static subscription getSubscriptionByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static subscription getSubscriptionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (subscription) session.get(hibernate.subscription.subscription.class, new Integer(ID), lockMode);
+			return (subscription) session.get(hibernate.subscription.subscription.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

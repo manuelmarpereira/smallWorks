@@ -20,7 +20,7 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression districtId;
 	public final AssociationExpression district;
 	public final StringExpression nick;
@@ -35,8 +35,8 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public UserDetachedCriteria() {
 		super(hibernate.user.User.class, hibernate.user.UserCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		districtId = new IntegerExpression("district.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		districtId = new IntegerExpression("district.id", this.getDetachedCriteria());
 		district = new AssociationExpression("district", this.getDetachedCriteria());
 		nick = new StringExpression("nick", this.getDetachedCriteria());
 		firstname = new StringExpression("firstname", this.getDetachedCriteria());
@@ -51,8 +51,8 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public UserDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.user.UserCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		districtId = new IntegerExpression("district.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		districtId = new IntegerExpression("district.id", this.getDetachedCriteria());
 		district = new AssociationExpression("district", this.getDetachedCriteria());
 		nick = new StringExpression("nick", this.getDetachedCriteria());
 		firstname = new StringExpression("firstname", this.getDetachedCriteria());

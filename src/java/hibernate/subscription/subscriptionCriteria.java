@@ -13,8 +13,6 @@
  */
 package hibernate.subscription;
 
-import hibernate.user.UserCriteria;
-import hibernate.task.TaskCriteria;
 import hibernate.district.DistrictCriteria;
 import org.hibernate.Criteria;
 import org.orm.PersistentException;
@@ -22,7 +20,7 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class subscriptionCriteria extends AbstractORMCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression userId;
 	public final AssociationExpression user;
 	public final IntegerExpression subsTaskId;
@@ -32,12 +30,12 @@ public class subscriptionCriteria extends AbstractORMCriteria {
 	
 	public subscriptionCriteria(Criteria criteria) {
 		super(criteria);
-		ID = new IntegerExpression("ID", this);
-		userId = new IntegerExpression("user.ID", this);
+		id = new IntegerExpression("id", this);
+		userId = new IntegerExpression("user.id", this);
 		user = new AssociationExpression("user", this);
-		subsTaskId = new IntegerExpression("subsTask.ID", this);
+		subsTaskId = new IntegerExpression("subsTask.id", this);
 		subsTask = new AssociationExpression("subsTask", this);
-		subsDistrictId = new IntegerExpression("subsDistrict.ID", this);
+		subsDistrictId = new IntegerExpression("subsDistrict.id", this);
 		subsDistrict = new AssociationExpression("subsDistrict", this);
 	}
 	
@@ -49,12 +47,12 @@ public class subscriptionCriteria extends AbstractORMCriteria {
 		this(hibernate.globalconf.TPAAPersistentManager.instance().getSession());
 	}
 	
-	public UserCriteria createUserCriteria() {
-		return new UserCriteria(createCriteria("user"));
+	public hibernate.user.UserCriteria createUserCriteria() {
+		return new hibernate.user.UserCriteria(createCriteria("user"));
 	}
 	
-	public TaskCriteria createSubsTaskCriteria() {
-		return new TaskCriteria(createCriteria("subsTask"));
+	public hibernate.task.TaskCriteria createSubsTaskCriteria() {
+		return new hibernate.task.TaskCriteria(createCriteria("subsTask"));
 	}
 	
 	public DistrictCriteria createSubsDistrictCriteria() {

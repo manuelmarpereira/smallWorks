@@ -19,12 +19,12 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class ClassificationCriteria extends AbstractORMCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression value;
 	
 	public ClassificationCriteria(Criteria criteria) {
 		super(criteria);
-		ID = new IntegerExpression("ID", this);
+		id = new IntegerExpression("id", this);
 		value = new IntegerExpression("value", this);
 	}
 	
