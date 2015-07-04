@@ -48,7 +48,7 @@
 
             <span class="rating">
                 <c:choose>
-                    <c:when test="${sessionScope.user.ID!=null}"> 
+                    <c:when test="${sessionScope.user.id!=null}"> 
                         <a href="myOffers.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-th-list pull-left"></i>All My Offers</a>
                         <a href="newOffer.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-plus pull-left"></i>Create New Offer</a>
                         <a href="chart.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-stats pull-left"></i>User Stats</a>      
@@ -72,7 +72,7 @@
 
 function verifyUser() { 
       
-      if ( '<c:out value="${sessionScope.user.ID}"/>'==null){
+      if ( '<c:out value="${sessionScope.user.id}"/>'==null){
         $('#nameEdit').remove(); 
         $('#emailEdit').remove(); 
         $('#locationEdit').remove(); 
