@@ -113,8 +113,12 @@ html {
 
 /* -------------------------- */
 
-.blue {
-    color: blue
+.glyphicon-primary {
+    color: blue;
+}
+
+.glyphicon-info {
+    color: rgb(91, 192, 222);
 }
 
 .has-feedback-left input.form-control {
@@ -162,4 +166,8 @@ html {
     
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.marginTopStats{
+    margin-top: 70px;
 }

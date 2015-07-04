@@ -1,0 +1,60 @@
+
+.content {
+    position: relative;
+    display: table;
+    width: 100%;
+    min-height: 100%;	
+}
+
+.pull-middle {
+    vertical-align: middle;
+}
+
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 100px;
+    z-index: 9;
+    width: 20%;     
+}
+
+
+.info{
+    width: 800px;
+    height: 600px;
+    padding-top: 20px;
+    background-color: white;
+    
+    padding-bottom: 10px;
+}
+
+.window{
+     width: 800px;
+    height: 600px;
+    background-color: #efefef;
+    
+}
+
+.logo-mr{
+    margin-left: 50px;
+}
+
+
+.footer-window{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+

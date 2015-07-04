@@ -22,7 +22,7 @@
                             <li><i class="glyphicon glyphicon-map-marker"></i>Braga</li>
                         </ul>
                         <p class="hidden-xs">Lave a minha casa pago bem
-                            ...</p><span class="fnt-smaller fnt-lighter fnt-arial">Manuel Pereira <small class="pull-right">Feedback <jsp:include page="../feedback/stars.jsp" /> (8/10)</small></span>
+                            ...</p><span class="fnt-smaller fnt-lighter fnt-arial">Manuel Pereira <small class="pull-right">Feedback <jsp:include page="../feedback/showStars.jsp" /> (8/10)</small></span>
                     </div>
                 </div>
             </div><!-- End Listing-->
@@ -34,7 +34,7 @@
     <div class="footer-pagination">
         <ul class="pagination">
             <li class="disabled"><a href="#">«</a></li>
-            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li class="active "><a href="#">1 <span class="sr-only">(current)</span></a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>

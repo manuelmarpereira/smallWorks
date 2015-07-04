@@ -61,13 +61,13 @@
                             <!-- Button -->                                        
                             <div class="col-md-offset-3 col-md-9">
                                 <input id="btn-signup" class="btn btn-info"  type="submit" value="Registe" name="Registebtn"/> 
-
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6">
                          <jsp:include page="/layout/map.jsp" />   
+
                     </div>
                 </div>
             </div>
