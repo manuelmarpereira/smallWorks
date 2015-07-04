@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class SubTaskDAO {
-	public static SubTask loadSubTaskByORMID(int ID) throws PersistentException {
+	public static SubTask loadSubTaskByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadSubTaskByORMID(session, ID);
+			return loadSubTaskByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask getSubTaskByORMID(int ID) throws PersistentException {
+	public static SubTask getSubTaskByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getSubTaskByORMID(session, ID);
+			return getSubTaskByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask loadSubTaskByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static SubTask loadSubTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadSubTaskByORMID(session, ID, lockMode);
+			return loadSubTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask getSubTaskByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static SubTask getSubTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getSubTaskByORMID(session, ID, lockMode);
+			return getSubTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask loadSubTaskByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static SubTask loadSubTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (SubTask) session.load(hibernate.subTask.SubTask.class, new Integer(ID));
+			return (SubTask) session.load(hibernate.subTask.SubTask.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask getSubTaskByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static SubTask getSubTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (SubTask) session.get(hibernate.subTask.SubTask.class, new Integer(ID));
+			return (SubTask) session.get(hibernate.subTask.SubTask.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask loadSubTaskByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static SubTask loadSubTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (SubTask) session.load(hibernate.subTask.SubTask.class, new Integer(ID), lockMode);
+			return (SubTask) session.load(hibernate.subTask.SubTask.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class SubTaskDAO {
 		}
 	}
 	
-	public static SubTask getSubTaskByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static SubTask getSubTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (SubTask) session.get(hibernate.subTask.SubTask.class, new Integer(ID), lockMode);
+			return (SubTask) session.get(hibernate.subTask.SubTask.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

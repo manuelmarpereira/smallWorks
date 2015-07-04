@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class InitWorkDAO {
-	public static InitWork loadInitWorkByORMID(int ID) throws PersistentException {
+	public static InitWork loadInitWorkByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadInitWorkByORMID(session, ID);
+			return loadInitWorkByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork getInitWorkByORMID(int ID) throws PersistentException {
+	public static InitWork getInitWorkByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getInitWorkByORMID(session, ID);
+			return getInitWorkByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork loadInitWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static InitWork loadInitWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadInitWorkByORMID(session, ID, lockMode);
+			return loadInitWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork getInitWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static InitWork getInitWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getInitWorkByORMID(session, ID, lockMode);
+			return getInitWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork loadInitWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static InitWork loadInitWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (InitWork) session.load(hibernate.initWork.InitWork.class, new Integer(ID));
+			return (InitWork) session.load(hibernate.initWork.InitWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork getInitWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static InitWork getInitWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (InitWork) session.get(hibernate.initWork.InitWork.class, new Integer(ID));
+			return (InitWork) session.get(hibernate.initWork.InitWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork loadInitWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static InitWork loadInitWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (InitWork) session.load(hibernate.initWork.InitWork.class, new Integer(ID), lockMode);
+			return (InitWork) session.load(hibernate.initWork.InitWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static InitWork getInitWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static InitWork getInitWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (InitWork) session.get(hibernate.initWork.InitWork.class, new Integer(ID), lockMode);
+			return (InitWork) session.get(hibernate.initWork.InitWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

@@ -91,7 +91,7 @@ public class RegisterUser extends HttpServlet {
 
         if (u != (null)) {
             User n = new User();
-            n.setID(u.getID());
+            n.setId(u.getId());
             n.setNick(u.getNick());
             req.setAttribute("user", n);
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/index.jsp");

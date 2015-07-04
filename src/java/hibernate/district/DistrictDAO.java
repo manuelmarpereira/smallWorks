@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class DistrictDAO {
-	public static District loadDistrictByORMID(int ID) throws PersistentException {
+	public static District loadDistrictByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadDistrictByORMID(session, ID);
+			return loadDistrictByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District getDistrictByORMID(int ID) throws PersistentException {
+	public static District getDistrictByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getDistrictByORMID(session, ID);
+			return getDistrictByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District loadDistrictByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static District loadDistrictByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadDistrictByORMID(session, ID, lockMode);
+			return loadDistrictByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District getDistrictByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static District getDistrictByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getDistrictByORMID(session, ID, lockMode);
+			return getDistrictByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District loadDistrictByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static District loadDistrictByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (District) session.load(hibernate.district.District.class, new Integer(ID));
+			return (District) session.load(hibernate.district.District.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District getDistrictByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static District getDistrictByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (District) session.get(hibernate.district.District.class, new Integer(ID));
+			return (District) session.get(hibernate.district.District.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District loadDistrictByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static District loadDistrictByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (District) session.load(hibernate.district.District.class, new Integer(ID), lockMode);
+			return (District) session.load(hibernate.district.District.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static District getDistrictByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static District getDistrictByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (District) session.get(hibernate.district.District.class, new Integer(ID), lockMode);
+			return (District) session.get(hibernate.district.District.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

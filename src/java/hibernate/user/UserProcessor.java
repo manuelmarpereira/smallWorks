@@ -15,7 +15,7 @@ package hibernate.user;
 
 import org.orm.PersistentException;
 public class UserProcessor {
-	private int ID;
+	private int id;
 	
 	private String nick;
 	
@@ -35,12 +35,12 @@ public class UserProcessor {
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setNick(String value) {
@@ -115,21 +115,21 @@ public class UserProcessor {
 		this.action = action;
 	}
 	
-	private int district_districtID;
+	private int district_districtid;
 	
-	public void setDistrict_districtID(int value) {
-		this.district_districtID = value;
+	public void setDistrict_districtid(int value) {
+		this.district_districtid = value;
 	}
 	
-	public int getDistrict_districtID() {
-		return district_districtID;
+	public int getDistrict_districtid() {
+		return district_districtid;
 	}
 	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getID());
+				hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getId());
 				if (_user!= null) {
 					copyFromBean(_user);
 					result = "Search success";
@@ -159,7 +159,7 @@ public class UserProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.user.User _user= hibernate.user.UserDAO.loadUserByORMID(getID());
+				hibernate.user.User _user= hibernate.user.UserDAO.loadUserByORMID(getId());
 				if (_user != null) {
 					copyToBean(_user);
 					if (UserDAO.save(_user)) {
@@ -180,7 +180,7 @@ public class UserProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getID());
+				hibernate.user.User _user = hibernate.user.UserDAO.loadUserByORMID(getId());
 				if (_user != null && UserDAO.deleteAndDissociate(_user)) {
 					result = "Delete success";
 				}
@@ -208,12 +208,12 @@ public class UserProcessor {
 		setPhoto(_user.getPhoto());
 		setCoordLat(_user.getCoordLat());
 		setCoordLong(_user.getCoordLong());
-		setID(_user.getORMID());
+		setId(_user.getORMID());
 		
 		{
 			hibernate.district.District _district = _user.getDistrict();
 			if (_district != null) {
-				setDistrict_districtID(_district.getORMID());
+				setDistrict_districtid(_district.getORMID());
 			}
 		}
 		
@@ -229,7 +229,7 @@ public class UserProcessor {
 		_user.setCoordLat(getCoordLat());
 		_user.setCoordLong(getCoordLong());
 		try  {
-			hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getDistrict_districtID());
+			hibernate.district.District _district = hibernate.district.DistrictDAO.loadDistrictByORMID(getDistrict_districtid());
 			_user.setDistrict(_district);
 		}
 		catch (PersistentException e) {

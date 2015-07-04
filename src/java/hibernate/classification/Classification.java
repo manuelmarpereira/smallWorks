@@ -17,20 +17,20 @@ public class Classification {
 	public Classification() {
 	}
 	
-	private int ID;
+	private int id;
 	
 	private int value;
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setValue(int value) {
@@ -42,7 +42,7 @@ public class Classification {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

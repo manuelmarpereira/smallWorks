@@ -15,18 +15,18 @@ package hibernate.subTask;
 
 import org.orm.PersistentException;
 public class SubTaskProcessor {
-	private int ID;
+	private int id;
 	
 	private String name;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setName(String value) {
@@ -49,7 +49,7 @@ public class SubTaskProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.subTask.SubTask _subTask = hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getID());
+				hibernate.subTask.SubTask _subTask = hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask!= null) {
 					copyFromBean(_subTask);
 					result = "Search success";
@@ -79,7 +79,7 @@ public class SubTaskProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.subTask.SubTask _subTask= hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getID());
+				hibernate.subTask.SubTask _subTask= hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask != null) {
 					copyToBean(_subTask);
 					if (SubTaskDAO.save(_subTask)) {
@@ -100,7 +100,7 @@ public class SubTaskProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.subTask.SubTask _subTask = hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getID());
+				hibernate.subTask.SubTask _subTask = hibernate.subTask.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask != null && SubTaskDAO.delete(_subTask)) {
 					result = "Delete success";
 				}
@@ -121,7 +121,7 @@ public class SubTaskProcessor {
 	
 	private void copyFromBean(hibernate.subTask.SubTask _subTask) {
 		setName(_subTask.getName());
-		setID(_subTask.getORMID());
+		setId(_subTask.getORMID());
 	}
 	
 	private void copyToBean(hibernate.subTask.SubTask _subTask) {

@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class FeedbackDAO {
-	public static Feedback loadFeedbackByORMID(int ID) throws PersistentException {
+	public static Feedback loadFeedbackByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadFeedbackByORMID(session, ID);
+			return loadFeedbackByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback getFeedbackByORMID(int ID) throws PersistentException {
+	public static Feedback getFeedbackByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getFeedbackByORMID(session, ID);
+			return getFeedbackByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback loadFeedbackByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Feedback loadFeedbackByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadFeedbackByORMID(session, ID, lockMode);
+			return loadFeedbackByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback getFeedbackByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Feedback getFeedbackByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getFeedbackByORMID(session, ID, lockMode);
+			return getFeedbackByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback loadFeedbackByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Feedback loadFeedbackByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Feedback) session.load(hibernate.feedback.Feedback.class, new Integer(ID));
+			return (Feedback) session.load(hibernate.feedback.Feedback.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback getFeedbackByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Feedback getFeedbackByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Feedback) session.get(hibernate.feedback.Feedback.class, new Integer(ID));
+			return (Feedback) session.get(hibernate.feedback.Feedback.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback loadFeedbackByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Feedback loadFeedbackByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Feedback) session.load(hibernate.feedback.Feedback.class, new Integer(ID), lockMode);
+			return (Feedback) session.load(hibernate.feedback.Feedback.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static Feedback getFeedbackByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Feedback getFeedbackByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Feedback) session.get(hibernate.feedback.Feedback.class, new Integer(ID), lockMode);
+			return (Feedback) session.get(hibernate.feedback.Feedback.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

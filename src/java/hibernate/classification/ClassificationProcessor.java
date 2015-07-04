@@ -15,18 +15,18 @@ package hibernate.classification;
 
 import org.orm.PersistentException;
 public class ClassificationProcessor {
-	private int ID;
+	private int id;
 	
 	private int value;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setValue(int value) {
@@ -49,7 +49,7 @@ public class ClassificationProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getID());
+				hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getId());
 				if (_classification!= null) {
 					copyFromBean(_classification);
 					result = "Search success";
@@ -79,7 +79,7 @@ public class ClassificationProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.classification.Classification _classification= hibernate.classification.ClassificationDAO.loadClassificationByORMID(getID());
+				hibernate.classification.Classification _classification= hibernate.classification.ClassificationDAO.loadClassificationByORMID(getId());
 				if (_classification != null) {
 					copyToBean(_classification);
 					if (ClassificationDAO.save(_classification)) {
@@ -100,7 +100,7 @@ public class ClassificationProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getID());
+				hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getId());
 				if (_classification != null && ClassificationDAO.delete(_classification)) {
 					result = "Delete success";
 				}
@@ -121,7 +121,7 @@ public class ClassificationProcessor {
 	
 	private void copyFromBean(hibernate.classification.Classification _classification) {
 		setValue(_classification.getValue());
-		setID(_classification.getORMID());
+		setId(_classification.getORMID());
 	}
 	
 	private void copyToBean(hibernate.classification.Classification _classification) {

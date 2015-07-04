@@ -32,22 +32,22 @@ public class District {
 		
 	};
 	
-	private int ID;
+	private int id;
 	
 	private String name;
 	
 	private java.util.Set ORM_user = new java.util.HashSet();
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setName(String value) {
@@ -69,7 +69,7 @@ public class District {
 	public final hibernate.user.UserSetCollection user = new hibernate.user.UserSetCollection(this, _ormAdapter, hibernate.globalconf.ORMConstants.KEY_DISTRICT_USER, hibernate.globalconf.ORMConstants.KEY_USER_DISTRICT, hibernate.globalconf.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }

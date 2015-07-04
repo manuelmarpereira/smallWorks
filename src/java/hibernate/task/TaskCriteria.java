@@ -19,13 +19,13 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class TaskCriteria extends AbstractORMCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final StringExpression name;
 	public final CollectionExpression Subtaks;
 	
 	public TaskCriteria(Criteria criteria) {
 		super(criteria);
-		ID = new IntegerExpression("ID", this);
+		id = new IntegerExpression("id", this);
 		name = new StringExpression("name", this);
 		Subtaks = new CollectionExpression("ORM_Subtaks", this);
 	}

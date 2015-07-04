@@ -18,11 +18,13 @@ import org.hibernate.Query;
 import org.hibernate.LockMode;
 import java.util.List;
 
+import hibernate.globalconf.TPAAPersistentManager;
+
 public class TaskDAO {
-	public static Task loadTaskByORMID(int ID) throws PersistentException {
+	public static Task loadTaskByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadTaskByORMID(session, ID);
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			return loadTaskByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +32,10 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task getTaskByORMID(int ID) throws PersistentException {
+	public static Task getTaskByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getTaskByORMID(session, ID);
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			return getTaskByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +43,10 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task loadTaskByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Task loadTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadTaskByORMID(session, ID, lockMode);
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			return loadTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +54,10 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task getTaskByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Task getTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getTaskByORMID(session, ID, lockMode);
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			return getTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +65,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task loadTaskByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Task loadTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Task) session.load(hibernate.task.Task.class, new Integer(ID));
+			return (Task) session.load(hibernate.task.Task.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +75,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task getTaskByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static Task getTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Task) session.get(hibernate.task.Task.class, new Integer(ID));
+			return (Task) session.get(hibernate.task.Task.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +85,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task loadTaskByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Task loadTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Task) session.load(hibernate.task.Task.class, new Integer(ID), lockMode);
+			return (Task) session.load(hibernate.task.Task.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +95,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static Task getTaskByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Task getTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Task) session.get(hibernate.task.Task.class, new Integer(ID), lockMode);
+			return (Task) session.get(hibernate.task.Task.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +107,7 @@ public class TaskDAO {
 	
 	public static List queryTask(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return queryTask(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +118,7 @@ public class TaskDAO {
 	
 	public static List queryTask(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return queryTask(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +129,7 @@ public class TaskDAO {
 	
 	public static Task[] listTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return listTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +140,7 @@ public class TaskDAO {
 	
 	public static Task[] listTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return listTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +206,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return loadTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +217,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return loadTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +244,7 @@ public class TaskDAO {
 	
 	public static java.util.Iterator iterateTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return iterateTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +255,7 @@ public class TaskDAO {
 	
 	public static java.util.Iterator iterateTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
+			PersistentSession session = TPAAPersistentManager.instance().getSession();
 			return iterateTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +303,7 @@ public class TaskDAO {
 	
 	public static boolean save(hibernate.task.Task task) throws PersistentException {
 		try {
-			hibernate.globalconf.TPAAPersistentManager.instance().saveObject(task);
+			TPAAPersistentManager.instance().saveObject(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +314,7 @@ public class TaskDAO {
 	
 	public static boolean delete(hibernate.task.Task task) throws PersistentException {
 		try {
-			hibernate.globalconf.TPAAPersistentManager.instance().deleteObject(task);
+			TPAAPersistentManager.instance().deleteObject(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,7 +325,7 @@ public class TaskDAO {
 	
 	public static boolean refresh(hibernate.task.Task task) throws PersistentException {
 		try {
-			hibernate.globalconf.TPAAPersistentManager.instance().getSession().refresh(task);
+			TPAAPersistentManager.instance().getSession().refresh(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -334,7 +336,7 @@ public class TaskDAO {
 	
 	public static boolean evict(hibernate.task.Task task) throws PersistentException {
 		try {
-			hibernate.globalconf.TPAAPersistentManager.instance().getSession().evict(task);
+			TPAAPersistentManager.instance().getSession().evict(task);
 			return true;
 		}
 		catch (Exception e) {

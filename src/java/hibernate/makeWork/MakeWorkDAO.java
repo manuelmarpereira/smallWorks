@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class MakeWorkDAO {
-	public static MakeWork loadMakeWorkByORMID(int ID) throws PersistentException {
+	public static MakeWork loadMakeWorkByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadMakeWorkByORMID(session, ID);
+			return loadMakeWorkByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork getMakeWorkByORMID(int ID) throws PersistentException {
+	public static MakeWork getMakeWorkByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getMakeWorkByORMID(session, ID);
+			return getMakeWorkByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork loadMakeWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static MakeWork loadMakeWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return loadMakeWorkByORMID(session, ID, lockMode);
+			return loadMakeWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork getMakeWorkByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static MakeWork getMakeWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = hibernate.globalconf.TPAAPersistentManager.instance().getSession();
-			return getMakeWorkByORMID(session, ID, lockMode);
+			return getMakeWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(ID));
+			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork getMakeWorkByORMID(PersistentSession session, int ID) throws PersistentException {
+	public static MakeWork getMakeWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(ID));
+			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(ID), lockMode);
+			return (MakeWork) session.load(hibernate.makeWork.MakeWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static MakeWork getMakeWorkByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static MakeWork getMakeWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(ID), lockMode);
+			return (MakeWork) session.get(hibernate.makeWork.MakeWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

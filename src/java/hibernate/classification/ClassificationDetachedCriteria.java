@@ -19,18 +19,18 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class ClassificationDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression value;
 	
 	public ClassificationDetachedCriteria() {
 		super(hibernate.classification.Classification.class, hibernate.classification.ClassificationCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		value = new IntegerExpression("value", this.getDetachedCriteria());
 	}
 	
 	public ClassificationDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.classification.ClassificationCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
 		value = new IntegerExpression("value", this.getDetachedCriteria());
 	}
 	

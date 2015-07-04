@@ -15,18 +15,18 @@ package hibernate.feedback;
 
 import org.orm.PersistentException;
 public class FeedbackProcessor {
-	private int ID;
+	private int id;
 	
 	private String coment;
 	
 	private String action="";
 	
-	public void setID(int value) {
-		this.ID = value;
+	public void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public void setComent(String value) {
@@ -45,21 +45,21 @@ public class FeedbackProcessor {
 		this.action = action;
 	}
 	
-	private int Classification_classificationID;
+	private int Classification_classificationid;
 	
-	public void setClassification_classificationID(int value) {
-		this.Classification_classificationID = value;
+	public void setClassification_classificationid(int value) {
+		this.Classification_classificationid = value;
 	}
 	
-	public int getClassification_classificationID() {
-		return Classification_classificationID;
+	public int getClassification_classificationid() {
+		return Classification_classificationid;
 	}
 	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				hibernate.feedback.Feedback _feedback = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getID());
+				hibernate.feedback.Feedback _feedback = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback!= null) {
 					copyFromBean(_feedback);
 					result = "Search success";
@@ -89,7 +89,7 @@ public class FeedbackProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				hibernate.feedback.Feedback _feedback= hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getID());
+				hibernate.feedback.Feedback _feedback= hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback != null) {
 					copyToBean(_feedback);
 					if (FeedbackDAO.save(_feedback)) {
@@ -110,7 +110,7 @@ public class FeedbackProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				hibernate.feedback.Feedback _feedback = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getID());
+				hibernate.feedback.Feedback _feedback = hibernate.feedback.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback != null && FeedbackDAO.delete(_feedback)) {
 					result = "Delete success";
 				}
@@ -131,12 +131,12 @@ public class FeedbackProcessor {
 	
 	private void copyFromBean(hibernate.feedback.Feedback _feedback) {
 		setComent(_feedback.getComent());
-		setID(_feedback.getORMID());
+		setId(_feedback.getORMID());
 		
 		{
 			hibernate.classification.Classification _classification = _feedback.getClassification();
 			if (_classification != null) {
-				setClassification_classificationID(_classification.getORMID());
+				setClassification_classificationid(_classification.getORMID());
 			}
 		}
 		
@@ -145,7 +145,7 @@ public class FeedbackProcessor {
 	private void copyToBean(hibernate.feedback.Feedback _feedback) {
 		_feedback.setComent(getComent());
 		try  {
-			hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getClassification_classificationID());
+			hibernate.classification.Classification _classification = hibernate.classification.ClassificationDAO.loadClassificationByORMID(getClassification_classificationid());
 			_feedback.setClassification(_classification);
 		}
 		catch (PersistentException e) {

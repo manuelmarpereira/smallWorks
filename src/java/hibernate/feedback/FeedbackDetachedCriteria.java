@@ -20,23 +20,23 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class FeedbackDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression ID;
+	public final IntegerExpression id;
 	public final IntegerExpression ClassificationId;
 	public final AssociationExpression Classification;
 	public final StringExpression coment;
 	
 	public FeedbackDetachedCriteria() {
 		super(hibernate.feedback.Feedback.class, hibernate.feedback.FeedbackCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		ClassificationId = new IntegerExpression("Classification.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		ClassificationId = new IntegerExpression("Classification.id", this.getDetachedCriteria());
 		Classification = new AssociationExpression("Classification", this.getDetachedCriteria());
 		coment = new StringExpression("coment", this.getDetachedCriteria());
 	}
 	
 	public FeedbackDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, hibernate.feedback.FeedbackCriteria.class);
-		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		ClassificationId = new IntegerExpression("Classification.ID", this.getDetachedCriteria());
+		id = new IntegerExpression("id", this.getDetachedCriteria());
+		ClassificationId = new IntegerExpression("Classification.id", this.getDetachedCriteria());
 		Classification = new AssociationExpression("Classification", this.getDetachedCriteria());
 		coment = new StringExpression("coment", this.getDetachedCriteria());
 	}

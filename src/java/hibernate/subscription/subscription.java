@@ -38,7 +38,7 @@ public class subscription {
 		
 	};
 	
-	private int ID;
+	private int id;
 	
 	private hibernate.user.User user;
 	
@@ -46,16 +46,16 @@ public class subscription {
 	
 	private hibernate.district.District subsDistrict;
 	
-	private void setID(int value) {
-		this.ID = value;
+	private void setId(int value) {
+		this.id = value;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	
 	public int getORMID() {
-		return getID();
+		return getId();
 	}
 	
 	public void setSubsDistrict(hibernate.district.District value) {
@@ -99,7 +99,7 @@ public class subscription {
 	}
 	
 	public String toString() {
-		return String.valueOf(getID());
+		return String.valueOf(getId());
 	}
 	
 }
