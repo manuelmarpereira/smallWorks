@@ -1,9 +1,7 @@
 package servlets;
 
-import com.google.gson.Gson;
 import interfaces.ManageUserLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,30 +17,36 @@ public class EditUser extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         resp.setContentType("application/json;charset=UTF-8");
-
+        
         Integer id = validateInts(req.getParameter("id"));
         
         User u = null;
         //RequestDispatcher reqDispatcher;
-        
         if(id != null) {
             u = mu.getUser(id);
-            u.setPassword(null);
 //            req.setAttribute("useredit", u);
-            
         }
-        String ju = new Gson().toJson(u);
-        System.out.println("user: " + ju);
-        PrintWriter out = resp.getWriter();
+        
+        System.out.println("depois json");
+        resp.getWriter().print(buildJson(u));
+        System.out.println("depois print");
 //        resp.getWriter().flush();
-//        resp.getWriter().print(ju);
-        out.write(ju);
-        out.flush();
-        out.close();
 //        resp.getWriter().close();
 //        reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/editUser.jsp");
 //        reqDispatcher.forward(req, resp);
-//        resp.getWriter().write(u.get);
+    }
+    
+    private String buildJson(User u) {
+        return "{\"id\": \""+ u.getId()+"\","+
+                "\"idDistrict\": \""+ u.getDistrict().getId()+"\","+
+                "\"nick\": \""+ u.getNick()+"\","+
+                "\"firstname\": \""+ u.getFirstname()+"\","+
+                "\"lastname\": \""+ u.getLastname()+"\","+
+                "\"email\": \""+ u.getEmail()+"\","+
+                "\"coordLat\": \""+ u.getCoordLat()+"\","+
+                "\"coordLong\": \""+ u.getCoordLong()+"\""+
+               "}";
+        
     }
     
     private Integer validateInts(String v) {

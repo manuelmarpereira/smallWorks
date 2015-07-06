@@ -18,7 +18,7 @@
             </p>
         </div>
         <div class="col-sm-4 col-md-4 white">
-            <p class="name pull-left" > teste 
+            <p class="names pull-left" > teste 
                     <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
                
                 <br>
@@ -64,7 +64,7 @@
 
  <script type="text/javascript">
     var id = '<c:out value="${sessionScope.user.id}"/>';
-    alert("antes" + id);
+
     verifyUser(id);
     getUser(id);
 </script>
