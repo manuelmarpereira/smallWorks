@@ -4,7 +4,7 @@
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 <layout:profile_layout title="my Offers" class2="">
     <jsp:attribute name="container">
-        <div class="marginSide"> 
+        <div class="marginSide" style=" margin-bottom: 40px"> 
              <h2>Search <small> customize your small works search</small></h2>
                 <hr>
     <div class="row">
@@ -31,22 +31,8 @@
                             <td><a href="${pageContext.request.contextPath}/offer/new.jsp">Editar</a></td>
                             <td><a href="#">Finalizar</a></td>
                         </tr>
-                        <tr>
-                            <td>15 de Abril</td>
-                            <td>Mudança de móveis</td>
-                            <td>20?</td>
-                            <td style="color:green;">Aguarda Finalização</td>
-                            <td><a href="${pageContext.request.contextPath}/offer/new.jsp">Editar</a></td>
-                            <td><a href="#">Finalizar</a></td>
-                        </tr>
-                        <tr>
-                            <td>15 de Abril</td>
-                            <td>Mudança de móveis</td>
-                            <td>20?</td>
-                            <td style="color:green;">Aguarda Finalização</td>
-                            <td><a href="${pageContext.request.contextPath}/offer/new.jsp">Editar</a></td>
-                            <td><a href="#">Finalizar</a></td>
-                        </tr>
+                      
+                      
                     </tbody>
                 </table>
             </div>

@@ -37,7 +37,7 @@
                             <label for="email" class="col-md-3 control-label">Email</label>
                                 <div class="col-md-9">
                             	<div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="email" id="validate-email" placeholder="Validate Email" required>
+						<input type="email" class="form-control" name="email" id="validate-email" placeholder="Validate Email" required>
 						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 				</div>
                             </div>
@@ -87,7 +87,7 @@
         </div>              
     </div> 
 </form>
-
-<script LANGUAGE="JavaScript" src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
+                    
+<script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
 
 

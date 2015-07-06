@@ -23,9 +23,9 @@
                                 <c:out value="${sessionScope.user.nick}"/>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="${pageContext.request.contextPath}/user/editUser.jsp">Account<span class="glyphicon glyphicon-cog pull-right"></span>  </a></li>
+                                <li><a href="${pageContext.request.contextPath}/user/show.jsp">Account<span class="glyphicon glyphicon-cog pull-right"></span>  </a></li>
                                 <li class="divider"></li> 
-                                <li><a href="${pageContext.request.contextPath}/user/chart.jsp">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/user/dashboard.jsp">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
                                 <li class="divider"></li>

@@ -65,12 +65,11 @@ $("input[type=password]").keyup(function(){
 
 $(document).ready(function() {
     $('.form-group input[required]').on('keyup change', function() {
-		var $form = $(this).closest('form'),
-                    $group = $(this).closest('.input-group'),
-                    
-		    $addon = $group.find('.input-group-addon'),
-		
-		     state = false;
+            var $form = $(this).closest('form'),
+                $group = $(this).closest('.input-group'),
+                $addon = $group.find('.input-group-addon'),
+                $icon = $addon.find('span'),
+                state = false;
             
     	if ($group.data('validate') == "email") {
 			state = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test($(this).val())

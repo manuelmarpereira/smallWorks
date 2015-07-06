@@ -4,7 +4,7 @@
     Author     : Manuel
 --%>
 
-
+ <form role="form" name="" action="" method="POST"> 
         <div class="modal fade" id="editPhotoModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -19,12 +19,14 @@
                             <img src="../assets/img/user.jpg" alt="" class="avatar img-circle"  />
 
                             <h6>Carregar Foto</h6>
-                            <input type="file" class="form-control">
+                            <input type="file" required class="form-control">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                       <jsp:include page="confirmations.jsp" />
+                    <div class="modal-footer"> 
+                        <input id="submit" type ="submit" class="btn btn btn-success" value ="Save" >
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
                     </div>
                 </div>
             </div>
         </div>
+ </form>
