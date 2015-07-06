@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="hibernate.district.District" table="District" lazy="false">
+	<class name="tp_aa.District" table="District" lazy="false">
 		<id name="id" column="ID" type="integer" unsaved-value="0">
 			<generator class="native">
 			</generator>
@@ -13,7 +13,7 @@ License Type: Evaluation
 		<property name="name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
 		<set name="ORM_User" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="DistrictID" not-null="true"/>
-			<one-to-many class="hibernate.user.User"/>
+			<one-to-many class="tp_aa.User"/>
 		</set>
 	</class>
 </hibernate-mapping>

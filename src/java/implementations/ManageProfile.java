@@ -1,61 +1,33 @@
 package implementations;
 
-import hibernate.globalconf.TPAAPersistentManager;
+import tp_aa.TPAAPersistentManager;
 import interfaces.ManageProfileLocal;
+import interfaces.ManageUserLocal;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
-import hibernate.feedback.Feedback;
-import hibernate.user.User;
+import tp_aa.Feedback;
 import utils.Profile;
 
+@Stateless
+@Local(ManageProfileLocal.class)
 public class ManageProfile implements ManageProfileLocal {
 
-//    @EJB
-//    private ManageProfileLocal mplEjb;
+    @EJB
+    ManageUserLocal mu;
     
     @Override
     public Profile getUser(int userId) {
         Profile p = new Profile();
         
-        p.setU(getUserById(userId));
+        p.setU(mu.getUser(userId));
         // feedback
         
-        
-        
         return p;
-    }
-    
-    
-    
-    
-    
-    
-    public static User getUserById(int userId) {
-        PersistentSession entityManager = null;
-        List<User> listUser = null;
-        
-        try {
-            entityManager = TPAAPersistentManager.instance().getSession();
-            entityManager.beginTransaction();
-            
-            Query login = entityManager.createQuery("from User where id=:user");
-            login.setParameter("user", userId);
-            
-            listUser = (List<User>) login.list();
-            entityManager.getTransaction().commit();
-            entityManager.close();
-        } catch (PersistentException ex) {
-            //tratar excepção se correr mal a meia da transação
-            ex.printStackTrace();
-        }
-        
-        if (listUser.isEmpty()) {
-            return null;
-        }
-        return listUser.get(0);
     }
     
     public static Feedback getFeedbackByUserid(int userId) {

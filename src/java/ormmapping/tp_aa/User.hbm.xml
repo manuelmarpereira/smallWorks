@@ -5,12 +5,12 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="hibernate.user.User" table="`User`" lazy="false">
+	<class name="tp_aa.User" table="`User`" lazy="false">
 		<id name="id" column="ID" type="integer" unsaved-value="0">
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="district" cascade="lock" column="DistrictID" class="hibernate.district.District" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="district" cascade="lock" column="DistrictID" class="tp_aa.District" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
 		<property name="nick" column="Nick" type="string" length="255" not-null="true" lazy="false"/>
 		<property name="firstname" column="Firstname" type="string" length="255" not-null="false" lazy="false"/>
@@ -22,7 +22,7 @@ License Type: Evaluation
 		<property name="coordLong" column="CoordLong" type="string" length="255" not-null="true" lazy="false"/>
 		<set name="ORM_Subscriptions" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="UserID" not-null="true"/>
-			<one-to-many class="hibernate.subscription.subscription"/>
+			<one-to-many class="tp_aa.subscription"/>
 		</set>
 	</class>
 </hibernate-mapping>

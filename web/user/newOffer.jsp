@@ -20,25 +20,25 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">Título:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input type="text" name="title" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2">Descrição:</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="4"></textarea>
+                            <textarea class="form-control" name="description" rows="4"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2">Recompensa:</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control">
+                            <input type="text" name="reward" class="form-control">
                         </div>
                         <label class="control-label col-sm-1">€</label>
                         <div class="col-sm-6 pull-right">
                             <div class="checkbox">
-                                <label class="control-label"><input  type="checkbox">Negociável</label>
+                                <label class="control-label"><input type="checkbox" name="negociable" >Negociável</label>
                             </div>
                         </div>
                     </div>

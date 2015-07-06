@@ -2,7 +2,7 @@ package subscription;
 
 //import javax.ejb.EJB;
 
-import hibernate.work.Work;
+import tp_aa.Work;
 import interfaces.ManageSubscriptionLocal;
 import java.util.HashMap;
 import java.util.Map;

@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="hibernate.task.Task" table="Task" lazy="false">
+	<class name="tp_aa.Task" table="Task" lazy="false">
 		<id name="id" column="ID" type="integer" unsaved-value="0">
 			<generator class="native">
 			</generator>
@@ -13,7 +13,7 @@ License Type: Evaluation
 		<property name="name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
 		<set name="ORM_Subtaks" lazy="true" cascade="save-update,lock" inverse="false">
 			<key column="TaskID" not-null="true"/>
-			<one-to-many class="hibernate.subTask.SubTask"/>
+			<one-to-many class="tp_aa.SubTask"/>
 		</set>
 	</class>
 </hibernate-mapping>

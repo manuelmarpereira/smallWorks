@@ -26,7 +26,7 @@
         <jsp:invoke fragment="head"></jsp:invoke>
         </head>
 
-    <% hibernate.user.User user = (hibernate.user.User) request.getAttribute("user");
+    <% tp_aa.User user = (tp_aa.User) request.getAttribute("user");
         if (user != null) {
             session.setAttribute("name", user.getFirstname());
         }

@@ -16,7 +16,7 @@
     <Column name="DistrictID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.district.District.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.District.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -177,7 +177,7 @@
     <Column name="TaskID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.task.Task.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Task.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -213,7 +213,7 @@
     <Column name="ClassificationID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.classification.Classification.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Classification.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -273,7 +273,7 @@
     <Column name="UserID2">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.user.User.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.User.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -285,7 +285,7 @@
     <Column name="TaskID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.task.Task.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Task.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -297,10 +297,10 @@
     <Column name="UserID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.user.User.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.User.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -309,7 +309,7 @@
     <Column name="DistrictID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.district.District.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.District.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -365,8 +365,8 @@
     <Column name="CoordLat">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>0</Length>
+      <Type>27</Type>
+      <Length>255</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -376,8 +376,8 @@
     <Column name="CoordLong">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>0</Length>
+      <Type>27</Type>
+      <Length>255</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -411,7 +411,7 @@
     <Column name="UserID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.user.User.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.User.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -423,7 +423,7 @@
     <Column name="TaskID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.task.Task.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Task.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -435,7 +435,7 @@
     <Column name="DistrictID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.district.District.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.District.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -460,7 +460,7 @@
     <Column name="WorkID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.work.Work.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Work.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -485,7 +485,7 @@
     <Column name="WorkID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.work.Work.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Work.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -497,10 +497,10 @@
     <Column name="FeedbackID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hibernate.feedback.Feedback.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.Feedback.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>

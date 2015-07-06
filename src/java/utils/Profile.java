@@ -1,6 +1,6 @@
 package utils;
 
-import hibernate.user.User;
+import tp_aa.User;
 
 public class Profile {
     private User u;
