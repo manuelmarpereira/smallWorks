@@ -5,12 +5,14 @@ import interfaces.ManageUserLocal;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.User;
 import java.util.List;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
 
 @Stateless
+@Local(ManageUserLocal.class)
 public class ManageUser implements ManageUserLocal {
     
     @Override
@@ -38,6 +40,7 @@ public class ManageUser implements ManageUserLocal {
         return null;
     }
 
+    @Override
     public District guardaDistrito(String distrito) {
         //verifica se distrito existe
         District dist = verificaDistrito(distrito);

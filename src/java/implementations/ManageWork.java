@@ -2,6 +2,7 @@ package implementations;
 
 import interfaces.ManageWorkLocal;
 import java.util.ArrayList;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
@@ -9,6 +10,7 @@ import tp_aa.TPAAPersistentManager;
 import tp_aa.Work;
 
 @Stateless
+@Local(ManageWorkLocal.class)
 public class ManageWork implements ManageWorkLocal {
     
     

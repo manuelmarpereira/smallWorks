@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterUser extends HttpServlet {
 
     @EJB
-    private ManageUserLocal mu;
+    ManageUserLocal mu;
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

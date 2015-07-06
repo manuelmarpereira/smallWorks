@@ -2,8 +2,10 @@ package implementations;
 
 import tp_aa.TPAAPersistentManager;
 import interfaces.ManageProfileLocal;
+import interfaces.ManageUserLocal;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
@@ -12,10 +14,11 @@ import tp_aa.Feedback;
 import utils.Profile;
 
 @Stateless
+@Local(ManageProfileLocal.class)
 public class ManageProfile implements ManageProfileLocal {
 
     @EJB
-    private ManageUser mu;
+    ManageUserLocal mu;
     
     @Override
     public Profile getUser(int userId) {

@@ -39,9 +39,6 @@
     </servlet-mapping>
     
     
-    
-    
-    
     <filter>
     <filter-name>ORMFilter</filter-name>
             <filter-class>tp_aa.TPAAFilter</filter-class>

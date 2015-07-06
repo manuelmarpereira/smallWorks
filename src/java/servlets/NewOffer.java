@@ -1,8 +1,8 @@
 package servlets;
 
-import implementations.ManageWork;
-import implementations.ManageTask;
-import implementations.ManageUser;
+import interfaces.ManageTaskLocal;
+import interfaces.ManageUserLocal;
+import interfaces.ManageWorkLocal;
 import tp_aa.Work;
 import java.io.IOException;
 import java.util.Date;
@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 public class NewOffer extends HttpServlet{
     
     @EJB
-    private ManageUser mu;
+    private ManageUserLocal mu;
     @EJB
-    private ManageTask mt;
+    private ManageTaskLocal mt;
     @EJB
-    private ManageWork mo;
+   private  ManageWorkLocal mo;
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String t = req.getParameter("tittle"),
