@@ -13,9 +13,9 @@
                         <div>
                             <div >
                                 <div class="form-group">
-                                    <label for="txtEndereco" class="col-md-3 control-label">Endereço </label>
-                                    <div class="col-md-9">
-                                        <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" />
+                                    <label for="txtEndereco" class="col-md-2 control-label">Location </label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
                                     </div>
                                 </div>
                             </div>

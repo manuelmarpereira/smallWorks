@@ -7,11 +7,11 @@
     </jsp:attribute>
         
     <jsp:attribute name="container">
-    <div class="marginSide"> 
+    <div class="marginSide" style=" margin-bottom: 100px"> 
         <div class="col-lg-6">    
             <h2>Stats <small> Your mensal caches</small></h2>
             <hr>
-            <div id="morris-bar-chart" style="height: 160px" ></div>
+            <div id="morris-bar-chart" style="height: 145px" ></div>
         </div>
         
         <div class="row">

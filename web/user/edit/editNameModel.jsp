@@ -4,6 +4,7 @@
     Author     : Manuel
 --%>
 
+ <form role="form" name="" action="" method="POST"> 
 <div class="modal fade" id="editNameModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,28 +14,42 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form role="form" class="form-model col-md-8 go-right">
+                    <div class="form-model col-md-8 go-right">
 
                         <div class="form-group">
-                            <input  name="firstname" type="text" class="form-control" placeholder="Your First Name">
+                            <input  id="firstname" name="firstname" required="" type="text" class="form-control">
                             <label for="name">Your First Name</label>
                         </div>
                         <div class="form-group">
-                            <input name="lastname" type="text" class="form-control" placeholder="Your Last Name">
+                            <input id="lastname"  name="lastname" required type="text" class="form-control">
                             <label for="phone">Your Last Name</label>
                         </div>
 
-                    </form>
+                    </div>
                     
                     <div class="col-md-2">
                         <img src="${pageContext.request.contextPath}/assets/img/edit.png"/> 
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn btn-success sweet-12" id="conf-name" onclick="_gaq.push(['_trackEvent', 'example, 'try', 'Success']);">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>    
+           <div class="modal-footer"> 
+                        <input id="submit" type ="submit" class="btn btn btn-success" value ="Save" >
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
             </div>
         </div>
     </div>
 </div>
+
+   </form>                 
+   <script LANGUAGE="JavaScript" src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
+   <script>
+       
+      window.onload = function() {
+           alert("olaaa")
+           document.getElementById("firstname").value= "teste";
+           document.getElementById("lastname").value= "teste";
+           document.getElementById("submit").disabled=true;
+       
+    }
+    
+   </script>

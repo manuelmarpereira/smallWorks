@@ -32,7 +32,8 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <a class="pull-left btn btn-primary" href="${pageContext.request.contextPath}/offer/search.jsp">Search</a>
+                        <a class="pull-left btn btn-primary" href="${pageContext.request.contextPath}/offer/search.jsp">Search
+                         <span class="glyphicon glyphicon-search" ></span></a>
                     </div>
                 </form>
             </div>
@@ -42,7 +43,7 @@
                     Don't have an account! 
 
 
-                    <a href="${pageContext.request.contextPath}/user/registerUser.jsp" >
+                    <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/user/registerUser.jsp" >
 
                         Sign Up Here
                     </a>

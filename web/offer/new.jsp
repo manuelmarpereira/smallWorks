@@ -1,64 +1,26 @@
-<%-- 
-    Document   : nova
-    Created on : 5/jun/2015, 14:29:17
-    Author     : Manuel
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
-<div class="marginSide"> 
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-horizontal" role="form">
-                <div class="col-md-6  white">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Título:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Descrição:</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-                    </div>
+<layout:simple_layout title="smallWorks" class2="bodyBackground">
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Recompensa:</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="control-label col-sm-1">?</label>
-                        <div class="col-sm-6 pull-right">
-                            <div class="checkbox">
-                                <label class="control-label"><input  type="checkbox">Negociável</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class=" panel panel-default white">
-                        <div class="panel-heading">Local da Oferta Proposta</div>
-                        <br>
-                        <div class="form-group">
-                            <label class="control-label col-sm-3">Morada:</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-3">Cod. Postal:</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="control-label pull-left">-</div>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <p class="pull-right"><button type="button" class="btn btn-primary">Add</button></p>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+    <jsp:attribute name="session"></jsp:attribute>
+    <jsp:attribute name="head">
+                  
+        <style type="text/css">
+            
+        html .bodyBackground{
+            background: none;
+            background-color: white !important;
+            
+        }
+            
+        </style>
+    </jsp:attribute>
+    <jsp:attribute name="foot"></jsp:attribute>
+    <jsp:attribute name="container">
+        
+        <jsp:include page="formNewOffer.jsp" />
+        
+    </jsp:attribute>
+</layout:simple_layout>
