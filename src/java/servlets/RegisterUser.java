@@ -1,7 +1,7 @@
 package servlets;
 
 import interfaces.ManageUserLocal;
-import hibernate.user.User;
+import tp_aa.User;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -29,9 +29,6 @@ public class RegisterUser extends HttpServlet {
                 cla = req.getParameter("latitude"),
                 clo = req.getParameter("longitude"),
                 dis = req.getParameter("distrito");
-
-    
-        
 
         if (validateData(n) && checkPasswords(p, req.getParameter("confPass")) && validateData(fn)
                 && validateData(ln) && validateData(em) && validateData(cla) && validateData(clo)) {

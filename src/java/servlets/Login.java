@@ -1,7 +1,7 @@
 package servlets;
 
 import interfaces.ManageUserLocal;
-import hibernate.user.User;
+import tp_aa.User;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -14,12 +14,7 @@ public class Login extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        
-    }
+    
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         resp.setContentType("text/html;charset=UTF-8");
@@ -71,10 +66,5 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.processRequest(req,resp);
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Servlet info";
     }
 }

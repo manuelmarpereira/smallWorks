@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/servlets/NewOffer.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/servlets/RegisterUser.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/tp_aa/ClassificationDAO.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/user/newOffer.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/servlets/EditUser.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/implementations/ManageOffers.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/tp_aa/ClassificationProcessor.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/user/formRegisterUser.jsp</file>
+        </group>
     </open-files>
 </project-private>

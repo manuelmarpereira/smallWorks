@@ -1,7 +1,9 @@
 package implementations;
 
 import interfaces.ManageSubscriptionLocal;
+import javax.ejb.Stateless;
 
+@Stateless
 public class ManageSubscription implements ManageSubscriptionLocal {
 
     @Override

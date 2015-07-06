@@ -5,16 +5,16 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="hibernate.subscription.subscription" table="subscription" lazy="false">
+	<class name="tp_aa.subscription" table="subscription" lazy="false">
 		<id name="id" column="ID" type="integer" unsaved-value="0">
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="user" cascade="lock" column="UserID" class="hibernate.user.User" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="user" cascade="lock" column="UserID" class="tp_aa.User" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="subsTask" cascade="lock" column="TaskID" class="hibernate.task.Task" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subsTask" cascade="lock" column="TaskID" class="tp_aa.Task" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="subsDistrict" cascade="lock" column="DistrictID" class="hibernate.district.District" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subsDistrict" cascade="lock" column="DistrictID" class="tp_aa.District" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

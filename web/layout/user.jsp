@@ -2,6 +2,8 @@
 
 
 <link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
+<script src="${pageContext.request.contextPath}/assets/js/userdata.js" type="text/javascript"></script>
+
 <div class="profile-header">
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-sm-4 col-md-3 col-md-2 white">
@@ -16,25 +18,17 @@
             </p>
         </div>
         <div class="col-sm-4 col-md-4 white">
-            <p class="pull-left" >
-               teste
-                    <c:out value="${sessionScope.user.firstname}" /> <c:out value="${sessionScope.user.lastname}" />
+            <p class="name pull-left" > teste 
                     <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
                
                 <br>
           </p>
           
-            <p class="pull-left">
-              
-                    <i class="glyphicon glyphicon-map-marker"></i>
-                    Porto
-                   
-                
+            <p class="district pull-left">
             </p>
           
-            <p class="pull-left">
-                <i class="glyphicon glyphicon-envelope"></i>
-                <c:out value="${sessionScope.user.email}"/>manuelantonio@gmail.com
+            <p class="email namepull-left">
+                
                 <small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
             </p>
             <p class="pull-left">
@@ -69,18 +63,8 @@
 <jsp:include page="/user/edit/editEmailModel.jsp" />
 
  <script type="text/javascript">
-
-function verifyUser() { 
-      
-      if ( '<c:out value="${sessionScope.user.id}"/>'==null){
-        $('#nameEdit').remove(); 
-        $('#emailEdit').remove(); 
-        $('#locationEdit').remove(); 
-        $('#photoEdit').remove(); 
-        $('#accessEdit').remove(); 
-    }
-}
-
-verifyUser();
-
+    var id = '<c:out value="${sessionScope.user.id}"/>';
+    alert("antes" + id);
+    verifyUser(id);
+    getUser(id);
 </script>

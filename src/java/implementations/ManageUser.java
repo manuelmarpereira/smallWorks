@@ -1,11 +1,10 @@
 package implementations;
 
-import hibernate.district.District;
+import tp_aa.District;
 import interfaces.ManageUserLocal;
-import hibernate.globalconf.TPAAPersistentManager;
-import hibernate.user.User;
+import tp_aa.TPAAPersistentManager;
+import tp_aa.User;
 import java.util.List;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
@@ -13,17 +12,14 @@ import org.orm.PersistentSession;
 
 @Stateless
 public class ManageUser implements ManageUserLocal {
-
-    @EJB
-    ManageUserLocal gclEjb;
-
+    
     @Override
     public User registUser(User u, String distrito) {
         //grava distrito
-        
+
         // User u  = vou gravar na base de dados se possivel 
         if (!UserExist(u)) {
-           
+
             u.setORM_District(guardaDistrito(distrito));
 
             PersistentSession entityManager = null;
@@ -41,31 +37,31 @@ public class ManageUser implements ManageUserLocal {
         }
         return null;
     }
-    
-    private static District guardaDistrito(String distrito){
+
+    public District guardaDistrito(String distrito) {
         //verifica se distrito existe
-        District dist=verificaDistrito(distrito);
-        if (dist==null){
-                //insere districto
-                dist=new District();
-                dist.setName(distrito);
-                PersistentSession entityManager = null;
-                try {
-                    entityManager = TPAAPersistentManager.instance().getSession();
-                    entityManager.beginTransaction();
-                    entityManager.save(dist);
-                    entityManager.getTransaction().commit();
-                    entityManager.close();
-                } catch (PersistentException ex) {
-                    //tratar excepção se correr mal a meia da transação
-                    ex.printStackTrace();
-                }
-               dist=verificaDistrito(distrito);
+        District dist = verificaDistrito(distrito);
+        if (dist == null) {
+            //insere districto
+            dist = new District();
+            dist.setName(distrito);
+            PersistentSession entityManager = null;
+            try {
+                entityManager = TPAAPersistentManager.instance().getSession();
+                entityManager.beginTransaction();
+                entityManager.save(dist);
+                entityManager.getTransaction().commit();
+                entityManager.close();
+            } catch (PersistentException ex) {
+                //tratar excepção se correr mal a meia da transação
+                ex.printStackTrace();
+            }
+            dist = verificaDistrito(distrito);
         }
         return dist;
     }
-    
-        private static District verificaDistrito(String distrito){
+
+    private District verificaDistrito(String distrito) {
         PersistentSession entityManager = null;
         List<District> listUser = null;
         try {
@@ -73,7 +69,7 @@ public class ManageUser implements ManageUserLocal {
             entityManager.beginTransaction();
             Query login = entityManager.createQuery("from District where name LIKE :name");
             login.setParameter("name", distrito);
-   
+
             listUser = (List<District>) login.list();
             entityManager.getTransaction().commit();
             entityManager.close();
@@ -81,10 +77,10 @@ public class ManageUser implements ManageUserLocal {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
         }
-          if (listUser.isEmpty()) {
+        if (listUser.isEmpty()) {
             return null;
         }
-          return listUser.get(0);
+        return listUser.get(0);
     }
 
     private boolean UserExist(User u) {
@@ -114,7 +110,7 @@ public class ManageUser implements ManageUserLocal {
 
         PersistentSession entityManager = null;
         List<User> listUser = null;
-       
+
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
@@ -128,7 +124,7 @@ public class ManageUser implements ManageUserLocal {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
         }
-        
+
         if (listUser.size() == 1) {
             User u = new User();
             u.setId(listUser.get(0).getId());
@@ -137,6 +133,31 @@ public class ManageUser implements ManageUserLocal {
         }
 
         return null;
+    }
+
+    @Override
+    public User getUser(int id) {
+        PersistentSession entityManager = null;
+        List<User> listUser = null;
+
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query login = entityManager.createQuery("from User where id=:id");
+            login.setParameter("id", id);
+
+            listUser = (List<User>) login.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+
+        if (listUser.isEmpty()) {
+            return null;
+        }
+        return listUser.get(0);
     }
 
 }
