@@ -8,36 +8,55 @@
         <servlet-name>RegisterUser</servlet-name>
         <servlet-class>servlets.RegisterUser</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>servlets.Login</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>editUser</servlet-name>
-        <servlet-class>servlets.EditUser</servlet-class>
-    </servlet>    
-    <servlet>
-        <servlet-name>NewOffer</servlet-name>
-        <servlet-class>servlets.NewOffer</servlet-class>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>RegisterUser</servlet-name>
         <url-pattern>/user/registerUser</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>servlets.Login</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login/login</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>editUser</servlet-name>
-        <url-pattern>/user/editUser</url-pattern>
-    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>NewOffer</servlet-name>
+        <servlet-class>servlets.NewOffer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewOffer</servlet-name>
         <url-pattern>/user/newOffer</url-pattern>
     </servlet-mapping>
     
+    
+    <!-- ************* no pages ************* -->
+    <servlet>
+        <servlet-name>UserSvlData</servlet-name>
+        <servlet-class>servlets.UserSvlData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserSvlData</servlet-name>
+        <url-pattern>/userdata</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TaskSvlData</servlet-name>
+        <servlet-class>servlets.TaskSvlData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TaskSvlData</servlet-name>
+        <url-pattern>/taskdata</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SubTaskSvlData</servlet-name>
+        <servlet-class>servlets.SubTaskSvlData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubTaskSvlData</servlet-name>
+        <url-pattern>/subtaskdata</url-pattern>
+    </servlet-mapping>
     
     <filter>
     <filter-name>ORMFilter</filter-name>

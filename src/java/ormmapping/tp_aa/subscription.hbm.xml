@@ -12,7 +12,7 @@ License Type: Evaluation
 		</id>
 		<many-to-one name="user" cascade="lock" column="UserID" class="tp_aa.User" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="subsTask" cascade="lock" column="TaskID" class="tp_aa.Task" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subsTask" cascade="lock" column="SubTaskID" class="tp_aa.SubTask" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
 		<many-to-one name="subsDistrict" cascade="lock" column="DistrictID" class="tp_aa.District" not-null="true" lazy="proxy" access="field">
 		</many-to-one>

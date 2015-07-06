@@ -12,34 +12,27 @@
                 <i class="glyphicon glyphicon-camera"></i>
                 <small><a href="#" data-toggle="modal" data-target="#editPhotoModel">(Change your Photo)</a></small>
             </p>
-            <p class="pull-left" id="accessEdit">
-                <i class="glyphicon glyphicon-pencil"></i>
+        </div>
+        <div class="info col-sm-4 col-md-4 white" >
+            <p class="names pull-left">
+                <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
+            </p>
+            <p class="pull-left" id="accessEdit"> Password
                 <small><a  href="#" data-toggle="modal" data-target="#editAccessModel">(Access Data)</a></small>
             </p>
-        </div>
-        <div class="col-sm-4 col-md-4 white">
-            <p class="names pull-left" > teste 
-                    <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
-               
-                <br>
-          </p>
-          
             <p class="district pull-left">
             </p>
-          
+
             <p class="email namepull-left">
-                
                 <small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
             </p>
-            <p class="pull-left">
+            <p class="reward pull-left">
                 <i>Feedback (8/10) </i> 
                 <jsp:include page="/feedback/showStars.jsp" />
             </p>
         </div>
         <div class="col-sm-1" ></div>
         <div class="col-sm-3" style=" margin-top: 30px">
-
-
             <span class="rating">
                 <c:choose>
                     <c:when test="${sessionScope.user.id!=null}"> 

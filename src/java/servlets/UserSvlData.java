@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tp_aa.User;
 
-public class EditUser extends HttpServlet {
+public class UserSvlData extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
@@ -18,27 +18,21 @@ public class EditUser extends HttpServlet {
         
         resp.setContentType("application/json;charset=UTF-8");
         
-        Integer id = validateInts(req.getParameter("id"));
-        
-        User u = null;
-        //RequestDispatcher reqDispatcher;
-        if(id != null) {
-            u = mu.getUser(id);
-//            req.setAttribute("useredit", u);
+        String ids = req.getParameter("id");
+        if(ids != null) {
+            Integer id = validateInts(ids);
+            User u = null;
+            if(id != null) {
+                u = mu.getUser(id);
+            }
+            resp.getWriter().print(buildJson(u));
         }
-        
-        System.out.println("depois json");
-        resp.getWriter().print(buildJson(u));
-        System.out.println("depois print");
-//        resp.getWriter().flush();
-//        resp.getWriter().close();
-//        reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/editUser.jsp");
-//        reqDispatcher.forward(req, resp);
     }
     
     private String buildJson(User u) {
         return "{\"id\": \""+ u.getId()+"\","+
                 "\"idDistrict\": \""+ u.getDistrict().getId()+"\","+
+                "\"nameDistrict\": \""+ u.getDistrict().getName()+"\","+
                 "\"nick\": \""+ u.getNick()+"\","+
                 "\"firstname\": \""+ u.getFirstname()+"\","+
                 "\"lastname\": \""+ u.getLastname()+"\","+
@@ -57,11 +51,6 @@ public class EditUser extends HttpServlet {
             }
         } catch(NumberFormatException n) {}
         return null;
-    }
-    
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.processRequest(req, resp);
     }
 
     @Override

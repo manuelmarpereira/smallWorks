@@ -21,7 +21,7 @@ import java.util.List;
 public class TaskDAO {
 	public static Task loadTaskByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadTaskByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class TaskDAO {
 	
 	public static Task getTaskByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getTaskByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class TaskDAO {
 	
 	public static Task getTaskByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getTaskByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Task) session.load(Task.class, new Integer(id));
+			return (Task) session.load(tp_aa.Task.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class TaskDAO {
 	
 	public static Task getTaskByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Task) session.get(Task.class, new Integer(id));
+			return (Task) session.get(tp_aa.Task.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Task) session.load(Task.class, new Integer(id), lockMode);
+			return (Task) session.load(tp_aa.Task.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class TaskDAO {
 	
 	public static Task getTaskByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Task) session.get(Task.class, new Integer(id), lockMode);
+			return (Task) session.get(tp_aa.Task.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class TaskDAO {
 	
 	public static List queryTask(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryTask(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class TaskDAO {
 	
 	public static List queryTask(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryTask(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class TaskDAO {
 	
 	public static Task[] listTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class TaskDAO {
 	
 	public static Task[] listTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class TaskDAO {
 	}
 	
 	public static List queryTask(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Task as Task");
+		StringBuffer sb = new StringBuffer("From tp_aa.Task as Task");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class TaskDAO {
 	}
 	
 	public static List queryTask(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Task as Task");
+		StringBuffer sb = new StringBuffer("From tp_aa.Task as Task");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class TaskDAO {
 	
 	public static Task loadTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class TaskDAO {
 	
 	public static java.util.Iterator iterateTaskByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateTaskByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class TaskDAO {
 	
 	public static java.util.Iterator iterateTaskByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateTaskByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class TaskDAO {
 	}
 	
 	public static java.util.Iterator iterateTaskByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Task as Task");
+		StringBuffer sb = new StringBuffer("From tp_aa.Task as Task");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class TaskDAO {
 	}
 	
 	public static java.util.Iterator iterateTaskByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Task as Task");
+		StringBuffer sb = new StringBuffer("From tp_aa.Task as Task");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class TaskDAO {
 	}
 	
 	public static Task createTask() {
-		return new Task();
+		return new tp_aa.Task();
 	}
 	
-	public static boolean save(Task task) throws PersistentException {
+	public static boolean save(tp_aa.Task task) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(task);
+			tp_aa.TPAAPersistentManager.instance().saveObject(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static boolean delete(Task task) throws PersistentException {
+	public static boolean delete(tp_aa.Task task) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(task);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static boolean refresh(Task task) throws PersistentException {
+	public static boolean refresh(tp_aa.Task task) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(task);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(task);
 			return true;
 		}
 		catch (Exception e) {
@@ -332,9 +332,9 @@ public class TaskDAO {
 		}
 	}
 	
-	public static boolean evict(Task task) throws PersistentException {
+	public static boolean evict(tp_aa.Task task) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(task);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(task);
 			return true;
 		}
 		catch (Exception e) {

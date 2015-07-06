@@ -21,13 +21,11 @@ import org.orm.criteria.*;
 public class TaskCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression name;
-	public final CollectionExpression Subtaks;
 	
 	public TaskCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		name = new StringExpression("name", this);
-		Subtaks = new CollectionExpression("ORM_Subtaks", this);
 	}
 	
 	public TaskCriteria(PersistentSession session) {
@@ -36,10 +34,6 @@ public class TaskCriteria extends AbstractORMCriteria {
 	
 	public TaskCriteria() throws PersistentException {
 		this(tp_aa.TPAAPersistentManager.instance().getSession());
-	}
-	
-	public tp_aa.SubTaskCriteria createSubtaksCriteria() {
-		return new tp_aa.SubTaskCriteria(createCriteria("ORM_Subtaks"));
 	}
 	
 	public Task uniqueTask() {

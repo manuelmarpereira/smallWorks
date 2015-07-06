@@ -50,8 +50,8 @@ public class subscriptionCriteria extends AbstractORMCriteria {
 		return new UserCriteria(createCriteria("user"));
 	}
 	
-	public TaskCriteria createSubsTaskCriteria() {
-		return new TaskCriteria(createCriteria("subsTask"));
+	public SubTaskCriteria createSubsTaskCriteria() {
+		return new SubTaskCriteria(createCriteria("subsTask"));
 	}
 	
 	public DistrictCriteria createSubsDistrictCriteria() {

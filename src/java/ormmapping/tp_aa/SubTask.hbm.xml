@@ -10,6 +10,8 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
+		<many-to-one name="task" cascade="lock" column="TaskID" class="tp_aa.Task" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
 		<property name="name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
 	</class>
 </hibernate-mapping>

@@ -21,7 +21,7 @@ import java.util.List;
 public class subscriptionDAO {
 	public static subscription loadSubscriptionByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadSubscriptionByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class subscriptionDAO {
 	
 	public static subscription getSubscriptionByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getSubscriptionByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class subscriptionDAO {
 	
 	public static subscription loadSubscriptionByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadSubscriptionByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class subscriptionDAO {
 	
 	public static subscription getSubscriptionByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getSubscriptionByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class subscriptionDAO {
 	
 	public static subscription loadSubscriptionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (subscription) session.load(subscription.class, new Integer(id));
+			return (subscription) session.load(tp_aa.subscription.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class subscriptionDAO {
 	
 	public static subscription getSubscriptionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (subscription) session.get(subscription.class, new Integer(id));
+			return (subscription) session.get(tp_aa.subscription.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class subscriptionDAO {
 	
 	public static subscription loadSubscriptionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (subscription) session.load(subscription.class, new Integer(id), lockMode);
+			return (subscription) session.load(tp_aa.subscription.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class subscriptionDAO {
 	
 	public static subscription getSubscriptionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (subscription) session.get(subscription.class, new Integer(id), lockMode);
+			return (subscription) session.get(tp_aa.subscription.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class subscriptionDAO {
 	
 	public static List querySubscription(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return querySubscription(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class subscriptionDAO {
 	
 	public static List querySubscription(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return querySubscription(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class subscriptionDAO {
 	
 	public static subscription[] listSubscriptionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listSubscriptionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class subscriptionDAO {
 	
 	public static subscription[] listSubscriptionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listSubscriptionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class subscriptionDAO {
 	}
 	
 	public static List querySubscription(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From subscription as subscription");
+		StringBuffer sb = new StringBuffer("From tp_aa.subscription as subscription");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class subscriptionDAO {
 	}
 	
 	public static List querySubscription(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From subscription as subscription");
+		StringBuffer sb = new StringBuffer("From tp_aa.subscription as subscription");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class subscriptionDAO {
 	
 	public static subscription loadSubscriptionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadSubscriptionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class subscriptionDAO {
 	
 	public static subscription loadSubscriptionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadSubscriptionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class subscriptionDAO {
 	
 	public static java.util.Iterator iterateSubscriptionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateSubscriptionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class subscriptionDAO {
 	
 	public static java.util.Iterator iterateSubscriptionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateSubscriptionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class subscriptionDAO {
 	}
 	
 	public static java.util.Iterator iterateSubscriptionByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From subscription as subscription");
+		StringBuffer sb = new StringBuffer("From tp_aa.subscription as subscription");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class subscriptionDAO {
 	}
 	
 	public static java.util.Iterator iterateSubscriptionByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From subscription as subscription");
+		StringBuffer sb = new StringBuffer("From tp_aa.subscription as subscription");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class subscriptionDAO {
 	}
 	
 	public static subscription createSubscription() {
-		return new subscription();
+		return new tp_aa.subscription();
 	}
 	
-	public static boolean save(subscription lsubscription) throws PersistentException {
+	public static boolean save(tp_aa.subscription lsubscription) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(lsubscription);
+			tp_aa.TPAAPersistentManager.instance().saveObject(lsubscription);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static boolean delete(subscription lsubscription) throws PersistentException {
+	public static boolean delete(tp_aa.subscription lsubscription) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(lsubscription);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(lsubscription);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,7 +321,7 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(subscription lsubscription)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.subscription lsubscription)throws PersistentException {
 		try {
 			if (lsubscription.getUser() != null) {
 				lsubscription.getUser().subscriptions.remove(lsubscription);
@@ -335,7 +335,7 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(subscription lsubscription, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.subscription lsubscription, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (lsubscription.getUser() != null) {
 				lsubscription.getUser().subscriptions.remove(lsubscription);
@@ -354,9 +354,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static boolean refresh(subscription lsubscription) throws PersistentException {
+	public static boolean refresh(tp_aa.subscription lsubscription) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(lsubscription);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(lsubscription);
 			return true;
 		}
 		catch (Exception e) {
@@ -365,9 +365,9 @@ public class subscriptionDAO {
 		}
 	}
 	
-	public static boolean evict(subscription lsubscription) throws PersistentException {
+	public static boolean evict(tp_aa.subscription lsubscription) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(lsubscription);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(lsubscription);
 			return true;
 		}
 		catch (Exception e) {

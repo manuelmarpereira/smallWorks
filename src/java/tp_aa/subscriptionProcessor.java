@@ -45,14 +45,14 @@ public class subscriptionProcessor {
 		return subsDistrict_districtid;
 	}
 	
-	private int subsTask_taskid;
+	private int subsTask_subTaskid;
 	
-	public void setSubsTask_taskid(int value) {
-		this.subsTask_taskid = value;
+	public void setSubsTask_subTaskid(int value) {
+		this.subsTask_subTaskid = value;
 	}
 	
-	public int getSubsTask_taskid() {
-		return subsTask_taskid;
+	public int getSubsTask_subTaskid() {
+		return subsTask_subTaskid;
 	}
 	
 	private int user_userid;
@@ -69,7 +69,7 @@ public class subscriptionProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				subscription _subscription = subscriptionDAO.loadSubscriptionByORMID(getId());
+				tp_aa.subscription _subscription = tp_aa.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription!= null) {
 					copyFromBean(_subscription);
 					result = "Search success";
@@ -84,7 +84,7 @@ public class subscriptionProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				subscription _subscription = subscriptionDAO.createSubscription();
+				tp_aa.subscription _subscription = tp_aa.subscriptionDAO.createSubscription();
 				copyToBean(_subscription);
 				if (subscriptionDAO.save(_subscription)) {
 					result = "Insert success";
@@ -99,7 +99,7 @@ public class subscriptionProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				subscription _subscription= subscriptionDAO.loadSubscriptionByORMID(getId());
+				tp_aa.subscription _subscription= tp_aa.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription != null) {
 					copyToBean(_subscription);
 					if (subscriptionDAO.save(_subscription)) {
@@ -120,7 +120,7 @@ public class subscriptionProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				subscription _subscription = subscriptionDAO.loadSubscriptionByORMID(getId());
+				tp_aa.subscription _subscription = tp_aa.subscriptionDAO.loadSubscriptionByORMID(getId());
 				if (_subscription != null && subscriptionDAO.deleteAndDissociate(_subscription)) {
 					result = "Delete success";
 				}
@@ -139,11 +139,11 @@ public class subscriptionProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(subscription _subscription) {
+	private void copyFromBean(tp_aa.subscription _subscription) {
 		setId(_subscription.getORMID());
 		
 		{
-			District _district = _subscription.getSubsDistrict();
+			tp_aa.District _district = _subscription.getSubsDistrict();
 			if (_district != null) {
 				setSubsDistrict_districtid(_district.getORMID());
 			}
@@ -151,15 +151,15 @@ public class subscriptionProcessor {
 		
 		
 		{
-			Task _task = _subscription.getSubsTask();
-			if (_task != null) {
-				setSubsTask_taskid(_task.getORMID());
+			tp_aa.SubTask _subTask = _subscription.getSubsTask();
+			if (_subTask != null) {
+				setSubsTask_subTaskid(_subTask.getORMID());
 			}
 		}
 		
 		
 		{
-			User _user = _subscription.getUser();
+			tp_aa.User _user = _subscription.getUser();
 			if (_user != null) {
 				setUser_userid(_user.getORMID());
 			}
@@ -167,23 +167,23 @@ public class subscriptionProcessor {
 		
 	}
 	
-	private void copyToBean(subscription _subscription) {
+	private void copyToBean(tp_aa.subscription _subscription) {
 		try  {
-			District _subsDistrict = DistrictDAO.loadDistrictByORMID(getSubsDistrict_districtid());
+			tp_aa.District _subsDistrict = tp_aa.DistrictDAO.loadDistrictByORMID(getSubsDistrict_districtid());
 			_subscription.setSubsDistrict(_subsDistrict);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			Task _subsTask = TaskDAO.loadTaskByORMID(getSubsTask_taskid());
+			tp_aa.SubTask _subsTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getSubsTask_subTaskid());
 			_subscription.setSubsTask(_subsTask);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			User _user = UserDAO.loadUserByORMID(getUser_userid());
+			tp_aa.User _user = tp_aa.UserDAO.loadUserByORMID(getUser_userid());
 			_subscription.setUser(_user);
 		}
 		catch (PersistentException e) {

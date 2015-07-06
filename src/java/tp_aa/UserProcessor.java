@@ -129,7 +129,7 @@ public class UserProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				User _user = UserDAO.loadUserByORMID(getId());
+				tp_aa.User _user = tp_aa.UserDAO.loadUserByORMID(getId());
 				if (_user!= null) {
 					copyFromBean(_user);
 					result = "Search success";
@@ -144,7 +144,7 @@ public class UserProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				User _user = UserDAO.createUser();
+				tp_aa.User _user = tp_aa.UserDAO.createUser();
 				copyToBean(_user);
 				if (UserDAO.save(_user)) {
 					result = "Insert success";
@@ -159,7 +159,7 @@ public class UserProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				User _user= UserDAO.loadUserByORMID(getId());
+				tp_aa.User _user= tp_aa.UserDAO.loadUserByORMID(getId());
 				if (_user != null) {
 					copyToBean(_user);
 					if (UserDAO.save(_user)) {
@@ -180,7 +180,7 @@ public class UserProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				User _user = UserDAO.loadUserByORMID(getId());
+				tp_aa.User _user = tp_aa.UserDAO.loadUserByORMID(getId());
 				if (_user != null && UserDAO.deleteAndDissociate(_user)) {
 					result = "Delete success";
 				}
@@ -199,7 +199,7 @@ public class UserProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(User _user) {
+	private void copyFromBean(tp_aa.User _user) {
 		setNick(_user.getNick());
 		setFirstname(_user.getFirstname());
 		setLastname(_user.getLastname());
@@ -211,7 +211,7 @@ public class UserProcessor {
 		setId(_user.getORMID());
 		
 		{
-			District _district = _user.getDistrict();
+			tp_aa.District _district = _user.getDistrict();
 			if (_district != null) {
 				setDistrict_districtid(_district.getORMID());
 			}
@@ -219,7 +219,7 @@ public class UserProcessor {
 		
 	}
 	
-	private void copyToBean(User _user) {
+	private void copyToBean(tp_aa.User _user) {
 		_user.setNick(getNick());
 		_user.setFirstname(getFirstname());
 		_user.setLastname(getLastname());
@@ -229,7 +229,7 @@ public class UserProcessor {
 		_user.setCoordLat(getCoordLat());
 		_user.setCoordLong(getCoordLong());
 		try  {
-			District _district = DistrictDAO.loadDistrictByORMID(getDistrict_districtid());
+			tp_aa.District _district = tp_aa.DistrictDAO.loadDistrictByORMID(getDistrict_districtid());
 			_user.setDistrict(_district);
 		}
 		catch (PersistentException e) {

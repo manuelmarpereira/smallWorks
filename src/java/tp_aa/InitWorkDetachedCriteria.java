@@ -22,8 +22,8 @@ public class InitWorkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
 	public final IntegerExpression CreatorId;
 	public final AssociationExpression Creator;
-	public final IntegerExpression TasksId;
-	public final AssociationExpression Tasks;
+	public final IntegerExpression subTaskId;
+	public final AssociationExpression subTask;
 	public final IntegerExpression WorkerId;
 	public final AssociationExpression Worker;
 	public final IntegerExpression LocalizationId;
@@ -42,8 +42,8 @@ public class InitWorkDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		CreatorId = new IntegerExpression("Creator.id", this.getDetachedCriteria());
 		Creator = new AssociationExpression("Creator", this.getDetachedCriteria());
-		TasksId = new IntegerExpression("Tasks.id", this.getDetachedCriteria());
-		Tasks = new AssociationExpression("Tasks", this.getDetachedCriteria());
+		subTaskId = new IntegerExpression("subTask.id", this.getDetachedCriteria());
+		subTask = new AssociationExpression("subTask", this.getDetachedCriteria());
 		WorkerId = new IntegerExpression("Worker.id", this.getDetachedCriteria());
 		Worker = new AssociationExpression("Worker", this.getDetachedCriteria());
 		LocalizationId = new IntegerExpression("Localization.id", this.getDetachedCriteria());
@@ -63,8 +63,8 @@ public class InitWorkDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		CreatorId = new IntegerExpression("Creator.id", this.getDetachedCriteria());
 		Creator = new AssociationExpression("Creator", this.getDetachedCriteria());
-		TasksId = new IntegerExpression("Tasks.id", this.getDetachedCriteria());
-		Tasks = new AssociationExpression("Tasks", this.getDetachedCriteria());
+		subTaskId = new IntegerExpression("subTask.id", this.getDetachedCriteria());
+		subTask = new AssociationExpression("subTask", this.getDetachedCriteria());
 		WorkerId = new IntegerExpression("Worker.id", this.getDetachedCriteria());
 		Worker = new AssociationExpression("Worker", this.getDetachedCriteria());
 		LocalizationId = new IntegerExpression("Localization.id", this.getDetachedCriteria());
@@ -83,8 +83,8 @@ public class InitWorkDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new UserDetachedCriteria(createCriteria("Creator"));
 	}
 	
-	public TaskDetachedCriteria createTasksCriteria() {
-		return new TaskDetachedCriteria(createCriteria("Tasks"));
+	public SubTaskDetachedCriteria createSubTaskCriteria() {
+		return new SubTaskDetachedCriteria(createCriteria("subTask"));
 	}
 	
 	public UserDetachedCriteria createWorkerCriteria() {

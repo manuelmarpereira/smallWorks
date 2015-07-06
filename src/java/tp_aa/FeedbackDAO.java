@@ -21,7 +21,7 @@ import java.util.List;
 public class FeedbackDAO {
 	public static Feedback loadFeedbackByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadFeedbackByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class FeedbackDAO {
 	
 	public static Feedback getFeedbackByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getFeedbackByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class FeedbackDAO {
 	
 	public static Feedback loadFeedbackByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadFeedbackByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class FeedbackDAO {
 	
 	public static Feedback getFeedbackByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getFeedbackByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class FeedbackDAO {
 	
 	public static Feedback loadFeedbackByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Feedback) session.load(Feedback.class, new Integer(id));
+			return (Feedback) session.load(tp_aa.Feedback.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class FeedbackDAO {
 	
 	public static Feedback getFeedbackByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Feedback) session.get(Feedback.class, new Integer(id));
+			return (Feedback) session.get(tp_aa.Feedback.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class FeedbackDAO {
 	
 	public static Feedback loadFeedbackByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Feedback) session.load(Feedback.class, new Integer(id), lockMode);
+			return (Feedback) session.load(tp_aa.Feedback.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class FeedbackDAO {
 	
 	public static Feedback getFeedbackByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Feedback) session.get(Feedback.class, new Integer(id), lockMode);
+			return (Feedback) session.get(tp_aa.Feedback.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class FeedbackDAO {
 	
 	public static List queryFeedback(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryFeedback(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class FeedbackDAO {
 	
 	public static List queryFeedback(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryFeedback(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class FeedbackDAO {
 	
 	public static Feedback[] listFeedbackByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listFeedbackByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class FeedbackDAO {
 	
 	public static Feedback[] listFeedbackByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listFeedbackByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class FeedbackDAO {
 	}
 	
 	public static List queryFeedback(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Feedback as Feedback");
+		StringBuffer sb = new StringBuffer("From tp_aa.Feedback as Feedback");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class FeedbackDAO {
 	}
 	
 	public static List queryFeedback(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Feedback as Feedback");
+		StringBuffer sb = new StringBuffer("From tp_aa.Feedback as Feedback");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class FeedbackDAO {
 	
 	public static Feedback loadFeedbackByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadFeedbackByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class FeedbackDAO {
 	
 	public static Feedback loadFeedbackByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadFeedbackByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class FeedbackDAO {
 	
 	public static java.util.Iterator iterateFeedbackByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateFeedbackByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class FeedbackDAO {
 	
 	public static java.util.Iterator iterateFeedbackByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateFeedbackByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class FeedbackDAO {
 	}
 	
 	public static java.util.Iterator iterateFeedbackByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Feedback as Feedback");
+		StringBuffer sb = new StringBuffer("From tp_aa.Feedback as Feedback");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class FeedbackDAO {
 	}
 	
 	public static java.util.Iterator iterateFeedbackByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Feedback as Feedback");
+		StringBuffer sb = new StringBuffer("From tp_aa.Feedback as Feedback");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class FeedbackDAO {
 	}
 	
 	public static Feedback createFeedback() {
-		return new Feedback();
+		return new tp_aa.Feedback();
 	}
 	
-	public static boolean save(Feedback feedback) throws PersistentException {
+	public static boolean save(tp_aa.Feedback feedback) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(feedback);
+			tp_aa.TPAAPersistentManager.instance().saveObject(feedback);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static boolean delete(Feedback feedback) throws PersistentException {
+	public static boolean delete(tp_aa.Feedback feedback) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(feedback);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(feedback);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static boolean refresh(Feedback feedback) throws PersistentException {
+	public static boolean refresh(tp_aa.Feedback feedback) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(feedback);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(feedback);
 			return true;
 		}
 		catch (Exception e) {
@@ -332,9 +332,9 @@ public class FeedbackDAO {
 		}
 	}
 	
-	public static boolean evict(Feedback feedback) throws PersistentException {
+	public static boolean evict(tp_aa.Feedback feedback) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(feedback);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(feedback);
 			return true;
 		}
 		catch (Exception e) {

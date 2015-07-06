@@ -49,7 +49,7 @@ public class TaskProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				Task _task = TaskDAO.loadTaskByORMID(getId());
+				tp_aa.Task _task = tp_aa.TaskDAO.loadTaskByORMID(getId());
 				if (_task!= null) {
 					copyFromBean(_task);
 					result = "Search success";
@@ -64,7 +64,7 @@ public class TaskProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				Task _task = TaskDAO.createTask();
+				tp_aa.Task _task = tp_aa.TaskDAO.createTask();
 				copyToBean(_task);
 				if (TaskDAO.save(_task)) {
 					result = "Insert success";
@@ -79,7 +79,7 @@ public class TaskProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				Task _task= TaskDAO.loadTaskByORMID(getId());
+				tp_aa.Task _task= tp_aa.TaskDAO.loadTaskByORMID(getId());
 				if (_task != null) {
 					copyToBean(_task);
 					if (TaskDAO.save(_task)) {
@@ -100,7 +100,7 @@ public class TaskProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				Task _task = TaskDAO.loadTaskByORMID(getId());
+				tp_aa.Task _task = tp_aa.TaskDAO.loadTaskByORMID(getId());
 				if (_task != null && TaskDAO.delete(_task)) {
 					result = "Delete success";
 				}
@@ -119,12 +119,12 @@ public class TaskProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(Task _task) {
+	private void copyFromBean(tp_aa.Task _task) {
 		setName(_task.getName());
 		setId(_task.getORMID());
 	}
 	
-	private void copyToBean(Task _task) {
+	private void copyToBean(tp_aa.Task _task) {
 		_task.setName(getName());
 	}
 	

@@ -21,7 +21,7 @@ import java.util.List;
 public class MakeWorkDAO {
 	public static MakeWork loadMakeWorkByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadMakeWorkByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork getMakeWorkByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getMakeWorkByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork loadMakeWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadMakeWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork getMakeWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getMakeWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (MakeWork) session.load(MakeWork.class, new Integer(id));
+			return (MakeWork) session.load(tp_aa.MakeWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork getMakeWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (MakeWork) session.get(MakeWork.class, new Integer(id));
+			return (MakeWork) session.get(tp_aa.MakeWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork loadMakeWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (MakeWork) session.load(MakeWork.class, new Integer(id), lockMode);
+			return (MakeWork) session.load(tp_aa.MakeWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork getMakeWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (MakeWork) session.get(MakeWork.class, new Integer(id), lockMode);
+			return (MakeWork) session.get(tp_aa.MakeWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class MakeWorkDAO {
 	
 	public static List queryMakeWork(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryMakeWork(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class MakeWorkDAO {
 	
 	public static List queryMakeWork(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryMakeWork(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork[] listMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listMakeWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork[] listMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listMakeWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class MakeWorkDAO {
 	}
 	
 	public static List queryMakeWork(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.MakeWork as MakeWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class MakeWorkDAO {
 	}
 	
 	public static List queryMakeWork(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.MakeWork as MakeWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork loadMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadMakeWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class MakeWorkDAO {
 	
 	public static MakeWork loadMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadMakeWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class MakeWorkDAO {
 	
 	public static java.util.Iterator iterateMakeWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateMakeWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class MakeWorkDAO {
 	
 	public static java.util.Iterator iterateMakeWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateMakeWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class MakeWorkDAO {
 	}
 	
 	public static java.util.Iterator iterateMakeWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.MakeWork as MakeWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class MakeWorkDAO {
 	}
 	
 	public static java.util.Iterator iterateMakeWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From MakeWork as MakeWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.MakeWork as MakeWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class MakeWorkDAO {
 	}
 	
 	public static MakeWork createMakeWork() {
-		return new MakeWork();
+		return new tp_aa.MakeWork();
 	}
 	
-	public static boolean save(MakeWork makeWork) throws PersistentException {
+	public static boolean save(tp_aa.MakeWork makeWork) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(makeWork);
+			tp_aa.TPAAPersistentManager.instance().saveObject(makeWork);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static boolean delete(MakeWork makeWork) throws PersistentException {
+	public static boolean delete(tp_aa.MakeWork makeWork) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(makeWork);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(makeWork);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static boolean refresh(MakeWork makeWork) throws PersistentException {
+	public static boolean refresh(tp_aa.MakeWork makeWork) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(makeWork);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(makeWork);
 			return true;
 		}
 		catch (Exception e) {
@@ -332,9 +332,9 @@ public class MakeWorkDAO {
 		}
 	}
 	
-	public static boolean evict(MakeWork makeWork) throws PersistentException {
+	public static boolean evict(tp_aa.MakeWork makeWork) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(makeWork);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(makeWork);
 			return true;
 		}
 		catch (Exception e) {

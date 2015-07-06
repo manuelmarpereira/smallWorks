@@ -21,7 +21,7 @@ import java.util.List;
 public class WorkDAO {
 	public static Work loadWorkByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadWorkByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class WorkDAO {
 	
 	public static Work getWorkByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getWorkByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class WorkDAO {
 	
 	public static Work loadWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class WorkDAO {
 	
 	public static Work getWorkByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getWorkByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class WorkDAO {
 	
 	public static Work loadWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Work) session.load(Work.class, new Integer(id));
+			return (Work) session.load(tp_aa.Work.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class WorkDAO {
 	
 	public static Work getWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Work) session.get(Work.class, new Integer(id));
+			return (Work) session.get(tp_aa.Work.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class WorkDAO {
 	
 	public static Work loadWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Work) session.load(Work.class, new Integer(id), lockMode);
+			return (Work) session.load(tp_aa.Work.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class WorkDAO {
 	
 	public static Work getWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Work) session.get(Work.class, new Integer(id), lockMode);
+			return (Work) session.get(tp_aa.Work.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class WorkDAO {
 	
 	public static List queryWork(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryWork(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class WorkDAO {
 	
 	public static List queryWork(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryWork(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class WorkDAO {
 	
 	public static Work[] listWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class WorkDAO {
 	
 	public static Work[] listWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class WorkDAO {
 	}
 	
 	public static List queryWork(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Work as Work");
+		StringBuffer sb = new StringBuffer("From tp_aa.Work as Work");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class WorkDAO {
 	}
 	
 	public static List queryWork(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Work as Work");
+		StringBuffer sb = new StringBuffer("From tp_aa.Work as Work");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class WorkDAO {
 	
 	public static Work loadWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class WorkDAO {
 	
 	public static Work loadWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class WorkDAO {
 	
 	public static java.util.Iterator iterateWorkByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateWorkByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class WorkDAO {
 	
 	public static java.util.Iterator iterateWorkByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateWorkByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class WorkDAO {
 	}
 	
 	public static java.util.Iterator iterateWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Work as Work");
+		StringBuffer sb = new StringBuffer("From tp_aa.Work as Work");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class WorkDAO {
 	}
 	
 	public static java.util.Iterator iterateWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Work as Work");
+		StringBuffer sb = new StringBuffer("From tp_aa.Work as Work");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class WorkDAO {
 	}
 	
 	public static Work createWork() {
-		return new Work();
+		return new tp_aa.Work();
 	}
 	
-	public static boolean save(Work work) throws PersistentException {
+	public static boolean save(tp_aa.Work work) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(work);
+			tp_aa.TPAAPersistentManager.instance().saveObject(work);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class WorkDAO {
 		}
 	}
 	
-	public static boolean delete(Work work) throws PersistentException {
+	public static boolean delete(tp_aa.Work work) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(work);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(work);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class WorkDAO {
 		}
 	}
 	
-	public static boolean refresh(Work work) throws PersistentException {
+	public static boolean refresh(tp_aa.Work work) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(work);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(work);
 			return true;
 		}
 		catch (Exception e) {
@@ -332,9 +332,9 @@ public class WorkDAO {
 		}
 	}
 	
-	public static boolean evict(Work work) throws PersistentException {
+	public static boolean evict(tp_aa.Work work) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(work);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(work);
 			return true;
 		}
 		catch (Exception e) {

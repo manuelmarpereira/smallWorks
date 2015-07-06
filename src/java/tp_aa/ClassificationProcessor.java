@@ -66,7 +66,7 @@ public class ClassificationProcessor {
 			try {
 				tp_aa.Classification _classification = tp_aa.ClassificationDAO.createClassification();
 				copyToBean(_classification);
-				if (tp_aa.ClassificationDAO.save(_classification)) {
+				if (ClassificationDAO.save(_classification)) {
 					result = "Insert success";
 				}
 				else {
@@ -82,7 +82,7 @@ public class ClassificationProcessor {
 				tp_aa.Classification _classification= tp_aa.ClassificationDAO.loadClassificationByORMID(getId());
 				if (_classification != null) {
 					copyToBean(_classification);
-					if (tp_aa.ClassificationDAO.save(_classification)) {
+					if (ClassificationDAO.save(_classification)) {
 						result = "Update success";
 					}
 					 else {
@@ -101,7 +101,7 @@ public class ClassificationProcessor {
 		else if (action.equals("delete")) {
 			try {
 				tp_aa.Classification _classification = tp_aa.ClassificationDAO.loadClassificationByORMID(getId());
-				if (_classification != null && tp_aa.ClassificationDAO.delete(_classification)) {
+				if (_classification != null && ClassificationDAO.delete(_classification)) {
 					result = "Delete success";
 				}
 				else {

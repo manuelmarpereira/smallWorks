@@ -22,8 +22,8 @@ public class InitWorkCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final IntegerExpression CreatorId;
 	public final AssociationExpression Creator;
-	public final IntegerExpression TasksId;
-	public final AssociationExpression Tasks;
+	public final IntegerExpression subTaskId;
+	public final AssociationExpression subTask;
 	public final IntegerExpression WorkerId;
 	public final AssociationExpression Worker;
 	public final IntegerExpression LocalizationId;
@@ -42,8 +42,8 @@ public class InitWorkCriteria extends AbstractORMCriteria {
 		id = new IntegerExpression("id", this);
 		CreatorId = new IntegerExpression("Creator.id", this);
 		Creator = new AssociationExpression("Creator", this);
-		TasksId = new IntegerExpression("Tasks.id", this);
-		Tasks = new AssociationExpression("Tasks", this);
+		subTaskId = new IntegerExpression("subTask.id", this);
+		subTask = new AssociationExpression("subTask", this);
 		WorkerId = new IntegerExpression("Worker.id", this);
 		Worker = new AssociationExpression("Worker", this);
 		LocalizationId = new IntegerExpression("Localization.id", this);
@@ -70,8 +70,8 @@ public class InitWorkCriteria extends AbstractORMCriteria {
 		return new UserCriteria(createCriteria("Creator"));
 	}
 	
-	public TaskCriteria createTasksCriteria() {
-		return new TaskCriteria(createCriteria("Tasks"));
+	public SubTaskCriteria createSubTaskCriteria() {
+		return new SubTaskCriteria(createCriteria("subTask"));
 	}
 	
 	public UserCriteria createWorkerCriteria() {
