@@ -42,7 +42,7 @@
                     Don't have an account! 
 
 
-                    <a href="${pageContext.request.contextPath}/user/registerUser.jsp" >
+                    <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/user/registerUser.jsp" >
 
                         Sign Up Here
                     </a>

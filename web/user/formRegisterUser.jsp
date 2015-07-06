@@ -4,21 +4,15 @@
     Author     : Manuel
 --%>
 
-
-
 <form class="form-horizontal" role="form" name="formreg" action="registerUser" method="POST">  
-    <div class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 form-margin-center" >
+    <div class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 form-margin-top" >
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Sign Up</div>
                 <div class="panel-title-signin"><a href="${pageContext.request.contextPath}/login/login.jsp" >Sign In</a></div>
             </div>  
             <div class="panel-body" >
-                <div id="signupalert" style="display:none" class="alert alert-danger">
-                    <p>Error:</p>
-                    <span></span>
-                </div>
-
+                
                 <div class="form-group ">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -41,33 +35,52 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-md-3 control-label">Email</label>
-                            <div class="col-md-9">
-                                <input type="email" class="form-control" required name="email" placeholder="Email">
+                                <div class="col-md-9">
+                            	<div class="input-group" data-validate="email">
+						<input type="text" class="form-control" name="email" id="validate-email" placeholder="Validate Email" required>
+						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+				</div>
                             </div>
+                       
                         </div>
                         <div class="form-group">
-                            <label for="password" class="col-md-3 control-label">Password</label>
+                            <label for="password" class="col-md-3 control-label" >Password</label>
                             <div class="col-md-9">
-                                <input type="password" class="form-control" required name="password" placeholder="Password">
+                                <input type="password" class="form-control" required name="password" id="password" autocomplete="off" placeholder="Password">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-5">
+                                <span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Characters<br>
+                                <span id="ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Uppercase
+                            </div>
+                            <div class="col-sm-4">
+                                <span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Lowercase<br>
+     
+                                <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Number
+                            
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
                             <label for="password" class="col-md-3 control-label">Confirm Password</label>
                             <div class="col-md-9">
-                                <input type="password" class="form-control" required name="confPass" placeholder="Confirm Password">
+                                <input type="password" class="form-control"  name="password2" required placeholder="Confirm Password" id="password2" autocomplete="off">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <!-- Button -->                                        
-                            <div class="col-md-offset-3 col-md-9">
-                                <input id="btn-signup" class="btn btn-info"  type="submit" value="Registe" name="Registebtn"/> 
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
+                            </div>
+                             <div class="col-md-3">
+                                <input id="btn-signup" class="btn btn-info pull-right"  type="submit" value="Register" name="Registebtn"/> 
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6">
-                         <jsp:include page="/layout/map.jsp" />   
 
+                    <div class="col-md-6">
+                        <jsp:include page="/layout/map.jsp" />   
                     </div>
                 </div>
             </div>
@@ -75,7 +88,6 @@
     </div> 
 </form>
 
-
-
+<script LANGUAGE="JavaScript" src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
 
 
