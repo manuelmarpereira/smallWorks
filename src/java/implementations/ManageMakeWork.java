@@ -1,31 +1,53 @@
 package implementations;
 
 import interfaces.ManageMakeWorkLocal;
+
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import org.hibernate.Query;
 import org.orm.PersistentException;
+import org.orm.PersistentSession;
 import tp_aa.MakeWork;
-import tp_aa.WorkDAO;
+import tp_aa.TPAAPersistentManager;
+
 
 @Stateless
 @Local(ManageMakeWorkLocal.class)
 public class ManageMakeWork implements ManageMakeWorkLocal {
 
     @Override
-    public Double getMakedWorks(int id) {
-        Double val = null;
-        try {
-            // onde foi o trabalhador
-            List<MakeWork> all = WorkDAO.queryWork("userid!="+id,"id");
-            
-            for (MakeWork elements : all) {
-                System.out.println("");
-            }
-            
-        } catch (PersistentException ex) {}
 
-        return val;
+    public List<MakeWork> getMakedWorks(int idUser) {
+        double avg = 0;
+        PersistentSession entityManager = null;
+        List<MakeWork> listTask = new ArrayList<>();
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query task = entityManager.createQuery("from MakeWork where Worker.id=:id");
+            task.setParameter("id", idUser);
+            
+            listTask = (List<MakeWork>) task.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        return listTask;
+    }
+
+    @Override
+    public double getFeedback(int idUser) {
+        List<MakeWork> tmp = this.getMakedWorks(idUser);
+        
+        double val = 0;
+        for (MakeWork element : tmp) {
+            val = val + element.getEvaluation().getClassification().getValue();
+        }        
+        return  val/tmp.size();
+
     }
     
 }

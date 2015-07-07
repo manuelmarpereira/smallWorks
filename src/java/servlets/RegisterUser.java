@@ -29,7 +29,7 @@ public class RegisterUser extends HttpServlet {
                 cla = req.getParameter("latitude"),
                 clo = req.getParameter("longitude"),
                 dis = req.getParameter("distrito");
-       
+
         if (validateData(n) && checkPasswords(p, req.getParameter("password2")) && validateData(fn)
                 && validateData(ln) && validateData(em) && validateData(cla) && validateData(clo)) {
             u = new User();

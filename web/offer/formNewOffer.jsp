@@ -1,32 +1,35 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script type="text/javascript" src="../assets/js/userdata.js"></script>
+
 <div class="marginSide" style="margin-top:80px;"> 
     <h2>New Offer <small>Publish your new offer</small></h2>
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" action="new" method="POST">
+                <input type="hidden" name="id" value="${sessionScope.user.id}"/>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Título:</label>
+                        <label class="control-label col-sm-3">Title</label>
                         <div class="col-sm-9">
-                            <input type="text" required name="title" class="form-control">
+                            <input type="text" required name="tittle" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Descrição:</label>
+                        <label class="control-label col-sm-3">Description</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" required name="description" rows="13"></textarea>
+                            <textarea class="form-control" name="description" rows="13"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Recompensa:</label>
+                        <label class="control-label col-sm-3">Reward</label>
                         <div class="col-sm-4">
                             <div class="input-group number-spinner">
                                 <span class="input-group-btn">
                                     <a class="btn btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></a>
                                 </span>
-                                <input type="number" required class="form-control text-center" value="25">
+                                <input type="number" required name="reward" class="form-control text-center" value="25" step="any"/>
                                 <span class="input-group-btn">
                                     <a class="btn btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></a>
                                 </span>
@@ -35,23 +38,28 @@
                         <label class="control-label pull-left">€</label>
                         <div class="col-sm-2">
                             <div class="checkbox">
-                                <label class="control-label"><input type="checkbox"  name="negociable" >Negociável</label>
+                                <label class="control-label"><input id="checkNego" type="checkbox" name="negociable"/>Negociable</label>
                             </div>
                         </div>
-                        <div class="col-sm-2 pull-right">
-                            <input type="submit" class="btn btn-primary pull-right" value="Publish">
-
-                        </div>
-
                     </div>
+                    
+                    <div class="combo">
+                        <input type="hidden" name="idSubtask" value=""/>
+                        <p class="col-md-6">Category<select class="tasks" onchange="handleChange(this)" required ><option value="">-----</option></select></p>
+                        <p class="col-md-6">Task<select class="subTasks" required><option value="">-----</option></select></p>
+                    </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class=" panel panel-default">
-                        <div class="panel-heading">Local da Oferta Proposta</div>
+                        <div class="panel-heading">Offer location</div>
                         <br/>
                         <jsp:include page="/layout/map.jsp" />  
 
                     </div>
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-primary pull-right" value="Save offer">
                 </div>
             </form>
         </div>
@@ -75,4 +83,7 @@
         }
         btn.closest('.number-spinner').find('input').val(newVal);
     });
+    
+    getTasks();
+    
 </script>

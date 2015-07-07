@@ -11,12 +11,17 @@ import org.orm.PersistentSession;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.Work;
 
+import tp_aa.WorkDAO;
+
+
 @Stateless
 @Local(ManageWorkLocal.class)
 public class ManageWork implements ManageWorkLocal {
 
     @Override
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low, String amount_high) {
+
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order) {
+
         if (district.equals("") || district == null) {
             district = "%%";
         } else {
@@ -39,8 +44,11 @@ public class ManageWork implements ManageWorkLocal {
             q.setMaxResults(max);
             q.setParameter("district", district);
             q.setParameter("tasks", tasks);
+
             q.setParameter("amount_low", Double.parseDouble(amount_low));
             q.setParameter("amount_high", Double.parseDouble(amount_high));
+
+
 
             work = (List<Work>) q.list();
             entityManager.getTransaction().commit();
@@ -60,10 +68,12 @@ public class ManageWork implements ManageWorkLocal {
     
     private static String query(int order){
         if (order==1){
+
             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by id DESC";
         }else 
             if (order==2){
              return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by price DESC";
+
             }
     return "";
     }
@@ -77,7 +87,7 @@ public class ManageWork implements ManageWorkLocal {
 
     @Override
     public void registWork(Work o) {
-        System.out.println("save offer");
+
         PersistentSession entityManager = null;
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
@@ -85,7 +95,7 @@ public class ManageWork implements ManageWorkLocal {
             entityManager.save(o);
             entityManager.getTransaction().commit();
             entityManager.close();
-            System.out.println("save offer successfully");
+
         } catch (PersistentException ex) {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
