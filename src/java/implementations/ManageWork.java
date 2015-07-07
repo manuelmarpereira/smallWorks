@@ -20,7 +20,7 @@ public class ManageWork implements ManageWorkLocal {
 
     @Override
 
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order) {
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low,String amount_high) {
 
         if (district.equals("") || district == null) {
             district = "%%";
