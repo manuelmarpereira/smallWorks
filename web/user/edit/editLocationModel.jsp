@@ -5,6 +5,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<form role="form" name="" action="" method="POST"> 
         <div class="modal fade" id="editLocationModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -15,21 +16,15 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <label for="txtEndereco2" >Endereço </label>
-                                  
-                                        <input type="text" id="txtEndereco2" class="form-control" required name="txtEndereco2" />
-                            <form role="form" class="col-md-9 go-right">
-
-                                <div class="form-group">
-                                                                 
-                                </div>
-                            </form>
+                           <div class="col-md-9 go-right">
+                                <jsp:include page="/layout/map.jsp" />   
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <jsp:include page="confirmations.jsp" />
-                    </div>
+                 
                 </div>
             </div>
         </div>
 
+</form>      
+        

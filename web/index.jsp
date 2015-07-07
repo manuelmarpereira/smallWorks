@@ -32,7 +32,9 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
+
                         <input id="btn-search" class="pull-left btn btn-primary"  type="submit" value="Search" name="ShowWorksbtn"/>
+
                     </div>
                     <select id="selectOrder" name="order" class="combobox" style="display: none;">
                                     <option value="1" selected>Mais recentes</option>
@@ -46,7 +48,7 @@
                     Don't have an account! 
 
 
-                    <a href="${pageContext.request.contextPath}/user/registerUser.jsp" >
+                    <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/user/registerUser.jsp" >
 
                         Sign Up Here
                     </a>
