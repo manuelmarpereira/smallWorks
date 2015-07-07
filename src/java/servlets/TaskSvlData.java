@@ -17,7 +17,7 @@ public class TaskSvlData extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         resp.setContentType("application/json;charset=UTF-8");
-        resp.getWriter().print( new Gson().toJson(mt.getTasks()) );
+        resp.getWriter().print( new Gson().toJson(mt.getAllTask()) );
     }
     
     @Override

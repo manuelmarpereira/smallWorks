@@ -9,5 +9,5 @@ import tp_aa.Task;
 public interface ManageTaskLocal {
     public Task getTask(int id);
     
-    public List<Task> getAllTask(int number);
+    public List<Task> getAllTask();
 }
