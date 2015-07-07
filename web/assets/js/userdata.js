@@ -10,6 +10,16 @@ function getUser(id){
                 $(".names").after(resp.firstname + " " + resp.lastname);
                 $(".district").after(resp.nameDistrict);
                 $(".email").after(resp.email);
+                if(resp.feedback>=0 && resp.feedback <=10) {
+                    $('.reward').empty();
+                    for(var i = 0;i < 10; i++) {
+                        if(i < resp.feedback) {
+                            $(".reward").append('<label class="rating-star-show"></label>');
+                        } else {
+                            $(".reward").append('<label class="rating-star"></label>');
+                        }
+                    }
+                }
             }, error: function(fail){
                 alert("fail: " + fail);
             }
@@ -55,13 +65,23 @@ function getSubTasks(id){
     }
 }
 
+function handleCheckbox(checkbox){
+    if(checkbox.checked === true) {
+        checkbox.value='true';
+//        $('#checkNego').attr('value').text('true');
+    } else {
+        checkbox.value='false';
+//        $('#checkNego').attr('value').text('false');
+    }
+}
+
 function handleChange(selectObj) {
     //var selectValue=selectObj.options[selectObj.selectedIndex].text;
 //    console.log(selectObj);
     var id = selectObj.options[selectObj.selectedIndex].value;
-    $('.combo input').val(id);
 //    console.log("You selected index: " + id);
     if(id>0)
+        $('.combo input').val(id);
         getSubTasks(id);
 }
 

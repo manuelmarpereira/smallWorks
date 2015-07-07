@@ -6,19 +6,19 @@
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" action="new" method="POST">
                 <input type="hidden" name="id" value="${sessionScope.user.id}"/>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label col-sm-3">Title</label>
                         <div class="col-sm-9">
-                            <input type="text" required name="title" class="form-control">
+                            <input type="text" required name="tittle" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Description</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" required name="description" rows="13"></textarea>
+                            <textarea class="form-control" name="description" rows="13"></textarea>
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                                 <span class="input-group-btn">
                                     <a class="btn btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></a>
                                 </span>
-                                <input type="number" required class="form-control text-center" value="25">
+                                <input type="number" required name="reward" class="form-control text-center" value="25" step="any"/>
                                 <span class="input-group-btn">
                                     <a class="btn btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></a>
                                 </span>
@@ -38,15 +38,15 @@
                         <label class="control-label pull-left">€</label>
                         <div class="col-sm-2">
                             <div class="checkbox">
-                                <label class="control-label"><input type="checkbox"  name="negociable" >Negociable</label>
+                                <label class="control-label"><input id="checkNego" type="checkbox" name="negociable"/>Negociable</label>
                             </div>
                         </div>
                     </div>
                     
                     <div class="combo">
-                        <input type="hidden" name="idSubtask" value="${sessionScope.user.id}"/>
-                        <p class="col-md-6">Category<select class="tasks" onchange="handleChange(this)"><option value="-1">-----</option></select></p>
-                        <p class="col-md-6">Task<select class="subTasks"><option value="-1">-----</option></select></p>
+                        <input type="hidden" name="idSubtask" value=""/>
+                        <p class="col-md-6">Category<select class="tasks" onchange="handleChange(this)" required ><option value="">-----</option></select></p>
+                        <p class="col-md-6">Task<select class="subTasks" required><option value="">-----</option></select></p>
                     </div>
                     
                 </div>
