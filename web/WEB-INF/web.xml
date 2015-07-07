@@ -3,7 +3,16 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>servlets.Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>RegisterUser</servlet-name>
         <servlet-class>servlets.RegisterUser</servlet-class>
@@ -28,7 +37,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>NewOffer</servlet-name>
-        <url-pattern>/user/newOffer</url-pattern>
+        <url-pattern>/offer/new</url-pattern>
     </servlet-mapping>
     
     
@@ -70,7 +79,7 @@
             <filter-name>ORMFilter</filter-name>
             <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
     <session-config>
         <session-timeout>
             30

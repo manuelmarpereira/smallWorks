@@ -15,7 +15,8 @@ public interface ManageWorkLocal {
      * @param active true to get active works false to get finalized works
      * @return 
      */
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active);
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order);
+    public ArrayList<Work> getSelectWorks(String district, String task);
     
     public ArrayList<Work> getAllWorks();
     
