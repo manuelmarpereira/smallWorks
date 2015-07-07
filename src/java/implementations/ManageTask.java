@@ -32,21 +32,20 @@ public class ManageTask implements ManageTaskLocal {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
         }
-        if (listTask.isEmpty()) {
+        if (!listTask.isEmpty()) {
             return listTask.get(0);
         }
         return null;
     }
 
    @Override
-    public List<Task> getAllTask(int number) {
+    public List<Task> getAllTask() {
        PersistentSession entityManager = null;
        List<Task> task=new ArrayList<Task>();
        try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
-            Query q = entityManager.createQuery("from Task order by id desc");
-            q.setMaxResults(number); 
+            Query q = entityManager.createQuery("from Task");
             
             
             task = (List<Task>) q.list();
