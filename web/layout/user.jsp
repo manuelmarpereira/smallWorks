@@ -19,29 +19,20 @@
         </div>
         <div class="col-sm-4 col-md-4 white">
             
-            <p class="nick pull-left" style="font-size: 200%" >           
-                Testenick
-            </P>
+            <p class="nick pull-left" style="font-size: 200%" ></P>
             <br><br><br>
                             
-            <p class="name pull-left" > 
-                <i class="glyphicon glyphicon-user"></i>
-                primeiro nome segundo 
-                    <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
+            <p class="pull-left" > 
+                <i class="names glyphicon glyphicon-user"></i><small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
             </p>
             <br><br>             
           
            <p class="pull-left" >
-            <i class="glyphicon glyphicon-map-marker"></i>
-                                Porto
-                    <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editLocationModel">(Edit)</a></small>
+               <i class="district glyphicon glyphicon-map-marker"></i><small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editLocationModel">(Edit)</a></small>
            </p>
            <br><br>  
-            <p class="email namepull-left">
-                <i class="glyphicon glyphicon-envelope"></i>
-                teste@teste.teste
-                
-                <small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
+            <p class="namepull-left">
+                <i class="email glyphicon glyphicon-envelope"></i><small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
             </p>
             <p class="reward pull-left">
                 <i>Feedback (8/10) </i> 

@@ -6,9 +6,10 @@ function getUser(id){
             data : {id:id}, 
             success: function(resp) {
 //                console.log(resp);
-                $(".names").prepend(resp.firstname + " " + resp.lastname);
-                $(".district").prepend(resp.nameDistrict);
-                $(".email").prepend(resp.email);
+                $(".nick").text(resp.nick);
+                $(".names").after(resp.firstname + " " + resp.lastname);
+                $(".district").after(resp.nameDistrict);
+                $(".email").after(resp.email);
             }, error: function(fail){
                 alert("fail: " + fail);
             }
