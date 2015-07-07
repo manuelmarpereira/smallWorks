@@ -10,6 +10,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentSession;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.Work;
+import tp_aa.WorkDAO;
 
 @Stateless
 @Local(ManageWorkLocal.class)
@@ -75,7 +76,6 @@ public class ManageWork implements ManageWorkLocal {
 
     @Override
     public void registWork(Work o) {
-        System.out.println("save offer");
         PersistentSession entityManager = null;
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
@@ -83,7 +83,6 @@ public class ManageWork implements ManageWorkLocal {
             entityManager.save(o);
             entityManager.getTransaction().commit();
             entityManager.close();
-            System.out.println("save offer successfully");
         } catch (PersistentException ex) {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();

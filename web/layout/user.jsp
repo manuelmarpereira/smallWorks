@@ -37,10 +37,7 @@
                 <i class="email glyphicon glyphicon-envelope"></i><small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
 
             </p>
-            <p class="reward pull-left">
-                <i>Feedback (8/10) </i> 
-                <jsp:include page="/feedback/showStars.jsp" />
-            </p>
+            <p class="reward pull-left"></p>
         </div>
         <div class="col-sm-1" ></div>
         <div class="col-sm-3" style=" margin-top: 30px">

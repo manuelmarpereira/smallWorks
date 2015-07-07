@@ -1,5 +1,6 @@
 package servlets;
 
+import interfaces.ManageMakeWorkLocal;
 import interfaces.ManageUserLocal;
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -13,6 +14,8 @@ public class UserSvlData extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
+    @EJB
+    private ManageMakeWorkLocal mf;
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
@@ -22,15 +25,17 @@ public class UserSvlData extends HttpServlet {
         if(ids != null) {
             Integer id = validateInts(ids);
             User u = null;
+            double feedback = 0;
             if(id != null) {
                 u = mu.getUser(id);
-//                feedback = mf.getFeedback(id);
+                feedback = mf.getFeedback(id);
             }
-            resp.getWriter().print(buildJson(u));
+            System.out.println("feedback calculated: " + feedback);
+            resp.getWriter().print(buildJson(u,feedback));
         }
     }
     
-    private String buildJson(User u) { //, double fb
+    private String buildJson(User u, double fb) { //, double fb
         return "{\"id\": \""+ u.getId()+"\","+
                 "\"idDistrict\": \""+ u.getDistrict().getId()+"\","+
                 "\"nameDistrict\": \""+ u.getDistrict().getName()+"\","+
@@ -38,7 +43,7 @@ public class UserSvlData extends HttpServlet {
                 "\"firstname\": \""+ u.getFirstname()+"\","+
                 "\"lastname\": \""+ u.getLastname()+"\","+
                 "\"email\": \""+ u.getEmail()+"\","+
-//                "\"feedback\": \""+ fb+"\","+
+                "\"feedback\": \""+ fb+"\","+
                 "\"coordLat\": \""+ u.getCoordLat()+"\","+
                 "\"coordLong\": \""+ u.getCoordLong()+"\""+
                "}";
