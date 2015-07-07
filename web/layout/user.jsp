@@ -15,7 +15,7 @@
         </div>
         <div class="info col-sm-4 col-md-4 white" >
             <p class="names pull-left">
-                <small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
+                <small><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
             </p>
             <p class="pull-left" id="accessEdit"> Password
                 <small><a  href="#" data-toggle="modal" data-target="#editAccessModel">(Access Data)</a></small>
