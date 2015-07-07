@@ -17,24 +17,29 @@
             <hr>
 
             <div class="row search-form-center" >
-                <form role="search">
-                    <div class="col-xs-4">
+                <form role="form" name="formreg" action="index" method="POST">
+                    <div class="col-xs-4" >
                         <div class="form-group has-feedback has-feedback-left">
 
-                            <input type="text" class="form-control" placeholder="Task or key word">
+                            <input type="text" class="form-control" name="task" placeholder="Task or key word">
                             <span class="glyphicon glyphicon-search form-control-feedback glyphicon-primary"></span>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="form-group has-feedback has-feedback-left">
-                            <input type="text" class="form-control" placeholder="Location">
+                            <input type="text" class="form-control" name="location"  placeholder="Location">
                             <span class="glyphicon glyphicon-map-marker form-control-feedback glyphicon-primary"></span>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <a class="pull-left btn btn-primary" href="${pageContext.request.contextPath}/offer/search.jsp">Search
-                         <span class="glyphicon glyphicon-search" ></span></a>
+
+                        <input id="btn-search" class="pull-left btn btn-primary"  type="submit" value="Search" name="ShowWorksbtn"/>
+
                     </div>
+                    <select id="selectOrder" name="order" class="combobox" style="display: none;">
+                                    <option value="1" selected>Mais recentes</option>
+                                    
+                                </select>
                 </form>
             </div>
 
