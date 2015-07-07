@@ -1,6 +1,7 @@
 package implementations;
 
 import interfaces.ManageTaskLocal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -11,9 +12,10 @@ import tp_aa.TPAAPersistentManager;
 import tp_aa.Task;
 
 @Stateless
-@Local(ManageTaskLocal.class)
+
 public class ManageTask implements ManageTaskLocal {
     
+    @Override
     public Task getTask(int id) {
         PersistentSession entityManager = null;
         List<Task> listTask = null;
@@ -34,5 +36,27 @@ public class ManageTask implements ManageTaskLocal {
             return listTask.get(0);
         }
         return null;
+    }
+
+   @Override
+    public List<Task> getAllTask(int number) {
+       PersistentSession entityManager = null;
+       List<Task> task=new ArrayList<Task>();
+       try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query q = entityManager.createQuery("from Task order by id desc");
+            q.setMaxResults(number); 
+            
+            
+            task = (List<Task>) q.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+       
+       return task;
     }
 }
