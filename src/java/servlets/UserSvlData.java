@@ -24,12 +24,13 @@ public class UserSvlData extends HttpServlet {
             User u = null;
             if(id != null) {
                 u = mu.getUser(id);
+//                feedback = mf.getFeedback(id);
             }
             resp.getWriter().print(buildJson(u));
         }
     }
     
-    private String buildJson(User u) {
+    private String buildJson(User u) { //, double fb
         return "{\"id\": \""+ u.getId()+"\","+
                 "\"idDistrict\": \""+ u.getDistrict().getId()+"\","+
                 "\"nameDistrict\": \""+ u.getDistrict().getName()+"\","+
@@ -37,6 +38,7 @@ public class UserSvlData extends HttpServlet {
                 "\"firstname\": \""+ u.getFirstname()+"\","+
                 "\"lastname\": \""+ u.getLastname()+"\","+
                 "\"email\": \""+ u.getEmail()+"\","+
+//                "\"feedback\": \""+ fb+"\","+
                 "\"coordLat\": \""+ u.getCoordLat()+"\","+
                 "\"coordLong\": \""+ u.getCoordLong()+"\""+
                "}";
