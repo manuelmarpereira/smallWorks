@@ -31,7 +31,7 @@ public class TPAAFilter implements Filter {
 			if (System.getProperty("weblogic.Name") == null)  {
 				ServletRequestFactory servletRequestFactory;
 				try {
-					servletRequestFactory = new ORMServletRequestFactory(TPAAPersistentManager.instance());
+					servletRequestFactory = new ORMServletRequestFactory(tp_aa.TPAAPersistentManager.instance());
 				}
 				catch (PersistentException e) {
 					servletRequestFactory = new NormalServletRequestFactory();
@@ -64,7 +64,7 @@ public class TPAAFilter implements Filter {
 		}
 		finally {
 			try {
-				PersistentSession session = TPAAPersistentManager.instance().getSession(false);
+				PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession(false);
 				if (session != null) {
 					session.close();
 				}

@@ -23,7 +23,7 @@ public class Work extends Observable {
 	
 	private tp_aa.User Creator;
 	
-	private tp_aa.Task Tasks;
+	private tp_aa.SubTask subTask;
 	
 	private tp_aa.User Worker;
 	
@@ -43,7 +43,7 @@ public class Work extends Observable {
 	
 	private java.util.Date startDate;
 	
-	public void setId(int value) {
+	private void setId(int value) {
 		this.id = value;
 	}
 	
@@ -119,12 +119,12 @@ public class Work extends Observable {
 		return Creator;
 	}
 	
-	public void setTasks(tp_aa.Task value) {
-		this.Tasks = value;
+	public void setSubTask(tp_aa.SubTask value) {
+		this.subTask = value;
 	}
 	
-	public tp_aa.Task getTasks() {
-		return Tasks;
+	public tp_aa.SubTask getSubTask() {
+		return subTask;
 	}
 	
 	public void setWorker(tp_aa.User value) {

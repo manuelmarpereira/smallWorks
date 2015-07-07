@@ -1,6 +1,6 @@
 package servlets;
 
-import interfaces.ManageTaskLocal;
+import interfaces.ManageSubTaskLocal;
 import interfaces.ManageUserLocal;
 import interfaces.ManageWorkLocal;
 import tp_aa.Work;
@@ -18,7 +18,7 @@ public class NewOffer extends HttpServlet{
     @EJB
     private ManageUserLocal mu;
     @EJB
-    private ManageTaskLocal mt;
+    private ManageSubTaskLocal mt;
     @EJB
    private  ManageWorkLocal mo;
     
@@ -33,7 +33,7 @@ public class NewOffer extends HttpServlet{
         Double r = validateDouble(req.getParameter("reward"));
         
         Integer id = validateInts(req.getParameter("id")),
-            idTask = validateInts(req.getParameter("idtask"));
+            idTask = validateInts(req.getParameter("idSubtask"));
         
         RequestDispatcher reqDispatcher;
         if( id != null && idTask != null && r != null && validateStrings(t) && validateStrings(d) && 
@@ -46,7 +46,7 @@ public class NewOffer extends HttpServlet{
             w.setDescription(d);
             w.setPrice(r);
             w.setNegotiable(Boolean.parseBoolean(n));
-            w.setTasks(mt.getTask(idTask)); // get task selected by user
+            w.setSubTask(mt.getSubTask(idTask)); // get task selected by user
             w.setLocalization(mu.guardaDistrito(dist));
             
             w.setCoordLat(clan);

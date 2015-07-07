@@ -12,7 +12,7 @@ License Type: Evaluation
 		</id>
 		<many-to-one name="Creator" cascade="lock" column="UserID2" class="tp_aa.User" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="Tasks" cascade="lock" column="TaskID" class="tp_aa.Task" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subTask" cascade="lock" column="SubTaskID" class="tp_aa.SubTask" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
 		<many-to-one name="Worker" cascade="lock" column="UserID" class="tp_aa.User" not-null="false" lazy="proxy" access="field">
 		</many-to-one>
@@ -36,7 +36,7 @@ License Type: Evaluation
 				<column name="WorkID"/>
 			</key>
 			<property name="finishDate" column="FinishDate" type="date" not-null="true" lazy="false"/>
-			<many-to-one name="Evaluation" cascade="lock" column="FeedbackID" class="tp_aa.Feedback" not-null="false" lazy="proxy" access="field">
+			<many-to-one name="Evaluation" cascade="lock" column="FeedbackID" class="tp_aa.Feedback" not-null="true" lazy="proxy" access="field">
 			</many-to-one>
 		</joined-subclass>
 	</class>

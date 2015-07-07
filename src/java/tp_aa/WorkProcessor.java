@@ -115,14 +115,14 @@ public class WorkProcessor {
 		return Creator_userid;
 	}
 	
-	private int Tasks_taskid;
+	private int subTask_subTaskid;
 	
-	public void setTasks_taskid(int value) {
-		this.Tasks_taskid = value;
+	public void setSubTask_subTaskid(int value) {
+		this.subTask_subTaskid = value;
 	}
 	
-	public int getTasks_taskid() {
-		return Tasks_taskid;
+	public int getSubTask_subTaskid() {
+		return subTask_subTaskid;
 	}
 	
 	private int Worker_userid;
@@ -149,7 +149,7 @@ public class WorkProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				Work _work = WorkDAO.loadWorkByORMID(getId());
+				tp_aa.Work _work = tp_aa.WorkDAO.loadWorkByORMID(getId());
 				if (_work!= null) {
 					copyFromBean(_work);
 					result = "Search success";
@@ -164,7 +164,7 @@ public class WorkProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				Work _work = WorkDAO.createWork();
+				tp_aa.Work _work = tp_aa.WorkDAO.createWork();
 				copyToBean(_work);
 				if (WorkDAO.save(_work)) {
 					result = "Insert success";
@@ -179,7 +179,7 @@ public class WorkProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				Work _work= WorkDAO.loadWorkByORMID(getId());
+				tp_aa.Work _work= tp_aa.WorkDAO.loadWorkByORMID(getId());
 				if (_work != null) {
 					copyToBean(_work);
 					if (WorkDAO.save(_work)) {
@@ -200,7 +200,7 @@ public class WorkProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				Work _work = WorkDAO.loadWorkByORMID(getId());
+				tp_aa.Work _work = tp_aa.WorkDAO.loadWorkByORMID(getId());
 				if (_work != null && WorkDAO.delete(_work)) {
 					result = "Delete success";
 				}
@@ -219,7 +219,7 @@ public class WorkProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(Work _work) {
+	private void copyFromBean(tp_aa.Work _work) {
 		setTitle(_work.getTitle());
 		setDescription(_work.getDescription());
 		setPrice(_work.getPrice());
@@ -230,7 +230,7 @@ public class WorkProcessor {
 		setId(_work.getORMID());
 		
 		{
-			User _user = _work.getCreator();
+			tp_aa.User _user = _work.getCreator();
 			if (_user != null) {
 				setCreator_userid(_user.getORMID());
 			}
@@ -238,15 +238,15 @@ public class WorkProcessor {
 		
 		
 		{
-			Task _task = _work.getTasks();
-			if (_task != null) {
-				setTasks_taskid(_task.getORMID());
+			tp_aa.SubTask _subTask = _work.getSubTask();
+			if (_subTask != null) {
+				setSubTask_subTaskid(_subTask.getORMID());
 			}
 		}
 		
 		
 		{
-			User _user = _work.getWorker();
+			tp_aa.User _user = _work.getWorker();
 			if (_user != null) {
 				setWorker_userid(_user.getORMID());
 			}
@@ -254,7 +254,7 @@ public class WorkProcessor {
 		
 		
 		{
-			District _district = _work.getLocalization();
+			tp_aa.District _district = _work.getLocalization();
 			if (_district != null) {
 				setLocalization_districtid(_district.getORMID());
 			}
@@ -262,7 +262,7 @@ public class WorkProcessor {
 		
 	}
 	
-	private void copyToBean(Work _work) {
+	private void copyToBean(tp_aa.Work _work) {
 		_work.setTitle(getTitle());
 		_work.setDescription(getDescription());
 		_work.setPrice(getPrice());
@@ -271,28 +271,28 @@ public class WorkProcessor {
 		_work.setCoordLong(getCoordLong());
 		_work.setStartDate(getStartDate());
 		try  {
-			User _creator = UserDAO.loadUserByORMID(getCreator_userid());
+			tp_aa.User _creator = tp_aa.UserDAO.loadUserByORMID(getCreator_userid());
 			_work.setCreator(_creator);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			Task _tasks = TaskDAO.loadTaskByORMID(getTasks_taskid());
-			_work.setTasks(_tasks);
+			tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getSubTask_subTaskid());
+			_work.setSubTask(_subTask);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			User _worker = UserDAO.loadUserByORMID(getWorker_userid());
+			tp_aa.User _worker = tp_aa.UserDAO.loadUserByORMID(getWorker_userid());
 			_work.setWorker(_worker);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			District _localization = DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
+			tp_aa.District _localization = tp_aa.DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
 			_work.setLocalization(_localization);
 		}
 		catch (PersistentException e) {

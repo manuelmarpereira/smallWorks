@@ -11,9 +11,5 @@ License Type: Evaluation
 			</generator>
 		</id>
 		<property name="name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
-		<set name="ORM_Subtaks" lazy="true" cascade="save-update,lock" inverse="false">
-			<key column="TaskID" not-null="true"/>
-			<one-to-many class="tp_aa.SubTask"/>
-		</set>
 	</class>
 </hibernate-mapping>

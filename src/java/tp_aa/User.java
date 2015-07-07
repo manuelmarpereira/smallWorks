@@ -184,8 +184,7 @@ public class User implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         /**
-         * 
-         * codificar aqui
+         * é para fazer
          */
     }
 	

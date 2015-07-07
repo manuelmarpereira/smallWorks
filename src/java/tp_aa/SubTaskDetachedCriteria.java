@@ -20,18 +20,28 @@ import org.orm.criteria.*;
 
 public class SubTaskDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression taskId;
+	public final AssociationExpression task;
 	public final StringExpression name;
 	
 	public SubTaskDetachedCriteria() {
 		super(tp_aa.SubTask.class, tp_aa.SubTaskCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		taskId = new IntegerExpression("task.id", this.getDetachedCriteria());
+		task = new AssociationExpression("task", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
 	public SubTaskDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, tp_aa.SubTaskCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		taskId = new IntegerExpression("task.id", this.getDetachedCriteria());
+		task = new AssociationExpression("task", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
+	}
+	
+	public TaskDetachedCriteria createTaskCriteria() {
+		return new TaskDetachedCriteria(createCriteria("task"));
 	}
 	
 	public SubTask uniqueSubTask(PersistentSession session) {

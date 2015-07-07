@@ -125,14 +125,14 @@ public class MakeWorkProcessor {
 		return Creator_userid;
 	}
 	
-	private int Tasks_taskid;
+	private int subTask_subTaskid;
 	
-	public void setTasks_taskid(int value) {
-		this.Tasks_taskid = value;
+	public void setSubTask_subTaskid(int value) {
+		this.subTask_subTaskid = value;
 	}
 	
-	public int getTasks_taskid() {
-		return Tasks_taskid;
+	public int getSubTask_subTaskid() {
+		return subTask_subTaskid;
 	}
 	
 	private int Worker_userid;
@@ -169,7 +169,7 @@ public class MakeWorkProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				MakeWork _makeWork = MakeWorkDAO.loadMakeWorkByORMID(getId());
+				tp_aa.MakeWork _makeWork = tp_aa.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork!= null) {
 					copyFromBean(_makeWork);
 					result = "Search success";
@@ -184,7 +184,7 @@ public class MakeWorkProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				MakeWork _makeWork = MakeWorkDAO.createMakeWork();
+				tp_aa.MakeWork _makeWork = tp_aa.MakeWorkDAO.createMakeWork();
 				copyToBean(_makeWork);
 				if (MakeWorkDAO.save(_makeWork)) {
 					result = "Insert success";
@@ -199,7 +199,7 @@ public class MakeWorkProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				MakeWork _makeWork= MakeWorkDAO.loadMakeWorkByORMID(getId());
+				tp_aa.MakeWork _makeWork= tp_aa.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork != null) {
 					copyToBean(_makeWork);
 					if (MakeWorkDAO.save(_makeWork)) {
@@ -220,7 +220,7 @@ public class MakeWorkProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				MakeWork _makeWork = MakeWorkDAO.loadMakeWorkByORMID(getId());
+				tp_aa.MakeWork _makeWork = tp_aa.MakeWorkDAO.loadMakeWorkByORMID(getId());
 				if (_makeWork != null && MakeWorkDAO.delete(_makeWork)) {
 					result = "Delete success";
 				}
@@ -239,7 +239,7 @@ public class MakeWorkProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(MakeWork _makeWork) {
+	private void copyFromBean(tp_aa.MakeWork _makeWork) {
 		setTitle(_makeWork.getTitle());
 		setDescription(_makeWork.getDescription());
 		setPrice(_makeWork.getPrice());
@@ -251,7 +251,7 @@ public class MakeWorkProcessor {
 		setId(_makeWork.getORMID());
 		
 		{
-			User _user = _makeWork.getCreator();
+			tp_aa.User _user = _makeWork.getCreator();
 			if (_user != null) {
 				setCreator_userid(_user.getORMID());
 			}
@@ -259,15 +259,15 @@ public class MakeWorkProcessor {
 		
 		
 		{
-			Task _task = _makeWork.getTasks();
-			if (_task != null) {
-				setTasks_taskid(_task.getORMID());
+			tp_aa.SubTask _subTask = _makeWork.getSubTask();
+			if (_subTask != null) {
+				setSubTask_subTaskid(_subTask.getORMID());
 			}
 		}
 		
 		
 		{
-			User _user = _makeWork.getWorker();
+			tp_aa.User _user = _makeWork.getWorker();
 			if (_user != null) {
 				setWorker_userid(_user.getORMID());
 			}
@@ -275,7 +275,7 @@ public class MakeWorkProcessor {
 		
 		
 		{
-			District _district = _makeWork.getLocalization();
+			tp_aa.District _district = _makeWork.getLocalization();
 			if (_district != null) {
 				setLocalization_districtid(_district.getORMID());
 			}
@@ -283,7 +283,7 @@ public class MakeWorkProcessor {
 		
 		
 		{
-			Feedback _feedback = _makeWork.getEvaluation();
+			tp_aa.Feedback _feedback = _makeWork.getEvaluation();
 			if (_feedback != null) {
 				setEvaluation_feedbackid(_feedback.getORMID());
 			}
@@ -291,7 +291,7 @@ public class MakeWorkProcessor {
 		
 	}
 	
-	private void copyToBean(MakeWork _makeWork) {
+	private void copyToBean(tp_aa.MakeWork _makeWork) {
 		_makeWork.setTitle(getTitle());
 		_makeWork.setDescription(getDescription());
 		_makeWork.setPrice(getPrice());
@@ -301,35 +301,35 @@ public class MakeWorkProcessor {
 		_makeWork.setStartDate(getStartDate());
 		_makeWork.setFinishDate(getFinishDate());
 		try  {
-			User _creator = UserDAO.loadUserByORMID(getCreator_userid());
+			tp_aa.User _creator = tp_aa.UserDAO.loadUserByORMID(getCreator_userid());
 			_makeWork.setCreator(_creator);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			Task _tasks = TaskDAO.loadTaskByORMID(getTasks_taskid());
-			_makeWork.setTasks(_tasks);
+			tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getSubTask_subTaskid());
+			_makeWork.setSubTask(_subTask);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			User _worker = UserDAO.loadUserByORMID(getWorker_userid());
+			tp_aa.User _worker = tp_aa.UserDAO.loadUserByORMID(getWorker_userid());
 			_makeWork.setWorker(_worker);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			District _localization = DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
+			tp_aa.District _localization = tp_aa.DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
 			_makeWork.setLocalization(_localization);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			Feedback _evaluation = FeedbackDAO.loadFeedbackByORMID(getEvaluation_feedbackid());
+			tp_aa.Feedback _evaluation = tp_aa.FeedbackDAO.loadFeedbackByORMID(getEvaluation_feedbackid());
 			_makeWork.setEvaluation(_evaluation);
 		}
 		catch (PersistentException e) {

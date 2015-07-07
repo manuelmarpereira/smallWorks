@@ -65,7 +65,7 @@ public class InitWorkDAO {
 	
 	public static InitWork loadInitWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (InitWork) session.load(InitWork.class, new Integer(id));
+			return (InitWork) session.load(tp_aa.InitWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class InitWorkDAO {
 	
 	public static InitWork getInitWorkByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (InitWork) session.get(InitWork.class, new Integer(id));
+			return (InitWork) session.get(tp_aa.InitWork.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class InitWorkDAO {
 	
 	public static InitWork loadInitWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (InitWork) session.load(InitWork.class, new Integer(id), lockMode);
+			return (InitWork) session.load(tp_aa.InitWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class InitWorkDAO {
 	
 	public static InitWork getInitWorkByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (InitWork) session.get(InitWork.class, new Integer(id), lockMode);
+			return (InitWork) session.get(tp_aa.InitWork.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -148,7 +148,7 @@ public class InitWorkDAO {
 	}
 	
 	public static List queryInitWork(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From InitWork as InitWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.InitWork as InitWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class InitWorkDAO {
 	}
 	
 	public static List queryInitWork(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From InitWork as InitWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.InitWork as InitWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -263,7 +263,7 @@ public class InitWorkDAO {
 	}
 	
 	public static java.util.Iterator iterateInitWorkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From InitWork as InitWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.InitWork as InitWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class InitWorkDAO {
 	}
 	
 	public static java.util.Iterator iterateInitWorkByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From InitWork as InitWork");
+		StringBuffer sb = new StringBuffer("From tp_aa.InitWork as InitWork");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,10 +296,10 @@ public class InitWorkDAO {
 	}
 	
 	public static InitWork createInitWork() {
-		return new InitWork();
+		return new tp_aa.InitWork();
 	}
 	
-	public static boolean save(InitWork initWork) throws PersistentException {
+	public static boolean save(tp_aa.InitWork initWork) throws PersistentException {
 		try {
 			tp_aa.TPAAPersistentManager.instance().saveObject(initWork);
 			return true;
@@ -310,7 +310,7 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static boolean delete(InitWork initWork) throws PersistentException {
+	public static boolean delete(tp_aa.InitWork initWork) throws PersistentException {
 		try {
 			tp_aa.TPAAPersistentManager.instance().deleteObject(initWork);
 			return true;
@@ -321,7 +321,7 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static boolean refresh(InitWork initWork) throws PersistentException {
+	public static boolean refresh(tp_aa.InitWork initWork) throws PersistentException {
 		try {
 			tp_aa.TPAAPersistentManager.instance().getSession().refresh(initWork);
 			return true;
@@ -332,7 +332,7 @@ public class InitWorkDAO {
 		}
 	}
 	
-	public static boolean evict(InitWork initWork) throws PersistentException {
+	public static boolean evict(tp_aa.InitWork initWork) throws PersistentException {
 		try {
 			tp_aa.TPAAPersistentManager.instance().getSession().evict(initWork);
 			return true;

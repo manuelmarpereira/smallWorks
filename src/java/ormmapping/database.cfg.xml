@@ -256,7 +256,7 @@
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
   </Setting>
-  <Setting type="16777216">
+  <Setting type="2">
     <Driver></Driver>
     <DriverFiles></DriverFiles>
     <Dialect></Dialect>
@@ -271,7 +271,7 @@
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
   </Setting>
-  <Setting type="2">
+  <Setting type="16777216">
     <Driver></Driver>
     <DriverFiles></DriverFiles>
     <Dialect></Dialect>

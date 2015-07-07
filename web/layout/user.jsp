@@ -43,15 +43,13 @@
                 
                 <small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
             </p>
-            <p class="pull-left">
+            <p class="reward pull-left">
                 <i>Feedback (8/10) </i> 
                 <jsp:include page="/feedback/showStars.jsp" />
             </p>
         </div>
         <div class="col-sm-1" ></div>
         <div class="col-sm-3" style=" margin-top: 30px">
-
-
             <span class="rating">
                 <c:choose>
                     <c:when test="${sessionScope.user.id!=null}"> 
@@ -76,7 +74,7 @@
 
  <script type="text/javascript">
     var id = '<c:out value="${sessionScope.user.id}"/>';
-    alert("antes" + id);
+
     verifyUser(id);
     getUser(id);
 </script>

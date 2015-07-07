@@ -282,10 +282,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="TaskID">
+    <Column name="SubTaskID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>TP_AA.Task.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.SubTask.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -420,10 +420,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="TaskID">
+    <Column name="SubTaskID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>TP_AA.Task.ID</ReferencedColumn>
+      <ReferencedColumn>TP_AA.SubTask.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -500,7 +500,7 @@
       <ReferencedColumn>TP_AA.Feedback.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -577,11 +577,11 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="Tasks2">
+  <ForeignKey name="subTasks">
     <ReferenceTable>Work</ReferenceTable>
-    <ReferencedTable>Task</ReferencedTable>
+    <ReferencedTable>SubTask</ReferencedTable>
     <Columns>
-      <Column>TaskID</Column>
+      <Column>SubTaskID</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>
@@ -609,9 +609,9 @@
   </ForeignKey>
   <ForeignKey name="subsTask">
     <ReferenceTable>subscription</ReferenceTable>
-    <ReferencedTable>Task</ReferencedTable>
+    <ReferencedTable>SubTask</ReferencedTable>
     <Columns>
-      <Column>TaskID</Column>
+      <Column>SubTaskID</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>

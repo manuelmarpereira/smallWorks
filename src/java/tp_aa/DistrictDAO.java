@@ -21,7 +21,7 @@ import java.util.List;
 public class DistrictDAO {
 	public static District loadDistrictByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadDistrictByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class DistrictDAO {
 	
 	public static District getDistrictByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getDistrictByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class DistrictDAO {
 	
 	public static District loadDistrictByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadDistrictByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class DistrictDAO {
 	
 	public static District getDistrictByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getDistrictByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class DistrictDAO {
 	
 	public static District loadDistrictByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (District) session.load(District.class, new Integer(id));
+			return (District) session.load(tp_aa.District.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class DistrictDAO {
 	
 	public static District getDistrictByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (District) session.get(District.class, new Integer(id));
+			return (District) session.get(tp_aa.District.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class DistrictDAO {
 	
 	public static District loadDistrictByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (District) session.load(District.class, new Integer(id), lockMode);
+			return (District) session.load(tp_aa.District.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class DistrictDAO {
 	
 	public static District getDistrictByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (District) session.get(District.class, new Integer(id), lockMode);
+			return (District) session.get(tp_aa.District.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class DistrictDAO {
 	
 	public static List queryDistrict(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryDistrict(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class DistrictDAO {
 	
 	public static List queryDistrict(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryDistrict(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class DistrictDAO {
 	
 	public static District[] listDistrictByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listDistrictByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class DistrictDAO {
 	
 	public static District[] listDistrictByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listDistrictByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class DistrictDAO {
 	}
 	
 	public static List queryDistrict(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From District as District");
+		StringBuffer sb = new StringBuffer("From tp_aa.District as District");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class DistrictDAO {
 	}
 	
 	public static List queryDistrict(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From District as District");
+		StringBuffer sb = new StringBuffer("From tp_aa.District as District");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class DistrictDAO {
 	
 	public static District loadDistrictByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadDistrictByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class DistrictDAO {
 	
 	public static District loadDistrictByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadDistrictByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class DistrictDAO {
 	
 	public static java.util.Iterator iterateDistrictByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateDistrictByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class DistrictDAO {
 	
 	public static java.util.Iterator iterateDistrictByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateDistrictByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class DistrictDAO {
 	}
 	
 	public static java.util.Iterator iterateDistrictByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From District as District");
+		StringBuffer sb = new StringBuffer("From tp_aa.District as District");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class DistrictDAO {
 	}
 	
 	public static java.util.Iterator iterateDistrictByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From District as District");
+		StringBuffer sb = new StringBuffer("From tp_aa.District as District");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class DistrictDAO {
 	}
 	
 	public static District createDistrict() {
-		return new District();
+		return new tp_aa.District();
 	}
 	
-	public static boolean save(District district) throws PersistentException {
+	public static boolean save(tp_aa.District district) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(district);
+			tp_aa.TPAAPersistentManager.instance().saveObject(district);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static boolean delete(District district) throws PersistentException {
+	public static boolean delete(tp_aa.District district) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(district);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(district);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(District district)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.District district)throws PersistentException {
 		try {
-			User[] lUsers = district.user.toArray();
+			tp_aa.User[] lUsers = district.user.toArray();
 			for(int i = 0; i < lUsers.length; i++) {
 				lUsers[i].setDistrict(null);
 			}
@@ -335,9 +335,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(District district, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.District district, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			User[] lUsers = district.user.toArray();
+			tp_aa.User[] lUsers = district.user.toArray();
 			for(int i = 0; i < lUsers.length; i++) {
 				lUsers[i].setDistrict(null);
 			}
@@ -354,9 +354,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static boolean refresh(District district) throws PersistentException {
+	public static boolean refresh(tp_aa.District district) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(district);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(district);
 			return true;
 		}
 		catch (Exception e) {
@@ -365,9 +365,9 @@ public class DistrictDAO {
 		}
 	}
 	
-	public static boolean evict(District district) throws PersistentException {
+	public static boolean evict(tp_aa.District district) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(district);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(district);
 			return true;
 		}
 		catch (Exception e) {

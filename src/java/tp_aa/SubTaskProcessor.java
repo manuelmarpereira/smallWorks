@@ -45,11 +45,21 @@ public class SubTaskProcessor {
 		this.action = action;
 	}
 	
+	private int task_taskid;
+	
+	public void setTask_taskid(int value) {
+		this.task_taskid = value;
+	}
+	
+	public int getTask_taskid() {
+		return task_taskid;
+	}
+	
 	public String process() {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				SubTask _subTask = SubTaskDAO.loadSubTaskByORMID(getId());
+				tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask!= null) {
 					copyFromBean(_subTask);
 					result = "Search success";
@@ -64,7 +74,7 @@ public class SubTaskProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				SubTask _subTask = SubTaskDAO.createSubTask();
+				tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.createSubTask();
 				copyToBean(_subTask);
 				if (SubTaskDAO.save(_subTask)) {
 					result = "Insert success";
@@ -79,7 +89,7 @@ public class SubTaskProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				SubTask _subTask= SubTaskDAO.loadSubTaskByORMID(getId());
+				tp_aa.SubTask _subTask= tp_aa.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask != null) {
 					copyToBean(_subTask);
 					if (SubTaskDAO.save(_subTask)) {
@@ -100,7 +110,7 @@ public class SubTaskProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				SubTask _subTask = SubTaskDAO.loadSubTaskByORMID(getId());
+				tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getId());
 				if (_subTask != null && SubTaskDAO.delete(_subTask)) {
 					result = "Delete success";
 				}
@@ -119,13 +129,28 @@ public class SubTaskProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(SubTask _subTask) {
+	private void copyFromBean(tp_aa.SubTask _subTask) {
 		setName(_subTask.getName());
 		setId(_subTask.getORMID());
+		
+		{
+			tp_aa.Task _task = _subTask.getTask();
+			if (_task != null) {
+				setTask_taskid(_task.getORMID());
+			}
+		}
+		
 	}
 	
-	private void copyToBean(SubTask _subTask) {
+	private void copyToBean(tp_aa.SubTask _subTask) {
 		_subTask.setName(getName());
+		try  {
+			tp_aa.Task _task = tp_aa.TaskDAO.loadTaskByORMID(getTask_taskid());
+			_subTask.setTask(_task);
+		}
+		catch (PersistentException e) {
+		}
+		
 	}
 	
 }

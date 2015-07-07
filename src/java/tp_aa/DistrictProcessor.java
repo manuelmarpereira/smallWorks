@@ -49,7 +49,7 @@ public class DistrictProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				District _district = DistrictDAO.loadDistrictByORMID(getId());
+				tp_aa.District _district = tp_aa.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district!= null) {
 					copyFromBean(_district);
 					result = "Search success";
@@ -64,7 +64,7 @@ public class DistrictProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				District _district = DistrictDAO.createDistrict();
+				tp_aa.District _district = tp_aa.DistrictDAO.createDistrict();
 				copyToBean(_district);
 				if (DistrictDAO.save(_district)) {
 					result = "Insert success";
@@ -79,7 +79,7 @@ public class DistrictProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				District _district= DistrictDAO.loadDistrictByORMID(getId());
+				tp_aa.District _district= tp_aa.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district != null) {
 					copyToBean(_district);
 					if (DistrictDAO.save(_district)) {
@@ -100,7 +100,7 @@ public class DistrictProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				District _district = DistrictDAO.loadDistrictByORMID(getId());
+				tp_aa.District _district = tp_aa.DistrictDAO.loadDistrictByORMID(getId());
 				if (_district != null && DistrictDAO.deleteAndDissociate(_district)) {
 					result = "Delete success";
 				}
@@ -119,12 +119,12 @@ public class DistrictProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(District _district) {
+	private void copyFromBean(tp_aa.District _district) {
 		setName(_district.getName());
 		setId(_district.getORMID());
 	}
 	
-	private void copyToBean(District _district) {
+	private void copyToBean(tp_aa.District _district) {
 		_district.setName(getName());
 	}
 	

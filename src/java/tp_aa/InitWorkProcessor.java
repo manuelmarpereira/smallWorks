@@ -125,14 +125,14 @@ public class InitWorkProcessor {
 		return Creator_userid;
 	}
 	
-	private int Tasks_taskid;
+	private int subTask_subTaskid;
 	
-	public void setTasks_taskid(int value) {
-		this.Tasks_taskid = value;
+	public void setSubTask_subTaskid(int value) {
+		this.subTask_subTaskid = value;
 	}
 	
-	public int getTasks_taskid() {
-		return Tasks_taskid;
+	public int getSubTask_subTaskid() {
+		return subTask_subTaskid;
 	}
 	
 	private int Worker_userid;
@@ -159,7 +159,7 @@ public class InitWorkProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				InitWork _initWork = InitWorkDAO.loadInitWorkByORMID(getId());
+				tp_aa.InitWork _initWork = tp_aa.InitWorkDAO.loadInitWorkByORMID(getId());
 				if (_initWork!= null) {
 					copyFromBean(_initWork);
 					result = "Search success";
@@ -174,7 +174,7 @@ public class InitWorkProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				InitWork _initWork = InitWorkDAO.createInitWork();
+				tp_aa.InitWork _initWork = tp_aa.InitWorkDAO.createInitWork();
 				copyToBean(_initWork);
 				if (InitWorkDAO.save(_initWork)) {
 					result = "Insert success";
@@ -189,7 +189,7 @@ public class InitWorkProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				InitWork _initWork= InitWorkDAO.loadInitWorkByORMID(getId());
+				tp_aa.InitWork _initWork= tp_aa.InitWorkDAO.loadInitWorkByORMID(getId());
 				if (_initWork != null) {
 					copyToBean(_initWork);
 					if (InitWorkDAO.save(_initWork)) {
@@ -210,7 +210,7 @@ public class InitWorkProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				InitWork _initWork = InitWorkDAO.loadInitWorkByORMID(getId());
+				tp_aa.InitWork _initWork = tp_aa.InitWorkDAO.loadInitWorkByORMID(getId());
 				if (_initWork != null && InitWorkDAO.delete(_initWork)) {
 					result = "Delete success";
 				}
@@ -229,7 +229,7 @@ public class InitWorkProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(InitWork _initWork) {
+	private void copyFromBean(tp_aa.InitWork _initWork) {
 		setTitle(_initWork.getTitle());
 		setDescription(_initWork.getDescription());
 		setPrice(_initWork.getPrice());
@@ -241,7 +241,7 @@ public class InitWorkProcessor {
 		setId(_initWork.getORMID());
 		
 		{
-			User _user = _initWork.getCreator();
+			tp_aa.User _user = _initWork.getCreator();
 			if (_user != null) {
 				setCreator_userid(_user.getORMID());
 			}
@@ -249,15 +249,15 @@ public class InitWorkProcessor {
 		
 		
 		{
-			Task _task = _initWork.getTasks();
-			if (_task != null) {
-				setTasks_taskid(_task.getORMID());
+			tp_aa.SubTask _subTask = _initWork.getSubTask();
+			if (_subTask != null) {
+				setSubTask_subTaskid(_subTask.getORMID());
 			}
 		}
 		
 		
 		{
-			User _user = _initWork.getWorker();
+			tp_aa.User _user = _initWork.getWorker();
 			if (_user != null) {
 				setWorker_userid(_user.getORMID());
 			}
@@ -265,7 +265,7 @@ public class InitWorkProcessor {
 		
 		
 		{
-			District _district = _initWork.getLocalization();
+			tp_aa.District _district = _initWork.getLocalization();
 			if (_district != null) {
 				setLocalization_districtid(_district.getORMID());
 			}
@@ -273,7 +273,7 @@ public class InitWorkProcessor {
 		
 	}
 	
-	private void copyToBean(InitWork _initWork) {
+	private void copyToBean(tp_aa.InitWork _initWork) {
 		_initWork.setTitle(getTitle());
 		_initWork.setDescription(getDescription());
 		_initWork.setPrice(getPrice());
@@ -283,28 +283,28 @@ public class InitWorkProcessor {
 		_initWork.setStartDate(getStartDate());
 		_initWork.setInitWork(getInitWork());
 		try  {
-			User _creator = UserDAO.loadUserByORMID(getCreator_userid());
+			tp_aa.User _creator = tp_aa.UserDAO.loadUserByORMID(getCreator_userid());
 			_initWork.setCreator(_creator);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			Task _tasks = TaskDAO.loadTaskByORMID(getTasks_taskid());
-			_initWork.setTasks(_tasks);
+			tp_aa.SubTask _subTask = tp_aa.SubTaskDAO.loadSubTaskByORMID(getSubTask_subTaskid());
+			_initWork.setSubTask(_subTask);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			User _worker = UserDAO.loadUserByORMID(getWorker_userid());
+			tp_aa.User _worker = tp_aa.UserDAO.loadUserByORMID(getWorker_userid());
 			_initWork.setWorker(_worker);
 		}
 		catch (PersistentException e) {
 		}
 		
 		try  {
-			District _localization = DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
+			tp_aa.District _localization = tp_aa.DistrictDAO.loadDistrictByORMID(getLocalization_districtid());
 			_initWork.setLocalization(_localization);
 		}
 		catch (PersistentException e) {

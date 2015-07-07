@@ -20,11 +20,15 @@ import org.orm.criteria.*;
 
 public class SubTaskCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression taskId;
+	public final AssociationExpression task;
 	public final StringExpression name;
 	
 	public SubTaskCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
+		taskId = new IntegerExpression("task.id", this);
+		task = new AssociationExpression("task", this);
 		name = new StringExpression("name", this);
 	}
 	
@@ -34,6 +38,10 @@ public class SubTaskCriteria extends AbstractORMCriteria {
 	
 	public SubTaskCriteria() throws PersistentException {
 		this(tp_aa.TPAAPersistentManager.instance().getSession());
+	}
+	
+	public TaskCriteria createTaskCriteria() {
+		return new TaskCriteria(createCriteria("task"));
 	}
 	
 	public SubTask uniqueSubTask() {

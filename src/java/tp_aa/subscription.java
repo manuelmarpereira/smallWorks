@@ -23,7 +23,7 @@ public class subscription {
 		}
 		
 		else if (key == tp_aa.ORMConstants.KEY_SUBSCRIPTION_SUBSTASK) {
-			this.subsTask = (tp_aa.Task) owner;
+			this.subsTask = (tp_aa.SubTask) owner;
 		}
 		
 		else if (key == tp_aa.ORMConstants.KEY_SUBSCRIPTION_USER) {
@@ -42,7 +42,7 @@ public class subscription {
 	
 	private tp_aa.User user;
 	
-	private tp_aa.Task subsTask;
+	private tp_aa.SubTask subsTask;
 	
 	private tp_aa.District subsDistrict;
 	
@@ -66,11 +66,11 @@ public class subscription {
 		return subsDistrict;
 	}
 	
-	public void setSubsTask(tp_aa.Task value) {
+	public void setSubsTask(tp_aa.SubTask value) {
 		this.subsTask = value;
 	}
 	
-	public tp_aa.Task getSubsTask() {
+	public tp_aa.SubTask getSubsTask() {
 		return subsTask;
 	}
 	

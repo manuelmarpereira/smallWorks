@@ -20,7 +20,7 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_MAKEWORK_EVALUATION = -566022820;
 	
-	final int KEY_TASK_SUBTAKS = 654394907;
+	final int KEY_SUBTASK_TASK = -1854529089;
 	
 	final int KEY_USER_DISTRICT = 1138474338;
 	
@@ -30,9 +30,9 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_WORK_LOCALIZATION = -10043129;
 	
-	final int KEY_WORK_TASKS = 1410089184;
-	
 	final int KEY_WORK_WORKER = 861878380;
+	
+	final int KEY_WORK_SUBTASK = 185034967;
 	
 	final int KEY_SUBSCRIPTION_SUBSDISTRICT = 277038787;
 	

@@ -21,7 +21,7 @@ import java.util.List;
 public class UserDAO {
 	public static User loadUserByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadUserByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class UserDAO {
 	
 	public static User getUserByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getUserByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class UserDAO {
 	
 	public static User loadUserByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadUserByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class UserDAO {
 	
 	public static User getUserByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getUserByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class UserDAO {
 	
 	public static User loadUserByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (User) session.load(User.class, new Integer(id));
+			return (User) session.load(tp_aa.User.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class UserDAO {
 	
 	public static User getUserByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (User) session.get(User.class, new Integer(id));
+			return (User) session.get(tp_aa.User.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class UserDAO {
 	
 	public static User loadUserByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (User) session.load(User.class, new Integer(id), lockMode);
+			return (User) session.load(tp_aa.User.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class UserDAO {
 	
 	public static User getUserByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (User) session.get(User.class, new Integer(id), lockMode);
+			return (User) session.get(tp_aa.User.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class UserDAO {
 	
 	public static List queryUser(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryUser(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class UserDAO {
 	
 	public static List queryUser(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryUser(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class UserDAO {
 	
 	public static User[] listUserByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listUserByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class UserDAO {
 	
 	public static User[] listUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listUserByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class UserDAO {
 	}
 	
 	public static List queryUser(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From User as User");
+		StringBuffer sb = new StringBuffer("From tp_aa.User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class UserDAO {
 	}
 	
 	public static List queryUser(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From User as User");
+		StringBuffer sb = new StringBuffer("From tp_aa.User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class UserDAO {
 	
 	public static User loadUserByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadUserByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class UserDAO {
 	
 	public static User loadUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadUserByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class UserDAO {
 	
 	public static java.util.Iterator iterateUserByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateUserByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class UserDAO {
 	
 	public static java.util.Iterator iterateUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateUserByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class UserDAO {
 	}
 	
 	public static java.util.Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From User as User");
+		StringBuffer sb = new StringBuffer("From tp_aa.User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class UserDAO {
 	}
 	
 	public static java.util.Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From User as User");
+		StringBuffer sb = new StringBuffer("From tp_aa.User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class UserDAO {
 	}
 	
 	public static User createUser() {
-		return new User();
+		return new tp_aa.User();
 	}
 	
-	public static boolean save(User user) throws PersistentException {
+	public static boolean save(tp_aa.User user) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(user);
+			tp_aa.TPAAPersistentManager.instance().saveObject(user);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean delete(User user) throws PersistentException {
+	public static boolean delete(tp_aa.User user) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(user);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(user);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,13 +321,13 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(User user)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.User user)throws PersistentException {
 		try {
 			if (user.getDistrict() != null) {
 				user.getDistrict().user.remove(user);
 			}
 			
-			subscription[] lSubscriptionss = user.subscriptions.toArray();
+			tp_aa.subscription[] lSubscriptionss = user.subscriptions.toArray();
 			for(int i = 0; i < lSubscriptionss.length; i++) {
 				lSubscriptionss[i].setUser(null);
 			}
@@ -339,13 +339,13 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(User user, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(tp_aa.User user, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (user.getDistrict() != null) {
 				user.getDistrict().user.remove(user);
 			}
 			
-			subscription[] lSubscriptionss = user.subscriptions.toArray();
+			tp_aa.subscription[] lSubscriptionss = user.subscriptions.toArray();
 			for(int i = 0; i < lSubscriptionss.length; i++) {
 				lSubscriptionss[i].setUser(null);
 			}
@@ -362,9 +362,9 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean refresh(User user) throws PersistentException {
+	public static boolean refresh(tp_aa.User user) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(user);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(user);
 			return true;
 		}
 		catch (Exception e) {
@@ -373,9 +373,9 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean evict(User user) throws PersistentException {
+	public static boolean evict(tp_aa.User user) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(user);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(user);
 			return true;
 		}
 		catch (Exception e) {

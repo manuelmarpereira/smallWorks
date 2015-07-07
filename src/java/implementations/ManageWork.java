@@ -110,7 +110,7 @@ public class ManageWork implements ManageWorkLocal {
 
         if (!work.isEmpty()) {
             for (Work wk : work) {
-                if (wk.getTasks().getName().toLowerCase().contains(task.toLowerCase()) || wk.getLocalization().getName().toLowerCase().contains(district.toLowerCase())) {
+                if (wk.getSubTask().getName().toLowerCase().contains(task.toLowerCase()) || wk.getLocalization().getName().toLowerCase().contains(district.toLowerCase())) {
                     a.add(wk);
                 }
             }

@@ -19,6 +19,8 @@ public class SubTask {
 	
 	private int id;
 	
+	private tp_aa.Task task;
+	
 	private String name;
 	
 	private void setId(int value) {
@@ -39,6 +41,14 @@ public class SubTask {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public void setTask(tp_aa.Task value) {
+		this.task = value;
+	}
+	
+	public tp_aa.Task getTask() {
+		return task;
 	}
 	
 	public String toString() {

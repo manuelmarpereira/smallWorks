@@ -21,7 +21,7 @@ import java.util.List;
 public class ClassificationDAO {
 	public static Classification loadClassificationByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadClassificationByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class ClassificationDAO {
 	
 	public static Classification getClassificationByORMID(int id) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getClassificationByORMID(session, id);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ClassificationDAO {
 	
 	public static Classification loadClassificationByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadClassificationByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class ClassificationDAO {
 	
 	public static Classification getClassificationByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return getClassificationByORMID(session, id, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class ClassificationDAO {
 	
 	public static Classification loadClassificationByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Classification) session.load(Classification.class, new Integer(id));
+			return (Classification) session.load(tp_aa.Classification.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ClassificationDAO {
 	
 	public static Classification getClassificationByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Classification) session.get(Classification.class, new Integer(id));
+			return (Classification) session.get(tp_aa.Classification.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ClassificationDAO {
 	
 	public static Classification loadClassificationByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Classification) session.load(Classification.class, new Integer(id), lockMode);
+			return (Classification) session.load(tp_aa.Classification.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ClassificationDAO {
 	
 	public static Classification getClassificationByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Classification) session.get(Classification.class, new Integer(id), lockMode);
+			return (Classification) session.get(tp_aa.Classification.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class ClassificationDAO {
 	
 	public static List queryClassification(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryClassification(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class ClassificationDAO {
 	
 	public static List queryClassification(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return queryClassification(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class ClassificationDAO {
 	
 	public static Classification[] listClassificationByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listClassificationByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class ClassificationDAO {
 	
 	public static Classification[] listClassificationByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return listClassificationByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class ClassificationDAO {
 	}
 	
 	public static List queryClassification(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Classification as Classification");
+		StringBuffer sb = new StringBuffer("From tp_aa.Classification as Classification");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class ClassificationDAO {
 	}
 	
 	public static List queryClassification(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Classification as Classification");
+		StringBuffer sb = new StringBuffer("From tp_aa.Classification as Classification");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class ClassificationDAO {
 	
 	public static Classification loadClassificationByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadClassificationByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class ClassificationDAO {
 	
 	public static Classification loadClassificationByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return loadClassificationByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class ClassificationDAO {
 	
 	public static java.util.Iterator iterateClassificationByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateClassificationByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class ClassificationDAO {
 	
 	public static java.util.Iterator iterateClassificationByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = TPAAPersistentManager.instance().getSession();
+			PersistentSession session = tp_aa.TPAAPersistentManager.instance().getSession();
 			return iterateClassificationByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class ClassificationDAO {
 	}
 	
 	public static java.util.Iterator iterateClassificationByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Classification as Classification");
+		StringBuffer sb = new StringBuffer("From tp_aa.Classification as Classification");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class ClassificationDAO {
 	}
 	
 	public static java.util.Iterator iterateClassificationByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Classification as Classification");
+		StringBuffer sb = new StringBuffer("From tp_aa.Classification as Classification");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class ClassificationDAO {
 	}
 	
 	public static Classification createClassification() {
-		return new Classification();
+		return new tp_aa.Classification();
 	}
 	
-	public static boolean save(Classification classification) throws PersistentException {
+	public static boolean save(tp_aa.Classification classification) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().saveObject(classification);
+			tp_aa.TPAAPersistentManager.instance().saveObject(classification);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static boolean delete(Classification classification) throws PersistentException {
+	public static boolean delete(tp_aa.Classification classification) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().deleteObject(classification);
+			tp_aa.TPAAPersistentManager.instance().deleteObject(classification);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,9 +321,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static boolean refresh(Classification classification) throws PersistentException {
+	public static boolean refresh(tp_aa.Classification classification) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().refresh(classification);
+			tp_aa.TPAAPersistentManager.instance().getSession().refresh(classification);
 			return true;
 		}
 		catch (Exception e) {
@@ -332,9 +332,9 @@ public class ClassificationDAO {
 		}
 	}
 	
-	public static boolean evict(Classification classification) throws PersistentException {
+	public static boolean evict(tp_aa.Classification classification) throws PersistentException {
 		try {
-			TPAAPersistentManager.instance().getSession().evict(classification);
+			tp_aa.TPAAPersistentManager.instance().getSession().evict(classification);
 			return true;
 		}
 		catch (Exception e) {

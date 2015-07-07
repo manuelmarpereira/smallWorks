@@ -59,7 +59,7 @@ public class FeedbackProcessor {
 		String result = "Unexcepted result";
 		if (action.equals("search")) {
 			try {
-				Feedback _feedback = FeedbackDAO.loadFeedbackByORMID(getId());
+				tp_aa.Feedback _feedback = tp_aa.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback!= null) {
 					copyFromBean(_feedback);
 					result = "Search success";
@@ -74,7 +74,7 @@ public class FeedbackProcessor {
 		}
 		else if(action.equals("insert"))  {
 			try {
-				Feedback _feedback = FeedbackDAO.createFeedback();
+				tp_aa.Feedback _feedback = tp_aa.FeedbackDAO.createFeedback();
 				copyToBean(_feedback);
 				if (FeedbackDAO.save(_feedback)) {
 					result = "Insert success";
@@ -89,7 +89,7 @@ public class FeedbackProcessor {
 		}
 		else if (action.equals("update")) {
 			try {
-				Feedback _feedback= FeedbackDAO.loadFeedbackByORMID(getId());
+				tp_aa.Feedback _feedback= tp_aa.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback != null) {
 					copyToBean(_feedback);
 					if (FeedbackDAO.save(_feedback)) {
@@ -110,7 +110,7 @@ public class FeedbackProcessor {
 		}
 		else if (action.equals("delete")) {
 			try {
-				Feedback _feedback = FeedbackDAO.loadFeedbackByORMID(getId());
+				tp_aa.Feedback _feedback = tp_aa.FeedbackDAO.loadFeedbackByORMID(getId());
 				if (_feedback != null && FeedbackDAO.delete(_feedback)) {
 					result = "Delete success";
 				}
@@ -129,12 +129,12 @@ public class FeedbackProcessor {
 		return result;
 	}
 	
-	private void copyFromBean(Feedback _feedback) {
+	private void copyFromBean(tp_aa.Feedback _feedback) {
 		setComent(_feedback.getComent());
 		setId(_feedback.getORMID());
 		
 		{
-			Classification _classification = _feedback.getClassification();
+			tp_aa.Classification _classification = _feedback.getClassification();
 			if (_classification != null) {
 				setClassification_classificationid(_classification.getORMID());
 			}
@@ -142,10 +142,10 @@ public class FeedbackProcessor {
 		
 	}
 	
-	private void copyToBean(Feedback _feedback) {
+	private void copyToBean(tp_aa.Feedback _feedback) {
 		_feedback.setComent(getComent());
 		try  {
-			Classification _classification = ClassificationDAO.loadClassificationByORMID(getClassification_classificationid());
+			tp_aa.Classification _classification = tp_aa.ClassificationDAO.loadClassificationByORMID(getClassification_classificationid());
 			_feedback.setClassification(_classification);
 		}
 		catch (PersistentException e) {

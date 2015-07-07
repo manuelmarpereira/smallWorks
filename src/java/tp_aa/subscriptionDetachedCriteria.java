@@ -53,8 +53,8 @@ public class subscriptionDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new UserDetachedCriteria(createCriteria("user"));
 	}
 	
-	public TaskDetachedCriteria createSubsTaskCriteria() {
-		return new TaskDetachedCriteria(createCriteria("subsTask"));
+	public SubTaskDetachedCriteria createSubsTaskCriteria() {
+		return new SubTaskDetachedCriteria(createCriteria("subsTask"));
 	}
 	
 	public DistrictDetachedCriteria createSubsDistrictCriteria() {

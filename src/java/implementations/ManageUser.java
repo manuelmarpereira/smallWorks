@@ -142,7 +142,7 @@ public class ManageUser implements ManageUserLocal {
     public User getUser(int id) {
         PersistentSession entityManager = null;
         List<User> listUser = null;
-
+        
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
