@@ -16,7 +16,7 @@ import tp_aa.Work;
 public class ManageWork implements ManageWorkLocal {
 
     @Override
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order) {
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low, String amount_high) {
         if (district.equals("") || district == null) {
             district = "%%";
         } else {
@@ -39,6 +39,8 @@ public class ManageWork implements ManageWorkLocal {
             q.setMaxResults(max);
             q.setParameter("district", district);
             q.setParameter("tasks", tasks);
+            q.setParameter("amount_low", Double.parseDouble(amount_low));
+            q.setParameter("amount_high", Double.parseDouble(amount_high));
 
             work = (List<Work>) q.list();
             entityManager.getTransaction().commit();
@@ -58,10 +60,10 @@ public class ManageWork implements ManageWorkLocal {
     
     private static String query(int order){
         if (order==1){
-            return "FROM Work where lower(Localization.name) like :district and lower(Tasks.name) like :tasks order by id DESC";
+            return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by id DESC";
         }else 
             if (order==2){
-             return "FROM Work where lower(Localization.name) like :district and lower(Tasks.name) like :tasks order by price DESC";
+             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by price DESC";
             }
     return "";
     }
