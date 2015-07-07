@@ -22,4 +22,3 @@
         <script LANGUAGE="JavaScript" src='${pageContext.request.contextPath}/assets/js/mapa.js'> </script>
     </div>
 </div>
-

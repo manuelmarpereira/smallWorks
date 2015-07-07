@@ -1,3 +1,7 @@
 # smallWorks
-Applications Engineering Project course of MEI.
+Applications Engineering Project course of MEI. University of Minho
 
+As we all know we are living in difficult times and people increasingly seek a 2nd plans as a way to get some extra income. And for this need comes to us the interest to creating a smallWorks application whose main purpose is approach people who need someone to perform small tasks or jobs and people who have any interest in performing these tasks.
+The goal is that a user publishes its small work offers, which includes a description of the task, the location and the value of the reward to the user that publish. When another user wants to perform the task and express their interest, an email notification is sent to the "owner" of the advertised task to inform you of interest, and the rest of the trading is done will part of the application, will like the applications involving gender negotiations.
+When the task is completed, it is closed in the application and the user who made it receives a feedback value between 0 and 10 as a way to evaluate his performance and involvement in negotiating the same.
+In order to facilitate the work-sharing process, we have an application on Facebook, through which the user can register their interest in a particular type of tasks and its location. The user will be informed with a notification on your facebook account whenever you add a task that suits their interests.
