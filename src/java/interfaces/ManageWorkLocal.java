@@ -17,7 +17,7 @@ public interface ManageWorkLocal {
      * @param tasks
      * @return 
      */
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order);
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low, String amount_high);
     public ArrayList<Work> getSelectWorks(String district, String task);
     
     public ArrayList<Work> getAllWorks();

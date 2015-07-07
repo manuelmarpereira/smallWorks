@@ -32,7 +32,7 @@ public class Search  extends HttpServlet{
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
   
-    ArrayList work = mw.getWorks(1, 0, 100, true,req.getParameter("location"), req.getParameter("task"), Integer.parseInt(req.getParameter("order")));
+    ArrayList work = mw.getWorks(1, 0, 100, true,req.getParameter("location"), req.getParameter("task"), Integer.parseInt(req.getParameter("order")),req.getParameter("amount_low"),req.getParameter("amount_high"));
         
     RequestDispatcher reqDispatcher;
     req.setAttribute("works", work);

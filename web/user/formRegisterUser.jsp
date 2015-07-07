@@ -4,7 +4,7 @@
     Author     : Manuel
 --%>
 
-<form class="form-horizontal" role="form" name="formreg" action="registerUser" method="POST">  
+<form class="form-horizontal"  name="formreg" action="registerUser" method="POST">  
     <div class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 form-margin-top" >
         <div class="panel panel-info">
             <div class="panel-heading">

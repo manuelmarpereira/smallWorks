@@ -1,6 +1,9 @@
 package implementations;
 
 import interfaces.ManageSubTaskLocal;
+
+import java.util.Arrays;
+
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -22,7 +25,9 @@ public class ManageSubTask implements ManageSubTaskLocal {
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
+
             Query task = entityManager.createQuery("from SubTask where id=:id");
+
             task.setParameter("id", idSubTask);
             
             listTask = (List<SubTask>) task.list();

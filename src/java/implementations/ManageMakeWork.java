@@ -1,6 +1,7 @@
 package implementations;
 
 import interfaces.ManageMakeWorkLocal;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
@@ -11,11 +12,13 @@ import org.orm.PersistentSession;
 import tp_aa.MakeWork;
 import tp_aa.TPAAPersistentManager;
 
+
 @Stateless
 @Local(ManageMakeWorkLocal.class)
 public class ManageMakeWork implements ManageMakeWorkLocal {
 
     @Override
+
     public List<MakeWork> getMakedWorks(int idUser) {
         double avg = 0;
         PersistentSession entityManager = null;
@@ -44,6 +47,7 @@ public class ManageMakeWork implements ManageMakeWorkLocal {
             val = val + element.getEvaluation().getClassification().getValue();
         }        
         return  val/tmp.size();
+
     }
     
 }

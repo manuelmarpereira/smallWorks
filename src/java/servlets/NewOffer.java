@@ -20,17 +20,22 @@ public class NewOffer extends HttpServlet{
     @EJB
     private ManageSubTaskLocal mt;
     @EJB
+
     private  ManageWorkLocal mo;
+
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String t = req.getParameter("tittle"),
                d = req.getParameter("description"),
                dist = req.getParameter("distrito"),
+
                n = req.getParameter("negociable"),
+
                clan = req.getParameter("latitude"),
                clon = req.getParameter("longitude");
         
         Double r = validateDouble(req.getParameter("reward"));
+
 
         Integer id = validateInts(req.getParameter("id")),
             idTask = validateInts(req.getParameter("idSubtask"));
@@ -47,14 +52,17 @@ public class NewOffer extends HttpServlet{
         if( id != null && idTask != null && r != null && validateStrings(t) && 
                 validateStrings(dist) && validateStrings(clan) && validateStrings(clon) ) {
             System.out.println("inside");
+
             Work w = new Work();
             w.setCreator(mu.getUser(id));
             w.setWorker(null);// ainda nao possui worker
             w.setTitle(t);
             w.setDescription(d);
             w.setPrice(r);
+
             w.setNegotiable(negociable);
             w.setSubTask(mt.getSubTask(idTask)); // get subtask selected by user
+
             w.setLocalization(mu.guardaDistrito(dist));
             
             w.setCoordLat(clan);
@@ -62,9 +70,11 @@ public class NewOffer extends HttpServlet{
             w.setStartDate(new java.sql.Date(new Date().getTime())); // timestamp
             
             mo.registWork(w);
+
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/myOffers.jsp");
         } else {
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/offer/new.jsp");
+
         }
         reqDispatcher.forward(req, resp);
     }

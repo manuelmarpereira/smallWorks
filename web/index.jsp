@@ -37,9 +37,11 @@
 
                     </div>
                     <select id="selectOrder" name="order" class="combobox" style="display: none;">
-                                    <option value="1" selected>Mais recentes</option>
-                                    
-                                </select>
+                        <option value="1" selected>Mais recentes</option>
+
+                    </select>
+                    <input type="text" value="500.01"  name="amount_high" id="amount_high" class="date" style="visibility:hidden" />
+                    <input type="text" value="0.00"  name="amount_low" id="amount_low" class="date" style="visibility:hidden" />
                 </form>
             </div>
 
