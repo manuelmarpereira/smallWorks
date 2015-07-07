@@ -19,11 +19,13 @@
         </div>
         <div class="col-sm-4 col-md-4 white">
             
+
             <p class="nick pull-left" style="font-size: 200%" ></P>
             <br><br><br>
                             
             <p class="pull-left" > 
                 <i class="names glyphicon glyphicon-user"></i><small id="nameEdit"><a href="#" data-toggle="modal" data-target="#editNameModel">(Edit)</a></small>
+
             </p>
             <br><br>             
           
@@ -33,6 +35,7 @@
            <br><br>  
             <p class="namepull-left">
                 <i class="email glyphicon glyphicon-envelope"></i><small id="emailEdit"><a href="#" data-toggle="modal" data-target="#editEmailModel">(Edit)</a></small>
+
             </p>
             <p class="reward pull-left">
                 <i>Feedback (8/10) </i> 
