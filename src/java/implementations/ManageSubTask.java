@@ -9,7 +9,6 @@ import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
 import tp_aa.SubTask;
-import tp_aa.SubTaskDAO;
 import tp_aa.TPAAPersistentManager;
 
 @Stateless
@@ -19,37 +18,30 @@ public class ManageSubTask implements ManageSubTaskLocal {
     @Override
     public SubTask getSubTask(int idSubTask) {
         SubTask st = null;
+        PersistentSession entityManager = null;
+        List<SubTask> listTask = null;
         try {
-            st = SubTaskDAO.getSubTaskByORMID(idSubTask);
-        } catch (PersistentException ex) {}
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query task = entityManager.createQuery("from subtask where id=:id");
+            task.setParameter("id", idSubTask);
+            
+            listTask = (List<SubTask>) task.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if (!listTask.isEmpty()) {
+                return listTask.get(0);
+            }   
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
         return st;
-//        PersistentSession entityManager = null;
-//        List<SubTask> listTask = null;
-//        try {
-//            entityManager = TPAAPersistentManager.instance().getSession();
-//            entityManager.beginTransaction();
-//            Query task = entityManager.createQuery("from subtask where id=:id");
-//            task.setParameter("id", idSubTask);
-//            
-//            listTask = (List<SubTask>) task.list();
-//            entityManager.getTransaction().commit();
-//            entityManager.close();
-//            
-//            if (!listTask.isEmpty()) {
-//                return listTask.get(0);
-//            }   
-//        } catch (PersistentException ex) {
-//            //tratar excepção se correr mal a meia da transação
-//            ex.printStackTrace();
-//        }
-//        return st;
     }
 
     @Override
-    public List<SubTask> getSubTasks(int idTask) {// taskid:idTask
-//        try {
-//            l = Arrays.asList(SubTaskDAO.listSubTaskByQuery("taskid="+idTask, ""));
-//        } catch(PersistentException p) {}
+    public List<SubTask> getSubTasks(int idTask) {
         PersistentSession entityManager = null;
         List<SubTask> listTask = null;
         try {
@@ -70,6 +62,4 @@ public class ManageSubTask implements ManageSubTaskLocal {
         }
         return listTask;
     }
-    
-    
 }
