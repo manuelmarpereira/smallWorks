@@ -8,10 +8,12 @@ import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
+import tp_aa.InitWork;
+import tp_aa.MakeWork;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.Work;
 
-import tp_aa.WorkDAO;
+
 
 
 @Stateless
@@ -129,6 +131,44 @@ public class ManageWork implements ManageWorkLocal {
         }
 
         return a;
+    }
+
+    @Override
+    public List<Work> getWorksbyuserCreator(List<InitWork> init, List<MakeWork> make,int iduser) {
+        PersistentSession entityManager = null;
+        List<Work> list = new ArrayList<>();
+        
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query q = entityManager.createQuery("from Work where Creator.id=:id");
+            q.setParameter("id", iduser);
+            
+            list = (List<Work>) q.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        
+        for (InitWork i: init){
+            for (Work w: list){
+                if (i.getId()==w.getId()){
+                    list.remove(w);
+                    break;
+                }
+            }
+        }
+        for (MakeWork i: make){
+            for (Work w: list){
+                if (i.getId()==w.getId()){
+                    list.remove(w);
+                    break;
+                }
+            }
+        }
+        
+        return list;
     }
 
 }

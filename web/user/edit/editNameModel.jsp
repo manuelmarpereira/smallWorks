@@ -45,7 +45,7 @@
    <script>
        
       window.onload = function() {
-           alert("olaaa")
+          
            document.getElementById("firstname").value= "teste";
            document.getElementById("lastname").value= "teste";
            document.getElementById("submit").disabled=true;

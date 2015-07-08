@@ -67,6 +67,15 @@
         <url-pattern>/subtaskdata</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>MakeWorkSvlData</servlet-name>
+        <servlet-class>servlets.MakeWorkSvlData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MakeWorkSvlData</servlet-name>
+        <url-pattern>/makework</url-pattern>
+    </servlet-mapping>
+    
     <filter>
     <filter-name>ORMFilter</filter-name>
             <filter-class>tp_aa.TPAAFilter</filter-class>
