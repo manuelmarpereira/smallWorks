@@ -1,7 +1,10 @@
 package interfaces;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Local;
+import tp_aa.InitWork;
+import tp_aa.MakeWork;
 import tp_aa.Work;
 
 @Local
@@ -22,5 +25,6 @@ public interface ManageWorkLocal {
     
     public ArrayList<Work> getAllWorks();
     
+     public List<Work> getWorksbyuserCreator(List<InitWork> init, List<MakeWork> make,int iduser);
     public void registWork(Work o);
 }
