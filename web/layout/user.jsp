@@ -4,10 +4,12 @@
 <link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
 <script src="${pageContext.request.contextPath}/assets/js/userdata.js" type="text/javascript"></script>
 
+
 <div class="profile-header" >
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-sm-4 col-md-3 col-md-2 white">
-            <img src="../assets/img/user.jpg" alt="" class="img-circle img-circle-user" height="150" width="150" />
+            <img src="" alt="" class="photo img-circle img-circle-user" height="150" width="150"/>
+            
             <p class="pull-left" id="photoEdit">
                 <i class="glyphicon glyphicon-camera"></i>
                 <small><a href="#" data-toggle="modal" data-target="#editPhotoModel">(Change your Photo)</a></small>
@@ -67,5 +69,5 @@
     var id = '<c:out value="${sessionScope.user.id}"/>';
 
     verifyUser(id);
-    getUser(id);
+    getUser('${pageContext.request.contextPath}',id);
 </script>

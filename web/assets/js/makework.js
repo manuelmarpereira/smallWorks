@@ -15,7 +15,7 @@
                 }
                 for (var i=0;i<obj.works.initwork.length;i++)
                 {
-                    $('#datatable tbody').append('<tr><td>'+obj.works.initwork[i].startdate+'</td><td>'+obj.works.initwork[i].tarefa+'</td><td>'+obj.works.initwork[i].recompensa+'</td><td>'+obj.works.initwork[i].estado+'</td><td>Finalizar</td></tr>');
+                    $('#datatable tbody').append('<tr><td>'+obj.works.initwork[i].startdate+'</td><td>'+obj.works.initwork[i].tarefa+'</td><td>'+obj.works.initwork[i].recompensa+'</td><td>'+obj.works.initwork[i].estado+'</td><td><a href="#" data-toggle="modal" data-target="#FinishModel">Close Offer</a></td></tr>');
                 }
                 for (var i=0;i<obj.works.makework.length;i++)
                 {

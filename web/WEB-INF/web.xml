@@ -40,6 +40,30 @@
         <url-pattern>/offer/new</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>EditEmailSvl</servlet-name>
+        <servlet-class>servlets.EditEmailSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditEmailSvl</servlet-name>
+        <url-pattern>/editemail</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EditUserPhotoSvl</servlet-name>
+        <servlet-class>servlets.EditUserPhotoSvl</servlet-class>
+        <multipart-config>
+            <location>/tmp</location>
+            <max-file-size>2097152</max-file-size><!--2 MB -->
+            <max-request-size>2621440</max-request-size> <!--2.5 MB -->
+            <file-size-threshold>2097152</file-size-threshold> <!--2 MB -->
+        </multipart-config>
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditUserPhotoSvl</servlet-name>
+        <url-pattern>/edituserphoto</url-pattern>
+    </servlet-mapping>
     
     <!-- ************* no pages ************* -->
     <servlet>

@@ -167,6 +167,132 @@ public class ManageUser implements ManageUserLocal {
     }
 
     @Override
+    public boolean updateUserflName(int idUser, String fn, String ln) {
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query updat = entityManager.createQuery("update User set firstname=:afn,lastname=:aln where id=:id");
+            updat.setParameter("afn", fn);
+            updat.setParameter("aln", ln);
+            updat.setParameter("id", idUser);
+            
+            int rows = updat.executeUpdate();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if(rows > 0) {
+                return true;
+            }
+            
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
+    }
+
+    @Override
+    public boolean updateUserPass(int idUser, String pass) {
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query updat = entityManager.createQuery("update User set password=:p where id=:id");
+            updat.setParameter("p", pass);
+            updat.setParameter("id", idUser);
+            
+            int rows = updat.executeUpdate();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if(rows > 0) {
+                return true;
+            }   
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateUserEmail(int idUser, String email) { // pode haver duas contas com o mesmo email????noa devia criar coluna unica na bd
+
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query updat = entityManager.createQuery("update User set email=:e where id=:id");
+            updat.setParameter("e", email);
+            updat.setParameter("id", idUser);
+            
+            int rows = updat.executeUpdate();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if(rows > 0) {
+                return true;
+            }   
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateUserDistrict(int idUser, String dist, String lat, String log) {
+        
+        District district = guardaDistrito(dist);
+        
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query updat = entityManager.createQuery("update User set district=:d, coordLat=:la, coordLong=:lo where id=:id");
+            
+            updat.setParameter("id", idUser);
+            updat.setParameter("d", district);
+            updat.setParameter("la", lat);
+            updat.setParameter("lo", log);
+            
+            int rows = updat.executeUpdate();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if(rows > 0) {
+                return true;
+            }   
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+        
+    }
+
+    @Override
+    public boolean updateUserPhoto(int idUser, String path) {
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query updat = entityManager.createQuery("update User set photo=:ph where id=:id");
+            
+            updat.setParameter("id", idUser);
+            updat.setParameter("ph", path);
+            
+            int rows = updat.executeUpdate();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            
+            if(rows > 0) {
+                return true;
+            }   
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
     public Estatisticas estatisticas(int iduser) {
         Estatisticas est = new Estatisticas();
         est.setIduser(iduser);
@@ -238,5 +364,6 @@ public class ManageUser implements ManageUserLocal {
         l.add(sumCreator);
         return l;
     }
+
 
 }

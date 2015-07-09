@@ -17,4 +17,14 @@ public interface ManageUserLocal {
     public District guardaDistrito(String distrito);
     
     public User getUser(int id);
+    
+    public boolean updateUserflName(int idUser, String fn, String ln);
+    
+    public boolean updateUserPass(int idUser, String pass);
+    
+    public boolean updateUserEmail(int idUser, String email);
+    
+    public boolean updateUserDistrict(int idUser, String dist, String lat, String log);
+    
+    public boolean updateUserPhoto(int idUser, String path);
 }

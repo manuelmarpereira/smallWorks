@@ -21,7 +21,7 @@ public class SubTaskSvlData extends HttpServlet {
         
         String ids = req.getParameter("id");
         if(ids != null) {
-            Integer id = validateInts(ids);
+            Integer id = Utils.Utils.validateInts(ids);
             List<SubTask> u = null;
             if(id != null) {
                 u = mt.getSubTasks(id);
@@ -45,16 +45,6 @@ public class SubTaskSvlData extends HttpServlet {
         return "{\"id\": \""+ u.getId()+"\","+
                 "\"name\": \""+ u.getName()+"\""+
                "}";
-    }
-    
-    private Integer validateInts(String v) {
-        try {
-            int i = Integer.parseInt(v);
-            if(i > 0) {
-                return i;
-            }
-        } catch(NumberFormatException n) {}
-        return null;
     }
     
     @Override
