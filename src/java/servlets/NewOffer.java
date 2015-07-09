@@ -37,11 +37,11 @@ public class NewOffer extends HttpServlet{
         Double r = validateDouble(req.getParameter("reward"));
 
 
-        Integer id = validateInts(req.getParameter("id")),
-            idTask = validateInts(req.getParameter("idSubtask"));
+        Integer id = Utils.Utils.validateInts(req.getParameter("id")),
+            idTask = Utils.Utils.validateInts(req.getParameter("idSubtask"));
         
         boolean negociable = false;
-        if(validateStrings(n)){
+        if(Utils.Utils.validateStrings(n)){
             negociable = true;
         }
         if(d == null) {
@@ -49,8 +49,8 @@ public class NewOffer extends HttpServlet{
         }
         
         RequestDispatcher reqDispatcher;
-        if( id != null && idTask != null && r != null && validateStrings(t) && 
-                validateStrings(dist) && validateStrings(clan) && validateStrings(clon) ) {
+        if( id != null && idTask != null && r != null && Utils.Utils.validateStrings(t) && 
+                Utils.Utils.validateStrings(dist) && Utils.Utils.validateStrings(clan) && Utils.Utils.validateStrings(clon) ) {
             System.out.println("inside");
 
             Work w = new Work();
@@ -79,8 +79,6 @@ public class NewOffer extends HttpServlet{
         reqDispatcher.forward(req, resp);
     }
     
-    
-    
     private Double validateDouble(String v) {
         try {
             Double i = Double.parseDouble(v);
@@ -89,20 +87,6 @@ public class NewOffer extends HttpServlet{
             }
         } catch(NumberFormatException n) {}
         return null;
-    }
-    
-    private Integer validateInts(String v) {
-        try {
-            int i = Integer.parseInt(v);
-            if(i > 0) {
-                return i;
-            }
-        } catch(NumberFormatException n) {}
-        return null;
-    }
-    
-    private boolean validateStrings(String s) {
-        return s != null && !s.trim().equals("");
     }
     
     @Override

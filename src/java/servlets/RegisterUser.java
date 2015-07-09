@@ -30,8 +30,8 @@ public class RegisterUser extends HttpServlet {
                 clo = req.getParameter("longitude"),
                 dis = req.getParameter("distrito");
 
-        if (validateData(n) && checkPasswords(p, req.getParameter("password2")) && validateData(fn)
-                && validateData(ln) && validateData(em) && validateData(cla) && validateData(clo)) {
+        if (Utils.Utils.validateStrings(n) && checkPasswords(p, req.getParameter("password2")) && Utils.Utils.validateStrings(fn)
+                && Utils.Utils.validateStrings(ln) && Utils.Utils.validateStrings(em) && Utils.Utils.validateStrings(cla) && Utils.Utils.validateStrings(clo)) {
             u = new User();
             u.setNick(n);
             u.setFirstname(fn);
@@ -49,12 +49,8 @@ public class RegisterUser extends HttpServlet {
         this.makeDecision(u, req, resp);
     }
 
-    private boolean validateData(String s) {
-        return s != null && !s.trim().equals("");
-    }
-
     private boolean checkPasswords(String pass, String cpass) {
-        if (validateData(pass) && validateData(cpass)) {
+        if (Utils.Utils.validateStrings(pass) && Utils.Utils.validateStrings(cpass)) {
             if (pass.equals(cpass)) {
                 return true;
             }

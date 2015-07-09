@@ -23,8 +23,8 @@ public class Login extends HttpServlet {
         String p = (String) req.getParameter("password");
         RequestDispatcher reqDispatcher = null;
         
-        boolean bn = validateData(ni);
-        boolean bp = validateData(p);
+        boolean bn = Utils.Utils.validateStrings(ni);
+        boolean bp = Utils.Utils.validateStrings(p);
 
         if(bn && bp) { // 2 campos preenchidos
             User u = mu.login(ni, p);
@@ -40,9 +40,6 @@ public class Login extends HttpServlet {
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/login/login.jsp");
             reqDispatcher.forward(req, resp);
         }
-    }
-    private boolean validateData(String s) {
-        return s != null && !s.trim().equals("");
     }
     
     private void makeDecision(User u, HttpServletRequest req, HttpServletResponse resp, RequestDispatcher reqDispatcher) throws ServletException, IOException {

@@ -16,10 +16,8 @@ public class UserSvlData extends HttpServlet {
     
     @EJB
     private ManageUserLocal mu;
-
     @EJB
     private ManageMakeWorkLocal mf;
-
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
@@ -27,7 +25,7 @@ public class UserSvlData extends HttpServlet {
         
         String ids = req.getParameter("id");
         if(ids != null) {
-            Integer id = validateInts(ids);
+            Integer id = Utils.Utils.validateInts(ids);
             User u = null;
 
             double feedback = 0;
@@ -49,23 +47,12 @@ public class UserSvlData extends HttpServlet {
                 "\"firstname\": \""+ u.getFirstname()+"\","+
                 "\"lastname\": \""+ u.getLastname()+"\","+
                 "\"email\": \""+ u.getEmail()+"\","+
-
+                "\"photo\": \""+ u.getPhoto()+"\","+
                 "\"feedback\": \""+ fb+"\","+
-
                 "\"coordLat\": \""+ u.getCoordLat()+"\","+
                 "\"coordLong\": \""+ u.getCoordLong()+"\""+
                "}";
         
-    }
-    
-    private Integer validateInts(String v) {
-        try {
-            int i = Integer.parseInt(v);
-            if(i > 0) {
-                return i;
-            }
-        } catch(NumberFormatException n) {}
-        return null;
     }
 
     @Override

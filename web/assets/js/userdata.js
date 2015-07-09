@@ -1,4 +1,4 @@
-function getUser(id){
+function getUser(path,id){
     if ( id !== null && id > 0){
         $.ajax({
             type: "GET",
@@ -9,6 +9,11 @@ function getUser(id){
                 $(".nick").text(resp.nick);
                 $(".names").after(resp.firstname + " " + resp.lastname);
                 $(".district").after(resp.nameDistrict);
+                if(resp.photo !== null)
+                    $(".photo").attr('src', path + '/assets/img/users/'+ resp.photo);
+                else {
+                    $(".photo").attr('src', path + '/assets/img/user.jpg');
+                }
                 $(".email").after(resp.email);
                 if(resp.feedback>=0 && resp.feedback <=10) {
                     $('.reward').empty();
