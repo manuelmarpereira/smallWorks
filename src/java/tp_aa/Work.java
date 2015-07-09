@@ -43,7 +43,7 @@ public class Work extends Observable {
 	
 	private java.util.Date startDate;
 	
-	private void setId(int value) {
+	public void setId(int value) {
 		this.id = value;
 	}
 	

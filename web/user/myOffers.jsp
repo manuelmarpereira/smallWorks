@@ -4,8 +4,13 @@
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 <layout:profile_layout title="my Offers" class2="">
  <jsp:attribute name="head">
+       <script>
+        if ('<c:out value="${requestScope.page}" />' !== '') {    
+    window.location.replace("/smallWorks/user/myOffers.jsp");}
+        </script>
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
         <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+      
 </jsp:attribute>
     <jsp:attribute name="container">
        
@@ -49,5 +54,7 @@
         </script>
         
         <script src="${pageContext.request.contextPath}/assets/js/datatable.js"></script>
+        <jsp:include page="/offer/closeOffer.jsp" />
+         <jsp:include page="/offer/deleteOffer.jsp" />
     </jsp:attribute>
 </layout:profile_layout>

@@ -62,7 +62,10 @@ public class ManageWork implements ManageWorkLocal {
 
         if (!work.isEmpty()) {
             for (Work wk : work) {
+                if(!wk.getClass().getName().equals("tp_aa.MakeWork") && !wk.getClass().getName().equals("tp_aa.InitWork")){
                 a.add(wk);
+                    
+                }
             }
         }
         return a;
@@ -71,10 +74,10 @@ public class ManageWork implements ManageWorkLocal {
     private static String query(int order){
         if (order==1){
 
-            return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by id DESC";
+            return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high  order by id DESC";
         }else 
             if (order==2){
-             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high order by price DESC";
+             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high  order by price DESC";
 
             }
     return "";
