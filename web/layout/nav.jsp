@@ -19,8 +19,15 @@
                         <c:when test="${sessionScope.user != null}">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <i> <img alt="image" class="img-circle" src="${pageContext.request.contextPath}/assets/img/user2.jpg" width="30" height="30"> </i> 
-                                <c:out value="${sessionScope.user.nick}"/>
+                                <c:choose>
+                                    <c:when test="${sessionScope.user.photo == null}">
+                                        <i> <img alt="image" class="miniphoto img-circle" src="${pageContext.request.contextPath}/assets/img/user2.jpg" width="30" height="30"> </i>
+                                    </c:when>    
+                                    <c:otherwise>
+                                    <i> <img alt="image" class="miniphoto img-circle" src="${pageContext.request.contextPath}/assets/img/users/${sessionScope.user.photo}" width="30" height="30"> </i>
+                                        <c:out value="${sessionScope.user.nick}"/>
+                                    </c:otherwise>
+                                </c:choose>  
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="${pageContext.request.contextPath}/user/show.jsp">Account<span class="glyphicon glyphicon-cog pull-right"></span>  </a></li>
