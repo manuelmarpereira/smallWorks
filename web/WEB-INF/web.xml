@@ -41,15 +41,6 @@
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>EditEmailSvl</servlet-name>
-        <servlet-class>servlets.EditEmailSvl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EditEmailSvl</servlet-name>
-        <url-pattern>/editemail</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
         <servlet-name>EditUserPhotoSvl</servlet-name>
         <servlet-class>servlets.EditUserPhotoSvl</servlet-class>
         <multipart-config>
@@ -66,6 +57,32 @@
     </servlet-mapping>
     
     <!-- ************* no pages ************* -->
+    
+    <servlet>
+        <servlet-name>EditflNameSvl</servlet-name>
+        <servlet-class>servlets.EditflNameSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditflNameSvl</servlet-name>
+        <url-pattern>/editnames</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EditEmailSvl</servlet-name>
+        <servlet-class>servlets.EditEmailSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditEmailSvl</servlet-name>
+        <url-pattern>/editemail</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditPassSvl</servlet-name>
+        <servlet-class>servlets.EditPassSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPassSvl</servlet-name>
+        <url-pattern>/editpass</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>UserSvlData</servlet-name>
         <servlet-class>servlets.UserSvlData</servlet-class>

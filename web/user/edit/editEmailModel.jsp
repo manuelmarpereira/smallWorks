@@ -1,4 +1,4 @@
-<form action="${pageContext.request.contextPath}/editemail" method="POST"> 
+<form id="email"> 
     <div class="modal fade" id="editEmailModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -13,7 +13,7 @@
                                 <div class="col-md-12">
                                     <div class="input-group" data-validate="email">
                                         <input type="hidden" name="id" value="${sessionScope.user.id}"/>
-                                        <input type="email" class="form-control" name="email" required placeholder="New Email">
+                                        <input type="email" class="form-control" name="email" required placeholder="New Email"/>
                                         <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                                     </div>
                                 </div>
@@ -25,13 +25,13 @@
                     </div>
                 </div>
                 <div class="modal-footer"> 
-                    <input type ="submit" class="btn btn btn-success" value ="Save" >
+                    <input type ="submit" class="btn btn btn-success" value="Save">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
                 </div>
             </div>
         </div>
     </div>
 </form>
-
-<script LANGUAGE="JavaScript" src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
+<script src="${pageContext.request.contextPath}/assets/js/editemail.js"></script>
+<script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
 <link href="${pageContext.request.contextPath}/assets/css/validations-user.css" rel="stylesheet" type="text/css"/>
