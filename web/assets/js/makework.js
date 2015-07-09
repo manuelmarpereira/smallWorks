@@ -11,11 +11,11 @@
                 obj = JSON.parse(string);
                 for (var i=0;i<obj.works.work.length;i++)
                 {
-                    $('#datatable tbody').append('<tr><td>'+obj.works.work[i].startdate+'</td><td>'+obj.works.work[i].tarefa+'</td><td>'+obj.works.work[i].recompensa+'</td><td>'+obj.works.work[i].estado+'</td><td>Editar</td></tr>');
+                    $('#datatable tbody').append('<tr><td>'+obj.works.work[i].startdate+'</td><td>'+obj.works.work[i].tarefa+'</td><td>'+obj.works.work[i].recompensa+'</td><td>'+obj.works.work[i].estado+'</td><td><a href="#" data-toggle="modal" onclick="paramDelete('+obj.works.work[i].id+');" data-target="#ResetModel">Delete Offer</a></td></tr>');
                 }
                 for (var i=0;i<obj.works.initwork.length;i++)
                 {
-                    $('#datatable tbody').append('<tr><td>'+obj.works.initwork[i].startdate+'</td><td>'+obj.works.initwork[i].tarefa+'</td><td>'+obj.works.initwork[i].recompensa+'</td><td>'+obj.works.initwork[i].estado+'</td><td><a href="#" data-toggle="modal" data-target="#FinishModel">Close Offer</a></td></tr>');
+                    $('#datatable tbody').append('<tr><td>'+obj.works.initwork[i].startdate+'</td><td>'+obj.works.initwork[i].tarefa+'</td><td>'+obj.works.initwork[i].recompensa+'</td><td>'+obj.works.initwork[i].estado+'</td><td><a href="#" data-toggle="modal" onclick="param('+obj.works.initwork[i].id+');" data-target="#FinishModel">Close Offer</a></td></tr>');
                 }
                 for (var i=0;i<obj.works.makework.length;i++)
                 {
@@ -28,3 +28,13 @@
         });
 
         }
+    
+   function paramDelete(id){
+      document.getElementById("idDeleteOffer").value =id;
+ }
+        
+ function param(id){
+    
+      document.getElementById("idOffer").value =id;
+   
+ }

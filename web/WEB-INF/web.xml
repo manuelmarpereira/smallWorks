@@ -109,6 +109,15 @@
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
     
+        <servlet>
+        <servlet-name>Feedback</servlet-name>
+        <servlet-class>servlets.Feedback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Feedback</servlet-name>
+        <url-pattern>/user/feedback</url-pattern>
+    </servlet-mapping>
+    
     <filter>
     <filter-name>ORMFilter</filter-name>
             <filter-class>tp_aa.TPAAFilter</filter-class>
