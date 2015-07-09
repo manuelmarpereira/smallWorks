@@ -35,7 +35,7 @@ public class UserSvlData extends HttpServlet {
                 u = mu.getUser(id);
                 feedback = mf.getFeedback(id);
             }
-            System.out.println("feedback calculated: " + feedback);
+           
             resp.getWriter().print(buildJson(u,feedback));
         }
     }

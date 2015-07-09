@@ -3,9 +3,12 @@
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
 <layout:simple_layout title="smallWorks" class2="bodyBackground">
-
+    
     <jsp:attribute name="session"></jsp:attribute>
-    <jsp:attribute name="head"></jsp:attribute>
+    <jsp:attribute name="head"><script>
+        if ('<c:out value="${requestScope.page}" />' !== '') {    
+    window.location.replace("/smallWorks/index.jsp");}
+        </script></jsp:attribute>
     <jsp:attribute name="foot"></jsp:attribute>
     <jsp:attribute name="container">
 
@@ -18,9 +21,8 @@
 
             <div class="row search-form-center" >
                 <form role="form" name="formreg" action="index" method="POST">
-                    <div class="col-xs-4" >
+                    <div class="col-xs-4" >                        
                         <div class="form-group has-feedback has-feedback-left">
-
                             <input type="text" class="form-control" name="task" placeholder="Task or key word">
                             <span class="glyphicon glyphicon-search form-control-feedback glyphicon-primary"></span>
                         </div>

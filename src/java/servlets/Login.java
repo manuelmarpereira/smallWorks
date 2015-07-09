@@ -49,7 +49,9 @@ public class Login extends HttpServlet {
 
         if(u != null) {
             u.setPassword(null);// nao ter a password
+             req.setAttribute("page", "login");
             req.setAttribute("user", u);
+           
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/index.jsp");
         } else { // handler errors
             req.setAttribute("err", "Wrong credential combination");

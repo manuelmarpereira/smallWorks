@@ -50,4 +50,26 @@ public class ManageMakeWork implements ManageMakeWorkLocal {
 
     }
     
+        @Override
+
+    public List<MakeWork> getMakedWorksByCreator(int idUser) {
+        double avg = 0;
+        PersistentSession entityManager = null;
+        List<MakeWork> listTask = new ArrayList<MakeWork>();
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query task = entityManager.createQuery("from MakeWork where Creator.id=:id");
+            task.setParameter("id", idUser);
+            
+            listTask = (List<MakeWork>) task.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+        
+        return listTask;
+    }
+    
 }

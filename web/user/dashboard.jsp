@@ -47,7 +47,7 @@
 							<i class="fa fa-money fa-5x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
-							<h3><b>10<i class="fa fa-euro"></i></b></h3>
+							<h3><b id ="totalcash">10<i class="fa fa-euro"></i></b></h3>
 							<div>Total Cash</div>
 						</div>
 					</div>
@@ -64,8 +64,8 @@
 			</div>
 		</div>
                 	
-       
-        <script src="${pageContext.request.contextPath}/assets/js/plugins/jquery.js" type="text/javascript"></script>
+               <script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>
+
         <script src="${pageContext.request.contextPath}/assets/js/plugins/morris-data.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/assets/js/plugins/morris.min.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/assets/js/plugins/raphael.min.js" type="text/javascript"></script>
