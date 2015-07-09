@@ -38,9 +38,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-md-6">
-            <p class="pull-left control-label">Showing 1 to 3 of 15 entries</p>
-        </div>
+      
         <div class="col-md-6">
             <ul class="pagination  pull-right">
                 <li class="disabled"><a href="#">&laquo;</a></li>

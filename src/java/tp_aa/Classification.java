@@ -21,7 +21,7 @@ public class Classification {
 	
 	private int value;
 	
-	private void setId(int value) {
+	public void setId(int value) {
 		this.id = value;
 	}
 	
