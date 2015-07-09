@@ -135,6 +135,7 @@ public class ManageUser implements ManageUserLocal {
             User u = new User();
             u.setId(listUser.get(0).getId());
             u.setNick(listUser.get(0).getNick());
+            u.setPhoto(listUser.get(0).getPhoto());
             return u;
         }
 

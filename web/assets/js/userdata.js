@@ -5,14 +5,14 @@ function getUser(path,id){
             url: "/smallWorks/userdata",
             data : {id:id}, 
             success: function(resp) {
-//                console.log(resp);
                 $(".nick").text(resp.nick);
                 $(".names").after(resp.firstname + " " + resp.lastname);
                 $(".district").after(resp.nameDistrict);
-                if(resp.photo !== null)
-                    $(".photo").attr('src', path + '/assets/img/users/'+ resp.photo);
-                else {
+                if(resp.photo === "null"){
                     $(".photo").attr('src', path + '/assets/img/user.jpg');
+                    $(".miniphoto").attr('src', path + '/assets/img/user2.jpg');
+                } else {
+                    $(".photo").attr('src', path + '/assets/img/users/'+ resp.photo);
                 }
                 $(".email").after(resp.email);
                 if(resp.feedback>=0 && resp.feedback <=10) {
