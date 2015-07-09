@@ -51,8 +51,8 @@
                         <div class="col-xs-4">
 
 
-                            <font color="green">Max Value €</font><input type="text" value="500.01" readonly name="amount_high" id="amount_high" class="date" />
-                            <font color="red"> Min Value €</font><input type="text" value="0.00" readonly  name="amount_low" id="amount_low" class="date" /><br />
+                            <font color="red">Max Value €</font><input type="text" value="500.01" readonly name="amount_high" id="amount_high" class="date" />
+                            <font color="green"> Min Value €</font><input type="text" value="0.00" readonly  name="amount_low" id="amount_low" class="date" /><br />
                         </div>
 
                         <div class="col-xs-3 pull-right" style="margin-top:15px">

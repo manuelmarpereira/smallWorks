@@ -1,7 +1,9 @@
 package implementations;
 
+import auxiliar.Estatisticas;
 import tp_aa.District;
 import interfaces.ManageUserLocal;
+import java.util.ArrayList;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.User;
 import java.util.List;
@@ -10,11 +12,12 @@ import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
+import tp_aa.MakeWork;
 
 @Stateless
 @Local(ManageUserLocal.class)
 public class ManageUser implements ManageUserLocal {
-    
+
     @Override
     public User registUser(User u, String distrito) {
         //grava distrito
@@ -143,7 +146,7 @@ public class ManageUser implements ManageUserLocal {
     public User getUser(int id) {
         PersistentSession entityManager = null;
         List<User> listUser = null;
-        
+
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
@@ -290,4 +293,78 @@ public class ManageUser implements ManageUserLocal {
         }
         return false;
     }
+
+    public Estatisticas estatisticas(int iduser) {
+        Estatisticas est = new Estatisticas();
+        est.setIduser(iduser);
+        List<Double> l = count(iduser);
+        est.setTotalOffersWorker(l.get(0).intValue());
+        est.setWintotalOffersWorker(l.get(1));
+        est.setTotalOffersCreator(l.get(2).intValue());
+        est.setWintotalOffersCreator(l.get(3));
+        est.setDiference(l.get(1)+l.get(3));
+        return est;
+    }
+
+    private static List<Double> count(int iduser) {
+        List<Double> l = new ArrayList<Double>();
+        PersistentSession entityManager = null;
+        List<MakeWork> list = null;
+
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query q = entityManager.createQuery("from MakeWork where Worker.id=:id or Creator=:id");
+            q.setParameter("id", iduser);
+            list = (List<MakeWork>) q.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+
+        if (list.isEmpty()) {
+            /**
+             * first positon total offer second position win the offer
+             * worker
+             */
+            l.add((double) 0);
+            l.add((double) 0);
+            /** 2 e 3 position creator */
+            l.add((double) 0);
+            l.add((double) 0);
+        } else {
+            l=sumList(list, iduser);
+        }
+
+        return l;
+    }
+    
+    private static List<Double> sumList(List<MakeWork> work, int user){
+        double sumCreator=0;
+        double countCreator=0;
+        List <Double> l=new ArrayList<Double>();
+        double sumWorker=0;
+        double countWorker=0;
+        for (MakeWork m:work){
+            if(m.getWorker()!=null){
+            if (m.getWorker().getId()==user){
+                sumWorker+=m.getPrice();
+                countWorker++;
+            }
+            }else
+            if (m.getCreator().getId()==user){
+                sumCreator+=m.getPrice();
+                countCreator++;
+            }
+        }
+        l.add(countWorker);
+        l.add(sumWorker);
+        l.add(countCreator);
+        l.add(sumCreator);
+        return l;
+    }
+
+
 }
