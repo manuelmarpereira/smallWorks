@@ -13,6 +13,7 @@ function getUser(path,id){
                     $(".miniphoto").attr('src', path + '/assets/img/user2.jpg');
                 } else {
                     $(".photo").attr('src', path + '/assets/img/users/'+ resp.photo);
+                    $(".miniphoto").attr('src', path + '/assets/img/users/'+ resp.photo);
                 }
                 $(".email").after(resp.email);
                 if(resp.feedback>=0 && resp.feedback <=10) {

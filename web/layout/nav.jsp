@@ -25,9 +25,10 @@
                                     </c:when>    
                                     <c:otherwise>
                                     <i> <img alt="image" class="miniphoto img-circle" src="${pageContext.request.contextPath}/assets/img/users/${sessionScope.user.photo}" width="30" height="30"> </i>
-                                        <c:out value="${sessionScope.user.nick}"/>
+                                        
                                     </c:otherwise>
                                 </c:choose>  
+                                <c:out value="${sessionScope.user.nick}"/>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="${pageContext.request.contextPath}/user/show.jsp">Account<span class="glyphicon glyphicon-cog pull-right"></span>  </a></li>

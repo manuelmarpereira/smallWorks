@@ -27,8 +27,7 @@ public class EditUserPhotoSvl extends HttpServlet {
         resp.setContentType("application/json;charset=UTF-8");
 
         String ids = req.getParameter("id");
-        RequestDispatcher reqDispatcher;
-        System.out.println("chegou: " + ids);
+
         if (ids != null) {
             Integer id = Utils.Utils.validateInts(ids);
             boolean response = false;
@@ -42,16 +41,11 @@ public class EditUserPhotoSvl extends HttpServlet {
                 }
             }
             String tmp = getServletContext().getRealPath("/").concat(loctssave).concat(fname);
-            System.out.println("tmp: " + tmp);
+
             File f = new File(tmp);
-//            System.out.println("Name final: " + f.getName());
-            while (!f.exists()) {
-            }
-//            resp.sendRedirect("/smallWorks/user/show.jsp");
-            resp.getWriter().print("{\"resp\": \"/user/show.jsp\"}");
+            while (!f.exists()) {}
             
-//            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/show.jsp");
-//            reqDispatcher.forward(req, resp);
+            resp.getWriter().print("{\"resp\": \""+response+"\"}");
         }
     }
 
@@ -79,34 +73,32 @@ public class EditUserPhotoSvl extends HttpServlet {
 
             if (sl != null) {
                 String local = sl.replace(File.separator + "build", "");
-                System.out.println("local name: " + local);
+
                 String flocal = local.concat(loctssave);///smallWorks/web/assets/img/users/
-                System.out.println("final local name: " + flocal);
+
                 // verificar se ja existe uma foto deste id
                 File exist = this.checkImages(flocal, ids);// _1_124152524.png | null
                 
                 fname = flocal.concat("_" + ids + "_" + new Date().getTime() + ".png");
-                System.out.println("final name: " + fname);
+
                 File imgFile = new File(fname);
                 fname = imgFile.getName();
+
                 if (!imgFile.exists()) {
                     imgFile.createNewFile();
                 }
-                if(exist == null) { //create
-                    exist = imgFile;
-                } else { // rename 
-                    exist.renameTo(imgFile);
-                }
                     
-                out = new FileOutputStream(exist);
+                out = new FileOutputStream(imgFile);
                 int read = 0;
                 final byte[] bytes = new byte[fileContent.available()];
 
                 while ((read = fileContent.read(bytes)) != -1) {
                     out.write(bytes, 0, read);
                 }
-                
-                return exist.getPath();
+                if(exist != null) {
+                    exist.delete();
+                }
+                return imgFile.getPath();
             }
 
         } catch (IOException | ServletException i) {
