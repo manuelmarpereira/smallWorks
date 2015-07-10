@@ -1,9 +1,3 @@
-<%-- 
-    Document   : FormRegisterUser
-    Created on : 18/jun/2015, 0:14:22
-    Author     : Manuel
---%>
-
 <form class="form-horizontal"  name="formreg" action="registerUser" method="POST">  
     <div class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 form-margin-top" >
         <div class="panel panel-info">
@@ -12,7 +6,7 @@
                 <div class="panel-title-signin"><a href="${pageContext.request.contextPath}/login/login.jsp" >Sign In</a></div>
             </div>  
             <div class="panel-body" >
-                
+
                 <div class="form-group ">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -35,13 +29,13 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-md-3 control-label">Email</label>
-                                <div class="col-md-9">
-                            	<div class="input-group" data-validate="email">
-						<input type="email" class="form-control" name="email" id="validate-email" placeholder="Validate Email" required>
-						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-				</div>
+                            <div class="col-md-9">
+                                <div class="input-group" data-validate="email">
+                                    <input type="email" class="form-control" name="email" id="validate-email" placeholder="Validate Email" required>
+                                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                </div>
                             </div>
-                       
+
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-md-3 control-label" >Password</label>
@@ -57,9 +51,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Lowercase<br>
-     
+
                                 <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Number
-                            
+
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 20px;">
@@ -73,21 +67,30 @@
                             <div class="col-sm-6">
                                 <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
                             </div>
-                             <div class="col-md-3">
+                            <div class="col-md-3">
                                 <input id="btn-signup" class="btn btn-info pull-right"  type="submit" value="Register" name="Registebtn"/> 
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
-                        <jsp:include page="/layout/map.jsp" />   
+                        <div >
+                            <div class="form-group">
+                                <label for="txtEndereco" class="col-md-3 control-label">Your location </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
+                                </div>
+                            </div>
+                        </div>
+                        <jsp:include page="/layout/map.jsp" />
+                        <script type="text/javascript">initMyMap();</script>
                     </div>
                 </div>
             </div>
         </div>              
     </div> 
 </form>
-                    
+
 <script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
 
 

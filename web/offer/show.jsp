@@ -53,10 +53,12 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+
                     <div class="map text-center">
                         <iframe id="mapa" src=""
                                 width="400" height="250" frameborder="1"></iframe>
                     </div>
+
                     <div class="text-center col-xs-12 white">
                         <p class="control-label"></p>
                     </div>

@@ -18,20 +18,16 @@ public class EditEmailSvl extends HttpServlet {
         
         String ids = req.getParameter("id"),
                 e = req.getParameter("email");
-        System.out.println("Edição do id: " + ids);
-        System.out.println("Edição do email: " + e);
-//        RequestDispatcher reqDispatcher = null;
-        if(ids != null && Utils.Utils.validateStrings(e)) {
-            Integer id = Utils.Utils.validateInts(ids);
-            boolean response = false;
-            if(id != null) {
+        boolean response = false;
+        if(Utils.Utils.validateStrings(ids) && Utils.Utils.validateStrings(e)) {
+            try {
+                Integer id = Utils.Utils.validateInts(ids);
+                
                 response = mu.updateUserEmail(id,e);
                 System.out.println("Edição do email: " + response);
-            }
-            resp.getWriter().print("{\"resp\":\""+response+"\"}");
-//            reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/show.jsp");
-//            reqDispatcher.forward(req, resp);
+            }catch(NumberFormatException n){ }
         }
+        resp.getWriter().print("{\"resp\":\""+response+"\"}");
     }
     
     @Override
