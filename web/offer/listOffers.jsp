@@ -14,7 +14,7 @@ list = (ArrayList<Work>)request.getAttribute("works"); %>
 <div style="height:20px; width:100%; background: #E8E8E8;"></div>
 
 <% if (list.isEmpty()){ %>
-<script>$("#content").html("Não existem trabalhos com essas restrições");</script>
+<center><script>$("#content").html("Não existem trabalhos com essas restrições");</script></center>
 <% }else{ %>
 <script>
 
@@ -22,19 +22,28 @@ list = (ArrayList<Work>)request.getAttribute("works"); %>
    var jsArray =  new Array();
 <%for(int i=0;i<list.size();i++){%>
         var works = {
+            id:"",
     name:"",
     location:"",
     title:"",
     description:"",
     dateStart:"",
-    price:""
+    price:"", 
+    photo:""
 };
+    works.id = "<%= list.get(i).getId() %>";
     works.name = "<%= list.get(i).getCreator().getFirstname() %>";
     works.location = "<%= list.get(i).getLocalization().getName() %>";
     works.title = "<%= list.get(i).getTitle() %>";
     works.description = "<%= list.get(i).getDescription() %>";
     works.dateStart = "<%= list.get(i).getStartDate() %>";
     works.price = "<%= list.get(i).getPrice() %>";
+    if("<%= list.get(i).getCreator().getPhoto() %>"=='null'){
+        works.photo = "/smallWorks/assets/img/user2.jpg";
+    }else{
+        works.photo = "/smallWorks/assets/img/users/"+"<%= list.get(i).getCreator().getPhoto() %>";
+    }
+    
     jsArray.push(works);
 <%}%>
     var min = 0;
@@ -44,6 +53,7 @@ list = (ArrayList<Work>)request.getAttribute("works"); %>
      
      var max = min+10;
       if(min<jsArray.length){
+          if(max>jsArray.length){max=jsArray.length;}
     for( i=min;i<max;i++){
        
     $("#content").append(
@@ -52,12 +62,12 @@ list = (ArrayList<Work>)request.getAttribute("works"); %>
             "<div class=\"col-sm-12\">"+
                 "<div class=\"brdr bgc-fff pad-10 box-shad\">       <div class=\"media\">"+
                 "<a class=\"pull-left\" href=\"#\" target=\"_parent\">"+
-                        "<img alt=\"image\" class=\"img-circle\" src=\"/assets/img/user2.jpg\" height=\"50\" width=\"50\"></a>"+
+                        "<img alt=\"image\" class=\"img-circle\" src=\""+jsArray[i].photo+"\" height=\"50\" width=\"50\"></a>"+
                     "<div class=\"clearfix visible-sm\"></div>"+
                          "<div class=\"media-body fnt-smaller\">"+
                         "<a href=\"#\" target=\"_parent\"></a>"+
                         "<h4 class=\"media-heading\">"+
-                            "<a href=\"/offer/show.jsp\" target=\"_parent\">"+ jsArray[i].title+ " <i class=\"pull-right\">"+ jsArray[i].price+ " €</i></a></h4>"+
+                            "<a href=\"/smallWorks/offer/show.jsp?id="+jsArray[i].id+"\" target=\"_parent\">"+ jsArray[i].title+ " <i class=\"pull-right\">"+ jsArray[i].price+ " €</i></a></h4>"+
                         "<ul class=\"list-inline mrg-0 clr-535353\">"+
                             "<li>Inserido em: "+ jsArray[i].dateStart+ "</li>"+
                             "<li><i class=\"glyphicon glyphicon-map-marker\"></i>"+ jsArray[i].location+ "</li>"+

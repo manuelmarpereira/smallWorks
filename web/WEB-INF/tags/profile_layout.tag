@@ -22,7 +22,6 @@
         <link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css"/>   
         <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
         <link rel="stylesheet" href="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <jsp:invoke fragment="head"></jsp:invoke>
         </head>
 

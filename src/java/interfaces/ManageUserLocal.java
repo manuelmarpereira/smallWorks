@@ -27,4 +27,6 @@ public interface ManageUserLocal {
     public boolean updateUserDistrict(int idUser, String dist, String lat, String log);
     
     public boolean updateUserPhoto(int idUser, String path);
+    
+    public boolean startedToInit(int idworker,int offer); 
 }

@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/deleteOffer.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editphoto.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/emailContact.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/showOffer.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/contactar.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/src/java/servlets/EmailContact.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/closeOffer.jsp</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/makework.js</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/user/myOffers.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/layout/user.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editpass.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editnames.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/show.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -27,7 +27,7 @@ function getUser(path,id){
                     }
                 }
             }, error: function(fail){
-                alert("fail: " + fail);
+                console.log("fail: " + fail);
             }
         });
     }
