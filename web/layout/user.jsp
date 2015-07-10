@@ -1,5 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
+<script src="${pageContext.request.contextPath}/assets/js/userdata.js" type="text/javascript"></script>
+
+
 <div class="profile-header" >
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-sm-4 col-md-3 col-md-2 white">
@@ -16,6 +21,7 @@
         </div>
         <div class="col-sm-4 col-md-4 white">
 
+
             <p class="nick pull-left" style="font-size: 200%" ></P>
             <br><br><br>
 
@@ -26,9 +32,7 @@
             <br><br>             
 
             <p class="pull-left" >
-
                 <i class="district glyphicon glyphicon-map-marker"></i><small id="locationEdit"><c:if test="${empty param.id}"><a href="#" data-toggle="modal" data-target="#editLocationModel">(Edit)</a></c:if></small>
-
             </p>
             <br><br>  
             <p class="namepull-left">
@@ -37,7 +41,6 @@
             </p>
             <p class="reward pull-left"></p>
         </div>
-
         <div class="col-sm-1" ></div>
         <div class="col-sm-3" style=" margin-top: 30px">
             <span class="rating"></span>
@@ -50,24 +53,19 @@
 
 
         </div >
-
     </div>
 </div>
 
-
 <jsp:include page="/user/edit/editNameModel.jsp" />
-<jsp:include page="/user/edit/editLocationModel.jsp"/>
+
 <jsp:include page="/user/edit/editAccessModel.jsp" />
 <jsp:include page="/user/edit/editPhotoModel.jsp" />
 <jsp:include page="/user/edit/editEmailModel.jsp" />
 
-
 <c:if test="${empty param.id}">
 <script type="text/javascript">
      var id = '<c:out value="${sessionScope.user.id}"/>';
-
      verifyUser(id);
      getUser('${pageContext.request.contextPath}', id);
 </script>
   </c:if>
-

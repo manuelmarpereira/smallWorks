@@ -12,6 +12,7 @@ $("#facojacontacto").submit(function (e) {
             $('#makeOffer').modal('hide');
             $('#btnmakeoffer').removeAttr('disabled');
             console.log("success facoja");
+            window.location.href = 'localhost:8080/smallWorks/index.jsp'; 
           
             
         },

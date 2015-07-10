@@ -1,4 +1,3 @@
-        
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
@@ -10,7 +9,7 @@
     <jsp:attribute name="container">
 
         
-        <div class="row marginSide">
+        <div class="row ">
             <div class="col-md-12">
                 <hr>
                 <div class="col-md-6  white">
@@ -53,12 +52,10 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-
                     <div class="map text-center">
                         <iframe id="mapa" src=""
                                 width="400" height="250" frameborder="1"></iframe>
                     </div>
-
                     <div class="text-center col-xs-12 white">
                         <p class="control-label"></p>
                     </div>

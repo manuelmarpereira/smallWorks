@@ -65,7 +65,8 @@ public class MakeWorkSvlData extends HttpServlet {
                     "\"estado\": \"Finished\""+
                    "},";
         }
-         json = json.substring(0, json.length()-1);
+        if(!json.substring(json.length()-1, json.length()).equals("[")){
+         json = json.substring(0, json.length()-1);}
         json += "],";
         
     return json;
@@ -85,7 +86,8 @@ public class MakeWorkSvlData extends HttpServlet {
                     "\"estado\": \"Awaited finalization\""+
                    "},";
         }
-         json = json.substring(0, json.length()-1);
+        if(!json.substring(json.length()-1, json.length()).equals("[")){
+         json = json.substring(0, json.length()-1);}
         json += "],";
     return json;
     }
@@ -104,7 +106,8 @@ public class MakeWorkSvlData extends HttpServlet {
                     "\"estado\": \"Started\""+
                    "},";
         }
-         json = json.substring(0, json.length()-1);
+        if(!json.substring(json.length()-1, json.length()).equals("[")){
+         json = json.substring(0, json.length()-1);}
         json += "]}";
     return json;
     }

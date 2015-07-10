@@ -4,7 +4,8 @@ function getMakeWork(id) {
     $.ajax({
         type: "GET",
         url: "/smallWorks/makework",
-        data: {id: id},
+        data: {"id": id},
+        
         success: function (resp) {
             var string = JSON.stringify(resp);
             obj = JSON.parse(string);
