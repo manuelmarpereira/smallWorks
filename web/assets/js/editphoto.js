@@ -25,7 +25,7 @@ $('#photo').submit(function (event) {
         },
         success: function (data) {
             $("#overlay").remove();
-            window.location.href = '/smallWorks' + data.resp;
+            window.location.href = '/smallWorksuser/show.jsp' ;
         },
         error: function (data) {
             console.log("error");

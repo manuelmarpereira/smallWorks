@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -13,6 +14,18 @@
             <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/servlets/EditEmailSvl.java</file>
             <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/layout/map.jsp</file>
             <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/assets/js/editlocal.js</file>
+			
+			 <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editphoto.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/emailContact.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/showOffer.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/contactar.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/src/java/servlets/EmailContact.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/closeOffer.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/layout/user.jsp</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editpass.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/editnames.js</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/show.jsp</file>
         </group>
     </open-files>
 </project-private>
+

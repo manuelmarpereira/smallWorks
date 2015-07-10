@@ -5,8 +5,7 @@
  */
 package servlets;
 
-import auxiliar.Estatisticas;
-import interfaces.ManageUserLocal;
+import interfaces.ManageWorkLocal;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -18,35 +17,27 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PC
  */
-public class EstatisticasSvlData extends HttpServlet {
+public class DeleteOffer extends HttpServlet {
 
     @EJB
-    private ManageUserLocal mu;
-    
+    private ManageWorkLocal mu;
+
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         resp.setContentType("application/json;charset=UTF-8");
-        Estatisticas est = mu.estatisticas(Integer.parseInt(req.getParameter("id")));
-        
-        resp.getWriter().print(buildJson(est));
+        mu.deleteWork(Integer.parseInt(req.getParameter("id")));
+        resp.getWriter().print("{\"resp\":\"true\"}");
+
     }
 
-    private String buildJson(Estatisticas est) {
-        return "{\"iduser\": \""+est.getIduser()+"\","+
-                "\"offersworker\": \""+ est.getTotalOffersWorker()+"\","+
-                "\"winoffersworker\": \""+ est.getWintotalOffersWorker()+"\","+
-                "\"offerscreator\": \""+ est.getTotalOffersCreator()+"\","+
-                "\"winofferscreator\": \""+ est.getWintotalOffersCreator()+"\","+
-                "\"diference\": \""+est.getDiference()+"\""+
-               "}";
-    }
-    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.processRequest(req, resp);
     }
-
-    @Override
+    
+     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.processRequest(req, resp);
     }
+
 }
