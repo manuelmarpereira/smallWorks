@@ -9,8 +9,8 @@
     window.location.replace("/smallWorks/user/myOffers.jsp");}
         </script>
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-      
+        
+      <script src="${pageContext.request.contextPath}/assets/js/makework.js"></script>
 </jsp:attribute>
     <jsp:attribute name="container">
        
@@ -46,14 +46,13 @@
             <div style="margin-bottom: 2%;">.</div>
         </div>
 
-        <script src="${pageContext.request.contextPath}/assets/js/makework.js"></script>
+        
         <script type="text/javascript">
          var id = '<c:out value="${sessionScope.user.id}"/>';
 
          getMakeWork(id);
         </script>
         
-        <script src="${pageContext.request.contextPath}/assets/js/datatable.js"></script>
         <jsp:include page="/offer/closeOffer.jsp" />
          <jsp:include page="/offer/deleteOffer.jsp" />
     </jsp:attribute>

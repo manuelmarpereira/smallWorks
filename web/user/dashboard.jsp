@@ -8,14 +8,11 @@
         
     <jsp:attribute name="container">
     <div class="marginSide" style=" margin-bottom: 100px"> 
-        <div class="col-lg-6">    
-            <h2>Stats <small> Your mensal caches</small></h2>
-            <hr>
-            <div id="morris-bar-chart" style="height: 145px" ></div>
-        </div>
-        
-        <div class="row">
-		<div class="col-lg-3 col-md-2 marginTopStats">
+        <div class="col-lg-6">
+            <br/>
+            <fieldset>
+    <legend>Realized Offers</legend>
+           <div class="col-lg-6 col-md-2 marginTopStats">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -23,23 +20,15 @@
 							<i class="fa fa-thumb-tack fa-5x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
-							<h3><b>10</b></h3>
+							<h3><b id="totMakeOffer"></b></h3>
 							<div>Total Offers</div>
 						</div>
 					</div>
 				</div>
-				<a href="${pageContext.request.contextPath}/user/registerUser.jsp">
-					<div class="panel-footer">
-						<span class="pull-left">
-							View All
-							</span>
-						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-						<div class="clearfix"></div>
-					</div>
-				</a>
+			
 			</div>
 		</div>
-                <div class="col-lg-3 col-md-2 marginTopStats">
+                <div class="col-lg-6 col-md-2 marginTopStats">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -47,30 +36,63 @@
 							<i class="fa fa-money fa-5x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
-							<h3><b id ="totalcash">10<i class="fa fa-euro"></i></b></h3>
+							<h3><b id="totMakeCash"></b></h3>
 							<div>Total Cash</div>
 						</div>
 					</div>
 				</div>
-				<a href="${pageContext.request.contextPath}/user/registerUser.jsp">
-					<div class="panel-footer">
-						<span class="pull-left">
-							View All
-							</span>
-						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-						<div class="clearfix"></div>
+				
+			</div>
+		</div>
+     </fieldset>
+        </div>
+        
+        <div class="row">
+            <br/>
+            <fieldset>
+    <legend>My Published Offers</legend>
+		<div class="col-lg-6 col-md-2 marginTopStats">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-thumb-tack fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h3><b id="totMyOffer"></b></h3>
+							<div>Total Offers</div>
+						</div>
 					</div>
-				</a>
+				</div>
+			
+			</div>
+		</div>
+                <div class="col-lg-6 col-md-2 marginTopStats">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-money fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h3><b id="totMyCash"></b></h3>
+							<div>Total Cash</div>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
                 	
-               <script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>
+               
 
-        <script src="${pageContext.request.contextPath}/assets/js/plugins/morris-data.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/assets/js/plugins/morris.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/assets/js/plugins/raphael.min.js" type="text/javascript"></script>
-
+       </fieldset>
     </div>
-
+        <div class="col-lg-12 col-md-4 " style="background-color: #337AB7 ;color: #FFFFFF;"><center><b id="diference">My Money: </b></center></div>
+        </div>
+               
+            
+               <script>var id ='<c:out value="${sessionScope.user.id}"/>'</script>
+               <script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>
         </jsp:attribute>
 </layout:profile_layout>

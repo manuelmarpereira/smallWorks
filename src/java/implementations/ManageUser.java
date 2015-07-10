@@ -4,6 +4,7 @@ import auxiliar.Estatisticas;
 import tp_aa.District;
 import interfaces.ManageUserLocal;
 import java.util.ArrayList;
+import java.util.Date;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.User;
 import java.util.List;
@@ -12,7 +13,9 @@ import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
+import tp_aa.InitWork;
 import tp_aa.MakeWork;
+import tp_aa.Work;
 
 @Stateless
 @Local(ManageUserLocal.class)
@@ -136,6 +139,8 @@ public class ManageUser implements ManageUserLocal {
             u.setId(listUser.get(0).getId());
             u.setNick(listUser.get(0).getNick());
             u.setPhoto(listUser.get(0).getPhoto());
+            u.setEmail(listUser.get(0).getEmail());
+            u.setFirstname(listUser.get(0).getFirstname());
             return u;
         }
 
@@ -177,19 +182,19 @@ public class ManageUser implements ManageUserLocal {
             updat.setParameter("afn", fn);
             updat.setParameter("aln", ln);
             updat.setParameter("id", idUser);
-            
+
             int rows = updat.executeUpdate();
             entityManager.getTransaction().commit();
             entityManager.close();
-            
-            if(rows > 0) {
+
+            if (rows > 0) {
                 return true;
             }
-            
+
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
-        
+
         return false;
     }
 
@@ -202,14 +207,14 @@ public class ManageUser implements ManageUserLocal {
             Query updat = entityManager.createQuery("update User set password=:p where id=:id");
             updat.setParameter("p", pass);
             updat.setParameter("id", idUser);
-            
+
             int rows = updat.executeUpdate();
             entityManager.getTransaction().commit();
             entityManager.close();
-            
-            if(rows > 0) {
+
+            if (rows > 0) {
                 return true;
-            }   
+            }
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
@@ -226,14 +231,14 @@ public class ManageUser implements ManageUserLocal {
             Query updat = entityManager.createQuery("update User set email=:e where id=:id");
             updat.setParameter("e", email);
             updat.setParameter("id", idUser);
-            
+
             int rows = updat.executeUpdate();
             entityManager.getTransaction().commit();
             entityManager.close();
-            
-            if(rows > 0) {
+
+            if (rows > 0) {
                 return true;
-            }   
+            }
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
@@ -242,32 +247,32 @@ public class ManageUser implements ManageUserLocal {
 
     @Override
     public boolean updateUserDistrict(int idUser, String dist, String lat, String log) {
-        
+
         District district = guardaDistrito(dist);
-        
+
         PersistentSession entityManager = null;
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
             Query updat = entityManager.createQuery("update User set district=:d, coordLat=:la, coordLong=:lo where id=:id");
-            
+
             updat.setParameter("id", idUser);
             updat.setParameter("d", district);
             updat.setParameter("la", lat);
             updat.setParameter("lo", log);
-            
+
             int rows = updat.executeUpdate();
             entityManager.getTransaction().commit();
             entityManager.close();
-            
-            if(rows > 0) {
+
+            if (rows > 0) {
                 return true;
-            }   
+            }
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
         return false;
-        
+
     }
 
     @Override
@@ -277,17 +282,17 @@ public class ManageUser implements ManageUserLocal {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
             Query updat = entityManager.createQuery("update User set photo=:ph where id=:id");
-            
+
             updat.setParameter("id", idUser);
             updat.setParameter("ph", path);
-            
+
             int rows = updat.executeUpdate();
             entityManager.getTransaction().commit();
             entityManager.close();
-            
-            if(rows > 0) {
+
+            if (rows > 0) {
                 return true;
-            }   
+            }
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
@@ -300,9 +305,10 @@ public class ManageUser implements ManageUserLocal {
         List<Double> l = count(iduser);
         est.setTotalOffersWorker(l.get(0).intValue());
         est.setWintotalOffersWorker(l.get(1));
+
         est.setTotalOffersCreator(l.get(2).intValue());
         est.setWintotalOffersCreator(l.get(3));
-        est.setDiference(l.get(1)+l.get(3));
+        est.setDiference(l.get(1) - l.get(3));
         return est;
     }
 
@@ -326,36 +332,36 @@ public class ManageUser implements ManageUserLocal {
 
         if (list.isEmpty()) {
             /**
-             * first positon total offer second position win the offer
-             * worker
+             * first positon total offer second position win the offer worker
              */
             l.add((double) 0);
             l.add((double) 0);
-            /** 2 e 3 position creator */
+            /**
+             * 2 e 3 position creator
+             */
             l.add((double) 0);
             l.add((double) 0);
         } else {
-            l=sumList(list, iduser);
+            l = sumList(list, iduser);
         }
 
         return l;
     }
-    
-    private static List<Double> sumList(List<MakeWork> work, int user){
-        double sumCreator=0;
-        double countCreator=0;
-        List <Double> l=new ArrayList<Double>();
-        double sumWorker=0;
-        double countWorker=0;
-        for (MakeWork m:work){
-            if(m.getWorker()!=null){
-            if (m.getWorker().getId()==user){
-                sumWorker+=m.getPrice();
-                countWorker++;
-            }
-            }else
-            if (m.getCreator().getId()==user){
-                sumCreator+=m.getPrice();
+
+    private static List<Double> sumList(List<MakeWork> work, int user) {
+        double sumCreator = 0;
+        double countCreator = 0;
+        List<Double> l = new ArrayList<Double>();
+        double sumWorker = 0;
+        double countWorker = 0;
+        for (MakeWork m : work) {
+            if (m.getWorker() != null) {
+                if (m.getWorker().getId() == user) {
+                    sumWorker += m.getPrice();
+                    countWorker++;
+                }
+            } else if (m.getCreator().getId() == user) {
+                sumCreator += m.getPrice();
                 countCreator++;
             }
         }
@@ -366,5 +372,73 @@ public class ManageUser implements ManageUserLocal {
         return l;
     }
 
+    @Override
+    public boolean startedToInit(int idworker, int offer) {
+
+        PersistentSession entityManager = null;
+        List<Work> list = null;
+
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query q = entityManager.createQuery("from Work where id=:id");
+            q.setParameter("id", offer);
+            list = (List<Work>) q.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+        deleteWork(list.get(0));
+        InitWork iw=new InitWork();
+        iw.setId(offer);
+        iw.setCoordLat(list.get(0).getCoordLat());
+        iw.setCoordLong(list.get(0).getCoordLong());
+        iw.setCreator(list.get(0).getCreator());
+        iw.setDescription(list.get(0).getDescription());
+        iw.setLocalization(list.get(0).getLocalization());
+        iw.setNegotiable(list.get(0).getNegotiable());
+        iw.setPrice(list.get(0).getPrice());
+        iw.setStartDate(list.get(0).getStartDate());
+        iw.setSubTask(list.get(0).getSubTask());
+        iw.setTitle(list.get(0).getTitle());
+        User u=new User();
+        u.setId(idworker);
+        iw.setWorker(u);
+        iw.setInitWork(new java.sql.Date(new Date().getTime()));
+        saveInitWork(iw);
+        return true;
+    }
+    
+    private static void saveInitWork(InitWork iw){
+         PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            entityManager.save(iw);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+    }
+    
+        private static void deleteWork(Work iw){
+         PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            entityManager.delete(iw);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+    }
 
 }

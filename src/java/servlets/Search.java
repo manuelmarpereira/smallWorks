@@ -1,7 +1,4 @@
-
 package servlets;
-
-
 
 import interfaces.ManageWorkLocal;
 import java.io.IOException;
@@ -19,29 +16,35 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PC
  */
-public class Search  extends HttpServlet{
-    
+public class Search extends HttpServlet {
+
     @EJB
     ManageWorkLocal mw;
-    
+
     @Override
     public void destroy() {
         super.destroy();
         this.mw = null;
     }
-    
+
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-  
-    ArrayList work = mw.getWorks(1, 0, 100, true,req.getParameter("location"), req.getParameter("task"), Integer.parseInt(req.getParameter("order")),req.getParameter("amount_low"),req.getParameter("amount_high"));
-        
-    RequestDispatcher reqDispatcher;
-    req.setAttribute("works", work);
-    req.setAttribute("district", req.getParameter("location"));
-    req.setAttribute("task", req.getParameter("task"));
-    req.setAttribute("order", req.getParameter("order"));
-  
-    reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/offer/search.jsp");
-    reqDispatcher.forward(req, resp);
+        int user = 0;
+        if (req.getParameter("iduser").equals("")) {
+            user = 0;
+        } else {
+            user = Integer.parseInt(req.getParameter("iduser"));
+        }
+
+        ArrayList work = mw.getWorks(user, 0, 100, true, req.getParameter("location"), req.getParameter("task"), Integer.parseInt(req.getParameter("order")), req.getParameter("amount_low"), req.getParameter("amount_high"));
+
+        RequestDispatcher reqDispatcher;
+        req.setAttribute("works", work);
+        req.setAttribute("district", req.getParameter("location"));
+        req.setAttribute("task", req.getParameter("task"));
+        req.setAttribute("order", req.getParameter("order"));
+
+        reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/offer/search.jsp");
+        reqDispatcher.forward(req, resp);
     }
 
     @Override
@@ -58,5 +61,5 @@ public class Search  extends HttpServlet{
     public String getServletInfo() {
         return "Servlet show works";
     }
-    
+
 }

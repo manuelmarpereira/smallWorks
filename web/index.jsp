@@ -44,6 +44,7 @@
                     </select>
                     <input type="text" value="500.01"  name="amount_high" id="amount_high" class="date" style="visibility:hidden" />
                     <input type="text" value="0.00"  name="amount_low" id="amount_low" class="date" style="visibility:hidden" />
+                    <input type="text"  value="${sessionScope.user.id}"  name="iduser" id="iduser"  style="visibility:hidden" />
                 </form>
             </div>
 

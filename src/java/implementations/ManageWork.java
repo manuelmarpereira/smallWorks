@@ -13,16 +13,13 @@ import tp_aa.MakeWork;
 import tp_aa.TPAAPersistentManager;
 import tp_aa.Work;
 
-
-
-
 @Stateless
 @Local(ManageWorkLocal.class)
 public class ManageWork implements ManageWorkLocal {
 
     @Override
 
-    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low,String amount_high) {
+    public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low, String amount_high) {
 
         if (district.equals("") || district == null) {
             district = "%%";
@@ -50,8 +47,6 @@ public class ManageWork implements ManageWorkLocal {
             q.setParameter("amount_low", Double.parseDouble(amount_low));
             q.setParameter("amount_high", Double.parseDouble(amount_high));
 
-
-
             work = (List<Work>) q.list();
             entityManager.getTransaction().commit();
             entityManager.close();
@@ -62,25 +57,21 @@ public class ManageWork implements ManageWorkLocal {
 
         if (!work.isEmpty()) {
             for (Work wk : work) {
-                if(!wk.getClass().getName().equals("tp_aa.MakeWork") && !wk.getClass().getName().equals("tp_aa.InitWork")){
-                a.add(wk);
-                    
+                if (!wk.getClass().getName().equals("tp_aa.MakeWork") && !wk.getClass().getName().equals("tp_aa.InitWork") && wk.getCreator().getId()!=userId) {
+                    a.add(wk);
                 }
             }
         }
         return a;
     }
-    
-    private static String query(int order){
-        if (order==1){
 
+    private static String query(int order) {
+        if (order == 1) {
             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high  order by id DESC";
-        }else 
-            if (order==2){
-             return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high  order by price DESC";
-
-            }
-    return "";
+        } else if (order == 2) {
+            return "FROM Work where lower(Localization.name) like :district and lower(subTask.name) like :tasks and price between :amount_low and :amount_high  order by price DESC";
+        }
+        return "";
     }
 
     @Override
@@ -137,41 +128,92 @@ public class ManageWork implements ManageWorkLocal {
     }
 
     @Override
-    public List<Work> getWorksbyuserCreator(List<InitWork> init, List<MakeWork> make,int iduser) {
+    public List<Work> getWorksbyuserCreator(List<InitWork> init, List<MakeWork> make, int iduser) {
         PersistentSession entityManager = null;
         List<Work> list = new ArrayList<>();
-        
+
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
             Query q = entityManager.createQuery("from Work where Creator.id=:id");
             q.setParameter("id", iduser);
-            
+
             list = (List<Work>) q.list();
             entityManager.getTransaction().commit();
             entityManager.close();
         } catch (PersistentException ex) {
             ex.printStackTrace();
         }
-        
-        for (InitWork i: init){
-            for (Work w: list){
-                if (i.getId()==w.getId()){
+
+        for (InitWork i : init) {
+            for (Work w : list) {
+                if (i.getId() == w.getId()) {
                     list.remove(w);
                     break;
                 }
             }
         }
-        for (MakeWork i: make){
-            for (Work w: list){
-                if (i.getId()==w.getId()){
+        for (MakeWork i : make) {
+            for (Work w : list) {
+                if (i.getId() == w.getId()) {
                     list.remove(w);
                     break;
                 }
             }
         }
-        
+
         return list;
+    }
+
+    @Override
+    public void deleteWork(int offer) {
+        Work w = new Work();
+        w.setId(offer);
+        PersistentSession entityManager = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            entityManager.delete(w);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public Work getWork(int id) {
+        Work w = new Work();
+        PersistentSession entityManager = null;
+        List<Work> list = new ArrayList<>();
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query q = entityManager.createQuery("from Work where id=:id");
+            q.setParameter("id", id);
+            list = (List<Work>) q.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            ex.printStackTrace();
+        }
+
+        w.setId(list.get(0).getId());
+        w.setCoordLat(list.get(0).getCoordLat());
+        w.setCoordLong(list.get(0).getCoordLong());
+        w.setCreator(list.get(0).getCreator());
+        w.setDescription(list.get(0).getDescription());
+        w.setLocalization(list.get(0).getLocalization());
+        w.setNegotiable(list.get(0).getNegotiable());
+        w.setPrice(list.get(0).getPrice());
+        w.setStartDate(list.get(0).getStartDate());
+        w.setSubTask(list.get(0).getSubTask());
+        w.setTitle(list.get(0).getTitle());
+        w.setWorker(list.get(0).getWorker());
+
+        return w;
     }
 
 }

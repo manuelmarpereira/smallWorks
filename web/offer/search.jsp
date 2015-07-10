@@ -50,9 +50,9 @@
                         </div>
                         <div class="col-xs-4">
 
+                            <font color="green"> Min Value €</font><input type="text" value="0.00" readonly  name="amount_low" id="amount_low" class="date" />
+                            <font color="red">Max Value €</font><input type="text" value="500.01" readonly name="amount_high" id="amount_high" class="date" /><br />
 
-                            <font color="red">Max Value €</font><input type="text" value="500.01" readonly name="amount_high" id="amount_high" class="date" />
-                            <font color="green"> Min Value €</font><input type="text" value="0.00" readonly  name="amount_low" id="amount_low" class="date" /><br />
                         </div>
 
                         <div class="col-xs-3 pull-right" style="margin-top:15px">
@@ -70,6 +70,7 @@
                     </div>
                     <hr>
                 </div>
+                <input type="text"  value="${sessionScope.user.id}"  name="iduser" id="iduser"  style="visibility:hidden" />
             </form>
             <jsp:include page="/offer/listOffers.jsp" />                
         </div> 
@@ -78,16 +79,17 @@
 
             $(document).ready(function () {
 
-                $("#selectOrder").val("${requestScope.order}");
-
-                $("#selectOrder").change(function () {
-                    document.getElementById("formsub").submit();
-                });
+              
                 $(function () {
 
                     $(".ui-slider-handle").first().css('background-color', "green");
 
                     $(".ui-slider-handle:nth-child(3)").css('background-color', "red");
+                });
+                  $("#selectOrder").val("${requestScope.order}");
+
+                $("#selectOrder").change(function () {
+                    document.getElementById("formsub").submit();
                 });
             });
 

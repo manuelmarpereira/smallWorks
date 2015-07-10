@@ -126,7 +126,7 @@
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
     
-        <servlet>
+    <servlet>
         <servlet-name>Feedback</servlet-name>
         <servlet-class>servlets.Feedback</servlet-class>
     </servlet>
@@ -135,17 +135,53 @@
         <url-pattern>/user/feedback</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>DeleteOffer</servlet-name>
+        <servlet-class>servlets.DeleteOffer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOffer</servlet-name>
+        <url-pattern>/deleteOffer</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ShowOfferSVL</servlet-name>
+        <servlet-class>servlets.ShowOfferSVL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowOfferSVL</servlet-name>
+        <url-pattern>/showOffer</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EmailContact</servlet-name>
+        <servlet-class>servlets.EmailContact</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmailContact</servlet-name>
+        <url-pattern>/emailcontact</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FacoJa</servlet-name>
+        <servlet-class>servlets.FacoJa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacoJa</servlet-name>
+        <url-pattern>/facoja</url-pattern>
+    </servlet-mapping>
+    
     <filter>
-    <filter-name>ORMFilter</filter-name>
-            <filter-class>tp_aa.TPAAFilter</filter-class>
-            <init-param>
-                    <param-name>WrapServletRequest</param-name>
-                    <param-value>false</param-value>
-            </init-param>
+        <filter-name>ORMFilter</filter-name>
+        <filter-class>tp_aa.TPAAFilter</filter-class>
+        <init-param>
+            <param-name>WrapServletRequest</param-name>
+            <param-value>false</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
-            <filter-name>ORMFilter</filter-name>
-            <url-pattern>/*</url-pattern>
+        <filter-name>ORMFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <session-config>
