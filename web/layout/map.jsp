@@ -1,4 +1,4 @@
-<script src='${pageContext.request.contextPath}/assets/js/jquery-ui-1.10.3.custom.js'></script>
+ <script src='${pageContext.request.contextPath}/assets/js/jquery-ui-1.10.3.custom.js'></script>
 
 <link href="${pageContext.request.contextPath}/assets/css/mapa.css" rel="stylesheet" type="text/css"/>
 

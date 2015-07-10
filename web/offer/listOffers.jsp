@@ -2,6 +2,8 @@
 <%@page import="tp_aa.Work"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
+        <script src='http://code.jquery.com/jquery-1.11.3.js'></script>
+
  <% int min=0; %>
     <% ArrayList<Work> list =new ArrayList<Work>();
 //storing passed value from jsp

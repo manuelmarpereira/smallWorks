@@ -52,7 +52,7 @@ public class FacoJa extends HttpServlet {
         } catch (SendGridException ex) {
             Logger.getLogger(EmailContact.class.getName()).log(Level.SEVERE, null, ex);
         }
-          resp.getWriter().print("{\"resp\":\""+value+"\"}");
+          resp.getWriter().print("");
     }
 
     @Override

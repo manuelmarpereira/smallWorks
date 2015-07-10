@@ -20,6 +20,7 @@ function initialize() {
     });
 
     marker.setPosition(latlng);
+    addListenerMap();
 }
 
 function carregarNoMapa(endereco) {
@@ -120,6 +121,7 @@ function getDistrict(lat, long) {
 
                             $("#distrito").val(element[0].address_components[i].long_name);
                             i = element.length;
+                            return false;
                         }
                     }
                 });
@@ -145,7 +147,7 @@ $(document).ready(function () {
 
     loadBtnEndereco();
 
-    addListenerMap();
+    
 
     setAutoComplete();
 });
