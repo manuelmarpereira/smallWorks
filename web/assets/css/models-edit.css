@@ -1,88 +1,75 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 6/jun/2015, 22:34:25
-    Author     : Manuel
-*/
-
-.form-control{
-    background: transparent;
-}
 .form-model {
-	width: 320px;
-	margin: 20px;
+    width: 320px;
+    margin: 20px;
 }
 .form-model > div {
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 .form-model input, .form-model textarea {
-	width: 100%;
-	border: 2px solid gray;
-	background: none;
-	position: relative;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	padding: 8px 12px;
-	outline: 0;
+    width: 100%;
+    border: 2px solid gray;
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    padding: 8px 12px;
+    outline: 0;
 }
 .form-model input:valid, .form-model textarea:valid {
-	background: white;
+    background: white;
 }
 .form-model input:focus, .form-model textarea:focus {
-	border-color: #357EBD;
+    border-color: #357EBD;
 }
 .form-model input:focus + label, .form-model textarea:focus + label {
-	background: #357EBD;
-	color: white;
-	font-size: 70%;
-	padding: 1px 6px;
-	z-index: 2;
-	text-transform: uppercase;
+    background: #357EBD;
+    color: white;
+    font-size: 70%;
+    padding: 1px 6px;
+    
+    text-transform: uppercase;
 }
 .form-model label {
-	-webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
-	transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
-	position: absolute;
-	color: #999;
-	padding: 7px 6px;
-	font-weight: normal;
+    -webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+    transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+    position: absolute;
+    color: #999;
+    padding: 7px 6px;
+    font-weight: normal;
 }
 .form-model textarea {
-	display: block;
-	resize: vertical;
+    display: block;
+    resize: vertical;
 }
 .form-model.go-bottom input, .form-model.go-bottom textarea {
-	padding: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
 }
 .form-model.go-bottom label {
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 .form-model.go-bottom input:focus, .form-model.go-bottom textarea:focus {
-	padding: 4px 6px 20px 6px;
+    padding: 4px 6px 20px 6px;
 }
 .form-model.go-bottom input:focus + label, .form-model.go-bottom textarea:focus + label {
-	top: 100%;
-	margin-top: -16px;
+    top: 100%;
+    margin-top: -16px;
 }
 .form-model.go-right label {
-	border-radius: 0 5px 5px 0;
-	height: 100%;
-	top: 0;
-	right: 100%;
-	width: 100%;
-	margin-right: -100%;
+    border-radius: 0 5px 5px 0;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    margin-right: -100%;
 }
 .form-model.go-right input:focus + label, .form-model.go-right textarea:focus + label {
-	right: 0;
-	margin-right: 0;
-	width: 40%;
-	padding-top: 5px;
+    right: 0;
+    margin-right: 0;
+    width: 40%;
+    padding-top: 5px;
 }

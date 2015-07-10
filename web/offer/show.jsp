@@ -52,10 +52,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="map text-center">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2985.4144339113373!2d-8.399444861720799!3d41.56027432127022!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24fc279db73165%3A0x753290b0d1b763f0!2sUniversidade+do+Minho%2C+Campus+de+Gualtar!5e0!3m2!1spt-PT!2spt!4v1430594316644"
-                                width="400" height="250" frameborder="1"></iframe>
-                    </div>
+                    
                     <div class="text-center col-xs-12 white">
                         <p class="control-label">Rua 123, Braga</p>
                     </div>

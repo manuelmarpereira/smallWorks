@@ -51,12 +51,15 @@
                     
                 </div>
                 <div class="col-md-6">
-                    <div class=" panel panel-default">
-                        <div class="panel-heading">Offer location</div>
-                        <br/>
-                        <jsp:include page="/layout/map.jsp" />  
-
+                    <div class="row">
+                        <label for="txtEndereco" class="col-md-3 control">Offer location </label>
+                        <div class="col-md-8">
+                            <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
+                        </div>
                     </div>
+                    <br/>
+                    <jsp:include page="/layout/map.jsp" />  
+                    <script type="text/javascript">initMyMap();</script>
                 </div>
                 <div>
                     <input type="submit" class="btn btn-primary pull-right" value="Save offer">
@@ -72,7 +75,7 @@
                 oldValue = btn.closest('.number-spinner').find('input').val().trim(),
                 newVal = 0;
 
-        if (btn.attr('data-dir') == 'up') {
+        if (btn.attr('data-dir') === 'up') {
             newVal = parseInt(oldValue) + 1;
         } else {
             if (oldValue > 1) {

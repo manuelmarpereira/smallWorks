@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/deleteOffer.jsp</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/offer/closeOffer.jsp</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/assets/js/makework.js</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/smallWorks/web/user/myOffers.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/assets/js/mapa.js</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/layout/user.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/assets/css/models-edit.css</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/user/edit/editLocationModel.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/user/edit/editEmailModel.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/assets/js/editemail.js</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/src/java/servlets/EditEmailSvl.java</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/layout/map.jsp</file>
+            <file>file:/C:/Users/Utilizador/Documents/NetBeansProjects/smallWorks/web/assets/js/editlocal.js</file>
         </group>
     </open-files>
 </project-private>

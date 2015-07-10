@@ -59,6 +59,15 @@
     <!-- ************* no pages ************* -->
     
     <servlet>
+        <servlet-name>EditlocSvl</servlet-name>
+        <servlet-class>servlets.EditlocSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditlocSvl</servlet-name>
+        <url-pattern>/editlocation</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>EditflNameSvl</servlet-name>
         <servlet-class>servlets.EditflNameSvl</servlet-class>
     </servlet>

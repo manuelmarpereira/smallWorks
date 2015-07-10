@@ -12,7 +12,7 @@
 
 <html>
     <head>
-        <meta charset="utf-8" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" content="text/html" />
         <title>${title}</title>
         <script src='http://code.jquery.com/jquery-1.11.3.js'></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/icon.png">
@@ -32,9 +32,8 @@
 
         <body class="${class2}">
 
-            <jsp:include page="/layout/nav.jsp" />
-      
-                        
+        <jsp:include page="/layout/nav.jsp" />
+            
         <jsp:invoke fragment="container"></jsp:invoke>
         
         <jsp:include page="/layout/foot.jsp" />
