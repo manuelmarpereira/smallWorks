@@ -21,14 +21,18 @@ $('#photo').submit(function (event) {
         processData: false,
         contentType: false,
         beforeSend: function () {
-            $("#photo").append('<div id=\"overlay\" style=\"position: fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 9999;\"><div style=\"background-color: #ffffff;font-size:1.8em; text-align: center;width:50%;\">Uploading image...wait a moment please.\n This window will close automatically.</div></div>');
+        document.getElementById("alertinfophoto").style.display = "inline"; 
         },
         success: function (data) {
+                       
             $("#overlay").remove();
-            window.location.href = '/smallWorksuser/show.jsp' ;
+            $('#editPhotoModel').modal('hide');
+            $('#alertsuccess').show(0).delay(3000).hide(0); 
+     
         },
         error: function (data) {
             console.log("error");
+             document.getElementById("alerterrorphoto").style.display = "inline"; 
         }
     });
 });

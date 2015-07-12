@@ -8,7 +8,7 @@ $("#contactar").submit(function (e) {
        data: $(this).serialize(),
         processData: false,       
         success: function (da) {
-            $('#Contacto').modal('hide');
+           $('#Contacto').modal('hide');
            $('#btncontactar').removeAttr('disabled');
             console.log("success email");
           

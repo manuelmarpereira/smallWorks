@@ -7,6 +7,12 @@
                     <h4 class="modal-title" id="myModalLabel"> Change Your Email</h4>
                 </div>
                 <div class="modal-body">
+                    
+                    <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterroremail">
+                <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Ops!</strong> An error occurred while trying to change your Email . Please try Again.
+              </div>
+                    
                     <div class="row">
                         <div class="form-model col-md-8 go-right">
                             <div class="form-group">

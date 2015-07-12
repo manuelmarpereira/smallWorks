@@ -11,6 +11,12 @@
 
                 </div>
                 <div class="modalmap modal-body" >
+                    
+                    <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrorlocation">
+                        <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Ops!</strong> An error occurred while trying to change your Location . Please try Again.
+                    </div>
+                    
                     <div class="row">
                         <label for="txtEndereco" class="col-md-2 control" >Location </label>
                         <div class="col-md-8">
