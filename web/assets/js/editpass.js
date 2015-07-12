@@ -9,7 +9,10 @@ $("#editpass").submit(function (e) {
             console.log(); // string true
          
               $('#editAccessModel').modal('hide');
-                    $('#alertsuccess').show(0).delay(3000).hide(0);   
+              $('#alertsuccess').show(0).delay(3000).hide(0);   
+               setTimeout(function(){
+                  window.location.href = '/smallWorks/user/show.jsp' ;
+            }, 3000);
             
         },
         error: function (data) {
@@ -26,7 +29,6 @@ $('#password').blur(function()
     if( $(this).val()!="" ) {                     
           document.getElementById("labelpassword").style.color = "#fff";  
           document.getElementById("labelpassword").style.opacity = ".4";  
-    
     }
 });
 
@@ -34,7 +36,6 @@ $('#password2').blur(function()
 {                   
     if( $(this).val()!="" ) {                     
           document.getElementById("labelpassword2").style.color = "#fff";  
-          document.getElementById("labelpassword2").style.opacity = ".4";  
-    
+          document.getElementById("labelpassword2").style.opacity = ".4";      
     }
 });

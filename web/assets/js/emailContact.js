@@ -10,9 +10,10 @@ $("#contactar").submit(function (e) {
         success: function (da) {
            $('#Contacto').modal('hide');
            $('#btncontactar').removeAttr('disabled');
+           
             console.log("success email");
-          
-            
+            $('#alertsuccess').show(0).delay(5000).hide(0);
+      
         },
         error: function (data) {
             $('#Contacto').modal('hide');

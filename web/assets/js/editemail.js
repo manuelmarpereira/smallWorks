@@ -9,7 +9,11 @@ $(document).ready(function(){
             success: function (da) {
                  
               $('#editEmailModel').modal('hide');
-              $('#alertsuccess').show(0).delay(5000).hide(0); 
+              $('#alertsuccess').show(0).delay(5000).hide(0);
+              
+              setTimeout(function(){
+                   window.location.href = '/smallWorks/user/show.jsp' ;
+             }, 3000);
             },
             error: function (fail) {
                 console.log("unssuccess email");

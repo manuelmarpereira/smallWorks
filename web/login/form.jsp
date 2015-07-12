@@ -10,7 +10,7 @@
 
 <form class="form-horizontal" name="formlogin" role="form" action="login" method="POST">
     <div id="loginbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-margin-center">                    
-        <div class="panel panel-info" >
+        <div class="panel panel-info marginSide" >
             <div class="panel-heading">
                 <div class="panel-title">Sign In</div>
                 <div class="panel-title-forgot"><a href="#">Forgot password?</a></div>
@@ -26,24 +26,32 @@
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input id="login-password" type="password" class="form-control" name="password" value="<%=fp%>" placeholder="password" required>
                 </div>
+                
                 <% if(error!=null) {%>
-                    <span style="color: red;"><%=error%></span>
+                    <div class="alert alert-danger alert-dismissible col-md-12" role="alert">
+                        <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <%=error%>
+                    </div>
                 <%}%>
-                <div class="input-group">
+                
+                
                     <div class="checkbox">
+                        <div class="col-md-10" style="margin-bottom: 30px;">
                         <label>
+                            
                             <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                        
                         </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <!-- Button -->
-                    <div class="col-sm-12 controls">
+                         </div>
+                        <div class="col-md-2 ">
                         <input type="submit" class="btn btn-success" value="Login" name="Loginbtn" />
-                        <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
-                    </div>
-                </div>
-          
+                        </div>
+                       </div> 
+                   
+                 
+                    
+                
+                          
                 <div class="form-group">
                     <div class="col-md-12 control">
                         <div class="form-group-register" >

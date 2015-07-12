@@ -24,10 +24,18 @@ $('#photo').submit(function (event) {
         document.getElementById("alertinfophoto").style.display = "inline"; 
         },
         success: function (data) {
+            
+            
                        
             $("#overlay").remove();
             $('#editPhotoModel').modal('hide');
-            $('#alertsuccess').show(0).delay(3000).hide(0); 
+            $('#alertsuccess').show(0).delay(3000).hide(0);
+            
+            setTimeout(function(){
+                  window.location.href = '/smallWorks/user/show.jsp' ;
+            }, 3000);
+           
+           
      
         },
         error: function (data) {

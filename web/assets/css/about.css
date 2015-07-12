@@ -1,0 +1,63 @@
+
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.bg-primary {
+    background-color: #1ABC9C;
+}
+
+.bg-dark {
+    color: #fff;
+    background-color: #222;
+}
+
+.text-faded {
+    color: rgba(255,255,255,.7);
+}
+
+section {
+    padding: 50px 0;
+}
+
+
+.no-padding {
+    padding: 0;
+}
+
+.services-back{
+    background-color: white;    
+}
+
+
+.service-box {
+    margin: 50px auto 0;
+    max-width: 400px;
+}
+
+@media(min-width:992px) {
+    .service-box {
+        margin: 20px auto 0;
+        margin-right: 40px;
+    }
+}
+
+.service-box p {
+    margin-bottom: 50px;
+}
+
+hr {
+    max-width: 50px;
+    border-color: #428bca;
+    border-width: 3px;
+}
+
+.section-heading-color{
+    color:#8c887f;
+}
+
+.contact{
+    padding-bottom: 100px;
+}

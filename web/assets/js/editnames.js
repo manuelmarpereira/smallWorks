@@ -12,7 +12,11 @@ $("#names").submit(function (e) {
                     document.getElementById("alerterrorname").style.display = "inline";            
                 else    
                     $('#editNameModel').modal('hide');
-                    $('#alertsuccess').show(0).delay(3000).hide(0);   
+                    $('#alertsuccess').show(0).delay(3000).hide(0);  
+                     
+                setTimeout(function(){
+                      window.location.href = '/smallWorks/user/show.jsp' ;
+                }, 3000);
         },
         error: function (data) {
             console.log("unssuccess");

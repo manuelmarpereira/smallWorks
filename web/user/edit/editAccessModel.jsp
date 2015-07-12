@@ -49,8 +49,8 @@
                     </div>
                 </div>
                 <div class="modal-footer"> 
-                    <input type ="submit" class="btn btn btn-success" value ="Save" disabled>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
+                    <input id="submit" type ="submit" style="margin-right: 10px" class="btn btn-sm btn-success" value ="Save" >
+                    <a href="#"  style="text-decoration: underline" data-dismiss="modal"> Cancel </a>
                 </div>
             </div>
         </div>

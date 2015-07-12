@@ -4,12 +4,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                    <h4 class="modal-title" id="myModalLabel">Do it now</h4>
                 </div>
+                <div class="modal-dialog marginSide">
                 Are you sure you want to make the offer?
+                 </div>
                 <div class="modal-footer"> 
-                    <input type ="submit" id="btnmakeoffer" class="btn btn btn-success" value ="Make Offer" >
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
+                     <input id="submit" type ="submit" style="margin-right: 10px" class="btn btn-sm btn-success" value ="Yes" >
+                    <a href="#" data-dismiss="modal" class="btn btn-sm btn-danger"> No </a>
                 </div>
            
         </div>

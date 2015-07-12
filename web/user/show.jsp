@@ -20,8 +20,6 @@
     </jsp:attribute>
     
     <jsp:attribute name="foot">
-        <script src="${pageContext.request.contextPath}/assets/js/confirmations.js" type="text/javascript"></script>
-        <script src="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js"></script>
     </jsp:attribute>
         
     <jsp:attribute name="container">

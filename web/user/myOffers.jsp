@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
@@ -19,14 +18,18 @@
             <h2>My Offers <small> List of my recent Offers</small></h2>
             <hr>
 
-            <div class="alert alert-success alert-dismissible col-md-12" role="alert" style="display:none; margin-top: 10px; margin-bottom: 10px" id="alertsuccessoffer">
+            <div class="alert alert-success alert-dismissible col-md-12" role="alert" style="display:none; margin-top: 10px; margin-bottom: 10px" id="alerterroroffer">
                 <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> your offer has been successfully closed.
+                <strong>Success!</strong> Your offer changes have been updated.
+            </div>
+            
+            <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrorlocation">
+                <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Ops!</strong> An error occurred while trying to change your offer . Please try Again.
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-
                     <table id="datatable" >
                         <thead>
                             <tr>

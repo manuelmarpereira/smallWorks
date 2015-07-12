@@ -56,8 +56,8 @@
                 </div>
             </div>
         </div>
-       <jsp:include page="/offer/contactar.jsp" />
-        <jsp:include page="/offer/facoJa.jsp" />
+       <jsp:include page="/offer/contact.jsp" />
+        <jsp:include page="/offer/doitnow.jsp" />
          <script src="${pageContext.request.contextPath}/assets/js/showOffer.js"></script>
          
          <script>
@@ -69,6 +69,6 @@
              $("#idworker").val('<c:out value="${sessionScope.user.id}"/>');
               $("#personemailsend").val('<c:out value="${sessionScope.user.email}"/>');
              });
-                      </script>
+        </script>
     </jsp:attribute>
 </layout:profile_layout> 

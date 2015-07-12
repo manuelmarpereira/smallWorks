@@ -8,17 +8,17 @@
                 </div>
                 <div class="modal-body">
                     
-               <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrorphoto">
-                <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Ops!</strong> An error occurred while trying to change your photo . Please try Again.
-              </div>
+                <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrorphoto">
+                     <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <strong>Ops!</strong> An error occurred while trying to change your photo . Please try Again.
+                </div>
                     
                <div class="alert alert-info alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alertinfophoto">
-                <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Uploading image...</strong>wait a moment please...
-                 <div class="text-center">
-                     <img src="${pageContext.request.contextPath}/assets/img/load.gif" alt="" height="40" width="40" class="img-thumbnail"/>   
-                </div>
+                    <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Uploading image...</strong>wait a moment please...
+                    <div class="text-center">
+                         <img src="${pageContext.request.contextPath}/assets/img/load.gif" alt="" height="40" width="40" class="img-thumbnail"/>   
+                    </div>
               </div>
                     
                     <div class="text-center">
@@ -30,8 +30,8 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="font-size: 1.5em;"> 
-                    <input id="submit" type ="submit" class="btn btn btn-success" value ="Save">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
+                   <input id="submit" type ="submit" style="margin-right: 10px" class="btn btn-sm btn-success" value ="Save" >
+                   <a href="#"  style="text-decoration: underline; font-size: 70%" data-dismiss="modal"> Cancel </a>
                 </div>
             </div>
         </div>

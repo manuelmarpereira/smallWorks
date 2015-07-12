@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="po-markup">
-                                        <a class="po-help btn btn-info btn-xs" data-original-title="" title="">?</a>
+                                        <a class="po-help btn btn-warning btn-sm" data-original-title="" title="">?</a>
 
                                         <div class="po-content hidden">
                                             <div class="po-title">
@@ -91,7 +91,8 @@
 
                                             <div class="po-body">
                                                 <p>
-                                                    maaaaap
+                                                 You can insert your offer location and use the map marker to drag and 
+                                                 select any location with precision
                                                 </p>
                                             </div>
                                         </div> 
@@ -109,26 +110,4 @@
 </form>
 
 <script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
-
-<script>
-
-                            $(document).ready(function () {
-
-                                $('.po-markup > .po-help').popover({
-                                    trigger: 'hover',
-                                    html: true, // must have if HTML is contained in popover
-
-                                    // get the title and conent
-                                    title: function () {
-                                        return $(this).parent().find('.po-title').html();
-                                    },
-                                    content: function () {
-                                        return $(this).parent().find('.po-body').html();
-                                    },
-                                    container: 'body',
-                                    placement: 'right'
-
-                                });
-
-                            });
-</script>
+<script src="${pageContext.request.contextPath}/assets/js/help.js"></script>

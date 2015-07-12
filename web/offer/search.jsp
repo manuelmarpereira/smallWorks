@@ -18,7 +18,7 @@
         <div class="container-fluid container-background">
             <form role="form" id="formsub" name="formreg" action="index" method="POST">
                 <div class="container-pad" id="property-listings">
-                   
+                     <h2>Search <small> customize your small works search</small></h2>
                     <hr>
                     <div class="row col-md-12">
                         <div class="col-md-5">
@@ -55,29 +55,29 @@
                     <div class="row col-md-12">
                         <div id="slider-range"  class="col-md-5" style="margin-top: 10px"></div>
                         <div class="col-md-2">
-                            <div class="po-markup"  style=" margin-bottom:  5px; margin-top: 5px;">
-                                        <a class="po-help btn btn-info btn-xs" data-original-title="" title="">?</a>
+                            <div class="po-markup"  style=" margin-bottom:  15px; margin-top: 5px;">
+                                        <a class="po-help btn btn-warning btn-xs" data-original-title="" title="">?</a>
 
                                         <div class="po-content hidden">
                                             <div class="po-title">
-                                                Location (Help)
+                                                Filter Reward (Help)
                                             </div> 
 
                                             <div class="po-body">
                                                 <p>
-                                                    maaaaap
+                                                   You can drag the minimum and maximum values ​​in order to filter the reward values that you  need search
                                                 </p>
                                             </div>
                                         </div> 
                                     </div>
                         </div>
-                        <div class=" col-md-4" style=" margin-bottom:  5px; margin-top: 10px;" >                             
+                        <div class=" col-md-4" style=" margin-bottom:  5px;" >                             
                             <div class=" col-md-2" ></div>
                             <div class=" col-md-6" >
                             <label class=" pull-right control-label " >Order by: </label>
                              </div>
                               <div class=" col-md-4 " >
-                                <select id="selectOrder" name="order" class=" selectpicker_location btn btn-info btn-xs">                     
+                                <select id="selectOrder" name="order" class=" selectpicker_location btn btn-info btn-sm">                     
                                     <option value="1" >Most recents</option>
                                     <option value="2">Best Rewards</option>                                         
                                 </select>

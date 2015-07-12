@@ -4,6 +4,16 @@
 <div class="marginSide" style="margin-top:80px;"> 
     <h2>New Offer <small>Publish your new offer</small></h2>
     <hr>
+    <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alertsuccessnewoffer">
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Ops!</strong> An error occurred while trying to change your photo . Please try Again.
+    </div>
+    
+     <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrornewoffer">
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Ops!</strong> An error occurred while trying to publish your new offer . Please try Again.
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" action="new" method="POST">
@@ -59,7 +69,7 @@
                         
                         <div class="row col-md-12">
                    
-                    <input type="submit" class="btn btn-primary pull-right" style=" margin-top:10px" value="Save offer">
+                    <input type="submit" class="btn btn-primary pull-right" style=" margin-top:10px" value="Publish">
                     </div>
                         
                     </div>
@@ -71,9 +81,26 @@
                 <div class="col-md-6">
                     <div class="row">
                         <label for="txtEndereco" class="col-md-3 control">Offer location </label>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
                         </div>
+                        <div class="col-md-2">
+                        <div class="po-markup">
+                            <a class="po-help btn btn-warning btn-sm" data-original-title="" title="">?</a>
+
+                            <div class="po-content hidden">
+                                <div class="po-title">
+                                    Location (Help)
+                                </div> 
+                                <div class="po-body">
+                                    <p>
+                                     You can insert your offer location and use the map marker to drag and 
+                                     select any location with precision
+                                    </p>
+                                </div>
+                            </div> 
+                        </div>
+                            </div>
                     </div>
                     <br/>
                     <jsp:include page="/layout/map.jsp" />  
@@ -86,25 +113,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).on('click', '.number-spinner a', function () {
-        var btn = $(this),
-                oldValue = btn.closest('.number-spinner').find('input').val().trim(),
-                newVal = 0;
-
-        if (btn.attr('data-dir') === 'up') {
-            newVal = parseInt(oldValue) + 1;
-        } else {
-            if (oldValue > 1) {
-                newVal = parseInt(oldValue) - 1;
-            } else {
-                newVal = 1;
-            }
-        }
-        btn.closest('.number-spinner').find('input').val(newVal);
-    });
-    
-    getTasks();
-    
-</script>
+<script src="${pageContext.request.contextPath}/assets/js/help.js"></script>
