@@ -62,6 +62,7 @@
                                 <input type="password" class="form-control"  name="password2" required placeholder="Confirm Password" id="password2" autocomplete="off">
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-6">
@@ -71,14 +72,33 @@
                                 <input id="btn-signup" class="btn btn-info pull-right"  type="submit" value="Register" name="Registebtn"/> 
                             </div>
                         </div>
-                    </div>
+                    </div>                  
 
                     <div class="col-md-6">
                         <div >
                             <div class="form-group">
-                                <label for="txtEndereco" class="col-md-3 control-label">Your location </label>
-                                <div class="col-md-9">
+                                <label for="txtEndereco" class="col-md-3 control-label">Location </label>
+                                <div class="col-md-7 ">
                                     <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
+                                </div>
+                                <div class="col-md-2">
+                                 <div class="po-markup">
+        <a class="po-help btn btn-info" data-original-title="" title="">?</a>
+        
+
+        <div class="po-content hidden">
+          <div class="po-title">
+            Location (Help)
+            </div> <!-- ./po-title -->
+            
+            <div class="po-body">
+              <p>
+                  maaaaap
+              </p>
+              
+              </div><!-- ./po-body -->
+              </div>  <!-- ./po-content -->
+              </div>
                                 </div>
                             </div>
                         </div>
@@ -93,4 +113,22 @@
 
 <script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
 
+<script>$(document).ready(function() {
 
+  $('.po-markup > .po-help').popover({
+    trigger: 'hover',
+    html: true,  // mu st have if HTML is contained in popover
+
+    // get the title and conent
+    title: function() {
+      return $(this).parent().find('.po-title').html();
+    },
+    content: function() {
+      return $(this).parent().find('.po-body').html();
+    },
+
+    container: 'body',
+    placement: 'bottom'
+  });
+
+});</script>
