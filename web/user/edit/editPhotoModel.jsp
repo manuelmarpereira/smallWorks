@@ -23,4 +23,8 @@
         </div>
     </div>
 </form>
+                        
+<form method="POST" action="/smallWorks/user/show.jsp" id="DeleteUserForm">
+<input type="hidden" id="photochange" name="photochange" value="" />
+</form>
 <script src="${pageContext.request.contextPath}/assets/js/editphoto.js"></script>

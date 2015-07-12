@@ -180,6 +180,15 @@
         <url-pattern>/facoja</url-pattern>
     </servlet-mapping>
     
+        <servlet>
+        <servlet-name>VerifyUser</servlet-name>
+        <servlet-class>servlets.VerifyUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyUser</servlet-name>
+        <url-pattern>/verifyuser</url-pattern>
+    </servlet-mapping>
+    
     <filter>
         <filter-name>ORMFilter</filter-name>
         <filter-class>tp_aa.TPAAFilter</filter-class>

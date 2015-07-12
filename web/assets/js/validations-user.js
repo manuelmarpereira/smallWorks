@@ -98,4 +98,43 @@ $(document).ready(function() {
    $('.form-group input[required]').trigger('change');
    
    
+   $('input[name=email]').change(function() {
+       var email= $('input[name=email]').val();
+       var nick = "";
+            $.ajax({
+            type: "GET",
+            url: "/smallWorks/verifyuser",
+            data : {email: email, nick: nick}, 
+            success: function(resp) {
+                if(resp.resp=="true"){
+                document.getElementById("validate-email").style.border="1px solid red";}else{
+                document.getElementById("validate-email").style.border="1px solid #CCCCCC";
+                }
+            }, error: function(fail){
+                console.log("fail: " + fail);
+            }
+        });
+   
+   });
+   
+   
+      $('input[name=nick]').change(function() {
+       var nick= $('input[name=nick]').val();
+       var email = "";
+            $.ajax({
+            type: "GET",
+            url: "/smallWorks/verifyuser",
+            data : {email: email, nick: nick}, 
+            success: function(resp) {
+                if(resp.resp=="true"){
+                document.getElementById("nick-validate").style.border="1px solid red";}else{
+                document.getElementById("nick-validate").style.border="1px solid #CCCCCC";
+                }
+            }, error: function(fail){
+                console.log("fail: " + fail);
+            }
+        });
+   
+   });
+   
 });

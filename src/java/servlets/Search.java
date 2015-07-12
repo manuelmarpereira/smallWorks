@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
 
 /**
  *
@@ -29,14 +30,19 @@ public class Search extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int user = 0;
-        if (req.getParameter("iduser").equals("")) {
+        if (req.getParameter("iduser") == null || req.getParameter("iduser").equals("")) {
             user = 0;
         } else {
             user = Integer.parseInt(req.getParameter("iduser"));
         }
+        ArrayList work = null;
+        String order = req.getParameter("order");
 
-        ArrayList work = mw.getWorks(user, 0, 100, true, req.getParameter("location"), req.getParameter("task"), Integer.parseInt(req.getParameter("order")), req.getParameter("amount_low"), req.getParameter("amount_high"));
-
+        if (req.getParameter("order") != null) {
+            work = mw.getWorks(user, 0, 100, true, req.getParameter("location"), req.getParameter("task"), Integer.parseInt(order), req.getParameter("amount_low"), req.getParameter("amount_high"));
+        } else {
+            work = mw.getWorks(user, 0, 100, true, "%%", "%%", 1, "0", "500");
+        }
         RequestDispatcher reqDispatcher;
         req.setAttribute("works", work);
         req.setAttribute("district", req.getParameter("location"));

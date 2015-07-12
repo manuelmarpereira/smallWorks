@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <label for="nick" class="col-md-3 control-label">Nick</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" required name="nick" placeholder="Nick">
+                                <input type="text" class="form-control" required name="nick" id="nick-validate" placeholder="Nick">
                             </div>
                         </div>
                         <div class="form-group">

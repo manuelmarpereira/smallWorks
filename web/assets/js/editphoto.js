@@ -25,7 +25,9 @@ $('#photo').submit(function (event) {
         },
         success: function (data) {
             $("#overlay").remove();
-            window.location.href = '/smallWorksuser/show.jsp' ;
+            
+            $("#photochange").val(data.resp);
+            document.getElementById("DeleteUserForm").submit();
         },
         error: function (data) {
             console.log("error");

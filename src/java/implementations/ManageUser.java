@@ -138,7 +138,11 @@ public class ManageUser implements ManageUserLocal {
             User u = new User();
             u.setId(listUser.get(0).getId());
             u.setNick(listUser.get(0).getNick());
-            u.setPhoto(listUser.get(0).getPhoto());
+            if (listUser.get(0).getPhoto() != null && listUser.get(0).getPhoto().isEmpty()) {
+                u.setPhoto(null);
+            } else {
+                u.setPhoto(listUser.get(0).getPhoto());
+            }
             u.setEmail(listUser.get(0).getEmail());
             u.setFirstname(listUser.get(0).getFirstname());
             return u;
@@ -168,6 +172,9 @@ public class ManageUser implements ManageUserLocal {
 
         if (listUser.isEmpty()) {
             return null;
+        }
+        if (listUser.get(0).getPhoto() != null && listUser.get(0).getPhoto().isEmpty()) {
+            listUser.get(0).setPhoto(null);
         }
         return listUser.get(0);
     }
@@ -304,11 +311,10 @@ public class ManageUser implements ManageUserLocal {
         est.setIduser(iduser);
         List<Double> l = count(iduser);
         est.setTotalOffersWorker(l.get(0).intValue());
-        est.setWintotalOffersWorker(l.get(1));
-
+        est.setWintotalOffersWorker(ManageWork.round(l.get(1), 2));
         est.setTotalOffersCreator(l.get(2).intValue());
-        est.setWintotalOffersCreator(l.get(3));
-        est.setDiference(l.get(1) - l.get(3));
+        est.setWintotalOffersCreator(ManageWork.round(l.get(3), 2));
+        est.setDiference(ManageWork.round(l.get(1), 2) - ManageWork.round(l.get(3), 2));
         return est;
     }
 
@@ -391,7 +397,7 @@ public class ManageUser implements ManageUserLocal {
             ex.printStackTrace();
         }
         deleteWork(list.get(0));
-        InitWork iw=new InitWork();
+        InitWork iw = new InitWork();
         iw.setId(offer);
         iw.setCoordLat(list.get(0).getCoordLat());
         iw.setCoordLong(list.get(0).getCoordLong());
@@ -403,16 +409,16 @@ public class ManageUser implements ManageUserLocal {
         iw.setStartDate(list.get(0).getStartDate());
         iw.setSubTask(list.get(0).getSubTask());
         iw.setTitle(list.get(0).getTitle());
-        User u=new User();
+        User u = new User();
         u.setId(idworker);
         iw.setWorker(u);
         iw.setInitWork(new java.sql.Date(new Date().getTime()));
         saveInitWork(iw);
         return true;
     }
-    
-    private static void saveInitWork(InitWork iw){
-         PersistentSession entityManager = null;
+
+    private static void saveInitWork(InitWork iw) {
+        PersistentSession entityManager = null;
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
@@ -425,9 +431,9 @@ public class ManageUser implements ManageUserLocal {
             ex.printStackTrace();
         }
     }
-    
-        private static void deleteWork(Work iw){
-         PersistentSession entityManager = null;
+
+    private static void deleteWork(Work iw) {
+        PersistentSession entityManager = null;
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
@@ -439,6 +445,34 @@ public class ManageUser implements ManageUserLocal {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean dadosUserExist(String email, String nick) {
+        PersistentSession entityManager = null;
+        List<User> listUser = null;
+        try {
+            entityManager = TPAAPersistentManager.instance().getSession();
+            entityManager.beginTransaction();
+            Query login = null;
+            if (email.equals("") || email.equals("null")) {
+                login = entityManager.createQuery("from User where nick=:nick");
+                login.setParameter("nick", nick);
+            } else {
+                login = entityManager.createQuery("from User where email=:email");
+                login.setParameter("email", email);
+            }
+            listUser = (List<User>) login.list();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } catch (PersistentException ex) {
+            //tratar excepção se correr mal a meia da transação
+            ex.printStackTrace();
+        }
+        if (listUser.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
 }

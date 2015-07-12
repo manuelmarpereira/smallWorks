@@ -10,7 +10,7 @@ $.ajax({
        $("#namereceive").val(resp.name+resp.lastname);
         $(".names").after(resp.name+resp.lastname);
         $(".district").after(resp.district);
-        if (resp.photo === "null") {
+        if (resp.photo === "null" || resp.photo==="") {
             $(".photo").attr('src', path + '/assets/img/user.jpg');
             
         } else {

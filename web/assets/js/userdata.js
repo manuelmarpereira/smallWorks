@@ -8,7 +8,7 @@ function getUser(path,id){
                 $(".nick").text(resp.nick);
                 $(".names").after(resp.firstname + " " + resp.lastname);
                 $(".district").after(resp.nameDistrict);
-                if(resp.photo === "null"){
+                if(resp.photo === "null" || resp.photo ==""){
                     $(".photo").attr('src', path + '/assets/img/user.jpg');
                     $(".miniphoto").attr('src', path + '/assets/img/user2.jpg');
                 } else {

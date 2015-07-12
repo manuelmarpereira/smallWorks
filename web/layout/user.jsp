@@ -57,7 +57,7 @@
 </div>
 
 <jsp:include page="/user/edit/editNameModel.jsp" />
-
+<jsp:include page="/user/edit/editLocationModel.jsp" />
 <jsp:include page="/user/edit/editAccessModel.jsp" />
 <jsp:include page="/user/edit/editPhotoModel.jsp" />
 <jsp:include page="/user/edit/editEmailModel.jsp" />

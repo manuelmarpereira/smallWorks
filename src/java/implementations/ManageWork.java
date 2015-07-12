@@ -57,12 +57,27 @@ public class ManageWork implements ManageWorkLocal {
 
         if (!work.isEmpty()) {
             for (Work wk : work) {
-                if (!wk.getClass().getName().equals("tp_aa.MakeWork") && !wk.getClass().getName().equals("tp_aa.InitWork") && wk.getCreator().getId()!=userId) {
+                if (wk.getCreator().getPhoto() != null && wk.getCreator().getPhoto().isEmpty()) {
+                    wk.getCreator().setPhoto(null);
+                }
+                if (!wk.getClass().getName().equals("tp_aa.MakeWork") && !wk.getClass().getName().equals("tp_aa.InitWork") && wk.getCreator().getId() != userId) {
+                    wk.setPrice(round(wk.getPrice(), 2));
                     a.add(wk);
                 }
             }
         }
         return a;
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
     private static String query(int order) {
@@ -207,7 +222,7 @@ public class ManageWork implements ManageWorkLocal {
         w.setDescription(list.get(0).getDescription());
         w.setLocalization(list.get(0).getLocalization());
         w.setNegotiable(list.get(0).getNegotiable());
-        w.setPrice(list.get(0).getPrice());
+        w.setPrice( (round(list.get(0).getPrice(), 2)));
         w.setStartDate(list.get(0).getStartDate());
         w.setSubTask(list.get(0).getSubTask());
         w.setTitle(list.get(0).getTitle());

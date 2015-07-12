@@ -8,7 +8,6 @@
         <link href="${pageContext.request.contextPath}/assets/css/slider.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
         <link href="${pageContext.request.contextPath}/assets/css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     </jsp:attribute>
 
     <jsp:attribute name="foot"></jsp:attribute>
@@ -97,6 +96,8 @@
 
 
         </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
         <script src="${pageContext.request.contextPath}/assets/js/slider.js"></script>
 
     </jsp:attribute>
