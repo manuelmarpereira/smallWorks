@@ -25,9 +25,13 @@ $('#photo').submit(function (event) {
         },
         success: function (data) {
             
-            
+           
                        
             $("#overlay").remove();
+            
+            $("#photochange").val(data.resp);
+            document.getElementById("DeleteUserForm").submit();
+
             $('#editPhotoModel').modal('hide');
             $('#alertsuccess').show(0).delay(3000).hide(0);
             
@@ -37,6 +41,7 @@ $('#photo').submit(function (event) {
            
            
      
+
         },
         error: function (data) {
             console.log("error");

@@ -45,7 +45,7 @@ public class EditUserPhotoSvl extends HttpServlet {
             File f = new File(tmp);
             while (!f.exists()) {}
             
-            resp.getWriter().print("{\"resp\": \""+response+"\"}");
+            resp.getWriter().print("{\"resp\": \""+fname+"\"}");
         }
     }
 

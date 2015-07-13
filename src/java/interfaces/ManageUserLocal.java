@@ -29,4 +29,6 @@ public interface ManageUserLocal {
     public boolean updateUserPhoto(int idUser, String path);
     
     public boolean startedToInit(int idworker,int offer); 
+    
+    public boolean dadosUserExist(String email, String nick);
 }

@@ -14,7 +14,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav navbar-right">
                     <c:choose>
                         <c:when test="${sessionScope.user != null}">
 
@@ -65,16 +65,14 @@
                             <div style="margin-top: 15px">
                                  <a class="btn btn-info btn-xs" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp">About</a>
                                 
-                                 <a class="btn btn-info btn-xs" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp/#services">Services</a>
-                                
-                                 <a class="btn btn-info btn-xs" style="margin-right: 15px" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp/#contact">Contact</a>
+
                                                                 
                                 <a type="button" class="btn btn-success btn-xs" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                                 <a  class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/user/registerUser.jsp">Sign up</a>
                             </div>
                         </c:otherwise>
                     </c:choose>
-                </ul>
+                </div>
             </div>
         </div>
     </nav>

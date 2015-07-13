@@ -10,7 +10,15 @@
 
 
 <layout:simple_layout title="Profile" class2="">
-      <jsp:attribute name="session"></jsp:attribute>
+      <jsp:attribute name="session">
+         
+          <c:if test="${not empty param.photochange}">
+              <c:set  target= "${sessionScope.user}"        property = "photo"        value = "${param.photochange}"  />
+             
+              
+              
+          </c:if>
+      </jsp:attribute>
       
     <jsp:attribute name="head"> 
         <link href="${pageContext.request.contextPath}/assets/css/models-edit.css" rel="stylesheet" type="text/css"/>
@@ -18,7 +26,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
         <link rel="stylesheet" href="http://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.css">
     </jsp:attribute>
-    
+      
     <jsp:attribute name="foot">
     </jsp:attribute>
         
