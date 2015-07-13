@@ -29,10 +29,11 @@
                                     <div class="row form-group">
                                         <div class="combo col-md-4">
                                             <input type="hidden" name="idSubtask" value=""/>
-                                            <select class="tasks selectpicker_task btn btn-info" onchange="handleChange(this);"><option value="">-----</option></select>
+                                            <select class="subTasks selectpicker_task btn btn-info" onchange="handleChange(this);"><option value="">-----</option></select>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="comboloc col-md-4">
+                                            <input type="hidden" name="idloc" value=""/>
                                             <select class="locat selectpicker_task btn btn-info"><option value="">-----</option></select>
                                         </div>
 
@@ -48,6 +49,6 @@
             </div>					
             <jsp:include page="/facebook/footer.jsp" />					
         </div>
-        <script type="text/javascript">getTasks();getLocation();</script>
+        <script type="text/javascript">getSubTasks();getLocation();</script>
     </body>
 </html>

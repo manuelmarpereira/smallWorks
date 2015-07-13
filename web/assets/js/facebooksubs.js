@@ -1,21 +1,21 @@
-
-function getTasks(){
+function getSubTasks(){
     $.ajax({
         type: "GET",
-        url: "/smallWorks/taskdata", // ver isto para conseguir comunicar, 
+        url: "/smallWorks/subtaskdata", // ver isto para conseguir comunicar, 
+        data : {id:id}, 
         success: function(resp) {
-//            console.log(resp);
+//                console.log(resp);
+            $('.subTasks').empty();
             for (var i = 0; i < resp.length; i++) {
-                $('.tasks').append($('<option>')
+                $('.subTasks').append($('<option>')
                     .attr("value",resp[i].id)
                     .text(resp[i].name));
             }
         }, error: function(fail){
-            console.log("can't get subtasks");
+            console.log("can't get tasks");
         }
     });
 }
-
 function getLocation(){
     $.ajax({
         type: "GET",
@@ -39,5 +39,12 @@ function handleChange(selectObj) {
     var id = selectObj.options[selectObj.selectedIndex].value;
     if(id>0)
         $('.combo input').val(id);
+        getSubTasks(id);
+}
+
+function handleLocation(selectObj) {
+     var id = selectObj.options[selectObj.selectedIndex].value;
+    if(id>0)
+        $('.comboloc input').val(id);
         getSubTasks(id);
 }
