@@ -7,20 +7,16 @@ $(document).ready(function () {
         var description = $('#descriptionEvent').val();
         var data = $('#dateEvent').val();
         var duration = $('#durationEvent').val();
-        var realdate = moment(data).format("YYYY-MM-DDTHH:mm:ss");
+        var realdate = moment(data).format("YYYY-MM-DDTHH:mm");
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "/smallWorks/aa",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({user: {username: username, password: password, title: title, description: description, date: realdate, duration: duration}}),
-           
-            success: function (data, textStatus, xhr) {
-                if (xhr.status == "201") {
-                    alert("Inserido com sucesso");
-                } else {
-                    alert("erro no servidor externo");
-                }
+            url: "/smallWorks/grouporganizer",
+            
+            data: {usernameEvent: username, passwordEvent: password, titleEvent: title, descriptionEvent: description, dateEvent: realdate, durationEvent: duration},
+            crossDomain: true,
+            success: function (data) {
+               alert(data.resp);
 
             },
             error: function (fail) {

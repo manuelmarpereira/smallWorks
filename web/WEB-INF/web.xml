@@ -180,13 +180,22 @@
         <url-pattern>/facoja</url-pattern>
     </servlet-mapping>
     
-        <servlet>
+    <servlet>
         <servlet-name>VerifyUser</servlet-name>
         <servlet-class>servlets.VerifyUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VerifyUser</servlet-name>
         <url-pattern>/verifyuser</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletGroupOrganizer</servlet-name>
+        <servlet-class>servlets.ServletGroupOrganizer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletGroupOrganizer</servlet-name>
+        <url-pattern>/grouporganizer</url-pattern>
     </servlet-mapping>
     
     <filter>
