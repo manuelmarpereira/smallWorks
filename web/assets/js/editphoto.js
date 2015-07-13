@@ -25,7 +25,7 @@ $('#photo').submit(function (event) {
         },
         success: function (data) {
             
-            
+           
                        
             $("#overlay").remove();
             

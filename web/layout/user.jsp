@@ -49,7 +49,8 @@
             <c:if test="${empty param.id}">
                 <a href="myOffers.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-th-list pull-left"></i>All My Offers</a>
                 <a href="${pageContext.request.contextPath}/offer/new.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary "><i class="glyphicon glyphicon-plus pull-left"></i>Create New Offer</a>
-                <a href="dashboard.jsp" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-stats pull-left"></i>User Stats</a>      
+                <a href="dashboard.jsp" style="width:200px; margin-bottom: 10px"  class="btn btn-primary"><i class="glyphicon glyphicon-stats pull-left"></i>User Stats</a>      
+                <a href="#" data-toggle="modal" data-target="#addEvent" style="width:200px; margin-bottom: 10px" class="btn btn-primary"><i class="glyphicon glyphicon-th-list pull-left"></i>Add Event</a>      
             </c:if>
 
 
@@ -64,6 +65,7 @@
 
 <jsp:include page="/user/edit/editNameModel.jsp" />
 <jsp:include page="/user/edit/editLocationModel.jsp" />
+<jsp:include page="/user/edit/addEvent.jsp" />
 <jsp:include page="/user/edit/editAccessModel.jsp" />
 <jsp:include page="/user/edit/editPhotoModel.jsp" />
 <jsp:include page="/user/edit/editEmailModel.jsp" />

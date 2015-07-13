@@ -10,14 +10,12 @@ import com.google.gson.reflect.TypeToken;
 import interfaces.ManageWebServiceLocal;
 import java.util.ArrayList;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.ws.rs.GET;
-
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-@Stateless
+
 @Path("user")
 public class GetUserService {
     
@@ -42,4 +40,5 @@ public class GetUserService {
         }.getType());
 
     }
+    
 }
