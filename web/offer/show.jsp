@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <hr>
                 <div class="col-md-6  white">
-                    <h3 style="margin-left: 45px;"><a class="control-label" id="nameOffer"> </a><small>Inserido em 14 de Abril</small></h3>
+                    <h3 style="margin-left: 45px;"><a class="control-label" id="nameOffer"> </a><small>Inserted on April 14</small></h3>
                     <div class="col-sm-1"></div>
                     <div class=" panel panel-default blue col-sm-10">
                         <br>
@@ -21,49 +21,43 @@
                             
                         </p>
                     </div>
+                   
                     <div class="col-sm-1"></div>
-                    <br>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-                        <p class="control-label" style=" color:#888">Recompensa:</p>
+                    <div class="col-sm-3">
+                        <p class="control-label pull-right" style=" color:#337ab7">Reward</p>
                     </div>
 
-                    <div class="col-sm-1" style=" color:#888; padding-left: 30px;" id="winOffer">
-                        
-                    </div>
+                    <div class="col-sm-3" style=" color:#888;" id="winOffer"></div>
 
-                    <div class="col-sm-5 pull-left" style="padding-left: 30px;">
+                    <div class="col-sm-4 pull-right" >
                         <input type="checkbox" id="negociavel" disabled>
-                        <label style="color:#888" for="a">Negociável</label>
+                        <label style="color:#337ab7" for="a">Negotiable</label>
                     </div>
-                    <div class="col-sm-2"></div>
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="margin-top: 20px">
+                        <div class="col-xs-2"></div>
                         <div class="col-xs-6 pull-left">
-                            <a href="#" data-toggle="modal" id="interest" class="btn btn-warning" data-target="#Contacto">Entrar em contacto com o utilizador</a>
+                            <a href="#" data-toggle="modal" id="interest" class="btn btn-warning" data-target="#Contacto">Contact the User by Email</a>
                             
                         </div>
-                        <div class="col-xs-6 text-justify">
+                        <div class="col-xs-4 text-justify">
                             <c:if test="${not empty sessionScope.user}">
-                                <a href="#" data-toggle="modal" id="yesoffer" class="btn btn-primary" data-target="#makeOffer">Faço já</a>
-                            
-                              </c:if>
+                                <a href="#" data-toggle="modal" id="yesoffer" class="btn btn-primary" data-target="#makeOffer">Do it now</a>
+                            </c:if>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="map text-center">
                         <iframe id="mapa" src=""
-                                width="400" height="250" frameborder="1"></iframe>
+                                width="500" height="250" frameborder="1"></iframe>
                     </div>
-                    <div class="text-center col-xs-12 white">
-                        <p class="control-label"></p>
-                    </div>
+                  
                 </div>
             </div>
         </div>
-       <jsp:include page="/offer/contactar.jsp" />
-        <jsp:include page="/offer/facoJa.jsp" />
+       <jsp:include page="/offer/contact.jsp" />
+        <jsp:include page="/offer/doitnow.jsp" />
          <script src="${pageContext.request.contextPath}/assets/js/showOffer.js"></script>
          
          <script>
@@ -75,6 +69,6 @@
              $("#idworker").val('<c:out value="${sessionScope.user.id}"/>');
               $("#personemailsend").val('<c:out value="${sessionScope.user.email}"/>');
              });
-                      </script>
+        </script>
     </jsp:attribute>
 </layout:profile_layout> 

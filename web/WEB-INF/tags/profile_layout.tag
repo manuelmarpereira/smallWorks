@@ -15,9 +15,7 @@
         <meta charset="utf-8" content="text/html; charset=utf-8" />
         <title>${title}</title>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/icon.png">
-        
-        <script src='http://code.jquery.com/jquery-1.11.3.js'></script>
-       
+            
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="<%=request.getContextPath()%>/assets/css/custom.css" rel="stylesheet" type="text/css"/>
          <link href="${pageContext.request.contextPath}/assets/css/models-edit.css" rel="stylesheet" type="text/css"/>

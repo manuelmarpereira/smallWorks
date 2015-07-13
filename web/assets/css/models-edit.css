@@ -6,7 +6,7 @@
     position: relative;
     overflow: hidden;
 }
-.form-model input, .form-model textarea {
+.form-model input {
     width: 100%;
     border: 2px solid gray;
     background: none;
@@ -17,18 +17,17 @@
     padding: 8px 12px;
     outline: 0;
 }
-.form-model input:valid, .form-model textarea:valid {
+.form-model input:valid{
     background: white;
 }
-.form-model input:focus, .form-model textarea:focus {
+.form-model input:focus {
     border-color: #357EBD;
 }
-.form-model input:focus + label, .form-model textarea:focus + label {
+.form-model input:focus + label {
     background: #357EBD;
     color: white;
     font-size: 70%;
     padding: 1px 6px;
-    
     text-transform: uppercase;
 }
 .form-model label {
@@ -39,11 +38,11 @@
     padding: 7px 6px;
     font-weight: normal;
 }
-.form-model textarea {
+.form-model input {
     display: block;
     resize: vertical;
 }
-.form-model.go-bottom input, .form-model.go-bottom textarea {
+.form-model.go-bottom input{
     padding: 12px 12px 12px 12px;
 }
 .form-model.go-bottom label {
@@ -52,10 +51,10 @@
     left: 0;
     width: 100%;
 }
-.form-model.go-bottom input:focus, .form-model.go-bottom textarea:focus {
+.form-model.go-bottom input:focus{
     padding: 4px 6px 20px 6px;
 }
-.form-model.go-bottom input:focus + label, .form-model.go-bottom textarea:focus + label {
+.form-model.go-bottom input:focus + label{
     top: 100%;
     margin-top: -16px;
 }
@@ -67,7 +66,7 @@
     width: 100%;
     margin-right: -100%;
 }
-.form-model.go-right input:focus + label, .form-model.go-right textarea:focus + label {
+.form-model.go-right input:focus + label{
     right: 0;
     margin-right: 0;
     width: 40%;
