@@ -42,7 +42,7 @@
                                                         <li><i class="glyphicon glyphicon-map-marker"></i>Braga</li>
                                                     </ul>
                                                     <p class="hidden-xs">Lave a minha casa pago bem
-                                                        ...</p><span class="fnt-smaller fnt-lighter fnt-arial">Manuel Pereira <small class="pull-right">Feedback <jsp:include page="../feedback/stars.jsp" /> (8/10)</small></span>
+                                                        ...</p><span class="fnt-smaller fnt-lighter fnt-arial">Manuel Pereira</span>
                                                 </div>
                                             </div>
                                         </div><!-- End Listing-->

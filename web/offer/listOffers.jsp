@@ -60,7 +60,7 @@
                 max = jsArray.length;
             }
             for (i = min; i < max; i++) {
-
+                
                 $("#content").append(
                         "<div class=\"row\" style=\" margin-bottom: 10px\">" +
                         "<div class=\"col-sm-12\">" +
@@ -71,7 +71,7 @@
                         "<div class=\"media-body fnt-smaller\">" +
                         "<a href=\"#\" target=\"_parent\"></a>" +
                         "<h4 class=\"media-heading\">" +
-                        "<a href=\"/smallWorks/offer/show.jsp?id=" + jsArray[i].id + "\" target=\"_parent\">" + jsArray[i].title + " <i class=\"pull-right\" style=\"color:orange\">" + jsArray[i].price + " €</i></a></h4>" +
+                        "<a href=\"/smallWorks/offer/show.jsp?id=" + jsArray[i].id + "\" target=\"_parent\">" + jsArray[i].title + " <i class=\"pull-right\" style=\"color:#337ab7\">" + jsArray[i].price + " €</i></a></h4>" +
                         "<ul class=\"list-inline mrg-0 clr-535353\">" +
                         "<li>Inserido em: " + jsArray[i].dateStart + "</li>" +
                         "<li><i class=\"glyphicon glyphicon-map-marker\" ></i>" + jsArray[i].location + "</li>" +

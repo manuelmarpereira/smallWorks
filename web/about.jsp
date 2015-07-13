@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x "></i>
-                    <p><a href="mailto:simplelawyeruminho@gmail.com">simplelawyeruminho@gmail.com</a></p>
+                    <p><a href="mailto:smallworks@gmail.com">smallworks@gmail.com</a></p>
                 </div>
             </div>
         </div>

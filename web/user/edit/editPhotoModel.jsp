@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <form id="photo" > 
     <div class="modal fade" id="editPhotoModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -23,7 +24,14 @@
                     
                     <div class="text-center">
                         <input type="hidden" name="id" value="${sessionScope.user.id}"/>
-                        <img src="${pageContext.request.contextPath}/assets/img/user.jpg" alt="" class="avatar img-circle" />
+                        <c:choose>
+                            <c:when test="${sessionScope.user.photo == null}">
+                                <img src="${pageContext.request.contextPath}/assets/img/user.jpg" alt="" class="avatar img-circle" />
+                            </c:when>
+                            <c:otherwise>
+                                <img src="${pageContext.request.contextPath}/assets/img/users/${sessionScope.user.photo}" alt="Profile photo" class="avatar img-circle" />
+                            </c:otherwise>
+                        </c:choose>
 
                         <h6>Carregar Foto</h6>
                         <input class="inpimg form-control" type="file" name="imagefile" accept="image/png" required onchange="setImg(this);">
