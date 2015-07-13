@@ -35,25 +35,24 @@
                                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="form-group">
                             <label for="password" class="col-md-3 control-label" >Password</label>
                             <div class="col-md-9">
                                 <input type="password" class="form-control" required name="password" id="password" autocomplete="off" placeholder="Password">
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-5">
-                                <span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Characters<br>
-                                <span id="ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Uppercase
+                                <span id="8char" class="glyphicon glyphicon-info-sign" style="  color: rgb(51, 122, 183);"></span> 8 Characters<br>
+                                <span id="ucase" class="glyphicon glyphicon-info-sign" style="  color: rgb(51, 122, 183);"></span> Uppercase
                             </div>
                             <div class="col-sm-4">
-                                <span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Lowercase<br>
-
-                                <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Number
-
+                                <span id="lcase" class="glyphicon glyphicon-info-sign" style=" color: rgb(51, 122, 183);"></span> Lowercase<br>
+                                <span id="num" class="glyphicon glyphicon-info-sign" style="  color: rgb(51, 122, 183);"></span> Number
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 20px;">
@@ -69,7 +68,7 @@
                                 <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
                             </div>
                             <div class="col-md-3">
-                                <input id="btn-signup" class="btn btn-info pull-right"  type="submit" value="Register" name="Registebtn"/> 
+                                <input id="btn-signup" class="btn btn-primary pull-right"  type="submit" value="Register" name="Registebtn"/> 
                             </div>
                         </div>
                     </div>                  
@@ -82,23 +81,24 @@
                                     <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
                                 </div>
                                 <div class="col-md-2">
-                                 <div class="po-markup">
-        <a class="po-help btn btn-info" data-original-title="" title="">?</a>
-        
 
-        <div class="po-content hidden">
-          <div class="po-title">
-            Location (Help)
-            </div> <!-- ./po-title -->
-            
-            <div class="po-body">
-              <p>
-                  maaaaap
-              </p>
-              
-              </div><!-- ./po-body -->
-              </div>  <!-- ./po-content -->
-              </div>
+                                    <div class="po-markup">
+                                        <a class="po-help btn btn-warning btn-sm" data-original-title="" title="">?</a>
+
+                                        <div class="po-content hidden">
+                                            <div class="po-title">
+                                                Location (Help)
+                                            </div> 
+
+                                            <div class="po-body">
+                                                <p>
+                                                 You can insert your offer location and use the map marker to drag and 
+                                                 select any location with precision
+                                                </p>
+                                            </div>
+                                        </div> 
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -112,6 +112,9 @@
 </form>
 
 <script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
+
+<script src="${pageContext.request.contextPath}/assets/js/help.js"></script>
+
 
 <script>$(document).ready(function() {
 

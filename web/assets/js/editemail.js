@@ -7,14 +7,17 @@ $(document).ready(function(){
             data: $(this).serialize(),
             processData: false,
             success: function (da) {
-                console.log(); // string true
-                //                if (da.resp === 'false')
-                window.location.href = '/smallWorks/user/show.jsp';
-                //                else
-                //                    window.location.href = '${pageContext.request.contextPath}' + da.resp;
+                 
+              $('#editEmailModel').modal('hide');
+              $('#alertsuccess').show(0).delay(5000).hide(0);
+              
+              setTimeout(function(){
+                   window.location.href = '/smallWorks/user/show.jsp' ;
+             }, 3000);
             },
             error: function (fail) {
                 console.log("unssuccess email");
+                 document.getElementById("alerterroremail").style.display = "inline"; 
             }
         });
     });

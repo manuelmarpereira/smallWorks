@@ -12,7 +12,7 @@
             <br/>
             <fieldset>
     <legend>Realized Offers</legend>
-           <div class="col-lg-6 col-md-2 marginTopStats">
+           <div class="col-lg-6 col-md-2">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -21,15 +21,15 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMakeOffer"></b></h3>
-							<div>Total Offers</div>
+							<div>Offers</div>
 						</div>
 					</div>
 				</div>
 			
 			</div>
 		</div>
-                <div class="col-lg-6 col-md-2 marginTopStats">
-			<div class="panel panel-primary">
+                <div class="col-lg-6 col-md-2 ">
+			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
@@ -37,7 +37,7 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMakeCash"></b></h3>
-							<div>Total Cash</div>
+							<div>Total Win</div>
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
             <br/>
             <fieldset>
     <legend>My Published Offers</legend>
-		<div class="col-lg-6 col-md-2 marginTopStats">
+		<div class="col-lg-6 col-md-2 ">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -60,15 +60,15 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMyOffer"></b></h3>
-							<div>Total Offers</div>
+							<div> Offers</div>
 						</div>
 					</div>
 				</div>
 			
 			</div>
 		</div>
-                <div class="col-lg-6 col-md-2 marginTopStats">
-			<div class="panel panel-primary">
+                <div class="col-lg-6 col-md-2 ">
+			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
@@ -76,7 +76,7 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMyCash"></b></h3>
-							<div>Total Cash</div>
+							<div>Total Paid</div>
 						</div>
 					</div>
 				</div>
@@ -87,9 +87,13 @@
                
 
        </fieldset>
+            
+                 <div class="col-lg-12 border-text" style="background-color: #abaeab ;color: #FFFFFF;"><center><b id="diference">Total Cash: </b></center></div>
+        
     </div>
-        <div class="col-lg-12 col-md-4 " style="background-color: #337AB7 ;color: #FFFFFF;"><center><b id="diference">My Money: </b></center></div>
-        </div>
+        
+        
+       </div>
                
             
                <script>var id ='<c:out value="${sessionScope.user.id}"/>'</script>

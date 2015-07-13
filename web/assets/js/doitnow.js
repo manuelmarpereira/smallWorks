@@ -1,20 +1,18 @@
 $("#facojacontacto").submit(function (e) {
-    
+
     $('#btnmakeoffer').attr("disabled", true);
- e.preventDefault();
- $.ajax({
-        
+    e.preventDefault();
+    $.ajax({
         type: "GET",
         url: "/smallWorks/facoja",
-       data: $(this).serialize(),
-        processData: false,       
+        data: $(this).serialize(),
+        processData: false,
         success: function (da) {
             $('#makeOffer').modal('hide');
             $('#btnmakeoffer').removeAttr('disabled');
             console.log("success facoja");
-            window.location.href = 'localhost:8080/smallWorks/index.jsp'; 
-          
-            
+            window.location.href = 'localhost:8080/smallWorks/index.jsp';
+
         },
         error: function (data) {
             $('#makeOffer').modal('hide');
@@ -22,5 +20,5 @@ $("#facojacontacto").submit(function (e) {
             console.log("unssuccess email");
         }
     });
-    
- });
+
+});

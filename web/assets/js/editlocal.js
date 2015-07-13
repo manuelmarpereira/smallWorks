@@ -7,11 +7,18 @@ window.onload = function () {
             data: $(this).serialize(),
             processData: false,
             success: function (da) {
+                
                 if (da.resp === 'true')
-                    window.location.href = '/smallWorks/user/show.jsp';
+                    $('#editLocationModel').modal('hide');
+                    $('#alertsuccess').show(0).delay(5000).hide(0);   
+                    
+                    setTimeout(function(){
+                          window.location.href = '/smallWorks/user/show.jsp' ;
+                    }, 3000);
             },
             error: function (fail) {
                 console.log("unssuccess district");
+                document.getElementById("alerterrorlocation").style.display = "inline";  
             }
         });
     });

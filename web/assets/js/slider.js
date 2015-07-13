@@ -1,4 +1,4 @@
- function addCommas(nStr)
+function addCommas(nStr)
 {
     nStr += '';
     x = nStr.split('.');
