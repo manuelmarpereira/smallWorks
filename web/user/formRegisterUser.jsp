@@ -81,6 +81,7 @@
                                     <input type="text" id="txtEndereco" class="form-control" required name="txtEndereco" placeholder="Location Adress" />
                                 </div>
                                 <div class="col-md-2">
+
                                     <div class="po-markup">
                                         <a class="po-help btn btn-warning btn-sm" data-original-title="" title="">?</a>
 
@@ -97,6 +98,7 @@
                                             </div>
                                         </div> 
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -110,4 +112,26 @@
 </form>
 
 <script src='${pageContext.request.contextPath}/assets/js/validations-user.js'></script>
+
 <script src="${pageContext.request.contextPath}/assets/js/help.js"></script>
+
+
+<script>$(document).ready(function() {
+
+  $('.po-markup > .po-help').popover({
+    trigger: 'hover',
+    html: true,  // mu st have if HTML is contained in popover
+
+    // get the title and conent
+    title: function() {
+      return $(this).parent().find('.po-title').html();
+    },
+    content: function() {
+      return $(this).parent().find('.po-body').html();
+    },
+
+    container: 'body',
+    placement: 'bottom'
+  });
+
+});</script>

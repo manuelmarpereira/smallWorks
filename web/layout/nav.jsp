@@ -18,6 +18,7 @@
                     <c:choose>
                         <c:when test="${sessionScope.user != null}">
 
+
                             <li class="dropdown" style="padding-top: 5px;">
                                 <a href="${pageContext.request.contextPath}/index.jsp" > Search&nbsp;&nbsp;<span class="glyphicon glyphicon-search "></span></a>                            
                             </li> 
@@ -58,6 +59,7 @@
                                     <li><a   href="${pageContext.request.contextPath}/login/logout.jsp">Sign Out <span class=" glyphicon glyphicon-log-out pull-right"></span></a></li>
                                 </ul>
                             </li>
+
                         </c:when>
                         <c:otherwise>
                             <div style="margin-top: 15px">
