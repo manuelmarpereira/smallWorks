@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 import tp_aa.InitWork;
 import tp_aa.MakeWork;
+import tp_aa.User;
 import tp_aa.Work;
 
 @Local
@@ -28,7 +29,7 @@ public interface ManageWorkLocal {
 
     public List<Work> getWorksbyuserCreator(List<InitWork> init, List<MakeWork> make, int iduser);
 
-    public void registWork(Work o);
+    public void registWork(Work o, List<User> obs);
 
     public Work getWork(int id);
 

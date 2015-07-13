@@ -11,6 +11,7 @@ import org.orm.PersistentSession;
 import tp_aa.InitWork;
 import tp_aa.MakeWork;
 import tp_aa.TPAAPersistentManager;
+import tp_aa.User;
 import tp_aa.Work;
 
 @Stateless
@@ -18,7 +19,6 @@ import tp_aa.Work;
 public class ManageWork implements ManageWorkLocal {
 
     @Override
-
     public ArrayList<Work> getWorks(int userId, int min, int max, boolean active, String district, String tasks, int order, String amount_low, String amount_high) {
 
         if (district.equals("") || district == null) {
@@ -82,7 +82,7 @@ public class ManageWork implements ManageWorkLocal {
     }
 
     @Override
-    public void registWork(Work o) {
+    public void registWork(Work o, List<User> obs) {
 
         PersistentSession entityManager = null;
         try {
@@ -91,7 +91,14 @@ public class ManageWork implements ManageWorkLocal {
             entityManager.save(o);
             entityManager.getTransaction().commit();
             entityManager.close();
-
+            // send notifications if possible
+            if(obs != null) {
+                for (User ele : obs) {
+                    o.addObserver(ele);
+                }
+                // notify users
+                o.notifyObservers();
+            }
         } catch (PersistentException ex) {
             //tratar excepção se correr mal a meia da transação
             ex.printStackTrace();
