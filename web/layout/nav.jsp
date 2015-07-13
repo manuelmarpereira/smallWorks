@@ -60,9 +60,13 @@
                             </li>
                         </c:when>
                         <c:otherwise>
-                            <div style="margin-top: 15px"
-                                 <li><a class="btn btn-info btn-xs" style="margin-right: 15px" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp">About</a>
-                                </li>
+                            <div style="margin-top: 15px">
+                                 <a class="btn btn-info btn-xs" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp">About</a>
+                                
+                                 <a class="btn btn-info btn-xs" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp/#services">Services</a>
+                                
+                                 <a class="btn btn-info btn-xs" style="margin-right: 15px" type="button"  href="${pageContext.request.contextPath}/smallworks.jsp/#contact">Contact</a>
+                                                                
                                 <a type="button" class="btn btn-success btn-xs" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                                 <a  class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/user/registerUser.jsp">Sign up</a>
                             </div>

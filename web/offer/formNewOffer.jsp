@@ -64,7 +64,7 @@
                             <p class="col-md-4"><select class="tasks selectpicker_task btn btn-info" style="width:100%;" onchange="handleChange(this)" required ><option value="">-----</option></select></p>
                             
                             <label class="control-label col-sm-1">Task</label>
-                            <p class="col-md-4"><select class="subTasksselectpicker_task btn btn-info" style="width:100%;" required><option value="">-----</option></select></p>
+                            <p class="col-md-4"><select class="subTasks selectpicker_task btn btn-info" style="width:100%;" required><option value="">-----</option></select></p>
                         </div>
                         
                         <div class="row col-md-12">
@@ -114,3 +114,25 @@
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/assets/js/help.js"></script>
+
+
+<script>
+    $(document).on('click', '.number-spinner a', function () {
+        var btn = $(this),
+                oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+                newVal = 0;
+        if (btn.attr('data-dir') === 'up') {
+            newVal = parseInt(oldValue) + 1;
+        } else {
+            if (oldValue > 1) {
+                newVal = parseInt(oldValue) - 1;
+            } else {
+                newVal = 1;
+            }
+        }
+        btn.closest('.number-spinner').find('input').val(newVal);
+    });
+    
+    getTasks();
+    
+</script>
