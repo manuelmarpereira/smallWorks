@@ -26,6 +26,10 @@
                                 <a href="${pageContext.request.contextPath}/offer/new.jsp">New Offer&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></a>
                             </li>
                             
+                            <li style="padding-top: 5px;">
+                                <a href="${pageContext.request.contextPath}/facebook/index.jsp">Subscription&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open" ></span></a>
+                            </li>
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                                     <c:choose>

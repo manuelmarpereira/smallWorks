@@ -29,7 +29,7 @@
                                 <form action="#" role="form">
                                     <div class="row form-group">
                                         <div class="col-md-4">
-                                                <select class="selectpicker_task btn btn-info">
+                                            <select class="selectpicker_task btn btn-info">
                                                   <option>Task Category</option>
                                                   <option>Home</option>
                                                   <option>Baby's</option>
