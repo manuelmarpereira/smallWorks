@@ -11,6 +11,7 @@
  */
 package tp_aa;
 
+import facebookAPI.Notification;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -192,9 +193,11 @@ public class User implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        /**
-         * é para fazer
-         */
+        System.out.println("object received: " + arg.toString());
+//        System.out.println("Recebi uma notificação: " + ((Work)arg).getTitle() );
+//        System.out.println("Recebi uma notificação: " + ((Work)arg).getSubTask().getName() );
+        // facebookAPI to notify user
+        //Notification.sendNotification(this.facebookid); // alterar o faceookid para string por causa do tamanho do valor do id
     }
 
 }

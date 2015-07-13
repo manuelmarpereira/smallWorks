@@ -1,17 +1,20 @@
 package servlets;
 
 import interfaces.ManageSubTaskLocal;
+import interfaces.ManageSubscriptionLocal;
 import interfaces.ManageUserLocal;
 import interfaces.ManageWorkLocal;
 import tp_aa.Work;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tp_aa.User;
 
 public class NewOffer extends HttpServlet{
     
@@ -20,8 +23,9 @@ public class NewOffer extends HttpServlet{
     @EJB
     private ManageSubTaskLocal mt;
     @EJB
-
     private  ManageWorkLocal mo;
+    @EJB
+    private ManageSubscriptionLocal ms;
 
     
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -67,9 +71,11 @@ public class NewOffer extends HttpServlet{
             
             w.setCoordLat(clan);
             w.setCoordLong(clon);
-            w.setStartDate(new java.sql.Date(new Date().getTime())); // timestamp
+            w.setStartDate(new java.sql.Date(new Date().getTime())); // timestamp      
             
-            mo.registWork(w);
+            List<User> lu = ms.getUsersSubscriptions(w.getSubTask().getId(), w.getLocalization().getId());
+            
+            mo.registWork(w, lu);
 
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/myOffers.jsp");
         } else {

@@ -70,7 +70,7 @@ public class ManageFeedback implements ManageFeedbackLocal{
             ex.printStackTrace();
         }
         deleteWork(list.get(0));
-saveMakeWork(list,idoffer,fb);
+        saveMakeWork(list,idoffer,fb);
     }
     
     private static void deleteWork(Work m){
