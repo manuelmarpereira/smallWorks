@@ -80,7 +80,7 @@ public class NewOffer extends HttpServlet{
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/user/myOffers.jsp");
         } else {
             reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/offer/new.jsp");
-
+            
         }
         reqDispatcher.forward(req, resp);
     }

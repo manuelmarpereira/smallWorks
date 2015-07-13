@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="../assets/js/userdata.js"></script>
 
-<div class="marginSide" style="margin-top:80px;"> 
+<div class="marginSide"> 
+    <br/>
     <h2>New Offer <small>Publish your new offer</small></h2>
     <hr>
     <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alertsuccessnewoffer">

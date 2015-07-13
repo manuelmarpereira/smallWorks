@@ -18,24 +18,14 @@
                     <c:choose>
                         <c:when test="${sessionScope.user != null}">
 
-
                             <li class="dropdown" style="padding-top: 5px;">
                                 <a href="${pageContext.request.contextPath}/index.jsp" > Search&nbsp;&nbsp;<span class="glyphicon glyphicon-search "></span></a>                            
                             </li> 
 
-                            <li class="dropdown" style="padding-top: 5px;">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Offers</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="${pageContext.request.contextPath}/offer/new.jsp">New Offer<span class="glyphicon glyphicon-plus pull-right" ></span>  </a></li>
-                                    <li class="divider"></li> 
-
-
-                                    <li><a   href="${pageContext.request.contextPath}/user/myOffers.jsp">List My Offers <span class=" glyphicon glyphicon-th-list pull-right"></span></a></li>
-                                </ul>
-                            </li>   
-
-
-
+                            <li style="padding-top: 5px;">
+                                <a href="${pageContext.request.contextPath}/offer/new.jsp">New Offer&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></a>
+                            </li>
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                                     <c:choose>
@@ -54,7 +44,7 @@
                                     <li class="divider"></li> 
                                     <li><a href="${pageContext.request.contextPath}/user/dashboard.jsp">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/user/myOffers.jsp">My offers<span class="glyphicon glyphicon-th-list pull-right"></span></a></li>
                                     <li class="divider"></li>
                                     <li><a   href="${pageContext.request.contextPath}/login/logout.jsp">Sign Out <span class=" glyphicon glyphicon-log-out pull-right"></span></a></li>
                                 </ul>

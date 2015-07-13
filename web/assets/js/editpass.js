@@ -9,10 +9,10 @@ $("#editpass").submit(function (e) {
             console.log(); // string true
          
               $('#editAccessModel').modal('hide');
-              $('#alertsuccess').show(0).delay(3000).hide(0);   
+              $('#alertsuccess').show(0).delay(1000).hide(0);   
                setTimeout(function(){
                   window.location.href = '/smallWorks/user/show.jsp' ;
-            }, 3000);
+            }, 1000);
             
         },
         error: function (data) {

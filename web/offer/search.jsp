@@ -2,7 +2,7 @@
 
 <%@taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<layout:simple_layout title="Search Offers" class2="">
+<layout:simple_layout title="Search Offers" class2="bodyBackground">
     <jsp:attribute name="head"> 
         <link href="${pageContext.request.contextPath}/assets/css/showTask.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/slider.css" rel="stylesheet" type="text/css"/>
@@ -14,12 +14,11 @@
     <jsp:attribute name="foot"></jsp:attribute>
     <jsp:attribute name="container">
 
-       
-        <div class="container-fluid container-background">
+        <div class="container-fluid container-background" style=" margin-left: 15%; margin-right: 15%; border-style: solid; border-top-style: none; border-left-color: #337ab7; border-right-color: #337ab7; border-bottom-color: #337ab7;">
             <form role="form" id="formsub" name="formreg" action="index" method="POST">
                 <div class="container-pad" id="property-listings">
                      <h2>Search <small> customize your small works search</small></h2>
-                    <hr>
+                     <hr style="border-style: solid; border-width: 1px; border-color: white;">
                     <div class="row col-md-12">
                         <div class="col-md-5">
                             <div class="form-group has-feedback has-feedback-left">
@@ -89,13 +88,13 @@
                 <input type="text"  value="${sessionScope.user.id}"  name="iduser" id="iduser"  style="visibility:hidden" />
         
             </form>
+            
         </div>
-                <hr>
-                <jsp:include page="/offer/listOffers.jsp" />   
-                       
-      
-                  
-
+        <div style="background-color: #ffffff; margin: opx; padding: 0px; margin-left: 16%; margin-right: 16%; border-right-style: solid; border-left-style: solid; border-left-color: #5bc0de; border-right-color: #5bc0de;">  
+        <br/>
+        
+            <jsp:include page="/offer/listOffers.jsp" />   
+        </div>
         <script>
 
             $(document).ready(function () {

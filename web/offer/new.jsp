@@ -5,22 +5,14 @@
 <layout:simple_layout title="smallWorks" class2="bodyBackground">
 
     <jsp:attribute name="session"></jsp:attribute>
-    <jsp:attribute name="head">
-                  
-        <style type="text/css">
-            
-        html .bodyBackground{
-            background: none;
-            background-color: white !important;
-            
-        }
-            
-        </style>
-    </jsp:attribute>
+    <jsp:attribute name="head"></jsp:attribute>
     <jsp:attribute name="foot"></jsp:attribute>
+    
     <jsp:attribute name="container">
-        
-        <jsp:include page="formNewOffer.jsp" />
+        <div style="background-color: white; border-style: solid; border-color: #03a1d1; margin-top: 6%; margin-right: 15%; margin-left: 15%;">
+            <jsp:include page="formNewOffer.jsp" />
+            <br/>
+        </div>
         
     </jsp:attribute>
 </layout:simple_layout>
