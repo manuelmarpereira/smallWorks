@@ -70,9 +70,9 @@
                                         </div> 
                                     </div>
                         </div>
-                        <div class=" col-md-4" style=" margin-bottom:  5px;" >                             
-                            <div class=" col-md-2" ></div>
-                            <div class=" col-md-6" >
+                        <div class=" col-md-4" >                             
+                           
+                            <div class=" col-md-8" >
                             <label class=" pull-right control-label " >Order by: </label>
                              </div>
                               <div class=" col-md-4 " >
