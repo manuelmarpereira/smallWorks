@@ -57,7 +57,7 @@
             </div>
         </div>
        <jsp:include page="/offer/contact.jsp" />
-        <jsp:include page="/offer/doitnow.jsp" />
+        <jsp:include page="/offer/facoja.jsp" />
          <script src="${pageContext.request.contextPath}/assets/js/showOffer.js"></script>
          
          <script>

@@ -30,6 +30,7 @@ public class ShowOfferSVL extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json;charset=UTF-8");
+        System.out.println("aifa: "+req.getParameter("id"));
         Work work = mw.getWork(Integer.parseInt(req.getParameter("id")));
         if (work.getClass().getName().equals("tp_aa.Work")){
         double feedback = 0;

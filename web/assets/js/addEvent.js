@@ -17,6 +17,7 @@ $(document).ready(function () {
             crossDomain: true,
             success: function (data) {
                alert(data.resp);
+               $('#addEvent').modal('hide');
 
             },
             error: function (fail) {

@@ -13,6 +13,7 @@
  */
 package tp_aa;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 public class Work extends Observable {
@@ -147,6 +148,14 @@ public class Work extends Observable {
 		return String.valueOf(getId());
 	}
         
+       
+        
+        public void notifyObservers(ArrayList<User> a){
+            for (User u: a){
+                System.out.println("teste");
+                u.update(this, u);
+            }
+        }
        
 	
 }
