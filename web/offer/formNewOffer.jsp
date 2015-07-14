@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="../assets/js/userdata.js"></script>
 
-<div class="marginSide"> 
+<div style="margin-left: 10px; margin-right: 10px;"> 
     <br/>
     <h2>New Offer <small>Publish your new offer</small></h2>
     <hr>
