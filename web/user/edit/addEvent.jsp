@@ -4,13 +4,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Edit Password</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Event</h4>
                 </div>
                 <div class="modal-body">
 
                     <div class="alert alert-danger alert-dismissible col-md-12" role="alert" style="display:none; margin-bottom: 10px" id="alerterrorpass">
                         <button type="button"  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Ops!</strong> An error occurred while trying to change your Password . Please try Again.
+                      
                     </div>
 
                     <div class="row">

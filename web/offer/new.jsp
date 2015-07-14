@@ -9,7 +9,7 @@
     <jsp:attribute name="foot"></jsp:attribute>
     
     <jsp:attribute name="container">
-        <div style="background-color: white; border-style: solid; border-color: #03a1d1; margin-top: 6%; margin-right: 15%; margin-left: 15%;">
+        <div style="background-color: white; border-style: solid; border-color: #03a1d1; margin-top: 6%; margin-right: 7%; margin-left: 7%;">
             <jsp:include page="formNewOffer.jsp" />
             <br/>
         </div>
