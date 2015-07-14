@@ -42,7 +42,7 @@ public class EmailContact extends HttpServlet {
         String mensagem = req.getParameter("description");
         String nomesend = req.getParameter("nomesend");
 String title = req.getParameter("titleoffers");
-        SendGrid sendgrid = new SendGrid("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");
+        SendGrid sendgrid = new SendGrid("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");
         Email email = new Email();
         email.addTo(emailreceive);
         email.addToName("");

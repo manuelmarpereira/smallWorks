@@ -24,7 +24,7 @@ public class Notification {
  
  
 	// HTTP POST request
-	private void sendPost(String user_id) throws Exception {
+	public void sendPost(String user_id) throws Exception {
  
 		String url = "https://graph.facebook.com/" +user_id + "/notifications";
 		URL obj = new URL(url);
@@ -35,7 +35,7 @@ public class Notification {
 		con.setRequestProperty("User-Agent", USER_AGENT);
 		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
  
-		String urlParameters = "access_token=1114327151917364|9c1e43dc14f84ca71dd79f9d060f471c&template=New offer for you my friend";
+		String urlParameters = "access_token=1114327151917364|9c1e43dc14f84ca71dd79f9d060f471c&template=New offer for you";
                         
               
 		// Send post request
@@ -62,7 +62,7 @@ public class Notification {
  
 		//print result
 		System.out.println(response.toString());
-                sendNotification("1138806552801875");
+                
  
 	}
          

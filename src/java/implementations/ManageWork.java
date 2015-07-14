@@ -115,7 +115,7 @@ public class ManageWork implements ManageWorkLocal {
                 System.out.println("chegou");
                 
                 // notify users
-                o.notifyObservers();
+                o.notifyObservers(obs);
             }
         } catch (PersistentException ex) {
             //tratar excepção se correr mal a meia da transação

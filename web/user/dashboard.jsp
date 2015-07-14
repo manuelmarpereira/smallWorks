@@ -17,7 +17,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
-							<i class="fa fa-thumb-tack fa-5x"></i>
+							<i class="fa fa-thumb-tack fa-2x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMakeOffer"></b></h3>
@@ -33,7 +33,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
-							<i class="fa fa-money fa-5x"></i>
+							<i class="fa fa-money fa-2x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMakeCash"></b></h3>
@@ -56,7 +56,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
-							<i class="fa fa-thumb-tack fa-5x"></i>
+							<i class="fa fa-thumb-tack fa-2x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMyOffer"></b></h3>
@@ -72,7 +72,7 @@
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
-							<i class="fa fa-money fa-5x"></i>
+							<i class="fa fa-money fa-2x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
 							<h3><b id="totMyCash"></b></h3>

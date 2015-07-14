@@ -40,7 +40,7 @@ public class FacoJa extends HttpServlet {
         String namereceive= req.getParameter("namer");
         String emailsend =req.getParameter("personemailsend");
         String namesend =req.getParameter("namesend");
-        SendGrid sendgrid = new SendGrid("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");
+        SendGrid sendgrid = new SendGrid("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");
         SendGrid.Email email = new SendGrid.Email();
         email.addTo(emailreceive);
         email.addToName(namereceive);
@@ -52,7 +52,7 @@ public class FacoJa extends HttpServlet {
         } catch (SendGridException ex) {
             Logger.getLogger(EmailContact.class.getName()).log(Level.SEVERE, null, ex);
         }
-          resp.getWriter().print("");
+          resp.getWriter().print("{\"resp\":\"true\"}");
     }
 
     @Override
