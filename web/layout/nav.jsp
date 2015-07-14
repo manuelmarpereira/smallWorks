@@ -27,7 +27,7 @@
                             </li>
                             
                             <li style="padding-top: 5px;">
-                                <a href="${pageContext.request.contextPath}/facebook/index.jsp">Subscription&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open" ></span></a>
+                                <a href="${pageContext.request.contextPath}/facebook/index.jsp?id=${sessionScope.user.id}">Subscription&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open" ></span></a>
                             </li>
                             
                             <li class="dropdown">

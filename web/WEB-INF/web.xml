@@ -141,7 +141,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Feedback</servlet-name>
-        <url-pattern>/user/feedback</url-pattern>
+        <url-pattern>/offer/feedback</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -196,6 +196,24 @@
     <servlet-mapping>
         <servlet-name>ServletGroupOrganizer</servlet-name>
         <url-pattern>/grouporganizer</url-pattern>
+    </servlet-mapping>
+    
+       <servlet>
+        <servlet-name>District</servlet-name>
+        <servlet-class>servlets.DistrictSVL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>District</servlet-name>
+        <url-pattern>/district</url-pattern>
+    </servlet-mapping>
+    
+           <servlet>
+        <servlet-name>Subscription</servlet-name>
+        <servlet-class>servlets.SubscriptionSVL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Subscription</servlet-name>
+        <url-pattern>/subscription</url-pattern>
     </servlet-mapping>
     
     <filter>

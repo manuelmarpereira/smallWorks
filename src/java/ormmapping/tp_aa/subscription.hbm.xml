@@ -10,11 +10,11 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="user" cascade="lock" column="UserID" class="tp_aa.User" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="user" cascade="lock" column="UserID" class="tp_aa.User" not-null="false" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="subsTask" cascade="lock" column="SubTaskID" class="tp_aa.SubTask" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subsTask" cascade="lock" column="SubTaskID" class="tp_aa.SubTask" not-null="false" lazy="proxy" access="field">
 		</many-to-one>
-		<many-to-one name="subsDistrict" cascade="lock" column="DistrictID" class="tp_aa.District" not-null="true" lazy="proxy" access="field">
+		<many-to-one name="subsDistrict" cascade="lock" column="DistrictID" class="tp_aa.District" not-null="false" lazy="proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

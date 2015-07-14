@@ -53,7 +53,8 @@
                     </div>   
                 </div>
             <jsp:include page="/facebook/footer.jsp" />
-           </div>                  
+           </div> 
+           </div>
     </body>
 </html>
 
