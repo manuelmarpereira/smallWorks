@@ -18,11 +18,14 @@ public class SubTaskSvlData extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         resp.setContentType("application/json;charset=UTF-8");
-        
+        Integer id =null;
+        List<SubTask> u = null;
         String ids = req.getParameter("id");
-        if(ids != null) {
-            Integer id = Utils.Utils.validateInts(ids);
-            List<SubTask> u = null;
+        
+        if(ids != null ) {
+             id = Utils.Utils.validateInts(ids);
+           
+            
             if(id != null) {
                 u = mt.getSubTasks(id);
                 if( u!= null) {
@@ -38,6 +41,20 @@ public class SubTaskSvlData extends HttpServlet {
                     resp.getWriter().print(json);
                 }
             }
+        }else{
+        u = mt.getSubTasks(0);
+                if( u!= null) {
+                    String json = "[";
+                    for (int i=0; i<u.size(); i++) {
+                        if(i != u.size()-1) {
+                            json = json + buildJson(u.get(i))+ ",";
+                        } else {
+                            json = json + buildJson(u.get(i));
+                        }
+                    }
+                    json = json + "]";
+                    resp.getWriter().print(json);
+                }
         }
     }
     

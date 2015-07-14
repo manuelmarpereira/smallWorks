@@ -51,8 +51,12 @@ public class ManageSubTask implements ManageSubTaskLocal {
         try {
             entityManager = TPAAPersistentManager.instance().getSession();
             entityManager.beginTransaction();
-            Query task = entityManager.createQuery("from SubTask where taskid=:id");
-            task.setParameter("id", idTask);
+             Query task = null;
+            if(idTask==0){
+            task = entityManager.createQuery("from SubTask ");
+            }else{
+             task = entityManager.createQuery("from SubTask where taskid=:id");
+            task.setParameter("id", idTask);}
             
             listTask = (List<SubTask>) task.list();
             entityManager.getTransaction().commit();

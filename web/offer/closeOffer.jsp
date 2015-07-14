@@ -1,5 +1,5 @@
 <link href="${pageContext.request.contextPath}/assets/css/feedback-stars.css" rel="stylesheet" type="text/css"/> 
-<form role="form" name="" action="feedback" method="POST"> 
+<form role="form" name="" action="${pageContext.request.contextPath}/offer/feedback" method="POST"> 
     <div class="modal fade" id="FinishModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

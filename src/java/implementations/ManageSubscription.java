@@ -22,16 +22,34 @@ import tp_aa.subscription;
 public class ManageSubscription implements ManageSubscriptionLocal {
 
     @Override
-    public boolean saveSubscriptions(int userid, int idSubtask, int idDistrict) {
+    public boolean saveSubscriptions(int userid, Integer idSubtask, Integer idDistrict) {
         try {
-            District d = DistrictDAO.getDistrictByORMID(idDistrict);
-            SubTask st = SubTaskDAO.getSubTaskByORMID(idSubtask);
+
+            District d = null;
+            SubTask st = null;
+            if (idSubtask == 0) {
+                idSubtask = null;
+            } else {
+                st = SubTaskDAO.getSubTaskByORMID(idSubtask);
+
+            }
+
+            if (idDistrict == 0) {
+                idDistrict = null;
+
+            } else {
+                d = DistrictDAO.getDistrictByORMID(idDistrict);
+            }
+
             User u = UserDAO.getUserByORMID(userid);
 
             tp_aa.subscription s = new subscription();
+            s.setORM_User(u);
+
             s.setSubsDistrict(d);
+
             s.setSubsTask(st);
-            s.setUser(u);
+
             // save subscription
             PersistentSession entityManager = null;
             entityManager = TPAAPersistentManager.instance().getSession();
@@ -176,6 +194,8 @@ public class ManageSubscription implements ManageSubscriptionLocal {
         for (subscription element : list) {
             tmp.add(element.getUser());
         }
+        
+        
         return tmp;
 
 //                    uds = this.getDistrictSubscriptionUsers(iddistrict),

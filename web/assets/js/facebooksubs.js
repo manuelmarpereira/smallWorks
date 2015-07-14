@@ -1,50 +1,65 @@
-function getSubTasks(){
+function getSubTasks() {
+
     $.ajax({
         type: "GET",
         url: "/smallWorks/subtaskdata", // ver isto para conseguir comunicar, 
-        data : {id:id}, 
-        success: function(resp) {
+
+        success: function (resp) {
 //                console.log(resp);
-            $('.subTasks').empty();
+
             for (var i = 0; i < resp.length; i++) {
                 $('.subTasks').append($('<option>')
-                    .attr("value",resp[i].id)
-                    .text(resp[i].name));
+                        .attr("value", resp[i].id)
+                        .text(resp[i].name));
             }
-        }, error: function(fail){
+        }, error: function (fail) {
             console.log("can't get tasks");
         }
     });
 }
-function getLocation(){
+function getLocation() {
     $.ajax({
         type: "GET",
-        url: "/smallWorks/locationdata", // ver isto para conseguir comunicar, 
-        success: function(resp) {
+        url: "/smallWorks/district", // ver isto para conseguir comunicar, 
+
+        success: function (resp) {
 //                console.log(resp);
-            $('.locat').empty();
+
             for (var i = 0; i < resp.length; i++) {
                 $('.locat').append($('<option>')
-                    .attr("value",resp[i].id)
-                    .text(resp[i].name));
+                        .attr("value", resp[i].id)
+                        .text(resp[i].name));
             }
-        }, error: function(fail){
+        }, error: function (fail) {
             console.log("can't get tasks");
         }
     });
 }
 
-function handleChange(selectObj) {
-    
-    var id = selectObj.options[selectObj.selectedIndex].value;
-    if(id>0)
-        $('.combo input').val(id);
-        getSubTasks(id);
-}
+$("#subscription").submit(function (e) {
+    var substask = document.getElementById("subTasks").options[document.getElementById("subTasks").selectedIndex].value;
+    var idloc = document.getElementById("idloc").options[document.getElementById("idloc").selectedIndex].value;
+    if (substask == "0" && idloc == "0") {
+        alert("Select an option");
+        return;
+    } else {
 
-function handleLocation(selectObj) {
-     var id = selectObj.options[selectObj.selectedIndex].value;
-    if(id>0)
-        $('.comboloc input').val(id);
-        getSubTasks(id);
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/smallWorks/subscription",
+            data: $(this).serialize(),
+            processData: false,
+            success: function (da) {
+
+                alert("Successfully Inserted");
+
+            },
+            error: function (data) {
+                console.log("unssuccess");
+
+            }
+        });
+    }
 }
+);

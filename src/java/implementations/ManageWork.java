@@ -110,7 +110,10 @@ public class ManageWork implements ManageWorkLocal {
             if(obs != null) {
                 for (User ele : obs) {
                     o.addObserver(ele);
+                    
                 }
+                System.out.println("chegou");
+                
                 // notify users
                 o.notifyObservers();
             }
@@ -182,6 +185,10 @@ public class ManageWork implements ManageWorkLocal {
                     break;
                 }
             }
+        }
+        
+        for (int i =0; i<list.size();i++){
+        list.get(i).setPrice(ManageWork.round(list.get(i).getPrice(), 2));
         }
 
         return list;

@@ -69,6 +69,10 @@ public class ManageMakeWork implements ManageMakeWorkLocal {
             ex.printStackTrace();
         }
         
+        for (int i =0; i<listTask.size();i++){
+        listTask.get(i).setPrice(ManageWork.round(listTask.get(i).getPrice(), 2));
+        }
+        
         return listTask;
     }
     
